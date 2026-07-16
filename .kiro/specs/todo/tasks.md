@@ -34,14 +34,14 @@ increment. The implementation language is **Dart / Flutter**.
     - Immutable class with `const` constructor: `id`, `name`. All fields `final`.
     - _Requirements: 6.1, 7.1 / Design: Data Models — Domain Entities_
 
-- [ ] 4. Define `TaskRepository` abstract interface
-  - [ ] 4.1 Create `lib/features/todo/domain/repositories/task_repository.dart`
+- [x] 4. Define `TaskRepository` abstract interface
+  - [x] 4.1 Create `lib/features/todo/domain/repositories/task_repository.dart`
     - Abstract interface with `getAll()`, `findById(int id)`, `create(Task)`, `update(Task)`,
       `delete(int id)` — signatures exactly as in the design.
     - _Requirements: 1.1, 2.1, 3.2, 4.1 / Design: Repository Interfaces_
 
-- [ ] 5. Define `CategoryRepository` abstract interface
-  - [ ] 5.1 Create `lib/features/todo/domain/repositories/category_repository.dart`
+- [x] 5. Define `CategoryRepository` abstract interface
+  - [x] 5.1 Create `lib/features/todo/domain/repositories/category_repository.dart`
     - Abstract interface with `getAll()`, `count()`, `create(Category)`, `update(Category)`,
       `delete(int id)`.
     - _Requirements: 6.1, 7.1, 8.2, 9.1 / Design: Repository Interfaces_
