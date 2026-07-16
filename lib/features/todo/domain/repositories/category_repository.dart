@@ -18,4 +18,11 @@ abstract interface class CategoryRepository {
 
   /// Permanently removes the category with the given ID. No-op if not found.
   Future<void> delete(int id);
+
+  /// Atomically sets [categoryId] to null on every task that references
+  /// [categoryId], then deletes the category record — all within a single
+  /// write transaction.
+  ///
+  /// No-op if the category does not exist.
+  Future<void> deleteWithTaskUnassign(int categoryId);
 }

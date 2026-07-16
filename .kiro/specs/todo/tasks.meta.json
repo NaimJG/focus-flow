@@ -254,6 +254,30 @@
         "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
         "timestamp": 1784243929378
       }
+    ],
+    "16. Implement `DeleteCategoryUseCase`": [
+      {
+        "executionId": "729e3666-0958-4d77-bffd-227969d6f822",
+        "chatSessionId": "sess_13bbdd49-13b3-405e-ad07-cd72dd28d952",
+        "timestamp": 1784244127510
+      },
+      {
+        "executionId": "729e3666-0958-4d77-bffd-227969d6f822",
+        "chatSessionId": "sess_13bbdd49-13b3-405e-ad07-cd72dd28d952",
+        "timestamp": 1784244307192
+      }
+    ],
+    "16.1 Create `lib/features/todo/domain/use_cases/delete_category_use_case.dart`": [
+      {
+        "executionId": "729e3666-0958-4d77-bffd-227969d6f822",
+        "chatSessionId": "sess_13bbdd49-13b3-405e-ad07-cd72dd28d952",
+        "timestamp": 1784244145846
+      },
+      {
+        "executionId": "729e3666-0958-4d77-bffd-227969d6f822",
+        "chatSessionId": "sess_13bbdd49-13b3-405e-ad07-cd72dd28d952",
+        "timestamp": 1784244307005
+      }
     ]
   }
 }

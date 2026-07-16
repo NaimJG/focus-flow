@@ -120,12 +120,12 @@ increment. The implementation language is **Dart / Flutter**.
     - Preserve `id`; delegate to `categoryRepository.update(category)` and return result.
     - _Requirements: 7.1, 7.2, 7.3 / Design: Use Cases_
 
-- [ ] 16. Implement `DeleteCategoryUseCase`
-  - [ ] 16.1 Create `lib/features/todo/domain/use_cases/delete_category_use_case.dart`
-    - Accept both `TaskRepository` and `CategoryRepository`.
-    - Fetch all tasks where `categoryId == id`, update each to `categoryId = null`, then delete
-      category — all in a single Isar write transaction (repository must expose a `bulkUpdate`
-      or the use case wraps the Isar instance directly via a transaction helper).
+- [x] 16. Implement `DeleteCategoryUseCase`
+  - [x] 16.1 Create `lib/features/todo/domain/use_cases/delete_category_use_case.dart`
+    - Constructor-injected `CategoryRepository` only (no `TaskRepository` needed).
+    - Single `call(int id)` method delegates entirely to
+      `categoryRepository.deleteWithTaskUnassign(id)`.
+    - Atomicity is the responsibility of the repository contract, not the use case.
     - _Requirements: 8.2, 8.4, 8.5 / Design: Use Cases — DeleteCategoryUseCase_
 
 - [x] 17. Implement `GetAllCategoriesUseCase`
@@ -166,6 +166,7 @@ increment. The implementation language is **Dart / Flutter**.
     - `create(task)`: writes in `writeTxn`, returns entity with assigned id.
     - `update(task)`: fetch existing, throw `NotFoundException` if missing, write, return entity.
     - `delete(id)`: `writeTxn` delete; no-op if not found.
+    - No `bulkUpdate` method — removed from the interface.
     - _Requirements: 13.1, 13.3 / Design: Data Layer_
 
 - [ ] 22. Implement `IsarCategoryRepository`
@@ -173,7 +174,10 @@ increment. The implementation language is **Dart / Flutter**.
     - Implements `CategoryRepository`. Constructor-injected `Isar` instance.
     - `getAll()`, `count()`, `create()`, `update()`, `delete()` following the same patterns as
       `IsarTaskRepository`.
-    - _Requirements: 13.2, 13.3 / Design: Data Layer_
+    - `deleteWithTaskUnassign(categoryId)`: inside a single `isar.writeTxn()`, set
+      `categoryId = null` on all `TaskModel` records where `categoryId == categoryId`,
+      then delete the `CategoryModel` record. Atomicity guaranteed by the transaction boundary.
+    - _Requirements: 8.2, 8.4, 8.5, 13.2, 13.3 / Design: Data Layer_
 
 - [ ] 23. Isar database initialization in `core/database/`
   - [ ] 23.1 Create `lib/core/database/isar_database.dart`
