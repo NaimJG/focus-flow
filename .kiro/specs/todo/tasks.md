@@ -107,14 +107,14 @@ increment. The implementation language is **Dart / Flutter**.
     - Single `call()` → `taskRepository.getAll()`.
     - _Requirements: 10.2, 11.5 / Design: Use Cases_
 
-- [ ] 14. Implement `CreateCategoryUseCase`
-  - [ ] 14.1 Create `lib/features/todo/domain/use_cases/create_category_use_case.dart`
+- [x] 14. Implement `CreateCategoryUseCase`
+  - [x] 14.1 Create `lib/features/todo/domain/use_cases/create_category_use_case.dart`
     - Validate `name.trim()` non-empty; throw `ValidationException` otherwise.
     - Delegate to `categoryRepository.create(category)` and return result.
     - _Requirements: 6.1, 6.2 / Design: Use Cases_
 
-- [ ] 15. Implement `RenameCategoryUseCase`
-  - [ ] 15.1 Create `lib/features/todo/domain/use_cases/rename_category_use_case.dart`
+- [x] 15. Implement `RenameCategoryUseCase`
+  - [x] 15.1 Create `lib/features/todo/domain/use_cases/rename_category_use_case.dart`
     - Validate non-empty name; throw `ValidationException` otherwise.
     - Fetch existing category; throw `NotFoundException` if absent.
     - Preserve `id`; delegate to `categoryRepository.update(category)` and return result.
@@ -128,13 +128,13 @@ increment. The implementation language is **Dart / Flutter**.
       or the use case wraps the Isar instance directly via a transaction helper).
     - _Requirements: 8.2, 8.4, 8.5 / Design: Use Cases — DeleteCategoryUseCase_
 
-- [ ] 17. Implement `GetAllCategoriesUseCase`
-  - [ ] 17.1 Create `lib/features/todo/domain/use_cases/get_all_categories_use_case.dart`
+- [x] 17. Implement `GetAllCategoriesUseCase`
+  - [x] 17.1 Create `lib/features/todo/domain/use_cases/get_all_categories_use_case.dart`
     - Single `call()` → `categoryRepository.getAll()`.
     - _Requirements: 6.3, 9.1 / Design: Use Cases_
 
-- [ ] 18. Implement `SeedDefaultCategoriesUseCase`
-  - [ ] 18.1 Create `lib/features/todo/domain/use_cases/seed_default_categories_use_case.dart`
+- [x] 18. Implement `SeedDefaultCategoriesUseCase`
+  - [x] 18.1 Create `lib/features/todo/domain/use_cases/seed_default_categories_use_case.dart`
     - Guard: `if (await categoryRepository.count() == 0)` create `Trabajo`, `Estudio`, `Hogar`,
       `Personal` in that order.
     - _Requirements: 9.1, 9.2, 9.4 / Design: Use Cases — SeedDefaultCategoriesUseCase_

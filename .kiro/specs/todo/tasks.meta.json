@@ -178,6 +178,82 @@
         "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
         "timestamp": 1784242661590
       }
+    ],
+    "14. Implement `CreateCategoryUseCase`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243813321
+      },
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243914814
+      }
+    ],
+    "15. Implement `RenameCategoryUseCase`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243814007
+      },
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243919297
+      }
+    ],
+    "17. Implement `GetAllCategoriesUseCase`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243814646
+      },
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243924949
+      }
+    ],
+    "18. Implement `SeedDefaultCategoriesUseCase`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243815391
+      },
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243929578
+      }
+    ],
+    "14.1 Create `lib/features/todo/domain/use_cases/create_category_use_case.dart`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243914547
+      }
+    ],
+    "15.1 Create `lib/features/todo/domain/use_cases/rename_category_use_case.dart`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243919137
+      }
+    ],
+    "17.1 Create `lib/features/todo/domain/use_cases/get_all_categories_use_case.dart`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243924763
+      }
+    ],
+    "18.1 Create `lib/features/todo/domain/use_cases/seed_default_categories_use_case.dart`": [
+      {
+        "executionId": "66f21140-2e3c-48ce-83c9-3565196e36e6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784243929378
+      }
     ]
   }
 }
