@@ -13,6 +13,30 @@ These principles define the user interface and experience standards for every sc
 
 ---
 
+## Theming
+
+Focus Flow supports multiple user-selectable Material 3 themes.
+
+Themes are a global application concern and must be defined centrally under:
+
+app/theme/
+
+Feature modules must consume colors using Flutter's Theme API (`Theme.of(context)`) and must never hardcode application colors.
+
+Version 1.0 provides three built-in theme families:
+
+- Warm
+- Nature
+- Ocean
+
+Each theme must define a complete Material 3 `ColorScheme`, ensuring visual consistency and accessibility across the application.
+
+The selected theme must be applied globally and persisted locally so it is restored automatically when the application is reopened.
+
+Future versions may introduce additional themes, but existing features must automatically adapt to any global theme without requiring feature-specific changes.
+
+---
+
 ## Consistency
 
 - Maintain a uniform visual language across all screens. A user who has seen one screen should feel immediately oriented on any other.
