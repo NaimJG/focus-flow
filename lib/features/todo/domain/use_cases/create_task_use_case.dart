@@ -20,13 +20,19 @@ class CreateTaskUseCase {
     String? description,
     int? categoryId,
   }) async {
-    if (title.trim().isEmpty) {
+    final normalizedTitle = title.trim();
+    if (normalizedTitle.isEmpty) {
       throw const ValidationException('Title must not be empty.');
     }
+    final normalizedDescription = description?.trim();
+    final descriptionValue = 
+            normalizedDescription == null || normalizedDescription.isEmpty
+            ? null
+            : normalizedDescription;
     final task = Task(
       id: 0, // Isar auto-assigns on create
-      title: title.trim(),
-      description: description,
+      title: normalizedTitle,
+      description: descriptionValue,
       priority: priority,
       status: TaskStatus.pending,
       categoryId: categoryId,

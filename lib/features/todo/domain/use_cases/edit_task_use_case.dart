@@ -22,10 +22,16 @@ class EditTaskUseCase {
     String? description,
     int? categoryId,
   }) async {
-    if (title.trim().isEmpty) {
+    final normalizedTitle = title.trim();
+    if (normalizedTitle.isEmpty) {
       throw const ValidationException('Title must not be empty.');
     }
     final existing = await taskRepository.findById(id);
+    final normalizedDescription = description?.trim();
+    final descriptionValue =
+            normalizedDescription == null || normalizedDescription.isEmpty
+            ? null
+            : normalizedDescription;
     if (existing == null) {
       throw NotFoundException(
         message: 'Task not found.',
@@ -34,8 +40,8 @@ class EditTaskUseCase {
     }
     final updated = Task(
       id: existing.id,
-      title: title.trim(),
-      description: description,
+      title: normalizedTitle,
+      description: descriptionValue,
       priority: priority,
       status: existing.status, // preserved
       categoryId: categoryId,
