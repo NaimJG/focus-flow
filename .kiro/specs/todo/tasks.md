@@ -65,8 +65,8 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 2 — Use Cases
 
-- [ ] 8. Implement `CreateTaskUseCase`
-  - [ ] 8.1 Create `lib/features/todo/domain/use_cases/create_task_use_case.dart`
+- [x] 8. Implement `CreateTaskUseCase`
+  - [x] 8.1 Create `lib/features/todo/domain/use_cases/create_task_use_case.dart`
     - Constructor-injected `TaskRepository`. Single `call({required String title, required Priority
       priority, String? description, int? categoryId})` method.
     - Validate `title.trim()` non-empty; throw `ValidationException` otherwise.
@@ -75,35 +75,35 @@ increment. The implementation language is **Dart / Flutter**.
     - Delegate to `taskRepository.create(task)` and return the persisted entity.
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 / Design: Use Cases_
 
-- [ ] 9. Implement `EditTaskUseCase`
-  - [ ] 9.1 Create `lib/features/todo/domain/use_cases/edit_task_use_case.dart`
+- [x] 9. Implement `EditTaskUseCase`
+  - [x] 9.1 Create `lib/features/todo/domain/use_cases/edit_task_use_case.dart`
     - Validate non-empty title; throw `ValidationException` otherwise.
     - Fetch existing task via `findById`; throw `NotFoundException` if absent.
     - Preserve `createdAt`, `status`, `completedAt` from the fetched entity.
     - Delegate to `taskRepository.update(updatedTask)` and return result.
     - _Requirements: 2.1, 2.2, 2.3, 2.4 / Design: Use Cases — Validation_
 
-- [ ] 10. Implement `DeleteTaskUseCase`
-  - [ ] 10.1 Create `lib/features/todo/domain/use_cases/delete_task_use_case.dart`
+- [x] 10. Implement `DeleteTaskUseCase`
+  - [x] 10.1 Create `lib/features/todo/domain/use_cases/delete_task_use_case.dart`
     - Single `call(int id)` → `taskRepository.delete(id)`. No-op if not found (idempotent).
     - _Requirements: 3.2 / Design: Use Cases_
 
-- [ ] 11. Implement `CompleteTaskUseCase`
-  - [ ] 11.1 Create `lib/features/todo/domain/use_cases/complete_task_use_case.dart`
+- [x] 11. Implement `CompleteTaskUseCase`
+  - [x] 11.1 Create `lib/features/todo/domain/use_cases/complete_task_use_case.dart`
     - Fetch task; throw `NotFoundException` if absent.
     - Set `status = completed`, `completedAt = DateTime.now()`.
     - Delegate to `taskRepository.update(task)` and return result.
     - _Requirements: 4.1 / Design: Use Cases_
 
-- [ ] 12. Implement `ReopenTaskUseCase`
-  - [ ] 12.1 Create `lib/features/todo/domain/use_cases/reopen_task_use_case.dart`
+- [x] 12. Implement `ReopenTaskUseCase`
+  - [x] 12.1 Create `lib/features/todo/domain/use_cases/reopen_task_use_case.dart`
     - Fetch task; throw `NotFoundException` if absent.
     - Set `status = pending`, `completedAt = null`.
     - Delegate to `taskRepository.update(task)` and return result.
     - _Requirements: 4.2 / Design: Use Cases_
 
-- [ ] 13. Implement `GetAllTasksUseCase`
-  - [ ] 13.1 Create `lib/features/todo/domain/use_cases/get_all_tasks_use_case.dart`
+- [x] 13. Implement `GetAllTasksUseCase`
+  - [x] 13.1 Create `lib/features/todo/domain/use_cases/get_all_tasks_use_case.dart`
     - Single `call()` → `taskRepository.getAll()`.
     - _Requirements: 10.2, 11.5 / Design: Use Cases_
 

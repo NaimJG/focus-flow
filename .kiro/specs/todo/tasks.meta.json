@@ -64,6 +64,120 @@
         "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
         "timestamp": 1784241815554
       }
+    ],
+    "8. Implement `CreateTaskUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242492550
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242639777
+      }
+    ],
+    "9. Implement `EditTaskUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242496356
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242644831
+      }
+    ],
+    "10. Implement `DeleteTaskUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242497110
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242649065
+      }
+    ],
+    "11. Implement `CompleteTaskUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242497714
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242653143
+      }
+    ],
+    "12. Implement `ReopenTaskUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242498429
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242657356
+      }
+    ],
+    "13. Implement `GetAllTasksUseCase`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242499396
+      },
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242661768
+      }
+    ],
+    "8.1 Create `lib/features/todo/domain/use_cases/create_task_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242639630
+      }
+    ],
+    "9.1 Create `lib/features/todo/domain/use_cases/edit_task_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242644686
+      }
+    ],
+    "10.1 Create `lib/features/todo/domain/use_cases/delete_task_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242648911
+      }
+    ],
+    "11.1 Create `lib/features/todo/domain/use_cases/complete_task_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242653026
+      }
+    ],
+    "12.1 Create `lib/features/todo/domain/use_cases/reopen_task_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242657245
+      }
+    ],
+    "13.1 Create `lib/features/todo/domain/use_cases/get_all_tasks_use_case.dart`": [
+      {
+        "executionId": "ac3af040-3a93-4d7c-88ac-4e509f0d7b8d",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784242661590
+      }
     ]
   }
 }
