@@ -13,12 +13,12 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 1 — Domain Layer
 
-- [ ] 1. Define `Priority` and `TaskStatus` enums with sort weights
-  - [ ] 1.1 Create `lib/features/todo/domain/entities/priority.dart`
+- [x] 1. Define `Priority` and `TaskStatus` enums with sort weights
+  - [x] 1.1 Create `lib/features/todo/domain/entities/priority.dart`
     - Define `enum Priority { high, medium, low }` with a `PriorityWeight` extension that returns
       `sortWeight` as `int` (high→2, medium→1, low→0).
     - _Requirements: 5.1, 5.2 / Design: Data Models — Priority Enum_
-  - [ ] 1.2 Create `lib/features/todo/domain/entities/task_status.dart`
+  - [x] 1.2 Create `lib/features/todo/domain/entities/task_status.dart`
     - Define `enum TaskStatus { pending, completed }`.
     - _Requirements: 4.1, 4.2 / Design: Data Models — TaskStatus Enum_
 

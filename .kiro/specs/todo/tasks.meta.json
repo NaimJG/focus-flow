@@ -1,0 +1,31 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Define `Priority` and `TaskStatus` enums with sort weights": [
+      {
+        "executionId": "de9f39c0-7947-4e19-8a84-168f49e210d6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784237514582
+      },
+      {
+        "executionId": "de9f39c0-7947-4e19-8a84-168f49e210d6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784237647299
+      }
+    ],
+    "1.1 Create `lib/features/todo/domain/entities/priority.dart`": [
+      {
+        "executionId": "de9f39c0-7947-4e19-8a84-168f49e210d6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784237643518
+      }
+    ],
+    "1.2 Create `lib/features/todo/domain/entities/task_status.dart`": [
+      {
+        "executionId": "de9f39c0-7947-4e19-8a84-168f49e210d6",
+        "chatSessionId": "sess_6f8b461d-365a-43fe-8fd2-38b7d54ecff9",
+        "timestamp": 1784237646939
+      }
+    ]
+  }
+}
