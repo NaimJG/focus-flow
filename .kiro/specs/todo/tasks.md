@@ -22,15 +22,15 @@ increment. The implementation language is **Dart / Flutter**.
     - Define `enum TaskStatus { pending, completed }`.
     - _Requirements: 4.1, 4.2 / Design: Data Models — TaskStatus Enum_
 
-- [ ] 2. Define `Task` domain entity
-  - [ ] 2.1 Create `lib/features/todo/domain/entities/task.dart`
+- [x] 2. Define `Task` domain entity
+  - [x] 2.1 Create `lib/features/todo/domain/entities/task.dart`
     - Immutable class with `const` constructor: `id`, `title`, `description?`, `priority`,
       `status`, `categoryId?`, `createdAt`, `completedAt?`.
     - All fields `final`. No Isar annotations.
     - _Requirements: 1.1, 1.2, 1.3 / Design: Data Models — Domain Entities_
 
-- [ ] 3. Define `Category` domain entity
-  - [ ] 3.1 Create `lib/features/todo/domain/entities/category.dart`
+- [x] 3. Define `Category` domain entity
+  - [x] 3.1 Create `lib/features/todo/domain/entities/category.dart`
     - Immutable class with `const` constructor: `id`, `name`. All fields `final`.
     - _Requirements: 6.1, 7.1 / Design: Data Models — Domain Entities_
 
@@ -46,15 +46,15 @@ increment. The implementation language is **Dart / Flutter**.
       `delete(int id)`.
     - _Requirements: 6.1, 7.1, 8.2, 9.1 / Design: Repository Interfaces_
 
-- [ ] 6. Define `SortCriterion` and `SortDirection` enums
-  - [ ] 6.1 Create `lib/features/todo/domain/entities/sort_criterion.dart` and
+- [x] 6. Define `SortCriterion` and `SortDirection` enums
+  - [x] 6.1 Create `lib/features/todo/domain/entities/sort_criterion.dart` and
       `lib/features/todo/domain/entities/sort_direction.dart`
     - `enum SortCriterion { creationDate, priority, alphabetical }`
     - `enum SortDirection { ascending, descending }`
     - _Requirements: 12.1, 12.2 / Design: State Management — State Shape_
 
-- [ ] 7. Create `ValidationException` and `NotFoundException` typed errors
-  - [ ] 7.1 Create `lib/features/todo/domain/exceptions/validation_exception.dart` and
+- [x] 7. Create `ValidationException` and `NotFoundException` typed errors
+  - [x] 7.1 Create `lib/features/todo/domain/exceptions/validation_exception.dart` and
       `lib/features/todo/domain/exceptions/not_found_exception.dart`
     - `ValidationException` carries a `String message` field.
     - `NotFoundException` carries `String message` and `int id` fields.
