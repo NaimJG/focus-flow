@@ -278,6 +278,44 @@
         "chatSessionId": "sess_13bbdd49-13b3-405e-ad07-cd72dd28d952",
         "timestamp": 1784244307005
       }
+    ],
+    "19.1 Create `lib/features/todo/data/models/task_model.dart`": [
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677034204
+      },
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677344257
+      }
+    ],
+    "20.1 Create `lib/features/todo/data/models/category_model.dart`": [
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677035323
+      },
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677344984
+      }
+    ],
+    "19. Define `TaskModel` Isar collection": [
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677344412
+      }
+    ],
+    "20. Define `CategoryModel` Isar collection": [
+      {
+        "executionId": "e319df9f-0158-48af-83ff-7575660df222",
+        "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
+        "timestamp": 1784677345091
+      }
     ]
   }
 }

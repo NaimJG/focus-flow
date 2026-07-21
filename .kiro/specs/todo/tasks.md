@@ -143,16 +143,16 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 3 — Data Layer
 
-- [ ] 19. Define `TaskModel` Isar collection
-  - [ ] 19.1 Create `lib/features/todo/data/models/task_model.dart`
+- [x] 19. Define `TaskModel` Isar collection
+  - [x] 19.1 Create `lib/features/todo/data/models/task_model.dart`
     - `@collection` class with all fields from the design table: `id`, `title`, `description?`,
       `priorityIndex`, `statusIndex`, `categoryId?`, `createdAt`, `completedAt?`.
     - Add all five `@Index` annotations as specified in the design.
     - Add `Task toEntity()` and `static TaskModel fromEntity(Task)` conversion methods.
     - _Requirements: 13.1 / Design: Data Models — TaskModel_
 
-- [ ] 20. Define `CategoryModel` Isar collection
-  - [ ] 20.1 Create `lib/features/todo/data/models/category_model.dart`
+- [x] 20. Define `CategoryModel` Isar collection
+  - [x] 20.1 Create `lib/features/todo/data/models/category_model.dart`
     - `@collection` class with `id` and `name`.
     - Unique hash index on `name`.
     - Add `Category toEntity()` and `static CategoryModel fromEntity(Category)` methods.
