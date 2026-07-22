@@ -169,8 +169,8 @@ increment. The implementation language is **Dart / Flutter**.
     - No `bulkUpdate` method — removed from the interface.
     - _Requirements: 13.1, 13.3 / Design: Data Layer_
 
-- [ ] 22. Implement `IsarCategoryRepository`
-  - [ ] 22.1 Create `lib/features/todo/data/repositories/isar_category_repository.dart`
+- [x] 22. Implement `IsarCategoryRepository`
+  - [x] 22.1 Create `lib/features/todo/data/repositories/isar_category_repository.dart`
     - Implements `CategoryRepository`. Constructor-injected `Isar` instance.
     - `getAll()`, `count()`, `create()`, `update()`, `delete()` following the same patterns as
       `IsarTaskRepository`.
