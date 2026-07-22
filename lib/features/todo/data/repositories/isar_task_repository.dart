@@ -29,12 +29,9 @@ class IsarTaskRepository implements TaskRepository {
 
   @override
   Future<Task> create(Task task) async {
-    final model = TaskModel.fromEntity(task)
-      ..id = Isar.autoIncrement;
+    final model = TaskModel.fromEntity(task)..id = Isar.autoIncrement;
 
-    final generatedId = await isar.writeTxn(
-      () => isar.taskModels.put(model),
-    );
+    final generatedId = await isar.writeTxn(() => isar.taskModels.put(model));
 
     model.id = generatedId;
 
@@ -49,10 +46,7 @@ class IsarTaskRepository implements TaskRepository {
       final existing = await isar.taskModels.get(task.id);
 
       if (existing == null) {
-        throw NotFoundException(
-          message: 'Task not found',
-          id: task.id,
-        );
+        throw NotFoundException(message: 'Task not found', id: task.id);
       }
 
       await isar.taskModels.put(model);
@@ -63,8 +57,6 @@ class IsarTaskRepository implements TaskRepository {
 
   @override
   Future<void> delete(int id) async {
-    await isar.writeTxn(
-      () => isar.taskModels.delete(id),
-    );
+    await isar.writeTxn(() => isar.taskModels.delete(id));
   }
 }

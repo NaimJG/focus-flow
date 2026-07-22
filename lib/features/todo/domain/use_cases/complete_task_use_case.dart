@@ -15,10 +15,7 @@ class CompleteTaskUseCase {
   Future<Task> call(int id) async {
     final existing = await taskRepository.findById(id);
     if (existing == null) {
-      throw NotFoundException(
-        message: 'Task not found.',
-        id: id,
-      );
+      throw NotFoundException(message: 'Task not found.', id: id);
     }
     final completed = Task(
       id: existing.id,

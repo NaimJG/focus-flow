@@ -46,16 +46,10 @@ class TaskCard extends StatelessWidget {
         onTap: onEdit,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical: 8,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           child: Row(
             children: [
-              Checkbox(
-                value: isCompleted,
-                onChanged: (_) => onToggleStatus(),
-              ),
+              Checkbox(value: isCompleted, onChanged: (_) => onToggleStatus()),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,10 +83,7 @@ class TaskCard extends StatelessWidget {
                         ),
                         if (categoryName != null) ...[
                           const SizedBox(width: 8),
-                          Text(
-                            categoryName!,
-                            style: textTheme.bodySmall,
-                          ),
+                          Text(categoryName!, style: textTheme.bodySmall),
                         ],
                       ],
                     ),
@@ -112,7 +103,6 @@ class TaskCard extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class _PriorityChip extends StatelessWidget {
@@ -141,10 +131,7 @@ class _PriorityChip extends StatelessWidget {
         children: [
           Icon(icon, size: 14, color: color),
           const SizedBox(width: 4),
-          Text(
-            label,
-            style: textTheme.bodySmall?.copyWith(color: color),
-          ),
+          Text(label, style: textTheme.bodySmall?.copyWith(color: color)),
         ],
       ),
     );

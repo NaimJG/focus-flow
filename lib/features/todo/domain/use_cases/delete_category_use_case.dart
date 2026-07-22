@@ -14,6 +14,5 @@ class DeleteCategoryUseCase {
 
   /// Unassigns all tasks referencing [id] and deletes the category atomically.
   /// No-op if the category does not exist.
-  Future<void> call(int id) =>
-      categoryRepository.deleteWithTaskUnassign(id);
+  Future<void> call(int id) => categoryRepository.deleteWithTaskUnassign(id);
 }

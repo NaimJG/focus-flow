@@ -11,8 +11,5 @@ import '../../features/todo/data/models/task_model.dart';
 Future<Isar> openIsar() async {
   final dir = await getApplicationDocumentsDirectory();
 
-  return Isar.open(
-    [TaskModelSchema, CategoryModelSchema],
-    directory: dir.path,
-  );
+  return Isar.open([TaskModelSchema, CategoryModelSchema], directory: dir.path);
 }

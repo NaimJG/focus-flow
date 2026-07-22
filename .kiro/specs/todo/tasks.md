@@ -341,7 +341,7 @@ increment. The implementation language is **Dart / Flutter**.
     - Observes successful mutations and shows transient `SnackBar` confirmation.
     - _Requirements: 1.7, 2.5, 3.4, 4.3, 11.10, 14.5, 14.6, 14.7 / Design: Component Breakdown — TodoScreen_
 
-- [ ] 39. Register Todo routes in `app/router.dart`
+- [x] 39. Register Todo routes in `app/router.dart`
   - [ ] 39.1 Update `lib/app/router.dart`
     - Add routes: `/todo` → `TodoScreen`, `/todo/task/new` → `TaskFormScreen` (create),
       `/todo/task/:id/edit` → `TaskFormScreen` (edit, pass task via extra or query),

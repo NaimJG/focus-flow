@@ -44,9 +44,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
         _controller.text != widget.initialQuery) {
       _controller.value = TextEditingValue(
         text: widget.initialQuery,
-        selection: TextSelection.collapsed(
-          offset: widget.initialQuery.length,
-        ),
+        selection: TextSelection.collapsed(offset: widget.initialQuery.length),
       );
     }
   }
@@ -86,9 +84,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                 ),
               )
             : null,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(28)),
         filled: true,
       ),
       onChanged: widget.onChanged,

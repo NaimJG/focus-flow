@@ -50,10 +50,7 @@ class SortControl extends StatelessWidget {
         DropdownButton<SortCriterion>(
           value: activeCriterion,
           underline: const SizedBox.shrink(),
-          icon: Icon(
-            Icons.arrow_drop_down,
-            color: colorScheme.onSurface,
-          ),
+          icon: Icon(Icons.arrow_drop_down, color: colorScheme.onSurface),
           items: SortCriterion.values.map((criterion) {
             return DropdownMenuItem<SortCriterion>(
               value: criterion,
@@ -82,10 +79,9 @@ class SortControl extends StatelessWidget {
               color: colorScheme.onSurface,
             ),
             onPressed: () {
-              final newDirection =
-                  activeDirection == SortDirection.ascending
-                      ? SortDirection.descending
-                      : SortDirection.ascending;
+              final newDirection = activeDirection == SortDirection.ascending
+                  ? SortDirection.descending
+                  : SortDirection.ascending;
               onDirectionChanged(newDirection);
             },
           ),

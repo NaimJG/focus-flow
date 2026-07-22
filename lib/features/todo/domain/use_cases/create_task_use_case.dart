@@ -25,10 +25,10 @@ class CreateTaskUseCase {
       throw const ValidationException('Title must not be empty.');
     }
     final normalizedDescription = description?.trim();
-    final descriptionValue = 
-            normalizedDescription == null || normalizedDescription.isEmpty
-            ? null
-            : normalizedDescription;
+    final descriptionValue =
+        normalizedDescription == null || normalizedDescription.isEmpty
+        ? null
+        : normalizedDescription;
     final task = Task(
       id: 0, // Isar auto-assigns on create
       title: normalizedTitle,

@@ -28,8 +28,7 @@ class IsarCategoryRepository implements CategoryRepository {
 
   @override
   Future<Category> create(Category category) async {
-    final model = CategoryModel.fromEntity(category)
-      ..id = Isar.autoIncrement;
+    final model = CategoryModel.fromEntity(category)..id = Isar.autoIncrement;
 
     final generatedId = await isar.writeTxn(
       () => isar.categoryModels.put(model),
@@ -48,10 +47,7 @@ class IsarCategoryRepository implements CategoryRepository {
       final existing = await isar.categoryModels.get(category.id);
 
       if (existing == null) {
-        throw NotFoundException(
-          message: 'Category not found',
-          id: category.id,
-        );
+        throw NotFoundException(message: 'Category not found', id: category.id);
       }
 
       await isar.categoryModels.put(model);
@@ -62,9 +58,7 @@ class IsarCategoryRepository implements CategoryRepository {
 
   @override
   Future<void> delete(int id) async {
-    await isar.writeTxn(
-      () => isar.categoryModels.delete(id),
-    );
+    await isar.writeTxn(() => isar.categoryModels.delete(id));
   }
 
   @override

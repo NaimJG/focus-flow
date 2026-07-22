@@ -29,14 +29,11 @@ class EditTaskUseCase {
     final existing = await taskRepository.findById(id);
     final normalizedDescription = description?.trim();
     final descriptionValue =
-            normalizedDescription == null || normalizedDescription.isEmpty
-            ? null
-            : normalizedDescription;
+        normalizedDescription == null || normalizedDescription.isEmpty
+        ? null
+        : normalizedDescription;
     if (existing == null) {
-      throw NotFoundException(
-        message: 'Task not found.',
-        id: id,
-      );
+      throw NotFoundException(message: 'Task not found.', id: id);
     }
     final updated = Task(
       id: existing.id,

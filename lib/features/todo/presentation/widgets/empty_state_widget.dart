@@ -21,11 +21,7 @@ enum EmptyStateVariant {
 /// The content varies based on [variant].
 class EmptyStateWidget extends StatelessWidget {
   /// Creates an empty state widget for the given [variant].
-  const EmptyStateWidget({
-    super.key,
-    required this.variant,
-    this.onAction,
-  });
+  const EmptyStateWidget({super.key, required this.variant, this.onAction});
 
   /// The type of empty state to display.
   final EmptyStateVariant variant;
@@ -49,11 +45,7 @@ class EmptyStateWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 64,
-              color: colorScheme.onSurfaceVariant,
-            ),
+            Icon(icon, size: 64, color: colorScheme.onSurfaceVariant),
             const SizedBox(height: 16),
             Text(
               headline,
@@ -66,8 +58,7 @@ class EmptyStateWidget extends StatelessWidget {
               style: textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
-            if (variant == EmptyStateVariant.noTasks &&
-                onAction != null) ...[
+            if (variant == EmptyStateVariant.noTasks && onAction != null) ...[
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: onAction,

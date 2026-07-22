@@ -21,10 +21,7 @@ class RenameCategoryUseCase {
     final all = await categoryRepository.getAll();
     final existing = all.where((c) => c.id == id).firstOrNull;
     if (existing == null) {
-      throw NotFoundException(
-        message: 'Category not found.',
-        id: id,
-      );
+      throw NotFoundException(message: 'Category not found.', id: id);
     }
     final renamed = Category(id: existing.id, name: name.trim());
     return categoryRepository.update(renamed);

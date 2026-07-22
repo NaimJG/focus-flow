@@ -16,10 +16,7 @@ class CategoryModel {
 
   /// Converts this Isar model to a domain [Category] entity.
   Category toEntity() {
-    return Category(
-      id: id,
-      name: name,
-    );
+    return Category(id: id, name: name);
   }
 
   /// Creates a [CategoryModel] from a domain [Category] entity.

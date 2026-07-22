@@ -80,10 +80,12 @@ class TodoController extends ChangeNotifier {
   UnmodifiableListView<Task> get allTasks => UnmodifiableListView(_allTasks);
 
   /// The filtered, sorted list of tasks ready for display.
-  UnmodifiableListView<Task> get displayedTasks => UnmodifiableListView(_displayedTasks);
+  UnmodifiableListView<Task> get displayedTasks =>
+      UnmodifiableListView(_displayedTasks);
 
   /// All available categories.
-  UnmodifiableListView<Category> get categories => UnmodifiableListView(_allCategories);
+  UnmodifiableListView<Category> get categories =>
+      UnmodifiableListView(_allCategories);
 
   /// The current search query string.
   String get searchQuery => _searchQuery;
@@ -167,8 +169,7 @@ class TodoController extends ChangeNotifier {
       tasks = tasks.where((task) => task.status == _statusFilter).toList();
     }
     if (_priorityFilter != null) {
-      tasks =
-          tasks.where((task) => task.priority == _priorityFilter).toList();
+      tasks = tasks.where((task) => task.priority == _priorityFilter).toList();
     }
     if (_categoryFilter != null) {
       if (_categoryFilter == -1) {
@@ -350,10 +351,7 @@ class TodoController extends ChangeNotifier {
   }
 
   /// Renames an existing category and refreshes the category list.
-  Future<void> renameCategory({
-    required int id,
-    required String name,
-  }) async {
+  Future<void> renameCategory({required int id, required String name}) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();

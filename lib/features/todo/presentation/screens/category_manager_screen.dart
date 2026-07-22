@@ -11,13 +11,11 @@ class CategoryManagerScreen extends StatefulWidget {
   const CategoryManagerScreen({super.key});
 
   @override
-  State<CategoryManagerScreen> createState() =>
-      _CategoryManagerScreenState();
+  State<CategoryManagerScreen> createState() => _CategoryManagerScreenState();
 }
 
 class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
-  final TextEditingController _newCategoryController =
-      TextEditingController();
+  final TextEditingController _newCategoryController = TextEditingController();
 
   String? _newCategoryError;
 
@@ -89,9 +87,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
   }
 
   Future<void> _showRenameDialog(Category category) async {
-    final renameController = TextEditingController(
-      text: category.name,
-    );
+    final renameController = TextEditingController(text: category.name);
 
     try {
       await showDialog<void>(
@@ -121,13 +117,9 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                   isSubmitting = true;
                 });
 
-                final controller =
-                    builderContext.read<TodoController>();
+                final controller = builderContext.read<TodoController>();
 
-                await controller.renameCategory(
-                  id: category.id,
-                  name: name,
-                );
+                await controller.renameCategory(id: category.id, name: name);
 
                 if (!dialogContext.mounted) {
                   return;
@@ -159,9 +151,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                       labelText: 'Category name',
                       errorText: renameError,
                     ),
-                    onSubmitted: isSubmitting
-                        ? null
-                        : (_) => submitRename(),
+                    onSubmitted: isSubmitting ? null : (_) => submitRename(),
                   ),
                   actions: [
                     TextButton(
@@ -173,14 +163,11 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                       child: const Text('Cancel'),
                     ),
                     FilledButton(
-                      onPressed:
-                          isSubmitting ? null : submitRename,
+                      onPressed: isSubmitting ? null : submitRename,
                       child: isSubmitting
                           ? const SizedBox.square(
                               dimension: 18,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                              ),
+                              child: CircularProgressIndicator(strokeWidth: 2),
                             )
                           : const Text('Rename'),
                     ),
@@ -219,11 +206,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
         if (error != null) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                content: Text(error),
-              ),
-            );
+            ..showSnackBar(SnackBar(content: Text(error)));
         }
       },
     );
@@ -238,23 +221,18 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final categories =
-        context.select<TodoController, List<Category>>(
+    final categories = context.select<TodoController, List<Category>>(
       (controller) => controller.categories.toList(),
     );
 
-    final controllerIsLoading =
-        context.select<TodoController, bool>(
+    final controllerIsLoading = context.select<TodoController, bool>(
       (controller) => controller.isLoading,
     );
 
-    final mutationsDisabled =
-        controllerIsLoading || _isCreatingCategory;
+    final mutationsDisabled = controllerIsLoading || _isCreatingCategory;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Categories'),
-      ),
+      appBar: AppBar(title: const Text('Categories')),
       body: SafeArea(
         child: Column(
           children: [
@@ -262,8 +240,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Row(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: TextField(
@@ -285,15 +262,12 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                       label: 'Save category',
                       button: true,
                       child: IconButton(
-                        onPressed: _isCreatingCategory
-                            ? null
-                            : _createCategory,
+                        onPressed: _isCreatingCategory ? null : _createCategory,
                         tooltip: 'Save category',
                         icon: _isCreatingCategory
                             ? const SizedBox.square(
                                 dimension: 20,
-                                child:
-                                    CircularProgressIndicator(
+                                child: CircularProgressIndicator(
                                   strokeWidth: 2,
                                 ),
                               )
@@ -319,9 +293,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                   ? Center(
                       child: Text(
                         'No categories yet',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     )
                   : ListView.builder(
@@ -331,8 +303,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
                         return _CategoryRow(
                           category: category,
-                          actionsEnabled:
-                              !mutationsDisabled,
+                          actionsEnabled: !mutationsDisabled,
                           onRename: () {
                             _showRenameDialog(category);
                           },
@@ -349,9 +320,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
       floatingActionButton: _isAddingCategory
           ? null
           : FloatingActionButton(
-              onPressed: controllerIsLoading
-                  ? null
-                  : _startCategoryCreation,
+              onPressed: controllerIsLoading ? null : _startCategoryCreation,
               tooltip: 'Add category',
               child: const Icon(Icons.add),
             ),

@@ -13,10 +13,7 @@ import '../controllers/todo_controller.dart';
 /// and submits the changes through [TodoController.editTask].
 class TaskFormScreen extends StatefulWidget {
   /// Creates a task form screen.
-  const TaskFormScreen({
-    super.key,
-    this.initialTask,
-  });
+  const TaskFormScreen({super.key, this.initialTask});
 
   /// Initial task to edit.
   ///
@@ -53,8 +50,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
       text: widget.initialTask?.description ?? '',
     );
 
-    _selectedPriority =
-        widget.initialTask?.priority ?? Priority.medium;
+    _selectedPriority = widget.initialTask?.priority ?? Priority.medium;
 
     _selectedCategoryId = widget.initialTask?.categoryId;
   }
@@ -88,8 +84,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
 
     final title = _titleController.text.trim();
 
-    final normalizedDescription =
-        _descriptionController.text.trim();
+    final normalizedDescription = _descriptionController.text.trim();
 
     final description = normalizedDescription.isEmpty
         ? null
@@ -134,8 +129,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
       }
 
       setState(() {
-        _submissionError =
-            'Something went wrong. Please try again.';
+        _submissionError = 'Something went wrong. Please try again.';
         _isSubmitting = false;
       });
     }
@@ -149,20 +143,14 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
 
     final selectedCategoryExists =
         _selectedCategoryId == null ||
-        categories.any(
-          (category) => category.id == _selectedCategoryId,
-        );
+        categories.any((category) => category.id == _selectedCategoryId);
 
     if (!selectedCategoryExists) {
       _selectedCategoryId = null;
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          _isEditMode ? 'Edit Task' : 'New Task',
-        ),
-      ),
+      appBar: AppBar(title: Text(_isEditMode ? 'Edit Task' : 'New Task')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -204,17 +192,12 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                 const SizedBox(height: 16),
                 DropdownButtonFormField<Priority>(
                   initialValue: _selectedPriority,
-                  decoration: const InputDecoration(
-                    labelText: 'Priority',
-                  ),
+                  decoration: const InputDecoration(labelText: 'Priority'),
                   items: Priority.values
                       .map(
-                        (priority) =>
-                            DropdownMenuItem<Priority>(
+                        (priority) => DropdownMenuItem<Priority>(
                           value: priority,
-                          child: Text(
-                            _priorityLabel(priority),
-                          ),
+                          child: Text(_priorityLabel(priority)),
                         ),
                       )
                       .toList(),
@@ -233,9 +216,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                 const SizedBox(height: 16),
                 DropdownButtonFormField<int?>(
                   initialValue: _selectedCategoryId,
-                  decoration: const InputDecoration(
-                    labelText: 'Category',
-                  ),
+                  decoration: const InputDecoration(labelText: 'Category'),
                   items: [
                     const DropdownMenuItem<int?>(
                       value: null,
@@ -263,9 +244,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                     child: Text(
                       _submissionError!,
                       style: TextStyle(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .error,
+                        color: Theme.of(context).colorScheme.error,
                       ),
                     ),
                   ),
@@ -276,15 +255,9 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                   child: _isSubmitting
                       ? const SizedBox.square(
                           dimension: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                          ),
+                          child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : Text(
-                          _isEditMode
-                              ? 'Save Changes'
-                              : 'Create Task',
-                        ),
+                      : Text(_isEditMode ? 'Save Changes' : 'Create Task'),
                 ),
               ],
             ),

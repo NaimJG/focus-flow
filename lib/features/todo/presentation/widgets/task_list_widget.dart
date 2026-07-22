@@ -49,10 +49,7 @@ class TaskListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (tasks.isEmpty) {
-      return EmptyStateWidget(
-        variant: emptyVariant,
-        onAction: onEmptyAction,
-      );
+      return EmptyStateWidget(variant: emptyVariant, onAction: onEmptyAction);
     }
 
     return ListView.builder(

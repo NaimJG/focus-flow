@@ -64,9 +64,7 @@ class FilterBar extends StatelessWidget {
             selected: activeStatus == TaskStatus.pending,
             onSelected: (_) {
               onStatusChanged(
-                activeStatus == TaskStatus.pending
-                    ? null
-                    : TaskStatus.pending,
+                activeStatus == TaskStatus.pending ? null : TaskStatus.pending,
               );
             },
           ),
@@ -116,9 +114,7 @@ class FilterBar extends StatelessWidget {
             label: const Text('Uncategorized'),
             selected: activeCategoryId == -1,
             onSelected: (_) {
-              onCategoryChanged(
-                activeCategoryId == -1 ? null : -1,
-              );
+              onCategoryChanged(activeCategoryId == -1 ? null : -1);
             },
           ),
           ...categories.map(
@@ -135,10 +131,7 @@ class FilterBar extends StatelessWidget {
 
           // Clear all
           if (hasActiveFilters)
-            ActionChip(
-              label: const Text('Clear all'),
-              onPressed: onClearAll,
-            ),
+            ActionChip(label: const Text('Clear all'), onPressed: onClearAll),
         ],
       ),
     );
