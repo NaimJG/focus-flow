@@ -316,6 +316,25 @@
         "chatSessionId": "sess_bd1a8396-9dd1-42ff-a4a6-b201b8997b3b",
         "timestamp": 1784677345091
       }
+    ],
+    "21. Implement `IsarTaskRepository`": [
+      {
+        "executionId": "854e52c5-86e4-4d9e-9473-e4f261ddebe0",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784678260273
+      },
+      {
+        "executionId": "854e52c5-86e4-4d9e-9473-e4f261ddebe0",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784678502260
+      }
+    ],
+    "21.1 Create `lib/features/todo/data/repositories/isar_task_repository.dart`": [
+      {
+        "executionId": "854e52c5-86e4-4d9e-9473-e4f261ddebe0",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784678502146
+      }
     ]
   }
 }

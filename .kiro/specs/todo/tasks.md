@@ -158,8 +158,8 @@ increment. The implementation language is **Dart / Flutter**.
     - Add `Category toEntity()` and `static CategoryModel fromEntity(Category)` methods.
     - _Requirements: 13.2 / Design: Data Models — CategoryModel_
 
-- [ ] 21. Implement `IsarTaskRepository`
-  - [ ] 21.1 Create `lib/features/todo/data/repositories/isar_task_repository.dart`
+- [x] 21. Implement `IsarTaskRepository`
+  - [x] 21.1 Create `lib/features/todo/data/repositories/isar_task_repository.dart`
     - Implements `TaskRepository`. Constructor-injected `Isar` instance.
     - `getAll()`: reads all `TaskModel` records, maps to entities.
     - `findById(id)`: returns entity or null.
