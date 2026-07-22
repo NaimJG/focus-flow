@@ -326,7 +326,7 @@ increment. The implementation language is **Dart / Flutter**.
     - `Semantics` labels on all icon buttons.
     - _Requirements: 6.1, 6.2, 7.1, 7.2, 8.1, 8.2, 8.3, 15.1 / Design: Component Breakdown_
 
-- [ ] 38. Implement `TodoScreen` — orchestrate all widgets, FAB, navigation
+- [x] 38. Implement `TodoScreen` — orchestrate all widgets, FAB, navigation
   - [ ] 38.1 Create `lib/features/todo/presentation/screens/todo_screen.dart`
     - Registers `TodoController` via `ChangeNotifierProvider` at route level, calls
       `controller.init()` in `initState` (or `didChangeDependencies`).
