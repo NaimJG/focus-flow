@@ -300,8 +300,8 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 7 — Screens
 
-- [ ] 35. Implement `TaskFormScreen` — create mode
-  - [ ] 35.1 Create `lib/features/todo/presentation/screens/task_form_screen.dart` (create mode)
+- [x] 35. Implement `TaskFormScreen` — create mode
+  - [x] 35.1 Create `lib/features/todo/presentation/screens/task_form_screen.dart` (create mode)
     - `Scaffold` with form: `TextFormField` title (autofocus, validates non-empty),
       `TextFormField` description (optional), `DropdownButtonFormField<Priority>` (default
       Medium), `DropdownButtonFormField<int?>` for category (lists all categories + "No category").
@@ -309,8 +309,8 @@ increment. The implementation language is **Dart / Flutter**.
     - Catches `ValidationException` and shows inline field error text.
     - _Requirements: 1.1, 1.4, 1.5, 1.6, 5.2 / Design: Component Breakdown — TaskFormScreen_
 
-- [ ] 36. Implement `TaskFormScreen` — edit mode
-  - [ ] 36.1 Extend `task_form_screen.dart` to support edit mode
+- [x] 36. Implement `TaskFormScreen` — edit mode
+  - [x] 36.1 Extend `task_form_screen.dart` to support edit mode
     - Accept optional `Task? initialTask` parameter. When non-null, pre-populate all fields.
     - Submit calls `controller.editTask(...)`, pops on success.
     - `createdAt`, `status`, `completedAt` are never shown or modified by this form.

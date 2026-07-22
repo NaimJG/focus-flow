@@ -596,6 +596,44 @@
         "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
         "timestamp": 1784691616390
       }
+    ],
+    "35.1 Create `lib/features/todo/presentation/screens/task_form_screen.dart` (create mode)": [
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784723978454
+      },
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784724404297
+      }
+    ],
+    "35. Implement `TaskFormScreen` — create mode": [
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784724404441
+      }
+    ],
+    "36.1 Extend `task_form_screen.dart` to support edit mode": [
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784724409158
+      },
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784724511261
+      }
+    ],
+    "36. Implement `TaskFormScreen` — edit mode": [
+      {
+        "executionId": "83ccf0f3-db5a-482e-8f08-9f9accb8d353",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784724511367
+      }
     ]
   }
 }
