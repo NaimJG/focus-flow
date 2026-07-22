@@ -79,25 +79,23 @@ class TaskCard extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                    if (_showBottomRow) ...[
-                      const SizedBox(height: 6),
-                      Row(
-                        children: [
-                          _PriorityChip(
-                            priority: task.priority,
-                            colorScheme: colorScheme,
-                            textTheme: textTheme,
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        _PriorityChip(
+                          priority: task.priority,
+                          colorScheme: colorScheme,
+                          textTheme: textTheme,
+                        ),
+                        if (categoryName != null) ...[
+                          const SizedBox(width: 8),
+                          Text(
+                            categoryName!,
+                            style: textTheme.bodySmall,
                           ),
-                          if (categoryName != null) ...[
-                            const SizedBox(width: 8),
-                            Text(
-                              categoryName!,
-                              style: textTheme.bodySmall,
-                            ),
-                          ],
                         ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -115,7 +113,6 @@ class TaskCard extends StatelessWidget {
     );
   }
 
-  bool get _showBottomRow => true;
 }
 
 class _PriorityChip extends StatelessWidget {
