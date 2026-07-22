@@ -354,6 +354,44 @@
         "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
         "timestamp": 1784679200000
       }
+    ],
+    "23. Isar database initialization in `core/database/`": [
+      {
+        "executionId": "b4d82f71-6c93-4a1e-9d57-3e8f2a7b5c01",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680100000
+      },
+      {
+        "executionId": "b4d82f71-6c93-4a1e-9d57-3e8f2a7b5c01",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680200000
+      }
+    ],
+    "23.1 Create `lib/core/database/isar_database.dart`": [
+      {
+        "executionId": "b4d82f71-6c93-4a1e-9d57-3e8f2a7b5c01",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680200000
+      }
+    ],
+    "24. Wire `SeedDefaultCategoriesUseCase` in `main.dart`": [
+      {
+        "executionId": "c5e93f82-7d04-4b2f-ae68-4f9g3b8c6d12",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680300000
+      },
+      {
+        "executionId": "c5e93f82-7d04-4b2f-ae68-4f9g3b8c6d12",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680400000
+      }
+    ],
+    "24.1 Update `lib/main.dart`": [
+      {
+        "executionId": "c5e93f82-7d04-4b2f-ae68-4f9g3b8c6d12",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784680400000
+      }
     ]
   }
 }

@@ -179,14 +179,14 @@ increment. The implementation language is **Dart / Flutter**.
       then delete the `CategoryModel` record. Atomicity guaranteed by the transaction boundary.
     - _Requirements: 8.2, 8.4, 8.5, 13.2, 13.3 / Design: Data Layer_
 
-- [ ] 23. Isar database initialization in `core/database/`
-  - [ ] 23.1 Create `lib/core/database/isar_database.dart`
+- [x] 23. Isar database initialization in `core/database/`
+  - [x] 23.1 Create `lib/core/database/isar_database.dart`
     - `Future<Isar> openIsar()` function that calls `Isar.open(schemas: [...], ...)` with
       `TaskModelSchema` and `CategoryModelSchema`. Returns the opened instance.
     - _Requirements: 13.1, 13.2 / Design: Architecture — Dependency Rules_
 
-- [ ] 24. Wire `SeedDefaultCategoriesUseCase` in `main.dart`
-  - [ ] 24.1 Update `lib/main.dart`
+- [x] 24. Wire `SeedDefaultCategoriesUseCase` in `main.dart`
+  - [x] 24.1 Update `lib/main.dart`
     - Call `WidgetsFlutterBinding.ensureInitialized()`, `await openIsar()`, then
       `await SeedDefaultCategoriesUseCase(categoryRepository: IsarCategoryRepository(isar)).call()`,
       then `runApp(FocusFlowApp(isar: isar))`.

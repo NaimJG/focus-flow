@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
 
+/// The root widget of the Focus Flow application.
 class FocusFlowApp extends StatelessWidget {
-  const FocusFlowApp({super.key});
+  /// Creates a [FocusFlowApp] with the given [Isar] instance.
+  const FocusFlowApp({super.key, required this.isar});
+
+  /// The Isar database instance used throughout the application.
+  final Isar isar;
 
   @override
   Widget build(BuildContext context) {
