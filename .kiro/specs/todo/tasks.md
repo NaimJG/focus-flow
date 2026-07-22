@@ -316,8 +316,8 @@ increment. The implementation language is **Dart / Flutter**.
     - `createdAt`, `status`, `completedAt` are never shown or modified by this form.
     - _Requirements: 2.1, 2.2, 2.3, 2.4 / Design: Component Breakdown — TaskFormScreen_
 
-- [ ] 37. Implement `CategoryManagerScreen`
-  - [ ] 37.1 Create `lib/features/todo/presentation/screens/category_manager_screen.dart`
+- [x] 37. Implement `CategoryManagerScreen`
+  - [x] 37.1 Create `lib/features/todo/presentation/screens/category_manager_screen.dart`
     - `Scaffold` with `ListView` of category rows: name + rename `IconButton` + delete
       `IconButton` (≥ 48×48dp). FAB opens an inline `TextField` or mini-form for new category.
     - Rename taps open a dialog with a pre-filled `TextField`; validates and calls
