@@ -463,6 +463,63 @@
         "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
         "timestamp": 1784682300000
       }
+    ],
+    "28. Implement `ConfirmationDialog`": [
+      {
+        "executionId": "f8b26c15-0a37-4e5c-d191-7i2j6e1f9a45",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683000000
+      },
+      {
+        "executionId": "f8b26c15-0a37-4e5c-d191-7i2j6e1f9a45",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683100000
+      }
+    ],
+    "28.1 Create `lib/shared/widgets/confirmation_dialog.dart`": [
+      {
+        "executionId": "f8b26c15-0a37-4e5c-d191-7i2j6e1f9a45",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683100000
+      }
+    ],
+    "29. Implement `EmptyStateWidget` with all 4 variants": [
+      {
+        "executionId": "a9c37d26-1b48-4f6d-e2a2-8j3k7f2a0b56",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683200000
+      },
+      {
+        "executionId": "a9c37d26-1b48-4f6d-e2a2-8j3k7f2a0b56",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683300000
+      }
+    ],
+    "29.1 Create `lib/features/todo/presentation/widgets/empty_state_widget.dart`": [
+      {
+        "executionId": "a9c37d26-1b48-4f6d-e2a2-8j3k7f2a0b56",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683300000
+      }
+    ],
+    "30. Implement `TaskCard`": [
+      {
+        "executionId": "b0d48e37-2c59-4a7e-f3b3-9k4l8a3b1c67",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683400000
+      },
+      {
+        "executionId": "b0d48e37-2c59-4a7e-f3b3-9k4l8a3b1c67",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683500000
+      }
+    ],
+    "30.1 Create `lib/features/todo/presentation/widgets/task_card.dart`": [
+      {
+        "executionId": "b0d48e37-2c59-4a7e-f3b3-9k4l8a3b1c67",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784683500000
+      }
     ]
   }
 }

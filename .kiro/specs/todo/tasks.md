@@ -238,8 +238,8 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 5 — Shared Widget
 
-- [ ] 28. Implement `ConfirmationDialog`
-  - [ ] 28.1 Create `lib/shared/widgets/confirmation_dialog.dart`
+- [x] 28. Implement `ConfirmationDialog`
+  - [x] 28.1 Create `lib/shared/widgets/confirmation_dialog.dart`
     - Stateless widget. Parameters: `title`, `message`, `confirmLabel`, `cancelLabel`,
       `onConfirm`.
     - Uses `showDialog` with `AlertDialog` (Material 3). Cancel = `TextButton`, confirm =
@@ -250,15 +250,15 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 6 — Presentation Widgets
 
-- [ ] 29. Implement `EmptyStateWidget` with all 4 variants
-  - [ ] 29.1 Create `lib/features/todo/presentation/widgets/empty_state_widget.dart`
+- [x] 29. Implement `EmptyStateWidget` with all 4 variants
+  - [x] 29.1 Create `lib/features/todo/presentation/widgets/empty_state_widget.dart`
     - `enum EmptyStateVariant { noTasks, noSearchResults, noFilterResults, noCategoryTasks }`
     - Centered column: illustrative icon + headline + supporting message + optional
       `OutlinedButton` CTA (only for `noTasks` variant). All text ≥ 12sp. Uses `Theme.of(context)`.
     - _Requirements: 14.1, 14.2, 14.3, 14.4 / Design: Component Breakdown — EmptyStateWidget_
 
-- [ ] 30. Implement `TaskCard`
-  - [ ] 30.1 Create `lib/features/todo/presentation/widgets/task_card.dart`
+- [x] 30. Implement `TaskCard`
+  - [x] 30.1 Create `lib/features/todo/presentation/widgets/task_card.dart`
     - Material 3 `Card`. Leading: `Checkbox` bound to `task.status`.
     - Body: title + optional description (1-line overflow ellipsis).
     - Trailing: priority chip (icon + text label, not color-only, min 48×48dp), optional category
