@@ -577,6 +577,25 @@
         "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
         "timestamp": 1784684500000
       }
+    ],
+    "34. Implement `SortControl`": [
+      {
+        "executionId": "972a1ac9-3501-4ea3-92a3-d3374b882553",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784691491668
+      },
+      {
+        "executionId": "972a1ac9-3501-4ea3-92a3-d3374b882553",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784691616551
+      }
+    ],
+    "34.1 Create `lib/features/todo/presentation/widgets/sort_control.dart`": [
+      {
+        "executionId": "972a1ac9-3501-4ea3-92a3-d3374b882553",
+        "chatSessionId": "sess_0c63243d-0e28-4e11-9575-8aa1697dce0b",
+        "timestamp": 1784691616390
+      }
     ]
   }
 }

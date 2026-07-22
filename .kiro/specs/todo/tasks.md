@@ -289,8 +289,8 @@ increment. The implementation language is **Dart / Flutter**.
       `onClearAll`.
     - _Requirements: 11.1, 11.2, 11.3, 11.9, 11.10, 11.11 / Design: Component Breakdown — FilterBar_
 
-- [ ] 34. Implement `SortControl`
-  - [ ] 34.1 Create `lib/features/todo/presentation/widgets/sort_control.dart`
+- [x] 34. Implement `SortControl`
+  - [x] 34.1 Create `lib/features/todo/presentation/widgets/sort_control.dart`
     - Compact row: `DropdownButton<SortCriterion>` + direction toggle `IconButton` (arrow icon).
     - `Semantics` label on the direction toggle. Parameters: `activeCriterion`, `activeDirection`,
       change callbacks.
