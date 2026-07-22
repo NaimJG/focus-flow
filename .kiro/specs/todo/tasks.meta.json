@@ -392,6 +392,77 @@
         "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
         "timestamp": 1784680400000
       }
+    ],
+    "25. Implement `TodoController` with full state shape": [
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681000000
+      },
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681100000
+      }
+    ],
+    "25.1 Create `lib/features/todo/presentation/controllers/todo_controller.dart`": [
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681100000
+      }
+    ],
+    "26. Implement `_applyPipeline()` inside `TodoController`": [
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681100000
+      },
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681200000
+      }
+    ],
+    "26.1 Implement the search → filter → sort pipeline in `todo_controller.dart`": [
+      {
+        "executionId": "d6f04a93-8e15-4c3a-bf79-5g0h4c9d7e23",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784681200000
+      }
+    ],
+    "27. Wire all mutating operations through `TodoController`": [
+      {
+        "executionId": "e7a15b04-9f26-4d4b-c080-6h1i5d0e8f34",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784682000000
+      },
+      {
+        "executionId": "e7a15b04-9f26-4d4b-c080-6h1i5d0e8f34",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784682300000
+      }
+    ],
+    "27.1 Add task mutation methods to `TodoController`": [
+      {
+        "executionId": "e7a15b04-9f26-4d4b-c080-6h1i5d0e8f34",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784682100000
+      }
+    ],
+    "27.2 Add category mutation methods to `TodoController`": [
+      {
+        "executionId": "e7a15b04-9f26-4d4b-c080-6h1i5d0e8f34",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784682200000
+      }
+    ],
+    "27.3 Add filter/sort setter methods to `TodoController`": [
+      {
+        "executionId": "e7a15b04-9f26-4d4b-c080-6h1i5d0e8f34",
+        "chatSessionId": "sess_f8074723-dced-4971-a15f-9e225f4628b6",
+        "timestamp": 1784682300000
+      }
     ]
   }
 }

@@ -197,8 +197,8 @@ increment. The implementation language is **Dart / Flutter**.
 
 ### Group 4 — State Management
 
-- [ ] 25. Implement `TodoController` with full state shape
-  - [ ] 25.1 Create `lib/features/todo/presentation/controllers/todo_controller.dart`
+- [x] 25. Implement `TodoController` with full state shape
+  - [x] 25.1 Create `lib/features/todo/presentation/controllers/todo_controller.dart`
     - `extends ChangeNotifier`. Constructor-injected use cases for all 11 operations.
     - Declare all state fields from the design: `_allTasks`, `_allCategories`, `_searchQuery`,
       `_statusFilter`, `_priorityFilter`, `_categoryFilter`, `_sortCriterion`, `_sortDirection`,
@@ -208,8 +208,8 @@ increment. The implementation language is **Dart / Flutter**.
       `_applyPipeline()`.
     - _Requirements: 1.7, 2.5, 3.4, 4.3, 6.3, 7.4, 8.6 / Design: State Management_
 
-- [ ] 26. Implement `_applyPipeline()` inside `TodoController`
-  - [ ] 26.1 Implement the search → filter → sort pipeline in `todo_controller.dart`
+- [x] 26. Implement `_applyPipeline()` inside `TodoController`
+  - [x] 26.1 Implement the search → filter → sort pipeline in `todo_controller.dart`
     - `_applyPipeline()`: synchronous in-memory:
       1. Search: `title` or `description` case-insensitive contains.
       2. Filter: AND of `statusFilter`, `priorityFilter`, `categoryFilter` (sentinel `-1` for
@@ -218,17 +218,17 @@ increment. The implementation language is **Dart / Flutter**.
     - Called by every setter and after every mutating operation.
     - _Requirements: 10.1, 10.4, 10.5, 11.4, 11.9, 12.1–12.9 / Design: Search Filter Sort_
 
-- [ ] 27. Wire all mutating operations through `TodoController`
-  - [ ] 27.1 Add task mutation methods to `TodoController`
+- [x] 27. Wire all mutating operations through `TodoController`
+  - [x] 27.1 Add task mutation methods to `TodoController`
     - `createTask(...)`, `editTask(...)`, `deleteTask(int id)`, `completeTask(int id)`,
       `reopenTask(int id)`: each sets `_isLoading`, invokes use case, reloads `_allTasks`,
       calls `_applyPipeline()`, clears `_isLoading`, catches exceptions to `_errorMessage`.
     - _Requirements: 1.7, 2.5, 3.4, 4.3 / Design: State Management — Controller Responsibilities_
-  - [ ] 27.2 Add category mutation methods to `TodoController`
+  - [x] 27.2 Add category mutation methods to `TodoController`
     - `createCategory(String name)`, `renameCategory(int id, String name)`,
       `deleteCategory(int id)`: same loading/error pattern, reload `_allCategories` after each.
     - _Requirements: 6.3, 7.4, 8.6 / Design: State Management — Controller Responsibilities_
-  - [ ] 27.3 Add filter/sort setter methods to `TodoController`
+  - [x] 27.3 Add filter/sort setter methods to `TodoController`
     - `setSearchQuery`, `setStatusFilter`, `setPriorityFilter`, `setCategoryFilter`,
       `setSortCriterion`, `setSortDirection`, `clearAllFilters` — each calls `_applyPipeline()`
       before `notifyListeners()`.
