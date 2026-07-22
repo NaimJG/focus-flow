@@ -373,6 +373,9 @@ class TodoController extends ChangeNotifier {
   ///
   /// Because deleting a category also unassigns tasks that referenced it,
   /// both the task list and category list are reloaded.
+  ///
+  /// If the deleted category was selected as the active filter, the category
+  /// filter is reset to show all categories.
   Future<void> deleteCategory(int id) async {
     _isLoading = true;
     _errorMessage = null;
@@ -380,8 +383,19 @@ class TodoController extends ChangeNotifier {
 
     try {
       await _deleteCategoryUseCase.call(id);
-      _allTasks = await _getAllTasksUseCase.call();
-      _allCategories = await _getAllCategoriesUseCase.call();
+
+      if (_categoryFilter == id) {
+        _categoryFilter = null;
+      }
+
+      final results = await Future.wait([
+        _getAllTasksUseCase.call(),
+        _getAllCategoriesUseCase.call(),
+      ]);
+
+      _allTasks = results[0] as List<Task>;
+      _allCategories = results[1] as List<Category>;
+
       _applyPipeline();
     } on Exception catch (e) {
       _errorMessage = _userFriendlyMessage(e);
