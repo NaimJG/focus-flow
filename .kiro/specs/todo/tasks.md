@@ -266,23 +266,23 @@ increment. The implementation language is **Dart / Flutter**.
     - Tapping the card body fires `onEdit`. All interactive targets ≥ 48×48dp.
     - _Requirements: 4.4, 5.1, 15.1, 15.3, 15.4 / Design: Component Breakdown — TaskCard_
 
-- [ ] 31. Implement `TaskListWidget`
-  - [ ] 31.1 Create `lib/features/todo/presentation/widgets/task_list_widget.dart`
+- [x] 31. Implement `TaskListWidget`
+  - [x] 31.1 Create `lib/features/todo/presentation/widgets/task_list_widget.dart`
     - Accepts `List<Task> tasks`, `List<Category> categories`, and the four callbacks:
       `onComplete`, `onReopen`, `onEdit`, `onDelete`.
     - Uses `ListView.builder`. Resolves `categoryName` by matching `task.categoryId` against
       `categories`. Shows `EmptyStateWidget` when list is empty.
     - _Requirements: 1.7, 2.5, 3.4, 4.3 / Design: Component Breakdown — TaskListWidget_
 
-- [ ] 32. Implement `SearchBarWidget`
-  - [ ] 32.1 Create `lib/features/todo/presentation/widgets/search_bar_widget.dart`
+- [x] 32. Implement `SearchBarWidget`
+  - [x] 32.1 Create `lib/features/todo/presentation/widgets/search_bar_widget.dart`
     - Material 3 `TextField` (or `SearchBar`) with a clear suffix icon.
     - Parameters: `initialQuery`, `onChanged`, `onClear`. Fires `onChanged` on every keystroke.
     - `Semantics` label on the clear button.
     - _Requirements: 10.1, 10.4, 10.5, 15.1 / Design: Component Breakdown — SearchBarWidget_
 
-- [ ] 33. Implement `FilterBar`
-  - [ ] 33.1 Create `lib/features/todo/presentation/widgets/filter_bar.dart`
+- [x] 33. Implement `FilterBar`
+  - [x] 33.1 Create `lib/features/todo/presentation/widgets/filter_bar.dart`
     - Horizontally scrollable row of `FilterChip` widgets for status, priority, category.
     - When `hasActiveFilters` is true, append a "Clear all" chip/button.
     - Parameters: current filter values, all categories list, individual filter-change callbacks,
