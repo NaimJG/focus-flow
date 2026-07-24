@@ -677,6 +677,18 @@
         "chatSessionId": "sess_0c3194c0-2ac0-4f6f-a75c-9722ea85078e",
         "timestamp": 1784728126354
       }
+    ],
+    "40. Checkpoint — domain + data + state layers complete": [
+      {
+        "executionId": "36de746a-0a07-4688-968d-70103f746c1e",
+        "chatSessionId": "sess_5c6fb8a8-9dc9-411f-a72b-c48e5fd300bf",
+        "timestamp": 1784922136606
+      },
+      {
+        "executionId": "36de746a-0a07-4688-968d-70103f746c1e",
+        "chatSessionId": "sess_5c6fb8a8-9dc9-411f-a72b-c48e5fd300bf",
+        "timestamp": 1784922407602
+      }
     ]
   }
 }

@@ -348,7 +348,7 @@ increment. The implementation language is **Dart / Flutter**.
       `/todo/categories` → `CategoryManagerScreen`.
     - _Requirements: 1.1, 2.1, 6.1, 8.1 / Design: Architecture — Navigation_
 
-- [ ] 40. Checkpoint — domain + data + state layers complete
+- [x] 40. Checkpoint — domain + data + state layers complete
   - Ensure all unit tests and integration tests for Groups 1–4 pass. Verify `TodoScreen` renders
     with real Isar data on a device or emulator. Ask the user if questions arise.
 
