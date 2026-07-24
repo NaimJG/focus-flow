@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../app/router.dart';
 import '../../../../shared/widgets/confirmation_dialog.dart';
+import '../../../../shared/widgets/expandable_fab.dart';
 import '../../domain/entities/task.dart';
 import '../controllers/todo_controller.dart';
 import '../widgets/empty_state_widget.dart';
@@ -42,6 +43,10 @@ class _TodoScreenState extends State<TodoScreen> {
 
   void _navigateToCreateTask() {
     Navigator.of(context).pushNamed(Routes.taskNew);
+  }
+
+  void _navigateToCreateCategory() {
+    Navigator.of(context).pushNamed(Routes.categoriesNew);
   }
 
   void _navigateToEditTask(Task task) {
@@ -89,6 +94,7 @@ class _TodoScreenState extends State<TodoScreen> {
     return _TodoScreenContent(
       controller: _controller,
       onCreateTask: _navigateToCreateTask,
+      onCreateCategory: _navigateToCreateCategory,
       onEditTask: _navigateToEditTask,
       onDeleteTask: _confirmDeleteTask,
       onCategories: _navigateToCategories,
@@ -101,6 +107,7 @@ class _TodoScreenContent extends StatefulWidget {
   const _TodoScreenContent({
     required this.controller,
     required this.onCreateTask,
+    required this.onCreateCategory,
     required this.onEditTask,
     required this.onDeleteTask,
     required this.onCategories,
@@ -109,6 +116,7 @@ class _TodoScreenContent extends StatefulWidget {
 
   final TodoController controller;
   final VoidCallback onCreateTask;
+  final VoidCallback onCreateCategory;
   final ValueChanged<Task> onEditTask;
   final ValueChanged<int> onDeleteTask;
   final VoidCallback onCategories;
@@ -252,10 +260,9 @@ class _TodoScreenContentState extends State<_TodoScreenContent> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: widget.onCreateTask,
-        tooltip: 'Create task',
-        child: const Icon(Icons.add),
+      floatingActionButton: ExpandableFab(
+        onCreateTask: widget.onCreateTask,
+        onCreateCategory: widget.onCreateCategory,
       ),
     );
   }

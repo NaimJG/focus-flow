@@ -8,7 +8,10 @@ import '../controllers/todo_controller.dart';
 /// Screen for managing categories: list, create, rename, and delete.
 class CategoryManagerScreen extends StatefulWidget {
   /// Creates the category management screen.
-  const CategoryManagerScreen({super.key});
+  const CategoryManagerScreen({super.key, this.startCreating = false});
+
+  /// When `true`, the screen opens with the new-category input visible.
+  final bool startCreating;
 
   @override
   State<CategoryManagerScreen> createState() => _CategoryManagerScreenState();
@@ -21,6 +24,20 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
   bool _isAddingCategory = false;
   bool _isCreatingCategory = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.startCreating) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          setState(() {
+            _isAddingCategory = true;
+          });
+        }
+      });
+    }
+  }
 
   @override
   void dispose() {

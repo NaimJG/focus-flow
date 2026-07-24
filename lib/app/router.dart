@@ -7,6 +7,9 @@ import '../features/todo/presentation/screens/todo_screen.dart';
 
 /// Centralized route name constants for the application.
 abstract final class Routes {
+  /// Application root and main todo screen.
+  static const String home = '/';
+
   /// The main todo list screen.
   static const String todo = '/todo';
 
@@ -18,6 +21,9 @@ abstract final class Routes {
 
   /// The category management screen.
   static const String categories = '/todo/categories';
+
+  /// The category creation screen (opens with input visible).
+  static const String categoriesNew = '/todo/categories/new';
 
   /// Returns the concrete edit route path for the given [id].
   ///
@@ -33,6 +39,7 @@ abstract final class Routes {
 /// every todo route can access the same controller instance.
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case Routes.home:
     case Routes.todo:
       return MaterialPageRoute<void>(
         builder: (_) => const TodoScreen(),
@@ -42,6 +49,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case Routes.taskNew:
       return MaterialPageRoute<void>(
         builder: (_) => const TaskFormScreen(),
+        settings: settings,
+      );
+
+    case Routes.categoriesNew:
+      return MaterialPageRoute<void>(
+        builder: (_) => const CategoryManagerScreen(startCreating: true),
         settings: settings,
       );
 
@@ -62,12 +75,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
             settings: settings,
           );
         }
-
-        // Validation failed — route ID is not numeric or arguments
-        // mismatch.
-        return _notFoundRoute(settings);
       }
-
       return _notFoundRoute(settings);
   }
 }
@@ -78,9 +86,7 @@ bool _isTaskEditRoute(String? routeName) {
     return false;
   }
 
-  return RegExp(
-    r'^/todo/task/\d+/edit$',
-  ).hasMatch(routeName);
+  return RegExp(r'^/todo/task/\d+/edit$').hasMatch(routeName);
 }
 
 /// Extracts the numeric task ID from a route matching

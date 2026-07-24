@@ -57,7 +57,7 @@ class FocusFlowApp extends StatelessWidget {
         title: 'Focus Flow',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(colorSchemeSeed: Colors.blue, useMaterial3: true),
-        initialRoute: Routes.todo,
+        initialRoute: Routes.home,
         onGenerateRoute: onGenerateRoute,
       ),
     );
