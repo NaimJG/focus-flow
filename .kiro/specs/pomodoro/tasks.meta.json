@@ -163,6 +163,183 @@
         "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
         "timestamp": 1785006331173
       }
+    ],
+    "3.1 Create `lib/features/pomodoro/data/models/pomodoro_session_model.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007544950
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007574636
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008374150
+      }
+    ],
+    "3.2 Create `lib/features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545069
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008378730
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008520097
+      }
+    ],
+    "3.3 Update `lib/core/database/isar_database.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545219
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008379545
+      },
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008520917
+      }
+    ],
+    "4.1 Create `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545319
+      }
+    ],
+    "4.2 Implement timer lifecycle methods in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545422
+      }
+    ],
+    "4.3 Implement `_onTick`, `_startTimer`, and duplicate completion guard in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545509
+      }
+    ],
+    "4.4 Implement `_onCompletion` and cycle progression in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545599
+      }
+    ],
+    "4.5 Implement task association, title resolution, and session building in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545705
+      }
+    ],
+    "4.6 Implement error handling and retry in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545814
+      }
+    ],
+    "4.7 Implement `init()`, `dispose()`, and lifecycle observer in `PomodoroController`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007545947
+      }
+    ],
+    "5.1 Create `lib/features/pomodoro/presentation/widgets/timer_display.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546080
+      }
+    ],
+    "5.2 Create `lib/features/pomodoro/presentation/widgets/timer_controls.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546183
+      }
+    ],
+    "5.3 Create `lib/features/pomodoro/presentation/widgets/task_selector_widget.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546272
+      }
+    ],
+    "5.4 Create `lib/features/pomodoro/presentation/widgets/cycle_progress_indicator.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546362
+      }
+    ],
+    "6.1 Create `lib/features/pomodoro/presentation/screens/pomodoro_screen.dart`": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546452
+      }
+    ],
+    "6.2 Update `lib/app/router.dart` — register `/pomodoro` route": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546551
+      }
+    ],
+    "6.3 Update `lib/app/app.dart` — wire `PomodoroController` at app level": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546644
+      }
+    ],
+    "6.4 Update `lib/main.dart` if needed": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546755
+      }
+    ],
+    "7. Checkpoint — all code compiles and analyzes clean": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546864
+      }
+    ],
+    "15. Final checkpoint — all tests pass": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785007546942
+      }
+    ],
+    "3. Implement Isar data layer": [
+      {
+        "executionId": "08bb01ee-fe19-49f8-86b3-40e1f5f2870b",
+        "chatSessionId": "sess_eeecad43-57bd-46af-aa00-6c8b3302c970",
+        "timestamp": 1785008521070
+      }
     ]
   }
 }

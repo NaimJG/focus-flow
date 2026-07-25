@@ -16,7 +16,7 @@ abstract interface class PomodoroSessionRepository {
     required DateTime start,
     required DateTime end,
   });
-  
+
   /// Returns sessions associated with the given [taskId].
   Future<List<PomodoroSession>> getByTaskId(int taskId);
 

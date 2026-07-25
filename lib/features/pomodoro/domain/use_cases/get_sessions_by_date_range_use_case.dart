@@ -14,9 +14,6 @@ class GetSessionsByDateRangeUseCase {
     required DateTime start,
     required DateTime end,
   }) {
-    return _repository.getByDateRange(
-      start: start,
-      end: end,
-    );
+    return _repository.getByDateRange(start: start, end: end);
   }
 }

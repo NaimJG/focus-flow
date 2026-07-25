@@ -84,8 +84,8 @@ language is **Dart / Flutter**.
 
 ### Group 3 — Data Layer
 
-- [ ] 3. Implement Isar data layer
-  - [ ] 3.1 Create `lib/features/pomodoro/data/models/pomodoro_session_model.dart`
+- [x] 3. Implement Isar data layer
+  - [x] 3.1 Create `lib/features/pomodoro/data/models/pomodoro_session_model.dart`
     - `@collection` class with fields: `id` (Id), `timerModeIndex` (int), `startedAt` (DateTime),
       `completedAt` (DateTime), `plannedDurationSeconds` (int), `actualDurationSeconds` (int),
       `taskId` (int?), `taskTitleSnapshot` (String?).
@@ -94,7 +94,7 @@ language is **Dart / Flutter**.
     - Add `PomodoroSession toEntity()` and `static PomodoroSessionModel fromEntity(PomodoroSession)`
       conversion methods.
     - _Requirements: 9.2, 16.2 / Design: Data Models — PomodoroSessionModel_
-  - [ ] 3.2 Create `lib/features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart`
+  - [x] 3.2 Create `lib/features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart`
     - Implements `PomodoroSessionRepository`. Constructor-injected `Isar` instance.
     - `create(session)`: writes in `writeTxn`, returns entity with assigned id.
     - `getAll()`: reads all `PomodoroSessionModel` records, maps to entities.
@@ -104,7 +104,7 @@ language is **Dart / Flutter**.
     - `getByNullTask()`: filters where `taskId` is null.
     - Wraps Isar exceptions in `PersistenceException`.
     - _Requirements: 9.1, 9.5, 9.7, 16.4, 16.5, 16.6 / Design: Data Layer_
-  - [ ] 3.3 Update `lib/core/database/isar_database.dart`
+  - [x] 3.3 Update `lib/core/database/isar_database.dart`
     - Add `PomodoroSessionModelSchema` to the `Isar.open(schemas: [...])` call.
     - Import `pomodoro_session_model.dart`.
     - _Requirements: 12.3 / Design: Architecture — Dependency Rules_
@@ -114,7 +114,7 @@ language is **Dart / Flutter**.
 ### Group 4 — State Management
 
 - [ ] 4. Implement `PomodoroController`
-  - [ ] 4.1 Create `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`
+  - [~] 4.1 Create `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`
     - `extends ChangeNotifier with WidgetsBindingObserver`. Constructor parameters:
       `SavePomodoroSessionUseCase`, `List<PomodoroTaskOption> Function() taskListProvider`,
       `PomodoroConfig config` (default const), `Clock clock` (default `SystemClock()`).
@@ -128,7 +128,7 @@ language is **Dart / Flutter**.
     - Initial state: `TimerMode.focus`, `TimerStatus.idle`, remaining = 25 min, cycleCount = 0,
       completedMode = null.
     - _Requirements: 1.6, 11.1, 11.2, 11.6 / Design: State Management — State Shape_
-  - [ ] 4.2 Implement timer lifecycle methods in `PomodoroController`
+  - [~] 4.2 Implement timer lifecycle methods in `PomodoroController`
     - `start()`: precondition `status == idle || completed`. Clear `_completedMode = null`.
       Set `targetEndTime = now + remaining`, status = running, record `_sessionStartedAt`
       for Focus mode. Call `_startTimer()`.
@@ -143,7 +143,7 @@ language is **Dart / Flutter**.
       `_completedMode = null`. If skipping Long Break, reset cycleCount to 0.
     - All methods ignore invalid preconditions (no-op).
     - _Requirements: 2.1, 2.2, 2.4, 3.1, 3.2, 3.4, 3.5, 4.1, 4.2, 4.4, 4.5, 5.1, 5.2, 5.4, 5.5, 5.6 / Design: Timer Lifecycle_
-  - [ ] 4.3 Implement `_onTick`, `_startTimer`, and duplicate completion guard in `PomodoroController`
+  - [~] 4.3 Implement `_onTick`, `_startTimer`, and duplicate completion guard in `PomodoroController`
     - `_startTimer()`: cancel existing timer, create `Timer.periodic(1s, _onTick)`.
     - `_onTick(_)`: FIRST check guard `if (_status != TimerStatus.running) return;`.
       Calculate `remaining = targetEndTime - clock.now()`, clamp to `Duration.zero`.
@@ -152,7 +152,7 @@ language is **Dart / Flutter**.
     - The guard ensures that if multiple callbacks fire after backgrounding, only the first
       processes completion.
     - _Requirements: 2.3, 6.1, 6.5, 10.1, 10.2, 10.4, 10.5, 10.6, 19.9 / Design: Timer Lifecycle — Duplicate Completion Prevention_
-  - [ ] 4.4 Implement `_onCompletion` and cycle progression in `PomodoroController`
+  - [~] 4.4 Implement `_onCompletion` and cycle progression in `PomodoroController`
     - Guard: `if (_status != TimerStatus.running) return;` (prevents duplicate completion).
     - Cancel timer BEFORE processing: `_timer?.cancel(); _timer = null;`.
     - Store `_completedMode = _currentMode` BEFORE advancing (captures which mode just finished).
@@ -167,7 +167,7 @@ language is **Dart / Flutter**.
       mode's full duration).
     - Status remains `Completed` — user sees "Session finished" with Start button.
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.6, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 / Design: Timer Lifecycle — Natural Completion_
-  - [ ] 4.5 Implement task association, title resolution, and session building in `PomodoroController`
+  - [~] 4.5 Implement task association, title resolution, and session building in `PomodoroController`
     - `selectTask(int? taskId, String? taskTitle)`: only effective when idle or completed.
       Stores `_selectedTaskId` and `_selectedTaskTitle`.
     - `_resolveTaskTitleSnapshot()`: if `_selectedTaskId` is null, return null.
@@ -179,7 +179,7 @@ language is **Dart / Flutter**.
       `actualDurationSeconds = config.focusDuration.inSeconds`,
       `taskId = _selectedTaskId`, `taskTitleSnapshot = _resolveTaskTitleSnapshot()`.
     - _Requirements: 8.3, 8.4, 8.5, 8.6, 8.7 / Design: State Management — Task Title Snapshot Resolution_
-  - [ ] 4.6 Implement error handling and retry in `PomodoroController`
+  - [~] 4.6 Implement error handling and retry in `PomodoroController`
     - `clearError()`: sets `_errorMessage = null`, notifyListeners. Does NOT clear
       `_pendingSession` — session remains available for retry.
     - `retryPersistence()`: if `_pendingSession != null`, re-attempt
@@ -187,7 +187,7 @@ language is **Dart / Flutter**.
       On failure update error message.
     - `hasPendingSession` getter: returns `_pendingSession != null`.
     - _Requirements: 17.2, 17.3, 17.4, 17.5, 17.7 / Design: Error Handling_
-  - [ ] 4.7 Implement `init()`, `dispose()`, and lifecycle observer in `PomodoroController`
+  - [~] 4.7 Implement `init()`, `dispose()`, and lifecycle observer in `PomodoroController`
     - `init()`: call `WidgetsBinding.instance.addObserver(this)`, set `_isLoading = false`,
       notifyListeners.
     - `didChangeAppLifecycleState(state)`: if `state == AppLifecycleState.resumed` and
@@ -203,14 +203,14 @@ language is **Dart / Flutter**.
 ### Group 5 — Presentation Widgets
 
 - [ ] 5. Implement presentation widgets
-  - [ ] 5.1 Create `lib/features/pomodoro/presentation/widgets/timer_display.dart`
+  - [~] 5.1 Create `lib/features/pomodoro/presentation/widgets/timer_display.dart`
     - Stateless widget. Parameters: `Duration remainingDuration`, `Duration totalDuration`,
       `TimerStatus status`.
     - Layout: `Stack` with `CircularProgressIndicator` (determinate, value = 1.0 - remaining/total)
       and centered `Text` showing `MM:SS` format. Font size >= 32sp.
     - Semantics node with label "N minutes M seconds remaining".
     - _Requirements: 13.2, 13.3, 15.3, 15.7 / Design: Component Breakdown — TimerDisplay_
-  - [ ] 5.2 Create `lib/features/pomodoro/presentation/widgets/timer_controls.dart`
+  - [~] 5.2 Create `lib/features/pomodoro/presentation/widgets/timer_controls.dart`
     - Stateless widget. Parameters: `TimerStatus status`, `VoidCallback onStart`,
       `VoidCallback onPause`, `VoidCallback onResume`, `VoidCallback onReset`,
       `VoidCallback onSkip`.
@@ -219,14 +219,14 @@ language is **Dart / Flutter**.
     - All buttons >= 48x48dp touch targets with semantic labels.
     - Uses `FilledButton` for primary action, `OutlinedButton` for secondary.
     - _Requirements: 13.4, 13.5, 13.6, 15.1, 15.2, 15.4 / Design: Component Breakdown — TimerControls_
-  - [ ] 5.3 Create `lib/features/pomodoro/presentation/widgets/task_selector_widget.dart`
+  - [~] 5.3 Create `lib/features/pomodoro/presentation/widgets/task_selector_widget.dart`
     - Stateless widget. Parameters: `List<PomodoroTaskOption> tasks`, `int? selectedTaskId`,
       `bool enabled`, `ValueChanged<(int?, String?)> onChanged`.
     - `DropdownButtonFormField` with first option "No task" (null). Tasks sorted:
       `isCompleted == false` before `isCompleted == true`. Disabled when `enabled == false`.
     - If no tasks exist, show disabled field with "No tasks available" hint.
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.11 / Design: Component Breakdown — TaskSelectorWidget_
-  - [ ] 5.4 Create `lib/features/pomodoro/presentation/widgets/cycle_progress_indicator.dart`
+  - [~] 5.4 Create `lib/features/pomodoro/presentation/widgets/cycle_progress_indicator.dart`
     - Stateless widget. Parameters: `int cycleCount`.
     - Displays "N / 4" text label where N = cycleCount.
     - _Requirements: 13.9 / Design: Component Breakdown — CycleProgressIndicator_
@@ -236,7 +236,7 @@ language is **Dart / Flutter**.
 ### Group 6 — Screen + Navigation
 
 - [ ] 6. Implement Pomodoro screen and navigation wiring
-  - [ ] 6.1 Create `lib/features/pomodoro/presentation/screens/pomodoro_screen.dart`
+  - [~] 6.1 Create `lib/features/pomodoro/presentation/screens/pomodoro_screen.dart`
     - `Scaffold` with centered column: Timer_Mode label, `TimerDisplay`,
       `CycleProgressIndicator`, `TimerControls`, `TaskSelectorWidget`.
     - Uses `context.watch<PomodoroController>()` / `ListenableBuilder` to rebuild on state changes.
@@ -251,12 +251,12 @@ language is **Dart / Flutter**.
     - Material 3 components, colors via `Theme.of(context)`.
     - Semantics announcement on status change.
     - _Requirements: 6.2, 13.1, 13.7, 13.8, 13.9, 13.10, 13.11, 13.12, 15.5, 15.6, 17.7 / Design: Component Breakdown — PomodoroScreen_
-  - [ ] 6.2 Update `lib/app/router.dart` — register `/pomodoro` route
+  - [~] 6.2 Update `lib/app/router.dart` — register `/pomodoro` route
     - Add `static const String pomodoro = '/pomodoro';` to `Routes` class.
     - Add case in `onGenerateRoute` that returns `MaterialPageRoute` to `PomodoroScreen`.
     - Import `PomodoroScreen`.
     - _Requirements: 14.1 / Design: Architecture — Navigation_
-  - [ ] 6.3 Update `lib/app/app.dart` — wire `PomodoroController` at app level
+  - [~] 6.3 Update `lib/app/app.dart` — wire `PomodoroController` at app level
     - Replace single `ChangeNotifierProvider<TodoController>` with `MultiProvider` containing
       both `TodoController` and `PomodoroController`.
     - Instantiate `IsarPomodoroSessionRepository`, `SavePomodoroSessionUseCase`.
@@ -267,7 +267,7 @@ language is **Dart / Flutter**.
       (the composition root is permitted to reference both features).
     - Call `..init()` on the `PomodoroController`.
     - _Requirements: 12.5, 14.2, 14.3, 14.4 / Design: Cross-Feature Task Access + Provider Scope_
-  - [ ] 6.4 Update `lib/main.dart` if needed
+  - [~] 6.4 Update `lib/main.dart` if needed
     - Verify `openIsar()` now includes `PomodoroSessionModelSchema` (handled in 3.3).
     - No additional changes expected unless import paths need updating.
     - _Requirements: 12.1 / Design: Architecture_
@@ -276,7 +276,7 @@ language is **Dart / Flutter**.
 
 ### Group 7 — Checkpoint
 
-- [ ] 7. Checkpoint — all code compiles and analyzes clean
+- [~] 7. Checkpoint — all code compiles and analyzes clean
   - Run `flutter analyze`. Ensure no errors or warnings. Verify `PomodoroScreen` renders on
     device/emulator with idle state showing 25:00. Ask the user if questions arise.
 
@@ -540,7 +540,7 @@ repositories and fake `Clock` — no Isar required.
 
 ### Group 13 — Final Checkpoint
 
-- [ ] 15. Final checkpoint — all tests pass
+- [~] 15. Final checkpoint — all tests pass
   - Run `flutter test`. Ensure all unit, property-based, widget, and integration tests pass.
     Run `flutter analyze` to confirm no issues. Ask the user if questions arise.
 
