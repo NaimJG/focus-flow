@@ -8,13 +8,15 @@ abstract interface class PomodoroSessionRepository {
   /// Returns all persisted sessions.
   Future<List<PomodoroSession>> getAll();
 
-  /// Returns sessions whose [PomodoroSession.completedAt] falls within
-  /// the inclusive range [start, end].
+  /// Returns sessions whose [PomodoroSession.startedAt] falls within
+  /// the range [start, end).
+  ///
+  /// [start] is inclusive and [end] is exclusive.
   Future<List<PomodoroSession>> getByDateRange({
     required DateTime start,
     required DateTime end,
   });
-
+  
   /// Returns sessions associated with the given [taskId].
   Future<List<PomodoroSession>> getByTaskId(int taskId);
 
