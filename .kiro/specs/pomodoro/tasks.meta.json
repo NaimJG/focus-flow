@@ -1,0 +1,96 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `lib/features/pomodoro/domain/entities/timer_mode.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004844860
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005226652
+      }
+    ],
+    "1.2 Create `lib/features/pomodoro/domain/entities/timer_status.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004846379
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005227416
+      }
+    ],
+    "1.3 Create `lib/features/pomodoro/domain/entities/pomodoro_task_option.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004847069
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005228306
+      }
+    ],
+    "1.4 Create `lib/features/pomodoro/domain/entities/pomodoro_config.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004847366
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005229034
+      }
+    ],
+    "1.5 Create `lib/features/pomodoro/domain/entities/pomodoro_session.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004848126
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005229892
+      }
+    ],
+    "1.6 Create `lib/features/pomodoro/domain/entities/clock.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004852209
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005234022
+      }
+    ],
+    "1.7 Create `lib/features/pomodoro/domain/exceptions/persistence_exception.dart`": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785004852977
+      },
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005234855
+      }
+    ],
+    "1. Define domain enums, entities, and value objects": [
+      {
+        "executionId": "aa3fa388-67a8-4505-bab9-bd78a26111cd",
+        "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
+        "timestamp": 1785005234952
+      }
+    ]
+  }
+}

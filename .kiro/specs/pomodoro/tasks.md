@@ -18,34 +18,34 @@ language is **Dart / Flutter**.
 
 ### Group 1 — Domain Layer (Entities + Enums)
 
-- [ ] 1. Define domain enums, entities, and value objects
-  - [ ] 1.1 Create `lib/features/pomodoro/domain/entities/timer_mode.dart`
+- [x] 1. Define domain enums, entities, and value objects
+  - [x] 1.1 Create `lib/features/pomodoro/domain/entities/timer_mode.dart`
     - Define `enum TimerMode { focus, shortBreak, longBreak }`.
     - _Requirements: 1.1 / Design: Data Models — TimerMode Enum_
-  - [ ] 1.2 Create `lib/features/pomodoro/domain/entities/timer_status.dart`
+  - [x] 1.2 Create `lib/features/pomodoro/domain/entities/timer_status.dart`
     - Define `enum TimerStatus { idle, running, paused, completed }`.
     - _Requirements: 1.6, 11.3 / Design: Data Models — TimerStatus Enum_
-  - [ ] 1.3 Create `lib/features/pomodoro/domain/entities/pomodoro_task_option.dart`
+  - [x] 1.3 Create `lib/features/pomodoro/domain/entities/pomodoro_task_option.dart`
     - Define `PomodoroTaskOption` class with `const` constructor: `id` (int), `title` (String),
       `isCompleted` (bool). All fields `final`.
     - This is the Pomodoro-owned minimal read-only task type that decouples the feature from Todo.
     - _Requirements: 8.1, 12.5 / Design: Data Models — PomodoroTaskOption_
-  - [ ] 1.4 Create `lib/features/pomodoro/domain/entities/pomodoro_config.dart`
+  - [x] 1.4 Create `lib/features/pomodoro/domain/entities/pomodoro_config.dart`
     - Immutable class with `const` constructor: `focusDuration` (25 min), `shortBreakDuration`
       (5 min), `longBreakDuration` (15 min), `sessionsBeforeLongBreak` (4).
     - Add `Duration durationFor(TimerMode mode)` helper method.
     - _Requirements: 1.2, 1.3, 1.4, 1.5 / Design: Data Models — PomodoroConfig_
-  - [ ] 1.5 Create `lib/features/pomodoro/domain/entities/pomodoro_session.dart`
+  - [x] 1.5 Create `lib/features/pomodoro/domain/entities/pomodoro_session.dart`
     - Immutable class with `const` constructor: `id`, `timerMode`, `startedAt`, `completedAt`,
       `plannedDurationSeconds`, `actualDurationSeconds`, `taskId?`, `taskTitleSnapshot?`.
     - All fields `final`. No Isar annotations. No `result` field.
     - _Requirements: 9.2, 16.1, 16.2, 16.3 / Design: Data Models — PomodoroSession_
-  - [ ] 1.6 Create `lib/features/pomodoro/domain/entities/clock.dart`
+  - [x] 1.6 Create `lib/features/pomodoro/domain/entities/clock.dart`
     - Define `abstract interface class Clock` with `DateTime now()` method.
     - Define `class SystemClock implements Clock` returning `DateTime.now().toUtc()`.
     - All timestamps produced by the Clock are UTC for timezone-independent persistence.
     - _Requirements: 10.1, 10.2 / Design: Timer Lifecycle — Injectable Time Source_
-  - [ ] 1.7 Create `lib/features/pomodoro/domain/exceptions/persistence_exception.dart`
+  - [x] 1.7 Create `lib/features/pomodoro/domain/exceptions/persistence_exception.dart`
     - Define `class PersistenceException implements Exception` with `String message` field.
     - _Requirements: 9.7, 17.2 / Design: Error Handling — Domain Exceptions_
 
