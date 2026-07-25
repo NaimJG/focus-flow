@@ -276,7 +276,7 @@ language is **Dart / Flutter**.
 
 ### Group 7 — Checkpoint
 
-- [ ] 7. Checkpoint — all code compiles and analyzes clean
+- [x] 7. Checkpoint — all code compiles and analyzes clean
   - Run `flutter analyze`. Ensure no errors or warnings. Verify `PomodoroScreen` renders on
     device/emulator with idle state showing 25:00. Ask the user if questions arise.
 
