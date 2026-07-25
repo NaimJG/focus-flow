@@ -113,8 +113,8 @@ language is **Dart / Flutter**.
 
 ### Group 4 — State Management
 
-- [ ] 4. Implement `PomodoroController`
-  - [~] 4.1 Create `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`
+- [x] 4. Implement `PomodoroController`
+  - [x] 4.1 Create `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`
     - `extends ChangeNotifier with WidgetsBindingObserver`. Constructor parameters:
       `SavePomodoroSessionUseCase`, `List<PomodoroTaskOption> Function() taskListProvider`,
       `PomodoroConfig config` (default const), `Clock clock` (default `SystemClock()`).
@@ -128,7 +128,7 @@ language is **Dart / Flutter**.
     - Initial state: `TimerMode.focus`, `TimerStatus.idle`, remaining = 25 min, cycleCount = 0,
       completedMode = null.
     - _Requirements: 1.6, 11.1, 11.2, 11.6 / Design: State Management — State Shape_
-  - [~] 4.2 Implement timer lifecycle methods in `PomodoroController`
+  - [x] 4.2 Implement timer lifecycle methods in `PomodoroController`
     - `start()`: precondition `status == idle || completed`. Clear `_completedMode = null`.
       Set `targetEndTime = now + remaining`, status = running, record `_sessionStartedAt`
       for Focus mode. Call `_startTimer()`.
@@ -143,7 +143,7 @@ language is **Dart / Flutter**.
       `_completedMode = null`. If skipping Long Break, reset cycleCount to 0.
     - All methods ignore invalid preconditions (no-op).
     - _Requirements: 2.1, 2.2, 2.4, 3.1, 3.2, 3.4, 3.5, 4.1, 4.2, 4.4, 4.5, 5.1, 5.2, 5.4, 5.5, 5.6 / Design: Timer Lifecycle_
-  - [~] 4.3 Implement `_onTick`, `_startTimer`, and duplicate completion guard in `PomodoroController`
+  - [x] 4.3 Implement `_onTick`, `_startTimer`, and duplicate completion guard in `PomodoroController`
     - `_startTimer()`: cancel existing timer, create `Timer.periodic(1s, _onTick)`.
     - `_onTick(_)`: FIRST check guard `if (_status != TimerStatus.running) return;`.
       Calculate `remaining = targetEndTime - clock.now()`, clamp to `Duration.zero`.
@@ -152,7 +152,7 @@ language is **Dart / Flutter**.
     - The guard ensures that if multiple callbacks fire after backgrounding, only the first
       processes completion.
     - _Requirements: 2.3, 6.1, 6.5, 10.1, 10.2, 10.4, 10.5, 10.6, 19.9 / Design: Timer Lifecycle — Duplicate Completion Prevention_
-  - [~] 4.4 Implement `_onCompletion` and cycle progression in `PomodoroController`
+  - [x] 4.4 Implement `_onCompletion` and cycle progression in `PomodoroController`
     - Guard: `if (_status != TimerStatus.running) return;` (prevents duplicate completion).
     - Cancel timer BEFORE processing: `_timer?.cancel(); _timer = null;`.
     - Store `_completedMode = _currentMode` BEFORE advancing (captures which mode just finished).
@@ -167,7 +167,7 @@ language is **Dart / Flutter**.
       mode's full duration).
     - Status remains `Completed` — user sees "Session finished" with Start button.
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.6, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 / Design: Timer Lifecycle — Natural Completion_
-  - [~] 4.5 Implement task association, title resolution, and session building in `PomodoroController`
+  - [x] 4.5 Implement task association, title resolution, and session building in `PomodoroController`
     - `selectTask(int? taskId, String? taskTitle)`: only effective when idle or completed.
       Stores `_selectedTaskId` and `_selectedTaskTitle`.
     - `_resolveTaskTitleSnapshot()`: if `_selectedTaskId` is null, return null.
@@ -179,7 +179,7 @@ language is **Dart / Flutter**.
       `actualDurationSeconds = config.focusDuration.inSeconds`,
       `taskId = _selectedTaskId`, `taskTitleSnapshot = _resolveTaskTitleSnapshot()`.
     - _Requirements: 8.3, 8.4, 8.5, 8.6, 8.7 / Design: State Management — Task Title Snapshot Resolution_
-  - [~] 4.6 Implement error handling and retry in `PomodoroController`
+  - [x] 4.6 Implement error handling and retry in `PomodoroController`
     - `clearError()`: sets `_errorMessage = null`, notifyListeners. Does NOT clear
       `_pendingSession` — session remains available for retry.
     - `retryPersistence()`: if `_pendingSession != null`, re-attempt
@@ -187,7 +187,7 @@ language is **Dart / Flutter**.
       On failure update error message.
     - `hasPendingSession` getter: returns `_pendingSession != null`.
     - _Requirements: 17.2, 17.3, 17.4, 17.5, 17.7 / Design: Error Handling_
-  - [~] 4.7 Implement `init()`, `dispose()`, and lifecycle observer in `PomodoroController`
+  - [x] 4.7 Implement `init()`, `dispose()`, and lifecycle observer in `PomodoroController`
     - `init()`: call `WidgetsBinding.instance.addObserver(this)`, set `_isLoading = false`,
       notifyListeners.
     - `didChangeAppLifecycleState(state)`: if `state == AppLifecycleState.resumed` and
