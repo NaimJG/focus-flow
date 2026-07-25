@@ -235,8 +235,8 @@ language is **Dart / Flutter**.
 
 ### Group 6 — Screen + Navigation
 
-- [ ] 6. Implement Pomodoro screen and navigation wiring
-  - [ ] 6.1 Create `lib/features/pomodoro/presentation/screens/pomodoro_screen.dart`
+- [x] 6. Implement Pomodoro screen and navigation wiring
+  - [x] 6.1 Create `lib/features/pomodoro/presentation/screens/pomodoro_screen.dart`
     - `Scaffold` with centered column: Timer_Mode label, `TimerDisplay`,
       `CycleProgressIndicator`, `TimerControls`, `TaskSelectorWidget`.
     - Uses `context.watch<PomodoroController>()` / `ListenableBuilder` to rebuild on state changes.
@@ -251,12 +251,12 @@ language is **Dart / Flutter**.
     - Material 3 components, colors via `Theme.of(context)`.
     - Semantics announcement on status change.
     - _Requirements: 6.2, 13.1, 13.7, 13.8, 13.9, 13.10, 13.11, 13.12, 15.5, 15.6, 17.7 / Design: Component Breakdown — PomodoroScreen_
-  - [ ] 6.2 Update `lib/app/router.dart` — register `/pomodoro` route
+  - [x] 6.2 Update `lib/app/router.dart` — register `/pomodoro` route
     - Add `static const String pomodoro = '/pomodoro';` to `Routes` class.
     - Add case in `onGenerateRoute` that returns `MaterialPageRoute` to `PomodoroScreen`.
     - Import `PomodoroScreen`.
     - _Requirements: 14.1 / Design: Architecture — Navigation_
-  - [ ] 6.3 Update `lib/app/app.dart` — wire `PomodoroController` at app level
+  - [x] 6.3 Update `lib/app/app.dart` — wire `PomodoroController` at app level
     - Replace single `ChangeNotifierProvider<TodoController>` with `MultiProvider` containing
       both `TodoController` and `PomodoroController`.
     - Instantiate `IsarPomodoroSessionRepository`, `SavePomodoroSessionUseCase`.
@@ -267,7 +267,7 @@ language is **Dart / Flutter**.
       (the composition root is permitted to reference both features).
     - Call `..init()` on the `PomodoroController`.
     - _Requirements: 12.5, 14.2, 14.3, 14.4 / Design: Cross-Feature Task Access + Provider Scope_
-  - [ ] 6.4 Update `lib/main.dart` if needed
+  - [x] 6.4 Update `lib/main.dart` if needed
     - Verify `openIsar()` now includes `PomodoroSessionModelSchema` (handled in 3.3).
     - No additional changes expected unless import paths need updating.
     - _Requirements: 12.1 / Design: Architecture_

@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
 
+import '../features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart';
+import '../features/pomodoro/domain/entities/pomodoro_task_option.dart';
+import '../features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart';
+import '../features/pomodoro/presentation/controllers/pomodoro_controller.dart';
 import '../features/todo/data/repositories/isar_category_repository.dart';
 import '../features/todo/data/repositories/isar_task_repository.dart';
+import '../features/todo/domain/entities/task_status.dart';
 import '../features/todo/domain/use_cases/complete_task_use_case.dart';
 import '../features/todo/domain/use_cases/create_category_use_case.dart';
 import '../features/todo/domain/use_cases/create_task_use_case.dart';
@@ -30,29 +35,50 @@ class FocusFlowApp extends StatelessWidget {
     final taskRepository = IsarTaskRepository(isar: isar);
     final categoryRepository = IsarCategoryRepository(isar: isar);
 
-    return ChangeNotifierProvider<TodoController>(
-      create: (_) => TodoController(
-        getAllTasksUseCase: GetAllTasksUseCase(taskRepository: taskRepository),
-        getAllCategoriesUseCase: GetAllCategoriesUseCase(
-          categoryRepository: categoryRepository,
+    final todoController = TodoController(
+      getAllTasksUseCase: GetAllTasksUseCase(taskRepository: taskRepository),
+      getAllCategoriesUseCase: GetAllCategoriesUseCase(
+        categoryRepository: categoryRepository,
+      ),
+      createTaskUseCase: CreateTaskUseCase(taskRepository: taskRepository),
+      editTaskUseCase: EditTaskUseCase(taskRepository: taskRepository),
+      deleteTaskUseCase: DeleteTaskUseCase(taskRepository: taskRepository),
+      completeTaskUseCase: CompleteTaskUseCase(taskRepository: taskRepository),
+      reopenTaskUseCase: ReopenTaskUseCase(taskRepository: taskRepository),
+      createCategoryUseCase: CreateCategoryUseCase(
+        categoryRepository: categoryRepository,
+      ),
+      renameCategoryUseCase: RenameCategoryUseCase(
+        categoryRepository: categoryRepository,
+      ),
+      deleteCategoryUseCase: DeleteCategoryUseCase(
+        categoryRepository: categoryRepository,
+      ),
+    )..init();
+
+    final pomodoroRepository = IsarPomodoroSessionRepository(isar: isar);
+    final saveSessionUseCase = SavePomodoroSessionUseCase(pomodoroRepository);
+
+    final pomodoroController = PomodoroController(
+      saveSessionUseCase: saveSessionUseCase,
+      taskListProvider: () => todoController.allTasks
+          .map(
+            (task) => PomodoroTaskOption(
+              id: task.id,
+              title: task.title,
+              isCompleted: task.status == TaskStatus.completed,
+            ),
+          )
+          .toList(),
+    )..init();
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<TodoController>.value(value: todoController),
+        ChangeNotifierProvider<PomodoroController>.value(
+          value: pomodoroController,
         ),
-        createTaskUseCase: CreateTaskUseCase(taskRepository: taskRepository),
-        editTaskUseCase: EditTaskUseCase(taskRepository: taskRepository),
-        deleteTaskUseCase: DeleteTaskUseCase(taskRepository: taskRepository),
-        completeTaskUseCase: CompleteTaskUseCase(
-          taskRepository: taskRepository,
-        ),
-        reopenTaskUseCase: ReopenTaskUseCase(taskRepository: taskRepository),
-        createCategoryUseCase: CreateCategoryUseCase(
-          categoryRepository: categoryRepository,
-        ),
-        renameCategoryUseCase: RenameCategoryUseCase(
-          categoryRepository: categoryRepository,
-        ),
-        deleteCategoryUseCase: DeleteCategoryUseCase(
-          categoryRepository: categoryRepository,
-        ),
-      )..init(),
+      ],
       child: MaterialApp(
         title: 'Focus Flow',
         debugShowCheckedModeBanner: false,

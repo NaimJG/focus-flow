@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../features/pomodoro/presentation/screens/pomodoro_screen.dart';
 import '../features/todo/domain/entities/task.dart';
 import '../features/todo/presentation/screens/category_manager_screen.dart';
 import '../features/todo/presentation/screens/task_form_screen.dart';
@@ -24,6 +25,9 @@ abstract final class Routes {
 
   /// The category creation screen (opens with input visible).
   static const String categoriesNew = '/todo/categories/new';
+
+  /// The Pomodoro timer screen.
+  static const String pomodoro = '/pomodoro';
 
   /// Returns the concrete edit route path for the given [id].
   ///
@@ -61,6 +65,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case Routes.categories:
       return MaterialPageRoute<void>(
         builder: (_) => const CategoryManagerScreen(),
+        settings: settings,
+      );
+
+    case Routes.pomodoro:
+      return MaterialPageRoute<void>(
+        builder: (_) => const PomodoroScreen(),
         settings: settings,
       );
 
