@@ -91,6 +91,78 @@
         "chatSessionId": "sess_5fc6ba1c-157f-4ca3-88aa-914a37393b96",
         "timestamp": 1785005234952
       }
+    ],
+    "2. Define repository interface and use cases": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785005842011
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006331488
+      }
+    ],
+    "2.1 Create `lib/features/pomodoro/domain/repositories/pomodoro_session_repository.dart`": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785005858080
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006051526
+      }
+    ],
+    "2.2 Create `lib/features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart`": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006056100
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006328474
+      }
+    ],
+    "2.3 Create `lib/features/pomodoro/domain/use_cases/get_sessions_use_case.dart`": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006056924
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006329248
+      }
+    ],
+    "2.4 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_date_range_use_case.dart`": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006057830
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006330136
+      }
+    ],
+    "2.5 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_task_id_use_case.dart`": [
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006058782
+      },
+      {
+        "executionId": "5389b6dd-393b-4280-95a1-ba61d9a5960c",
+        "chatSessionId": "sess_441309a2-595c-43b3-8997-5420214f3a81",
+        "timestamp": 1785006331173
+      }
     ]
   }
 }

@@ -53,28 +53,28 @@ language is **Dart / Flutter**.
 
 ### Group 2 — Domain Layer (Repository Interface + Use Cases)
 
-- [ ] 2. Define repository interface and use cases
-  - [ ] 2.1 Create `lib/features/pomodoro/domain/repositories/pomodoro_session_repository.dart`
+- [x] 2. Define repository interface and use cases
+  - [x] 2.1 Create `lib/features/pomodoro/domain/repositories/pomodoro_session_repository.dart`
     - Abstract interface with `create(PomodoroSession)`, `getAll()`,
       `getByDateRange({required DateTime start, required DateTime end})`,
       `getByTaskId(int taskId)`, `getByNullTask()`.
     - All query methods return `Future<List<PomodoroSession>>`. `create` returns
       `Future<PomodoroSession>`.
     - _Requirements: 9.1, 16.4, 16.5, 16.6 / Design: Repository Interfaces_
-  - [ ] 2.2 Create `lib/features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart`
+  - [x] 2.2 Create `lib/features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart`
     - Constructor-injected `PomodoroSessionRepository`.
     - Single `call(PomodoroSession session)` → delegates to `repository.create(session)`.
     - _Requirements: 9.1, 6.4 / Design: Use Cases — SavePomodoroSessionUseCase_
-  - [ ] 2.3 Create `lib/features/pomodoro/domain/use_cases/get_sessions_use_case.dart`
+  - [x] 2.3 Create `lib/features/pomodoro/domain/use_cases/get_sessions_use_case.dart`
     - Constructor-injected `PomodoroSessionRepository`.
     - Single `call()` → delegates to `repository.getAll()`.
     - _Requirements: 16.4 / Design: Use Cases — GetSessionsUseCase_
-  - [ ] 2.4 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_date_range_use_case.dart`
+  - [x] 2.4 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_date_range_use_case.dart`
     - Constructor-injected `PomodoroSessionRepository`.
     - Single `call({required DateTime start, required DateTime end})` → delegates to
       `repository.getByDateRange(start: start, end: end)`.
     - _Requirements: 16.4, 16.6 / Design: Use Cases — GetSessionsByDateRangeUseCase_
-  - [ ] 2.5 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_task_id_use_case.dart`
+  - [x] 2.5 Create `lib/features/pomodoro/domain/use_cases/get_sessions_by_task_id_use_case.dart`
     - Constructor-injected `PomodoroSessionRepository`.
     - Single `call(int? taskId)` → routes to `repository.getByTaskId(taskId)` when non-null,
       `repository.getByNullTask()` when null.
