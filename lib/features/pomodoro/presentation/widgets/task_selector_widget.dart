@@ -46,6 +46,7 @@ class TaskSelectorWidget extends StatelessWidget {
     if (tasks.isEmpty) {
       return DropdownButtonFormField<int?>(
         initialValue: null,
+        isExpanded: true,
         decoration: const InputDecoration(
           labelText: 'Task',
           hintText: 'No tasks available',
@@ -57,18 +58,38 @@ class TaskSelectorWidget extends StatelessWidget {
 
     final sorted = _sortedTasks();
 
+    // Build the list of dropdown items: "No task" + sorted tasks.
+    final items = <DropdownMenuItem<int?>>[
+      const DropdownMenuItem<int?>(value: null, child: Text('No task')),
+      ...sorted.map((task) {
+        return DropdownMenuItem<int?>(
+          value: task.id,
+          child: Text(task.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+        );
+      }),
+    ];
+
+    // selectedItemBuilder ensures the selected value in the closed
+    // dropdown also respects available width with ellipsis.
+    final selectedItemBuilders = <Widget>[
+      const Align(
+        alignment: AlignmentDirectional.centerStart,
+        child: Text('No task', maxLines: 1, overflow: TextOverflow.ellipsis),
+      ),
+      ...sorted.map((task) {
+        return Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: Text(task.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+        );
+      }),
+    ];
+
     return DropdownButtonFormField<int?>(
       initialValue: selectedTaskId,
+      isExpanded: true,
       decoration: const InputDecoration(labelText: 'Task'),
-      items: [
-        const DropdownMenuItem<int?>(value: null, child: Text('No task')),
-        ...sorted.map((task) {
-          return DropdownMenuItem<int?>(
-            value: task.id,
-            child: Text(task.title, overflow: TextOverflow.ellipsis),
-          );
-        }),
-      ],
+      items: items,
+      selectedItemBuilder: (context) => selectedItemBuilders,
       onChanged: enabled
           ? (value) {
               if (value == null) {

@@ -29,6 +29,9 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   final SavePomodoroSessionUseCase _saveSessionUseCase;
   final List<PomodoroTaskOption> Function() _taskListProvider;
 
+  // --- Task list ---
+  List<PomodoroTaskOption> _availableTasks = [];
+
   // --- Timer state ---
   TimerMode _currentMode = TimerMode.focus;
   TimerStatus _status = TimerStatus.idle;
@@ -85,8 +88,9 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   /// The duration configuration used by this controller.
   PomodoroConfig get config => _config;
 
-  /// The current list of available tasks from the task list provider.
-  List<PomodoroTaskOption> get availableTasks => _taskListProvider();
+  /// The current list of available tasks.
+  List<PomodoroTaskOption> get availableTasks =>
+      List.unmodifiable(_availableTasks);
 
   /// The mode that just finished. Non-null only when [status] is
   /// [TimerStatus.completed]. Used by the UI to display which mode
@@ -211,6 +215,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   /// Registers the lifecycle observer.
   Future<void> init() async {
     WidgetsBinding.instance.addObserver(this);
+    _availableTasks = List.of(_taskListProvider());
     _isLoading = false;
     notifyListeners();
   }
@@ -289,8 +294,9 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
 
   String? _resolveTaskTitleSnapshot() {
     if (_selectedTaskId == null) return null;
-    final tasks = _taskListProvider();
-    final match = tasks.where((t) => t.id == _selectedTaskId).firstOrNull;
+    final match = _availableTasks
+        .where((t) => t.id == _selectedTaskId)
+        .firstOrNull;
     if (match != null) return match.title;
     return _selectedTaskTitle;
   }
@@ -320,6 +326,49 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
       case TimerMode.longBreak:
         return TimerMode.focus;
     }
+  }
+
+  /// Replaces the available task options with [tasks].
+  ///
+  /// Notifies listeners only when the list contents actually changed.
+  /// Preserves the currently selected task when it still exists in the
+  /// new list. Keeps the selected task title as fallback if the task
+  /// was deleted.
+  void updateAvailableTasks(List<PomodoroTaskOption> tasks) {
+    // Check if contents changed (shallow comparison by id, title,
+    // isCompleted).
+    if (_listsEqual(_availableTasks, tasks)) return;
+
+    _availableTasks = List.of(tasks);
+
+    // Preserve selection if task still exists.
+    if (_selectedTaskId != null) {
+      final stillExists = _availableTasks.any((t) => t.id == _selectedTaskId);
+      if (stillExists) {
+        // Update title in case it changed.
+        final current = _availableTasks.firstWhere(
+          (t) => t.id == _selectedTaskId,
+        );
+        _selectedTaskTitle = current.title;
+      }
+      // If deleted, keep _selectedTaskId and _selectedTaskTitle as
+      // fallback. The title snapshot is preserved for session
+      // persistence.
+    }
+
+    notifyListeners();
+  }
+
+  bool _listsEqual(List<PomodoroTaskOption> a, List<PomodoroTaskOption> b) {
+    if (a.length != b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].id != b[i].id ||
+          a[i].title != b[i].title ||
+          a[i].isCompleted != b[i].isCompleted) {
+        return false;
+      }
+    }
+    return true;
   }
 
   @override

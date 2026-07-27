@@ -34,49 +34,61 @@ class FocusFlowApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final taskRepository = IsarTaskRepository(isar: isar);
     final categoryRepository = IsarCategoryRepository(isar: isar);
-
-    final todoController = TodoController(
-      getAllTasksUseCase: GetAllTasksUseCase(taskRepository: taskRepository),
-      getAllCategoriesUseCase: GetAllCategoriesUseCase(
-        categoryRepository: categoryRepository,
-      ),
-      createTaskUseCase: CreateTaskUseCase(taskRepository: taskRepository),
-      editTaskUseCase: EditTaskUseCase(taskRepository: taskRepository),
-      deleteTaskUseCase: DeleteTaskUseCase(taskRepository: taskRepository),
-      completeTaskUseCase: CompleteTaskUseCase(taskRepository: taskRepository),
-      reopenTaskUseCase: ReopenTaskUseCase(taskRepository: taskRepository),
-      createCategoryUseCase: CreateCategoryUseCase(
-        categoryRepository: categoryRepository,
-      ),
-      renameCategoryUseCase: RenameCategoryUseCase(
-        categoryRepository: categoryRepository,
-      ),
-      deleteCategoryUseCase: DeleteCategoryUseCase(
-        categoryRepository: categoryRepository,
-      ),
-    )..init();
-
     final pomodoroRepository = IsarPomodoroSessionRepository(isar: isar);
     final saveSessionUseCase = SavePomodoroSessionUseCase(pomodoroRepository);
 
-    final pomodoroController = PomodoroController(
-      saveSessionUseCase: saveSessionUseCase,
-      taskListProvider: () => todoController.allTasks
-          .map(
-            (task) => PomodoroTaskOption(
-              id: task.id,
-              title: task.title,
-              isCompleted: task.status == TaskStatus.completed,
-            ),
-          )
-          .toList(),
-    )..init();
-
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<TodoController>.value(value: todoController),
-        ChangeNotifierProvider<PomodoroController>.value(
-          value: pomodoroController,
+        ChangeNotifierProvider<TodoController>(
+          create: (_) => TodoController(
+            getAllTasksUseCase: GetAllTasksUseCase(
+              taskRepository: taskRepository,
+            ),
+            getAllCategoriesUseCase: GetAllCategoriesUseCase(
+              categoryRepository: categoryRepository,
+            ),
+            createTaskUseCase: CreateTaskUseCase(
+              taskRepository: taskRepository,
+            ),
+            editTaskUseCase: EditTaskUseCase(taskRepository: taskRepository),
+            deleteTaskUseCase: DeleteTaskUseCase(
+              taskRepository: taskRepository,
+            ),
+            completeTaskUseCase: CompleteTaskUseCase(
+              taskRepository: taskRepository,
+            ),
+            reopenTaskUseCase: ReopenTaskUseCase(
+              taskRepository: taskRepository,
+            ),
+            createCategoryUseCase: CreateCategoryUseCase(
+              categoryRepository: categoryRepository,
+            ),
+            renameCategoryUseCase: RenameCategoryUseCase(
+              categoryRepository: categoryRepository,
+            ),
+            deleteCategoryUseCase: DeleteCategoryUseCase(
+              categoryRepository: categoryRepository,
+            ),
+          )..init(),
+        ),
+        ChangeNotifierProxyProvider<TodoController, PomodoroController>(
+          create: (_) => PomodoroController(
+            saveSessionUseCase: saveSessionUseCase,
+            taskListProvider: () => [],
+          )..init(),
+          update: (_, todoController, pomodoroController) {
+            final tasks = todoController.allTasks
+                .map(
+                  (task) => PomodoroTaskOption(
+                    id: task.id,
+                    title: task.title,
+                    isCompleted: task.status == TaskStatus.completed,
+                  ),
+                )
+                .toList();
+            pomodoroController!.updateAvailableTasks(tasks);
+            return pomodoroController;
+          },
         ),
       ],
       child: MaterialApp(
