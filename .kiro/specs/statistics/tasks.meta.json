@@ -132,6 +132,25 @@
         "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
         "timestamp": 1785188983194
       }
+    ],
+    "3. Define repository interface": [
+      {
+        "executionId": "1288987f-b7da-4006-a490-fd7edcfb16fe",
+        "chatSessionId": "sess_a47b64a5-6be0-44b1-b304-a6c91cb71dfe",
+        "timestamp": 1785189556581
+      },
+      {
+        "executionId": "1288987f-b7da-4006-a490-fd7edcfb16fe",
+        "chatSessionId": "sess_a47b64a5-6be0-44b1-b304-a6c91cb71dfe",
+        "timestamp": 1785189737538
+      }
+    ],
+    "3.1 Create `lib/features/statistics/domain/repositories/statistics_session_source.dart`": [
+      {
+        "executionId": "1288987f-b7da-4006-a490-fd7edcfb16fe",
+        "chatSessionId": "sess_a47b64a5-6be0-44b1-b304-a6c91cb71dfe",
+        "timestamp": 1785189737144
+      }
     ]
   }
 }

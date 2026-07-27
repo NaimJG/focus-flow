@@ -71,8 +71,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 3 — Repository Interface
 
-- [ ] 3. Define repository interface
-  - [ ] 3.1 Create `lib/features/statistics/domain/repositories/statistics_session_source.dart`
+- [x] 3. Define repository interface
+  - [x] 3.1 Create `lib/features/statistics/domain/repositories/statistics_session_source.dart`
     - Abstract interface class `StatisticsSessionSource` with single method: `Future<List<FocusSession>> getSessionsByDateRange({required DateTime start, required DateTime end})`.
     - Import `FocusSession` from the domain entities.
     - _Requirements: 12.3, 12.4 / Design: Repository Interface — StatisticsSessionSource_
