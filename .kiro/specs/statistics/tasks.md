@@ -16,8 +16,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 1 — Shared Infrastructure Refactor
 
-- [ ] 1. Move Clock to shared location
-  - [ ] 1.1 Move `Clock` and `SystemClock` from `lib/features/pomodoro/domain/entities/clock.dart` to `lib/core/utils/clock.dart`
+- [x] 1. Move Clock to shared location
+  - [x] 1.1 Move `Clock` and `SystemClock` from `lib/features/pomodoro/domain/entities/clock.dart` to `lib/core/utils/clock.dart`
     - Copy the file to the new location preserving the same API.
     - Update the original file to re-export from `core/utils/clock.dart` OR update all Pomodoro imports to point to the new location.
     - Verify `flutter analyze` passes with no broken imports.
