@@ -27,42 +27,42 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 2 — Domain Entities
 
-- [ ] 2. Define Statistics domain entities
-  - [ ] 2.1 Create `lib/features/statistics/domain/entities/statistics_period.dart`
+- [x] 2. Define Statistics domain entities
+  - [x] 2.1 Create `lib/features/statistics/domain/entities/statistics_period.dart`
     - Define `enum StatisticsPeriod { today, week, month }`.
     - _Requirements: 1.3, 12.4 / Design: Domain Entities — StatisticsPeriod_
 
-  - [ ] 2.2 Create `lib/features/statistics/domain/entities/statistics_date_range.dart`
+  - [x] 2.2 Create `lib/features/statistics/domain/entities/statistics_date_range.dart`
     - Immutable value object with `const` constructor: `start` (DateTime, UTC inclusive), `end` (DateTime, UTC exclusive).
     - All fields `final`.
     - _Requirements: 2.1, 2.2, 2.3, 12.4 / Design: Domain Entities — StatisticsDateRange_
 
-  - [ ] 2.3 Create `lib/features/statistics/domain/entities/focus_session.dart`
+  - [x] 2.3 Create `lib/features/statistics/domain/entities/focus_session.dart`
     - Statistics-owned DTO with `const` constructor: `startedAt` (DateTime UTC), `actualDurationSeconds` (int), `taskId` (int?), `taskTitleSnapshot` (String?).
     - All fields `final`.
     - _Requirements: 12.4, 12.5 / Design: Domain Entities — FocusSession_
 
-  - [ ] 2.4 Create `lib/features/statistics/domain/entities/statistics_summary.dart`
+  - [x] 2.4 Create `lib/features/statistics/domain/entities/statistics_summary.dart`
     - Immutable class with `const` constructor: `totalFocusedSeconds` (int), `sessionCount` (int), `averageSessionSeconds` (int).
     - All fields `final`.
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 12.4 / Design: Domain Entities — StatisticsSummary_
 
-  - [ ] 2.5 Create `lib/features/statistics/domain/entities/daily_focus_statistics.dart`
+  - [x] 2.5 Create `lib/features/statistics/domain/entities/daily_focus_statistics.dart`
     - Immutable class with `const` constructor: `date` (DateTime, local day with time zeroed), `totalFocusedSeconds` (int), `sessionCount` (int).
     - All fields `final`.
     - _Requirements: 4.1, 4.2, 4.6, 12.4 / Design: Domain Entities — DailyFocusStatistics_
 
-  - [ ] 2.6 Create `lib/features/statistics/domain/entities/task_focus_statistics.dart`
+  - [x] 2.6 Create `lib/features/statistics/domain/entities/task_focus_statistics.dart`
     - Immutable class with `const` constructor: `taskId` (int?), `displayTitle` (String), `totalFocusedSeconds` (int), `sessionCount` (int), `percentage` (double, 0.0–1.0).
     - All fields `final`.
     - _Requirements: 6.1, 6.2, 6.3, 12.4 / Design: Domain Entities — TaskFocusStatistics_
 
-  - [ ] 2.7 Create `lib/features/statistics/domain/entities/category_focus_statistics.dart`
+  - [x] 2.7 Create `lib/features/statistics/domain/entities/category_focus_statistics.dart`
     - Immutable class with `const` constructor: `categoryId` (int?), `displayName` (String), `totalFocusedSeconds` (int), `sessionCount` (int), `percentage` (double, 0.0–1.0).
     - All fields `final`.
     - _Requirements: 7.1, 7.2, 7.3, 12.4 / Design: Domain Entities — CategoryFocusStatistics_
 
-  - [ ] 2.8 Create `lib/features/statistics/domain/entities/statistics_task_category_option.dart`
+  - [x] 2.8 Create `lib/features/statistics/domain/entities/statistics_task_category_option.dart`
     - Immutable class with `const` constructor: `taskId` (int), `categoryId` (int?), `categoryName` (String?).
     - All fields `final`.
     - _Requirements: 7.1, 7.6, 12.4 / Design: Domain Entities — StatisticsTaskCategoryOption_

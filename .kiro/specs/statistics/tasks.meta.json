@@ -24,6 +24,114 @@
         "chatSessionId": "sess_f6b4d8f7-9bcd-4707-9ab1-b61b562ca404",
         "timestamp": 1785188159111
       }
+    ],
+    "2. Define Statistics domain entities": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188514360
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188983316
+      }
+    ],
+    "2.1 Create `lib/features/statistics/domain/entities/statistics_period.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188519367
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188696330
+      }
+    ],
+    "2.2 Create `lib/features/statistics/domain/entities/statistics_date_range.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188520150
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188697000
+      }
+    ],
+    "2.3 Create `lib/features/statistics/domain/entities/focus_session.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188521049
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188697791
+      }
+    ],
+    "2.4 Create `lib/features/statistics/domain/entities/statistics_summary.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188521770
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188698634
+      }
+    ],
+    "2.5 Create `lib/features/statistics/domain/entities/daily_focus_statistics.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188522704
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188699459
+      }
+    ],
+    "2.6 Create `lib/features/statistics/domain/entities/task_focus_statistics.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188704198
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188981720
+      }
+    ],
+    "2.7 Create `lib/features/statistics/domain/entities/category_focus_statistics.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188705008
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188982469
+      }
+    ],
+    "2.8 Create `lib/features/statistics/domain/entities/statistics_task_category_option.dart`": [
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188705945
+      },
+      {
+        "executionId": "ae4cfe94-de93-42f8-aeff-ea97f2fb3d52",
+        "chatSessionId": "sess_0edb53cd-cfdd-47d9-8674-1f6338f1c04a",
+        "timestamp": 1785188983194
+      }
     ]
   }
 }
