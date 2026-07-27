@@ -151,6 +151,85 @@
         "chatSessionId": "sess_a47b64a5-6be0-44b1-b304-a6c91cb71dfe",
         "timestamp": 1785189737144
       }
+    ],
+    "4.1 Create `lib/features/statistics/domain/use_cases/calculate_date_range_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190197587
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191068730
+      }
+    ],
+    "4.2 Create `lib/features/statistics/domain/use_cases/get_sessions_by_date_range_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190198422
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191068947
+      }
+    ],
+    "4.3 Create `lib/features/statistics/domain/use_cases/calculate_summary_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190199253
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191069140
+      }
+    ],
+    "4.4 Create `lib/features/statistics/domain/use_cases/group_sessions_by_day_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190200133
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191070032
+      }
+    ],
+    "4.5 Create `lib/features/statistics/domain/use_cases/group_sessions_by_task_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190201011
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191070893
+      }
+    ],
+    "4.6 Create `lib/features/statistics/domain/use_cases/group_sessions_by_category_use_case.dart`": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785190202035
+      },
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191071818
+      }
+    ],
+    "4. Implement use cases": [
+      {
+        "executionId": "6d5563ab-3a7d-49c7-9a7e-398d8f24cab4",
+        "chatSessionId": "sess_b9a7132c-0f26-448d-b5a9-a533d2608446",
+        "timestamp": 1785191071914
+      }
     ]
   }
 }

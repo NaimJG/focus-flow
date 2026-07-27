@@ -81,8 +81,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 4 — Use Cases
 
-- [ ] 4. Implement use cases
-  - [ ] 4.1 Create `lib/features/statistics/domain/use_cases/calculate_date_range_use_case.dart`
+- [x] 4. Implement use cases
+  - [x] 4.1 Create `lib/features/statistics/domain/use_cases/calculate_date_range_use_case.dart`
     - Constructor-injected `Clock` from `core/utils/clock.dart`.
     - `StatisticsDateRange call(StatisticsPeriod period)` — computes UTC boundaries.
     - Today: start = local today 00:00 → UTC; end = local tomorrow 00:00 → UTC.
@@ -91,12 +91,12 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - Handle December → January year rollover.
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5 / Design: Use Cases — CalculateDateRangeUseCase_
 
-  - [ ] 4.2 Create `lib/features/statistics/domain/use_cases/get_sessions_by_date_range_use_case.dart`
+  - [x] 4.2 Create `lib/features/statistics/domain/use_cases/get_sessions_by_date_range_use_case.dart`
     - Constructor-injected `StatisticsSessionSource`.
     - `Future<List<FocusSession>> call(StatisticsDateRange range)` — delegates to source with `range.start` and `range.end`.
     - _Requirements: 12.3 / Design: Use Cases — GetSessionsByDateRangeUseCase_
 
-  - [ ] 4.3 Create `lib/features/statistics/domain/use_cases/calculate_summary_use_case.dart`
+  - [x] 4.3 Create `lib/features/statistics/domain/use_cases/calculate_summary_use_case.dart`
     - No dependencies (pure computation).
     - `StatisticsSummary call(List<FocusSession> sessions)`.
     - `totalFocusedSeconds` = sum of `actualDurationSeconds`.
@@ -104,7 +104,7 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - `averageSessionSeconds` = `sessionCount > 0 ? totalFocusedSeconds ~/ sessionCount : 0`.
     - _Requirements: 3.1, 3.2, 3.3, 3.4 / Design: Use Cases — CalculateSummaryUseCase_
 
-  - [ ] 4.4 Create `lib/features/statistics/domain/use_cases/group_sessions_by_day_use_case.dart`
+  - [x] 4.4 Create `lib/features/statistics/domain/use_cases/group_sessions_by_day_use_case.dart`
     - No dependencies (pure computation).
     - `List<DailyFocusStatistics> call(List<FocusSession> sessions, StatisticsDateRange range)`.
     - Convert range boundaries from UTC to local to determine calendar days.
@@ -114,7 +114,7 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - Return chronologically ordered list.
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6 / Design: Use Cases — GroupSessionsByDayUseCase_
 
-  - [ ] 4.5 Create `lib/features/statistics/domain/use_cases/group_sessions_by_task_use_case.dart`
+  - [x] 4.5 Create `lib/features/statistics/domain/use_cases/group_sessions_by_task_use_case.dart`
     - No dependencies (pure computation).
     - `List<TaskFocusStatistics> call(List<FocusSession> sessions)`.
     - Group by `taskId`. Null taskId → single "No task" group.
@@ -123,7 +123,7 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - Sort by `totalFocusedSeconds` descending; ties broken by `displayTitle` alphabetically (case-insensitive).
     - _Requirements: 6.1, 6.2, 6.3, 6.4 / Design: Use Cases — GroupSessionsByTaskUseCase_
 
-  - [ ] 4.6 Create `lib/features/statistics/domain/use_cases/group_sessions_by_category_use_case.dart`
+  - [x] 4.6 Create `lib/features/statistics/domain/use_cases/group_sessions_by_category_use_case.dart`
     - No dependencies (pure computation).
     - `List<CategoryFocusStatistics> call(List<FocusSession> sessions, List<StatisticsTaskCategoryOption> taskCategoryMapping)`.
     - Build lookup map from mapping list.
