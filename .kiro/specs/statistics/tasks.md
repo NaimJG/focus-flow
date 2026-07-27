@@ -147,8 +147,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 6 — State Management
 
-- [ ] 6. Implement StatisticsController
-  - [ ] 6.1 Create `lib/features/statistics/presentation/controllers/statistics_controller.dart`
+- [x] 6. Implement StatisticsController
+  - [x] 6.1 Create `lib/features/statistics/presentation/controllers/statistics_controller.dart`
     - `extends ChangeNotifier`. Constructor parameters: all six use cases + `List<StatisticsTaskCategoryOption> taskCategoryMapping`.
     - State: `_selectedPeriod` (default: today), `_dateRange`, `_summary`, `_dailyActivity`, `_taskBreakdown`, `_categoryBreakdown`, `_isLoading`, `_errorMessage`, `_isEmpty`.
     - Public getters for all state fields.

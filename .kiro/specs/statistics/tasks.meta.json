@@ -254,6 +254,30 @@
         "chatSessionId": "sess_a46bfe05-64df-4935-83b6-bac81becff68",
         "timestamp": 1785192415307
       }
+    ],
+    "6. Implement StatisticsController": [
+      {
+        "executionId": "74efab00-e3c3-4f9f-8dc9-23a7eba0c576",
+        "chatSessionId": "sess_b7647cd2-9bf2-4081-9cec-33b6670d0152",
+        "timestamp": 1785192878285
+      },
+      {
+        "executionId": "74efab00-e3c3-4f9f-8dc9-23a7eba0c576",
+        "chatSessionId": "sess_b7647cd2-9bf2-4081-9cec-33b6670d0152",
+        "timestamp": 1785195612516
+      }
+    ],
+    "6.1 Create `lib/features/statistics/presentation/controllers/statistics_controller.dart`": [
+      {
+        "executionId": "74efab00-e3c3-4f9f-8dc9-23a7eba0c576",
+        "chatSessionId": "sess_b7647cd2-9bf2-4081-9cec-33b6670d0152",
+        "timestamp": 1785192882253
+      },
+      {
+        "executionId": "74efab00-e3c3-4f9f-8dc9-23a7eba0c576",
+        "chatSessionId": "sess_b7647cd2-9bf2-4081-9cec-33b6670d0152",
+        "timestamp": 1785195612206
+      }
     ]
   }
 }
