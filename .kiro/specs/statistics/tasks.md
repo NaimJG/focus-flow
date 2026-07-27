@@ -136,8 +136,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 5 — Data Layer Adapter
 
-- [ ] 5. Implement data layer adapter
-  - [ ] 5.1 Create `lib/features/statistics/data/repositories/statistics_session_adapter.dart`
+- [x] 5. Implement data layer adapter
+  - [x] 5.1 Create `lib/features/statistics/data/repositories/statistics_session_adapter.dart`
     - Implements `StatisticsSessionSource`.
     - Constructor-injected `PomodoroSessionRepository` (from Pomodoro feature's domain layer).
     - `getSessionsByDateRange`: delegates to `PomodoroSessionRepository.getByDateRange`, filters to focus-mode sessions only (`timerMode == TimerMode.focus`), maps `PomodoroSession` → `FocusSession`.
