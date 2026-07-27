@@ -164,8 +164,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 7 — Presentation Utility
 
-- [ ] 7. Implement duration formatter
-  - [ ] 7.1 Create `lib/features/statistics/presentation/utils/duration_formatter.dart`
+- [x] 7. Implement duration formatter
+  - [x] 7.1 Create `lib/features/statistics/presentation/utils/duration_formatter.dart`
     - Pure function `String formatDuration(int totalSeconds)`.
     - 0 seconds → "0 min".
     - 1–3599 seconds → "{minutes} min" (e.g., "45 min").

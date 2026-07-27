@@ -278,6 +278,30 @@
         "chatSessionId": "sess_b7647cd2-9bf2-4081-9cec-33b6670d0152",
         "timestamp": 1785195612206
       }
+    ],
+    "7. Implement duration formatter": [
+      {
+        "executionId": "8cf988a7-dd30-456c-a0e7-2ef950de0d79",
+        "chatSessionId": "sess_8a21d4a0-c3fe-48db-b968-ef478d8659cd",
+        "timestamp": 1785196156215
+      },
+      {
+        "executionId": "8cf988a7-dd30-456c-a0e7-2ef950de0d79",
+        "chatSessionId": "sess_8a21d4a0-c3fe-48db-b968-ef478d8659cd",
+        "timestamp": 1785196296703
+      }
+    ],
+    "7.1 Create `lib/features/statistics/presentation/utils/duration_formatter.dart`": [
+      {
+        "executionId": "8cf988a7-dd30-456c-a0e7-2ef950de0d79",
+        "chatSessionId": "sess_8a21d4a0-c3fe-48db-b968-ef478d8659cd",
+        "timestamp": 1785196160220
+      },
+      {
+        "executionId": "8cf988a7-dd30-456c-a0e7-2ef950de0d79",
+        "chatSessionId": "sess_8a21d4a0-c3fe-48db-b968-ef478d8659cd",
+        "timestamp": 1785196296233
+      }
     ]
   }
 }
