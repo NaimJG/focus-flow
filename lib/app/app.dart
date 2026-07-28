@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart';
 import '../features/pomodoro/domain/entities/pomodoro_task_option.dart';
+import '../features/pomodoro/domain/repositories/pomodoro_session_repository.dart';
 import '../features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart';
 import '../features/pomodoro/presentation/controllers/pomodoro_controller.dart';
 import '../features/todo/data/repositories/isar_category_repository.dart';
@@ -39,6 +40,7 @@ class FocusFlowApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
+        Provider<PomodoroSessionRepository>.value(value: pomodoroRepository),
         ChangeNotifierProvider<TodoController>(
           create: (_) => TodoController(
             getAllTasksUseCase: GetAllTasksUseCase(

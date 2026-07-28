@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../core/utils/clock.dart';
+import '../features/pomodoro/domain/repositories/pomodoro_session_repository.dart';
 import '../features/pomodoro/presentation/screens/pomodoro_screen.dart';
+import '../features/statistics/data/repositories/statistics_session_adapter.dart';
+import '../features/statistics/domain/entities/statistics_task_category_option.dart';
+import '../features/statistics/domain/use_cases/calculate_date_range_use_case.dart';
+import '../features/statistics/domain/use_cases/calculate_summary_use_case.dart';
+import '../features/statistics/domain/use_cases/get_sessions_by_date_range_use_case.dart';
+import '../features/statistics/domain/use_cases/group_sessions_by_category_use_case.dart';
+import '../features/statistics/domain/use_cases/group_sessions_by_day_use_case.dart';
+import '../features/statistics/domain/use_cases/group_sessions_by_task_use_case.dart';
+import '../features/statistics/presentation/controllers/statistics_controller.dart';
+import '../features/statistics/presentation/screens/statistics_screen.dart';
 import '../features/todo/domain/entities/task.dart';
+import '../features/todo/presentation/controllers/todo_controller.dart';
 import '../features/todo/presentation/screens/category_manager_screen.dart';
 import '../features/todo/presentation/screens/task_form_screen.dart';
 import '../features/todo/presentation/screens/todo_screen.dart';
@@ -28,6 +42,9 @@ abstract final class Routes {
 
   /// The Pomodoro timer screen.
   static const String pomodoro = '/pomodoro';
+
+  /// The Statistics screen.
+  static const String statistics = '/statistics';
 
   /// Returns the concrete edit route path for the given [id].
   ///
@@ -71,6 +88,65 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case Routes.pomodoro:
       return MaterialPageRoute<void>(
         builder: (_) => const PomodoroScreen(),
+        settings: settings,
+      );
+
+    case Routes.statistics:
+      return MaterialPageRoute<void>(
+        builder: (context) {
+          final pomodoroRepo = Provider.of<PomodoroSessionRepository>(
+            context,
+            listen: false,
+          );
+          final todoController = Provider.of<TodoController>(
+            context,
+            listen: false,
+          );
+
+          final adapter = StatisticsSessionAdapter(
+            pomodoroSessionRepository: pomodoroRepo,
+          );
+
+          final clock = const SystemClock();
+          final calculateDateRange = CalculateDateRangeUseCase(clock);
+          final getSessionsByDateRange = GetSessionsByDateRangeUseCase(
+            source: adapter,
+          );
+          final calculateSummary = const CalculateSummaryUseCase();
+          final groupByDay = const GroupSessionsByDayUseCase();
+          final groupByTask = const GroupSessionsByTaskUseCase();
+          final groupByCategory = const GroupSessionsByCategoryUseCase();
+
+          final categories = todoController.categories;
+          final categoryMap = <int, String>{
+            for (final cat in categories) cat.id: cat.name,
+          };
+
+          final taskCategoryMapping = todoController.allTasks
+              .map(
+                (task) => StatisticsTaskCategoryOption(
+                  taskId: task.id,
+                  categoryId: task.categoryId,
+                  categoryName: task.categoryId != null
+                      ? categoryMap[task.categoryId]
+                      : null,
+                ),
+              )
+              .toList();
+
+          return ChangeNotifierProvider<StatisticsController>(
+            create: (_) => StatisticsController(
+              calculateDateRangeUseCase: calculateDateRange,
+              getSessionsByDateRangeUseCase: getSessionsByDateRange,
+              calculateSummaryUseCase: calculateSummary,
+              groupSessionsByDayUseCase: groupByDay,
+              groupSessionsByTaskUseCase: groupByTask,
+              groupSessionsByCategoryUseCase: groupByCategory,
+              taskCategoryMapping: taskCategoryMapping,
+            )..init(),
+            child: const StatisticsScreen(),
+          );
+        },
         settings: settings,
       );
 

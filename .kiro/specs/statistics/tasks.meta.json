@@ -405,6 +405,37 @@
         "chatSessionId": "sess_c74f7589-f50b-46b7-b043-43ac47895b1b",
         "timestamp": 1785197941241
       }
+    ],
+    "10.1 Update `lib/app/router.dart` — register `/statistics` route": [
+      {
+        "executionId": "04969648-7ae6-4664-8701-40fc4d35699b",
+        "chatSessionId": "sess_eb5854db-eef8-4866-a06d-dfb860d902ea",
+        "timestamp": 1785198303441
+      },
+      {
+        "executionId": "04969648-7ae6-4664-8701-40fc4d35699b",
+        "chatSessionId": "sess_eb5854db-eef8-4866-a06d-dfb860d902ea",
+        "timestamp": 1785198623127
+      }
+    ],
+    "10.2 Update `lib/app/app.dart` — expose dependencies for statistics route": [
+      {
+        "executionId": "04969648-7ae6-4664-8701-40fc4d35699b",
+        "chatSessionId": "sess_eb5854db-eef8-4866-a06d-dfb860d902ea",
+        "timestamp": 1785198303676
+      },
+      {
+        "executionId": "04969648-7ae6-4664-8701-40fc4d35699b",
+        "chatSessionId": "sess_eb5854db-eef8-4866-a06d-dfb860d902ea",
+        "timestamp": 1785198623991
+      }
+    ],
+    "10. Wire Statistics into app navigation": [
+      {
+        "executionId": "04969648-7ae6-4664-8701-40fc4d35699b",
+        "chatSessionId": "sess_eb5854db-eef8-4866-a06d-dfb860d902ea",
+        "timestamp": 1785198624194
+      }
     ]
   }
 }

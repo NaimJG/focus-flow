@@ -247,15 +247,15 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 10 — Navigation Wiring
 
-- [ ] 10. Wire Statistics into app navigation
-  - [ ] 10.1 Update `lib/app/router.dart` — register `/statistics` route
+- [x] 10. Wire Statistics into app navigation
+  - [x] 10.1 Update `lib/app/router.dart` — register `/statistics` route
     - Add `static const String statistics = '/statistics';` to `Routes` class.
     - Add case in `onGenerateRoute` that returns `MaterialPageRoute` building the `StatisticsScreen` wrapped in a route-scoped `ChangeNotifierProvider<StatisticsController>`.
     - Inside the route builder: instantiate `StatisticsSessionAdapter` (using `PomodoroSessionRepository`), all use cases, build task-category mapping from `TodoController`, create `StatisticsController`, call `init()`.
     - Import required classes.
     - _Requirements: 11.1, 11.2, 11.3 / Design: Architecture — Provider Scope Decision_
 
-  - [ ] 10.2 Update `lib/app/app.dart` — expose dependencies for statistics route
+  - [x] 10.2 Update `lib/app/app.dart` — expose dependencies for statistics route
     - Ensure `PomodoroSessionRepository` instance is accessible to the `/statistics` route builder (either passed via Provider or accessed directly in the route builder closure).
     - Build `StatisticsTaskCategoryOption` mapping from `TodoController.allTasks` and `TodoController.categories` as described in design.
     - _Requirements: 7.6, 11.2, 11.3 / Design: Cross-Feature Integration — app.dart_
