@@ -20,7 +20,11 @@ import '../../domain/use_cases/group_sessions_by_task_use_case.dart';
 /// exit.
 class StatisticsController extends ChangeNotifier {
   /// Creates a [StatisticsController] with all required use cases
-  /// and the task-to-category mapping for category breakdown.
+  /// and a provider callback for the task-to-category mapping.
+  ///
+  /// The [_taskCategoryMappingProvider] is called each time data is
+  /// loaded, ensuring the category breakdown reflects the latest
+  /// todo state.
   StatisticsController({
     required this._calculateDateRangeUseCase,
     required this._getSessionsByDateRangeUseCase,
@@ -28,8 +32,8 @@ class StatisticsController extends ChangeNotifier {
     required this._groupSessionsByDayUseCase,
     required this._groupSessionsByTaskUseCase,
     required this._groupSessionsByCategoryUseCase,
-    required List<StatisticsTaskCategoryOption> taskCategoryMapping,
-  }) : _taskCategoryMapping = List.unmodifiable(taskCategoryMapping);
+    required this._taskCategoryMappingProvider,
+  });
 
   final CalculateDateRangeUseCase _calculateDateRangeUseCase;
   final GetSessionsByDateRangeUseCase _getSessionsByDateRangeUseCase;
@@ -37,7 +41,8 @@ class StatisticsController extends ChangeNotifier {
   final GroupSessionsByDayUseCase _groupSessionsByDayUseCase;
   final GroupSessionsByTaskUseCase _groupSessionsByTaskUseCase;
   final GroupSessionsByCategoryUseCase _groupSessionsByCategoryUseCase;
-  final List<StatisticsTaskCategoryOption> _taskCategoryMapping;
+  final List<StatisticsTaskCategoryOption> Function()
+  _taskCategoryMappingProvider;
 
   // --- State ---
   StatisticsPeriod _selectedPeriod = StatisticsPeriod.today;
@@ -126,7 +131,7 @@ class StatisticsController extends ChangeNotifier {
       _taskBreakdown = _groupSessionsByTaskUseCase.call(sessions);
       _categoryBreakdown = _groupSessionsByCategoryUseCase.call(
         sessions,
-        _taskCategoryMapping,
+        _taskCategoryMappingProvider(),
       );
       _isLoading = false;
       notifyListeners();

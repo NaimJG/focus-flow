@@ -60,7 +60,6 @@ abstract final class Routes {
 /// every todo route can access the same controller instance.
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case Routes.home:
     case Routes.todo:
       return MaterialPageRoute<void>(
         builder: (_) => const TodoScreen(),
@@ -91,62 +90,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         settings: settings,
       );
 
+    case Routes.home:
     case Routes.statistics:
       return MaterialPageRoute<void>(
-        builder: (context) {
-          final pomodoroRepo = Provider.of<PomodoroSessionRepository>(
-            context,
-            listen: false,
-          );
-          final todoController = Provider.of<TodoController>(
-            context,
-            listen: false,
-          );
-
-          final adapter = StatisticsSessionAdapter(
-            pomodoroSessionRepository: pomodoroRepo,
-          );
-
-          final clock = const SystemClock();
-          final calculateDateRange = CalculateDateRangeUseCase(clock);
-          final getSessionsByDateRange = GetSessionsByDateRangeUseCase(
-            source: adapter,
-          );
-          final calculateSummary = const CalculateSummaryUseCase();
-          final groupByDay = const GroupSessionsByDayUseCase();
-          final groupByTask = const GroupSessionsByTaskUseCase();
-          final groupByCategory = const GroupSessionsByCategoryUseCase();
-
-          final categories = todoController.categories;
-          final categoryMap = <int, String>{
-            for (final cat in categories) cat.id: cat.name,
-          };
-
-          final taskCategoryMapping = todoController.allTasks
-              .map(
-                (task) => StatisticsTaskCategoryOption(
-                  taskId: task.id,
-                  categoryId: task.categoryId,
-                  categoryName: task.categoryId != null
-                      ? categoryMap[task.categoryId]
-                      : null,
-                ),
-              )
-              .toList();
-
-          return ChangeNotifierProvider<StatisticsController>(
-            create: (_) => StatisticsController(
-              calculateDateRangeUseCase: calculateDateRange,
-              getSessionsByDateRangeUseCase: getSessionsByDateRange,
-              calculateSummaryUseCase: calculateSummary,
-              groupSessionsByDayUseCase: groupByDay,
-              groupSessionsByTaskUseCase: groupByTask,
-              groupSessionsByCategoryUseCase: groupByCategory,
-              taskCategoryMapping: taskCategoryMapping,
-            )..init(),
-            child: const StatisticsScreen(),
-          );
-        },
+        builder: (_) => const _StatisticsRoute(),
         settings: settings,
       );
 
@@ -190,6 +137,91 @@ Route<dynamic> _notFoundRoute(RouteSettings settings) {
     builder: (_) => const _NotFoundScreen(),
     settings: settings,
   );
+}
+
+/// A route wrapper that defers [StatisticsController] creation until
+/// [TodoController] has finished its initial load. This ensures the
+/// task-to-category mapping reflects the actual todo state rather than
+/// a stale empty snapshot captured at route-build time.
+class _StatisticsRoute extends StatefulWidget {
+  const _StatisticsRoute();
+
+  @override
+  State<_StatisticsRoute> createState() => _StatisticsRouteState();
+}
+
+class _StatisticsRouteState extends State<_StatisticsRoute> {
+  StatisticsController? _controller;
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+
+  StatisticsController _createController() {
+    final pomodoroRepo = context.read<PomodoroSessionRepository>();
+
+    final adapter = StatisticsSessionAdapter(
+      pomodoroSessionRepository: pomodoroRepo,
+    );
+
+    const clock = SystemClock();
+    final calculateDateRange = CalculateDateRangeUseCase(clock);
+    final getSessionsByDateRange = GetSessionsByDateRangeUseCase(
+      source: adapter,
+    );
+    const calculateSummary = CalculateSummaryUseCase();
+    const groupByDay = GroupSessionsByDayUseCase();
+    const groupByTask = GroupSessionsByTaskUseCase();
+    const groupByCategory = GroupSessionsByCategoryUseCase();
+
+    return StatisticsController(
+      calculateDateRangeUseCase: calculateDateRange,
+      getSessionsByDateRangeUseCase: getSessionsByDateRange,
+      calculateSummaryUseCase: calculateSummary,
+      groupSessionsByDayUseCase: groupByDay,
+      groupSessionsByTaskUseCase: groupByTask,
+      groupSessionsByCategoryUseCase: groupByCategory,
+      taskCategoryMappingProvider: () {
+        final todoCtrl = context.read<TodoController>();
+        final categories = todoCtrl.categories;
+        final categoryMap = <int, String>{
+          for (final cat in categories) cat.id: cat.name,
+        };
+        return List<StatisticsTaskCategoryOption>.unmodifiable(
+          todoCtrl.allTasks.map(
+            (task) => StatisticsTaskCategoryOption(
+              taskId: task.id,
+              categoryId: task.categoryId,
+              categoryName: task.categoryId != null
+                  ? categoryMap[task.categoryId]
+                  : null,
+            ),
+          ),
+        );
+      },
+    )..init();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final todoController = context.watch<TodoController>();
+
+    if (_controller == null && todoController.isLoading) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Statistics')),
+        body: const Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    _controller ??= _createController();
+
+    return ChangeNotifierProvider<StatisticsController>.value(
+      value: _controller!,
+      child: const StatisticsScreen(),
+    );
+  }
 }
 
 class _NotFoundScreen extends StatelessWidget {
