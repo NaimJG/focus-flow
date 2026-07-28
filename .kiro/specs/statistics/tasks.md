@@ -226,8 +226,8 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 9 — Statistics Screen
 
-- [ ] 9. Implement Statistics screen
-  - [ ] 9.1 Create `lib/features/statistics/presentation/screens/statistics_screen.dart`
+- [x] 9. Implement Statistics screen
+  - [x] 9.1 Create `lib/features/statistics/presentation/screens/statistics_screen.dart`
     - `Scaffold` with `AppBar(title: "Statistics")`.
     - Body: `RefreshIndicator` wrapping `SingleChildScrollView`.
     - Content flow: `PeriodSelector` always visible at top, then conditional content:
