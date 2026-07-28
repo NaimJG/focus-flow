@@ -176,14 +176,14 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 8 — Presentation Widgets
 
-- [ ] 8. Implement presentation widgets
-  - [ ] 8.1 Create `lib/features/statistics/presentation/widgets/period_selector.dart`
+- [x] 8. Implement presentation widgets
+  - [x] 8.1 Create `lib/features/statistics/presentation/widgets/period_selector.dart`
     - Stateless widget. Parameters: `selectedPeriod` (StatisticsPeriod), `onPeriodChanged` (ValueChanged<StatisticsPeriod>).
     - Renders `SegmentedButton<StatisticsPeriod>` with three segments: Today, This Week, This Month.
     - Accessible: each segment has a label readable by screen readers.
     - _Requirements: 1.1, 1.2, 1.3, 14.2 / Design: Presentation Widgets — PeriodSelector_
 
-  - [ ] 8.2 Create `lib/features/statistics/presentation/widgets/summary_cards_row.dart`
+  - [x] 8.2 Create `lib/features/statistics/presentation/widgets/summary_cards_row.dart`
     - Stateless widget. Parameters: `summary` (StatisticsSummary).
     - Three Material 3 `Card` widgets in a `Row` (using `Expanded`): Total Time, Sessions, Average.
     - Uses `formatDuration` for time values.
@@ -191,7 +191,7 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - Colors via `Theme.of(context)`.
     - _Requirements: 3.5, 3.6, 3.7, 13.1, 14.3 / Design: Presentation Widgets — SummaryCardsRow_
 
-  - [ ] 8.3 Create `lib/features/statistics/presentation/widgets/daily_activity_chart.dart`
+  - [x] 8.3 Create `lib/features/statistics/presentation/widgets/daily_activity_chart.dart`
     - Stateless widget. Parameters: `dailyData` (List<DailyFocusStatistics>).
     - Horizontal `Row` of vertical bars with proportional heights.
     - Bar height formula: `minBarHeight + (fraction * (maxBarHeight - minBarHeight))`. Max bar height fixed (e.g., 120dp).
@@ -201,21 +201,21 @@ root from TodoController data. The implementation language is **Dart / Flutter**
     - Uses `Expanded` per bar for responsive width distribution.
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 13.2, 14.4 / Design: Presentation Widgets — DailyActivityChart_
 
-  - [ ] 8.4 Create `lib/features/statistics/presentation/widgets/breakdown_item.dart`
+  - [x] 8.4 Create `lib/features/statistics/presentation/widgets/breakdown_item.dart`
     - Stateless widget. Parameters: `title` (String), `formattedTime` (String), `sessionCount` (int), `percentage` (double).
     - Displays: title (with `TextOverflow.ellipsis`), formatted duration, session count label, `LinearProgressIndicator` with `value = percentage`.
     - Provides `Semantics` label for the percentage value.
     - Touch target >= 48×48dp for accessibility.
     - _Requirements: 6.5, 6.6, 7.5, 13.3 / Design: Presentation Widgets — BreakdownItem_
 
-  - [ ] 8.5 Create `lib/features/statistics/presentation/widgets/task_breakdown_list.dart`
+  - [x] 8.5 Create `lib/features/statistics/presentation/widgets/task_breakdown_list.dart`
     - Stateless widget. Parameters: `taskData` (List<TaskFocusStatistics>).
     - Renders a `Column` of `BreakdownItem` widgets — one per task group.
     - Uses `formatDuration` for formatted time.
     - Section header: "By Task".
     - _Requirements: 6.5, 14.5 / Design: Presentation Widgets — TaskBreakdownList_
 
-  - [ ] 8.6 Create `lib/features/statistics/presentation/widgets/category_breakdown_list.dart`
+  - [x] 8.6 Create `lib/features/statistics/presentation/widgets/category_breakdown_list.dart`
     - Stateless widget. Parameters: `categoryData` (List<CategoryFocusStatistics>).
     - Renders a `Column` of `BreakdownItem` widgets — one per category group.
     - Uses `formatDuration` for formatted time.

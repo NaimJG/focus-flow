@@ -302,6 +302,85 @@
         "chatSessionId": "sess_8a21d4a0-c3fe-48db-b968-ef478d8659cd",
         "timestamp": 1785196296233
       }
+    ],
+    "8.1 Create `lib/features/statistics/presentation/widgets/period_selector.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196617341
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197270672
+      }
+    ],
+    "8.2 Create `lib/features/statistics/presentation/widgets/summary_cards_row.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196618127
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197271599
+      }
+    ],
+    "8.3 Create `lib/features/statistics/presentation/widgets/daily_activity_chart.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196618996
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197272349
+      }
+    ],
+    "8.4 Create `lib/features/statistics/presentation/widgets/breakdown_item.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196619878
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197272951
+      }
+    ],
+    "8.5 Create `lib/features/statistics/presentation/widgets/task_breakdown_list.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196620664
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197273807
+      }
+    ],
+    "8.6 Create `lib/features/statistics/presentation/widgets/category_breakdown_list.dart`": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785196624654
+      },
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197274636
+      }
+    ],
+    "8. Implement presentation widgets": [
+      {
+        "executionId": "95df7001-f0b5-4abf-9acc-5849afae2352",
+        "chatSessionId": "sess_5db21780-5a03-42d5-b0f4-cbfb0cd84ef0",
+        "timestamp": 1785197274845
+      }
     ]
   }
 }
