@@ -1,0 +1,43 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create HomeScreen with NavigationBar and IndexedStack": [
+      {
+        "executionId": "df98dd53-936d-4cf0-a1e2-44639637aaca",
+        "chatSessionId": "sess_79ee99fb-53b5-4e44-95d1-bdfca6165f0d",
+        "timestamp": 1785271880849
+      },
+      {
+        "executionId": "df98dd53-936d-4cf0-a1e2-44639637aaca",
+        "chatSessionId": "sess_79ee99fb-53b5-4e44-95d1-bdfca6165f0d",
+        "timestamp": 1785273856760
+      }
+    ],
+    "1. Create feature directory structure and HomeScreen shell": [
+      {
+        "executionId": "df98dd53-936d-4cf0-a1e2-44639637aaca",
+        "chatSessionId": "sess_79ee99fb-53b5-4e44-95d1-bdfca6165f0d",
+        "timestamp": 1785273857179
+      }
+    ],
+    "2.1 Create StatisticsTabHost with lazy controller lifecycle": [
+      {
+        "executionId": "daaaf8f0-247d-40ec-8a7d-d773cf197df8",
+        "chatSessionId": "sess_fa2d324d-23be-418f-89ef-e18638d4d29c",
+        "timestamp": 1785274056371
+      },
+      {
+        "executionId": "daaaf8f0-247d-40ec-8a7d-d773cf197df8",
+        "chatSessionId": "sess_fa2d324d-23be-418f-89ef-e18638d4d29c",
+        "timestamp": 1785274271374
+      }
+    ],
+    "2. Implement StatisticsTabHost widget": [
+      {
+        "executionId": "daaaf8f0-247d-40ec-8a7d-d773cf197df8",
+        "chatSessionId": "sess_fa2d324d-23be-418f-89ef-e18638d4d29c",
+        "timestamp": 1785274272049
+      }
+    ]
+  }
+}

@@ -6,8 +6,8 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
 
 ## Tasks
 
-- [ ] 1. Create feature directory structure and HomeScreen shell
-  - [ ] 1.1 Create HomeScreen with NavigationBar and IndexedStack
+- [x] 1. Create feature directory structure and HomeScreen shell
+  - [x] 1.1 Create HomeScreen with NavigationBar and IndexedStack
     - Create `lib/features/home/presentation/screens/home_screen.dart`
     - Implement `HomeScreen` as a `StatefulWidget` with `_selectedIndex` (default 0) and `_hasSelectedStatistics` flag
     - Build a `Scaffold` with no `appBar`, an `IndexedStack` body (3 children: TodoScreen, PomodoroScreen, placeholder/StatisticsTabHost), and a `NavigationBar` with 3 destinations (Todo, Pomodoro, Statistics)
@@ -17,8 +17,8 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - Render `SizedBox.shrink()` for slot 2 when `_hasSelectedStatistics` is false, `StatisticsTabHost()` when true
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 2.1, 2.2, 2.3, 2.4, 2.5, 3.4, 9.1, 9.2, 9.3, 9.4, 9.5, 10.1, 10.3, 10.5, 11.1, 14.1, 14.2, 14.3, 14.5_
 
-- [ ] 2. Implement StatisticsTabHost widget
-  - [ ] 2.1 Create StatisticsTabHost with lazy controller lifecycle
+- [x] 2. Implement StatisticsTabHost widget
+  - [x] 2.1 Create StatisticsTabHost with lazy controller lifecycle
     - Create `lib/features/home/presentation/widgets/statistics_tab_host.dart`
     - Implement as a `StatefulWidget` with a nullable `StatisticsController? _controller` field
     - Watch `TodoController` via `context.watch<TodoController>()`
