@@ -264,7 +264,7 @@ root from TodoController data. The implementation language is **Dart / Flutter**
 
 ### Group 11 — Checkpoint
 
-- [ ] 11. Checkpoint — all code compiles and analyzes clean
+- [x] 11. Checkpoint — all code compiles and analyzes clean
   - Run `dart format .` and `flutter analyze`. Ensure no errors or warnings.
   - Verify `StatisticsScreen` renders on device/emulator with Today period showing empty state.
   - Ensure all tests pass, ask the user if questions arise.
