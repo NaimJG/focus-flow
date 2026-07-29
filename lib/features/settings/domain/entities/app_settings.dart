@@ -35,10 +35,8 @@ class AppSettings {
   }) {
     return AppSettings(
       focusDuration: focusDuration ?? this.focusDuration,
-      shortBreakDuration:
-          shortBreakDuration ?? this.shortBreakDuration,
-      longBreakDuration:
-          longBreakDuration ?? this.longBreakDuration,
+      shortBreakDuration: shortBreakDuration ?? this.shortBreakDuration,
+      longBreakDuration: longBreakDuration ?? this.longBreakDuration,
       cyclesBeforeLongBreak:
           cyclesBeforeLongBreak ?? this.cyclesBeforeLongBreak,
       soundEnabled: soundEnabled ?? this.soundEnabled,
@@ -62,12 +60,12 @@ class AppSettings {
 
   @override
   int get hashCode => Object.hash(
-        focusDuration,
-        shortBreakDuration,
-        longBreakDuration,
-        cyclesBeforeLongBreak,
-        soundEnabled,
-        themeMode,
-        colorPalette,
-      );
+    focusDuration,
+    shortBreakDuration,
+    longBreakDuration,
+    cyclesBeforeLongBreak,
+    soundEnabled,
+    themeMode,
+    colorPalette,
+  );
 }

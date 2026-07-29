@@ -28,14 +28,14 @@ class MockTodoController extends ChangeNotifier implements TodoController {
 
   @override
   UnmodifiableListView<Task> get allTasks => UnmodifiableListView([
-        Task(
-          id: 1,
-          title: 'Test Task',
-          priority: Priority.medium,
-          status: TaskStatus.pending,
-          createdAt: DateTime(2024, 1, 1),
-        ),
-      ]);
+    Task(
+      id: 1,
+      title: 'Test Task',
+      priority: Priority.medium,
+      status: TaskStatus.pending,
+      createdAt: DateTime(2024, 1, 1),
+    ),
+  ]);
 
   @override
   UnmodifiableListView<Task> get displayedTasks => allTasks;
@@ -167,8 +167,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // NavigationBar should show Todo as selected (index 0).
-        final navBar =
-            tester.widget<NavigationBar>(find.byType(NavigationBar));
+        final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
         expect(navBar.selectedIndex, 0);
 
         // TodoScreen's AppBar title should be visible.
@@ -176,74 +175,65 @@ void main() {
       },
     );
 
-    testWidgets(
-      'tapping Pomodoro destination shows PomodoroScreen',
-      (tester) async {
-        await tester.pumpWidget(buildTestApp());
-        await tester.pumpAndSettle();
+    testWidgets('tapping Pomodoro destination shows PomodoroScreen', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestApp());
+      await tester.pumpAndSettle();
 
-        // Tap Pomodoro destination.
-        await tester.tap(find.text('Pomodoro'));
-        await tester.pumpAndSettle();
+      // Tap Pomodoro destination.
+      await tester.tap(find.text('Pomodoro'));
+      await tester.pumpAndSettle();
 
-        // The NavigationBar selectedIndex should be 1.
-        final navBar =
-            tester.widget<NavigationBar>(find.byType(NavigationBar));
-        expect(navBar.selectedIndex, 1);
-      },
-    );
+      // The NavigationBar selectedIndex should be 1.
+      final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+      expect(navBar.selectedIndex, 1);
+    });
 
-    testWidgets(
-      'tapping Statistics destination shows StatisticsTabHost',
-      (tester) async {
-        await tester.pumpWidget(buildTestApp());
-        await tester.pumpAndSettle();
+    testWidgets('tapping Statistics destination shows StatisticsTabHost', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestApp());
+      await tester.pumpAndSettle();
 
-        // Tap Statistics destination.
-        await tester.tap(find.text('Statistics'));
-        await tester.pumpAndSettle();
+      // Tap Statistics destination.
+      await tester.tap(find.text('Statistics'));
+      await tester.pumpAndSettle();
 
-        // The NavigationBar selectedIndex should be 2.
-        final navBar =
-            tester.widget<NavigationBar>(find.byType(NavigationBar));
-        expect(navBar.selectedIndex, 2);
-      },
-    );
+      // The NavigationBar selectedIndex should be 2.
+      final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+      expect(navBar.selectedIndex, 2);
+    });
 
-    testWidgets(
-      'tapping already-selected tab does not trigger rebuild',
-      (tester) async {
-        await tester.pumpWidget(buildTestApp());
-        await tester.pumpAndSettle();
+    testWidgets('tapping already-selected tab does not trigger rebuild', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestApp());
+      await tester.pumpAndSettle();
 
-        // Find the HomeScreen's IndexedStack (first one).
-        final indexedStackFinder = find.byType(IndexedStack).first;
-        final indexedStackBefore =
-            tester.widget<IndexedStack>(indexedStackFinder);
-        expect(indexedStackBefore.index, 0);
+      // Find the HomeScreen's IndexedStack (first one).
+      final indexedStackFinder = find.byType(IndexedStack).first;
+      final indexedStackBefore = tester.widget<IndexedStack>(
+        indexedStackFinder,
+      );
+      expect(indexedStackBefore.index, 0);
 
-        // Tap the Todo tab again (same tab).
-        await tester.tap(find.text('Todo'));
-        await tester.pump();
+      // Tap the Todo tab again (same tab).
+      await tester.tap(find.text('Todo'));
+      await tester.pump();
 
-        // IndexedStack index should remain 0.
-        final indexedStackAfter =
-            tester.widget<IndexedStack>(indexedStackFinder);
-        expect(indexedStackAfter.index, 0);
-      },
-    );
+      // IndexedStack index should remain 0.
+      final indexedStackAfter = tester.widget<IndexedStack>(indexedStackFinder);
+      expect(indexedStackAfter.index, 0);
+    });
 
-    testWidgets(
-      'NavigationBar has exactly 3 destinations',
-      (tester) async {
-        await tester.pumpWidget(buildTestApp());
-        await tester.pumpAndSettle();
+    testWidgets('NavigationBar has exactly 3 destinations', (tester) async {
+      await tester.pumpWidget(buildTestApp());
+      await tester.pumpAndSettle();
 
-        final navBar =
-            tester.widget<NavigationBar>(find.byType(NavigationBar));
-        expect(navBar.destinations.length, 3);
-      },
-    );
+      final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+      expect(navBar.destinations.length, 3);
+    });
 
     testWidgets(
       'NavigationBar destinations have correct labels and icon types',
@@ -251,16 +241,13 @@ void main() {
         await tester.pumpWidget(buildTestApp());
         await tester.pumpAndSettle();
 
-        final navBar =
-            tester.widget<NavigationBar>(find.byType(NavigationBar));
-        final destinations =
-            navBar.destinations.cast<NavigationDestination>();
+        final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+        final destinations = navBar.destinations.cast<NavigationDestination>();
 
         // Todo destination.
         expect(destinations[0].label, 'Todo');
         final todoIcon = (destinations[0].icon as Icon).icon;
-        final todoSelectedIcon =
-            (destinations[0].selectedIcon! as Icon).icon;
+        final todoSelectedIcon = (destinations[0].selectedIcon! as Icon).icon;
         expect(todoIcon, Icons.checklist_outlined);
         expect(todoSelectedIcon, Icons.checklist);
 
@@ -275,8 +262,7 @@ void main() {
         // Statistics destination.
         expect(destinations[2].label, 'Statistics');
         final statsIcon = (destinations[2].icon as Icon).icon;
-        final statsSelectedIcon =
-            (destinations[2].selectedIcon! as Icon).icon;
+        final statsSelectedIcon = (destinations[2].selectedIcon! as Icon).icon;
         expect(statsIcon, Icons.bar_chart_outlined);
         expect(statsSelectedIcon, Icons.bar_chart);
       },
@@ -290,8 +276,9 @@ void main() {
 
         // Before selecting Statistics, the IndexedStack child at
         // index 2 should be a SizedBox.shrink() (0x0 dimensions).
-        final indexedStack = tester
-            .widget<IndexedStack>(find.byType(IndexedStack).first);
+        final indexedStack = tester.widget<IndexedStack>(
+          find.byType(IndexedStack).first,
+        );
         final thirdChild = indexedStack.children[2];
 
         expect(thirdChild, isA<SizedBox>());
@@ -313,44 +300,43 @@ void main() {
 
         // The IndexedStack child at index 2 should no longer be a
         // zero-dimension SizedBox.
-        final indexedStack = tester
-            .widget<IndexedStack>(find.byType(IndexedStack).first);
+        final indexedStack = tester.widget<IndexedStack>(
+          find.byType(IndexedStack).first,
+        );
         final thirdChild = indexedStack.children[2];
 
         if (thirdChild is SizedBox) {
-          expect(
-            thirdChild.width == 0.0 && thirdChild.height == 0.0,
-            isFalse,
-          );
+          expect(thirdChild.width == 0.0 && thirdChild.height == 0.0, isFalse);
         }
       },
     );
 
-    testWidgets(
-      'tab switching preserves IndexedStack children',
-      (tester) async {
-        await tester.pumpWidget(buildTestApp());
-        await tester.pumpAndSettle();
+    testWidgets('tab switching preserves IndexedStack children', (
+      tester,
+    ) async {
+      await tester.pumpWidget(buildTestApp());
+      await tester.pumpAndSettle();
 
-        // Go to Pomodoro.
-        await tester.tap(find.text('Pomodoro'));
-        await tester.pumpAndSettle();
+      // Go to Pomodoro.
+      await tester.tap(find.text('Pomodoro'));
+      await tester.pumpAndSettle();
 
-        final indexedStack1 = tester
-            .widget<IndexedStack>(find.byType(IndexedStack).first);
-        expect(indexedStack1.index, 1);
+      final indexedStack1 = tester.widget<IndexedStack>(
+        find.byType(IndexedStack).first,
+      );
+      expect(indexedStack1.index, 1);
 
-        // Go back to Todo.
-        await tester.tap(find.text('Todo'));
-        await tester.pumpAndSettle();
+      // Go back to Todo.
+      await tester.tap(find.text('Todo'));
+      await tester.pumpAndSettle();
 
-        final indexedStack2 = tester
-            .widget<IndexedStack>(find.byType(IndexedStack).first);
-        expect(indexedStack2.index, 0);
+      final indexedStack2 = tester.widget<IndexedStack>(
+        find.byType(IndexedStack).first,
+      );
+      expect(indexedStack2.index, 0);
 
-        // TodoScreen should still be visible.
-        expect(find.text('Tasks'), findsOneWidget);
-      },
-    );
+      // TodoScreen should still be visible.
+      expect(find.text('Tasks'), findsOneWidget);
+    });
   });
 }

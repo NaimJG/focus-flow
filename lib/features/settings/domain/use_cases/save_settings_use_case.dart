@@ -12,6 +12,5 @@ class SaveSettingsUseCase {
   final SettingsRepository repository;
 
   /// Saves the given [settings], overwriting any previously stored values.
-  Future<void> call(AppSettings settings) =>
-      repository.saveSettings(settings);
+  Future<void> call(AppSettings settings) => repository.saveSettings(settings);
 }

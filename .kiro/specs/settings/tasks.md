@@ -42,23 +42,23 @@ Implement the Settings feature following clean architecture: domain entities and
     - Delegates to `SettingsRepository.saveSettings(AppSettings)`
     - _Requirements: 1.2, 2.2, 2.3, 2.4, 3.2, 4.2, 5.6, 6.3_
 
-- [ ] 3. Isar data model and concrete repository
-  - [ ] 3.1 Create `AppSettingsModel` Isar collection
+- [x] 3. Isar data model and concrete repository
+  - [x] 3.1 Create `AppSettingsModel` Isar collection
     - Create `lib/features/settings/data/models/app_settings_model.dart`
     - `@collection` with fixed `Id id = 1`
     - Fields: `focusDurationMinutes`, `shortBreakDurationMinutes`, `longBreakDurationMinutes`, `cyclesBeforeLongBreak`, `soundEnabled`, `themeMode` (@enumerated), `colorPalette` (@enumerated)
     - `toEntity()` and `static fromEntity(AppSettings)` converters
     - _Requirements: 1.2, 1.3, 1.6_
 
-  - [ ] 3.2 Create `IsarSettingsRepository` concrete implementation
+  - [x] 3.2 Create `IsarSettingsRepository` concrete implementation
     - Create `lib/features/settings/data/repositories/isar_settings_repository.dart`
     - Implements `SettingsRepository`
     - `getSettings()` reads record with id=1, returns null if absent
     - `saveSettings()` writes via `isar.writeTxn`
     - _Requirements: 1.2, 1.3, 1.5, 1.6_
 
-- [ ] 4. Database registration
-  - [ ] 4.1 Register `AppSettingsModelSchema` in `isar_database.dart`
+- [x] 4. Database registration
+  - [x] 4.1 Register `AppSettingsModelSchema` in `isar_database.dart`
     - Modify `lib/core/database/isar_database.dart`
     - Add import for `AppSettingsModel`
     - Add `AppSettingsModelSchema` to the schema list in `openIsar()`

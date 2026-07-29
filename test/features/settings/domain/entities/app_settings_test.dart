@@ -10,14 +10,8 @@ void main() {
       const settings = AppSettings();
 
       expect(settings.focusDuration, const Duration(minutes: 25));
-      expect(
-        settings.shortBreakDuration,
-        const Duration(minutes: 5),
-      );
-      expect(
-        settings.longBreakDuration,
-        const Duration(minutes: 15),
-      );
+      expect(settings.shortBreakDuration, const Duration(minutes: 5));
+      expect(settings.longBreakDuration, const Duration(minutes: 15));
       expect(settings.cyclesBeforeLongBreak, 4);
       expect(settings.soundEnabled, isTrue);
       expect(settings.themeMode, AppThemeMode.system);
@@ -44,14 +38,8 @@ void main() {
         expect(modified.soundEnabled, isFalse);
         expect(modified.themeMode, AppThemeMode.dark);
         // Unchanged fields retain defaults.
-        expect(
-          modified.shortBreakDuration,
-          const Duration(minutes: 5),
-        );
-        expect(
-          modified.longBreakDuration,
-          const Duration(minutes: 15),
-        );
+        expect(modified.shortBreakDuration, const Duration(minutes: 5));
+        expect(modified.longBreakDuration, const Duration(minutes: 15));
         expect(modified.cyclesBeforeLongBreak, 4);
         expect(modified.colorPalette, AppColorPalette.salmon);
       });
@@ -68,9 +56,7 @@ void main() {
 
       test('instances with different values are not equal', () {
         const a = AppSettings();
-        final b = a.copyWith(
-          colorPalette: AppColorPalette.lightBlue,
-        );
+        final b = a.copyWith(colorPalette: AppColorPalette.lightBlue);
 
         expect(a, isNot(equals(b)));
       });
