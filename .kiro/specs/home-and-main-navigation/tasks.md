@@ -53,14 +53,14 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - Verify `initialRoute: Routes.home` in `app.dart` still resolves to HomeScreen
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 7.1, 7.2, 7.3, 7.4, 8.1, 8.2, 8.3, 8.4, 8.5_
 
-- [ ] 5. Checkpoint — Compile and static analysis
+- [x] 5. Checkpoint — Compile and static analysis
   - Ensure all tests pass, ask the user if questions arise.
   - Run `flutter analyze` to confirm no lint errors
   - Run `flutter build apk --debug` (or `flutter build` for compilation check) to confirm no compile errors
   - Verify the app boots to HomeScreen with Todo tab visible
 
-- [ ] 6. Widget tests for HomeScreen
-  - [ ] 6.1 Write widget tests for HomeScreen behavior
+- [x] 6. Widget tests for HomeScreen
+  - [x] 6.1 Write widget tests for HomeScreen behavior
     - Create `test/features/home/presentation/screens/home_screen_test.dart`
     - Test initial state: Todo tab selected (index 0), TodoScreen visible
     - Test tab switching: tapping Pomodoro shows PomodoroScreen, tapping Statistics shows StatisticsTabHost

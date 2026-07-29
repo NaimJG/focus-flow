@@ -88,6 +88,37 @@
         "chatSessionId": "sess_0d3603db-76b7-41cc-9684-8db4c30ad3ac",
         "timestamp": 1785337115610
       }
+    ],
+    "5. Checkpoint — Compile and static analysis": [
+      {
+        "executionId": "18619b44-c0bd-4f42-a096-aeb73af15cdb",
+        "chatSessionId": "sess_b708ab6e-bec6-4f3d-b7ea-78394f5986e6",
+        "timestamp": 1785337257912
+      },
+      {
+        "executionId": "18619b44-c0bd-4f42-a096-aeb73af15cdb",
+        "chatSessionId": "sess_b708ab6e-bec6-4f3d-b7ea-78394f5986e6",
+        "timestamp": 1785337675880
+      }
+    ],
+    "6.1 Write widget tests for HomeScreen behavior": [
+      {
+        "executionId": "a5d2eaa2-e540-4ace-9360-704aae676ff9",
+        "chatSessionId": "sess_f1e6f21e-4ad4-47c6-a0d2-6b048be44360",
+        "timestamp": 1785338009808
+      },
+      {
+        "executionId": "a5d2eaa2-e540-4ace-9360-704aae676ff9",
+        "chatSessionId": "sess_f1e6f21e-4ad4-47c6-a0d2-6b048be44360",
+        "timestamp": 1785342343648
+      }
+    ],
+    "6. Widget tests for HomeScreen": [
+      {
+        "executionId": "a5d2eaa2-e540-4ace-9360-704aae676ff9",
+        "chatSessionId": "sess_f1e6f21e-4ad4-47c6-a0d2-6b048be44360",
+        "timestamp": 1785342343724
+      }
     ]
   }
 }

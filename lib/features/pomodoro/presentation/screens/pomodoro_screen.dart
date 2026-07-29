@@ -24,20 +24,21 @@ class PomodoroScreen extends StatefulWidget {
 }
 
 class _PomodoroScreenState extends State<PomodoroScreen> {
+  late final PomodoroController _controller;
   TimerStatus? _previousStatus;
   String? _lastShownError;
 
   @override
   void initState() {
     super.initState();
-    final controller = context.read<PomodoroController>();
-    _previousStatus = controller.status;
-    controller.addListener(_onControllerChanged);
+    _controller = context.read<PomodoroController>();
+    _previousStatus = _controller.status;
+    _controller.addListener(_onControllerChanged);
   }
 
   @override
   void dispose() {
-    context.read<PomodoroController>().removeListener(_onControllerChanged);
+    _controller.removeListener(_onControllerChanged);
     super.dispose();
   }
 
