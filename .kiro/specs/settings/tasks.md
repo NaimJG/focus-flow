@@ -6,38 +6,38 @@ Implement the Settings feature following clean architecture: domain entities and
 
 ## Tasks
 
-- [ ] 1. Domain entities and enums
-  - [ ] 1.1 Create `AppThemeMode` as a pure Dart enum
+- [x] 1. Domain entities and enums
+  - [x] 1.1 Create `AppThemeMode` as a pure Dart enum
     - Create `lib/features/settings/domain/entities/app_theme_mode.dart`
     - Enum values: `system`, `light`, `dark`
     - No Flutter imports — the mapping to Flutter ThemeMode lives in core/theme
     - _Requirements: 5.2, 5.3, 5.4, 5.7_
 
-  - [ ] 1.2 Create `AppColorPalette` as a pure Dart enum
+  - [x] 1.2 Create `AppColorPalette` as a pure Dart enum
     - Create `lib/features/settings/domain/entities/app_color_palette.dart`
     - Enum values: `salmon`, `lightBlue`, `lightGreen`
     - No Flutter imports — seed colors and labels live in core/theme and presentation layer respectively
     - _Requirements: 6.1, 6.3, 6.4_
 
-  - [ ] 1.3 Create `AppSettings` entity with `copyWith` and equality
+  - [x] 1.3 Create `AppSettings` entity with `copyWith` and equality
     - Create `lib/features/settings/domain/entities/app_settings.dart`
     - Immutable value object with all preference fields, defaults, copyWith, and equality
     - No Flutter imports, no toPomodoroConfig — cross-domain mapping lives in app/mappers
     - _Requirements: 1.1, 1.5, 2.6, 3.4, 7.1, 7.2, 7.3_
 
-- [ ] 2. Repository interface and use cases
-  - [ ] 2.1 Create `SettingsRepository` abstract interface
+- [x] 2. Repository interface and use cases
+  - [x] 2.1 Create `SettingsRepository` abstract interface
     - Create `lib/features/settings/domain/repositories/settings_repository.dart`
     - Methods: `Future<AppSettings?> getSettings()` and `Future<void> saveSettings(AppSettings)`
     - Returns `null` when no record exists (first launch)
     - _Requirements: 1.2, 1.3, 1.5, 1.6_
 
-  - [ ] 2.2 Create `GetSettingsUseCase`
+  - [x] 2.2 Create `GetSettingsUseCase`
     - Create `lib/features/settings/domain/use_cases/get_settings_use_case.dart`
     - Delegates to `SettingsRepository.getSettings()`
     - _Requirements: 1.3, 1.4, 1.5_
 
-  - [ ] 2.3 Create `SaveSettingsUseCase`
+  - [x] 2.3 Create `SaveSettingsUseCase`
     - Create `lib/features/settings/domain/use_cases/save_settings_use_case.dart`
     - Delegates to `SettingsRepository.saveSettings(AppSettings)`
     - _Requirements: 1.2, 2.2, 2.3, 2.4, 3.2, 4.2, 5.6, 6.3_

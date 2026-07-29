@@ -1,0 +1,91 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `AppThemeMode` as a pure Dart enum": [
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785362774210
+      },
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785363032970
+      }
+    ],
+    "1.2 Create `AppColorPalette` as a pure Dart enum": [
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785362776333
+      },
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785363033742
+      }
+    ],
+    "1.3 Create `AppSettings` entity with `copyWith` and equality": [
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785363038208
+      },
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785363578167
+      }
+    ],
+    "1. Domain entities and enums": [
+      {
+        "executionId": "29ca5f04-5fa1-4a75-900b-a1806fd02676",
+        "chatSessionId": "sess_fd12b19a-dfb8-4d81-8df8-eadf9f345ac8",
+        "timestamp": 1785363578350
+      }
+    ],
+    "2.1 Create `SettingsRepository` abstract interface": [
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363753566
+      },
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363846065
+      }
+    ],
+    "2.2 Create `GetSettingsUseCase`": [
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363851302
+      },
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363986989
+      }
+    ],
+    "2.3 Create `SaveSettingsUseCase`": [
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363852110
+      },
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363987758
+      }
+    ],
+    "2. Repository interface and use cases": [
+      {
+        "executionId": "564395cd-a36f-4562-8b57-926283cc5f38",
+        "chatSessionId": "sess_de3c21c3-e044-4291-8e5c-3740837a4cc1",
+        "timestamp": 1785363987848
+      }
+    ]
+  }
+}
