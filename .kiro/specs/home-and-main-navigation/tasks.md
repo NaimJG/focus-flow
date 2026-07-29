@@ -77,7 +77,7 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - _Requirements: 1.8, 2.6, 2.7, 13.1, 13.2, 13.4, 13.5, 13.6_
 
 - [ ] 7. Widget tests for StatisticsTabHost
-  - [ ] 7.1 Write widget tests for StatisticsTabHost lifecycle
+  - [ ]* 7.1 Write widget tests for StatisticsTabHost lifecycle
     - Create `test/features/home/presentation/widgets/statistics_tab_host_test.dart`
     - Test loading state: shows CircularProgressIndicator when TodoController.isLoading is true
     - Test controller creation: creates StatisticsController once TodoController finishes loading
@@ -87,7 +87,7 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.7, 5.8, 12.4, 12.5_
 
 - [ ] 8. Widget tests for routing
-  - [ ] 8.1 Write widget tests for updated router
+  - [ ]* 8.1 Write widget tests for updated router
     - Create or update `test/app/router_test.dart`
     - Test `/` resolves to HomeScreen
     - Test `/statistics` resolves to `_StatisticsRoute` (standalone)
