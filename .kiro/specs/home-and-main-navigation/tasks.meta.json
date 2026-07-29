@@ -38,6 +38,37 @@
         "chatSessionId": "sess_fa2d324d-23be-418f-89ef-e18638d4d29c",
         "timestamp": 1785274272049
       }
+    ],
+    "3.1 Extract `createStatisticsController` factory function": [
+      {
+        "executionId": "802702bb-b19c-4ae5-9707-8e973fe403b1",
+        "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
+        "timestamp": 1785335761121
+      },
+      {
+        "executionId": "802702bb-b19c-4ae5-9707-8e973fe403b1",
+        "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
+        "timestamp": 1785336166999
+      }
+    ],
+    "3.2 Refactor `_StatisticsRoute` and `StatisticsTabHost` to use the shared factory": [
+      {
+        "executionId": "802702bb-b19c-4ae5-9707-8e973fe403b1",
+        "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
+        "timestamp": 1785336173395
+      },
+      {
+        "executionId": "802702bb-b19c-4ae5-9707-8e973fe403b1",
+        "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
+        "timestamp": 1785336444301
+      }
+    ],
+    "3. Extract shared Statistics controller factory": [
+      {
+        "executionId": "802702bb-b19c-4ae5-9707-8e973fe403b1",
+        "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
+        "timestamp": 1785336444465
+      }
     ]
   }
 }

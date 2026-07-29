@@ -29,8 +29,8 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - Dispose controller in `dispose()` override
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 10.4, 12.4, 12.5_
 
-- [ ] 3. Extract shared Statistics controller factory
-  - [ ] 3.1 Extract `createStatisticsController` factory function
+- [x] 3. Extract shared Statistics controller factory
+  - [x] 3.1 Extract `createStatisticsController` factory function
     - Create a factory function (e.g., in `lib/features/statistics/presentation/statistics_controller_factory.dart`) that encapsulates the controller creation logic shared between `_StatisticsRoute` and `StatisticsTabHost`
     - Accept `BuildContext` as parameter, read `PomodoroSessionRepository` from Provider tree
     - Instantiate all use cases (CalculateDateRange, GetSessionsByDateRange, CalculateSummary, GroupByDay, GroupByTask, GroupByCategory)
@@ -38,7 +38,7 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - Return a fully constructed `StatisticsController` with `..init()` called
     - _Requirements: 5.6, 10.2, 10.4_
 
-  - [ ] 3.2 Refactor `_StatisticsRoute` and `StatisticsTabHost` to use the shared factory
+  - [x] 3.2 Refactor `_StatisticsRoute` and `StatisticsTabHost` to use the shared factory
     - Replace inline controller creation in `_StatisticsRouteState._createController()` with a call to the new factory function
     - Replace inline controller creation in `StatisticsTabHost` with a call to the same factory
     - Verify both paths produce identical behavior
