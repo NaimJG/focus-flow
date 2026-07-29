@@ -69,6 +69,25 @@
         "chatSessionId": "sess_8ef00d5e-c935-4d2c-b4b3-4c8d505b034f",
         "timestamp": 1785336444465
       }
+    ],
+    "4.1 Modify `onGenerateRoute` to route `/` to HomeScreen": [
+      {
+        "executionId": "073cad15-3957-4ad5-9684-543dc46bb10a",
+        "chatSessionId": "sess_0d3603db-76b7-41cc-9684-8db4c30ad3ac",
+        "timestamp": 1785336938761
+      },
+      {
+        "executionId": "073cad15-3957-4ad5-9684-543dc46bb10a",
+        "chatSessionId": "sess_0d3603db-76b7-41cc-9684-8db4c30ad3ac",
+        "timestamp": 1785337115491
+      }
+    ],
+    "4. Update router.dart to separate `/` and `/statistics` routes": [
+      {
+        "executionId": "073cad15-3957-4ad5-9684-543dc46bb10a",
+        "chatSessionId": "sess_0d3603db-76b7-41cc-9684-8db4c30ad3ac",
+        "timestamp": 1785337115610
+      }
     ]
   }
 }

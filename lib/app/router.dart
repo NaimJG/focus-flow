@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../features/home/presentation/screens/home_screen.dart';
 import '../features/pomodoro/presentation/screens/pomodoro_screen.dart';
 import '../features/statistics/presentation/controllers/statistics_controller.dart';
 import '../features/statistics/presentation/screens/statistics_screen.dart';
@@ -82,6 +83,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case Routes.home:
+      return MaterialPageRoute<void>(
+        builder: (_) => const HomeScreen(),
+        settings: settings,
+      );
+
     case Routes.statistics:
       return MaterialPageRoute<void>(
         builder: (_) => const _StatisticsRoute(),

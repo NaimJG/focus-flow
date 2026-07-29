@@ -44,8 +44,8 @@ Implement the HomeScreen application shell that unifies Todo, Pomodoro, and Stat
     - Verify both paths produce identical behavior
     - _Requirements: 5.1, 5.6, 10.2_
 
-- [ ] 4. Update router.dart to separate `/` and `/statistics` routes
-  - [ ] 4.1 Modify `onGenerateRoute` to route `/` to HomeScreen
+- [x] 4. Update router.dart to separate `/` and `/statistics` routes
+  - [x] 4.1 Modify `onGenerateRoute` to route `/` to HomeScreen
     - Split the existing `case Routes.home: case Routes.statistics:` into two separate cases
     - `Routes.home` → `HomeScreen` (import from `lib/features/home/presentation/screens/home_screen.dart`)
     - `Routes.statistics` → `_StatisticsRoute` (unchanged standalone behavior)
