@@ -84,8 +84,8 @@ Implement the Settings feature following clean architecture: domain entities and
 - [x] 7. Checkpoint — Controller integration complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 8. Theme integration
-  - [ ] 8.1 Create centralized theme layer in `lib/core/theme/`
+- [x] 8. Theme integration
+  - [x] 8.1 Create centralized theme layer in `lib/core/theme/`
     - Create `lib/core/theme/app_theme_mode_mapper.dart` — extension on AppThemeMode mapping to Flutter ThemeMode (`toFlutterThemeMode()`)
     - Create `lib/core/theme/app_palette_seeds.dart` — `abstract final class AppPaletteSeeds` with static Color constants for salmon (0xFFE57373), lightBlue (0xFF4FC3F7), lightGreen (0xFF81C784) + `static Color seedForPalette(AppColorPalette palette)` function
     - Create `lib/core/theme/app_theme.dart` — `abstract final class AppTheme` with `static ThemeData light(AppColorPalette palette)` and `static ThemeData dark(AppColorPalette palette)` methods returning ThemeData via ColorScheme.fromSeed
