@@ -448,6 +448,97 @@
         "chatSessionId": "sess_ee66eb1d-c299-40ef-acad-0b323ccfb860",
         "timestamp": 1785448353086
       }
+    ],
+    "16.1 Add Statistics ARB keys to `app_es.arb` and `app_en.arb`": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785448602766
+      },
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785449159267
+      }
+    ],
+    "16.2 Create `lib/features/statistics/presentation/utils/statistics_labels.dart`": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785449183213
+      },
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785450393605
+      }
+    ],
+    "16.6 Update `formatDuration` in `duration_formatter.dart`": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785449191256
+      },
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785450394163
+      }
+    ],
+    "16.3 Localize `PeriodSelector` (`period_selector.dart`)": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785450400303
+      },
+      {
+        "executionId": "bff22f20-01f6-4970-b668-10b278a7a33d",
+        "chatSessionId": "sess_f5160548-473f-4a3f-9f91-0791a1cd0133",
+        "timestamp": 1785450951125
+      }
+    ],
+    "16.4 Localize `SummaryCardsRow` (`summary_cards_row.dart`)": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785450401328
+      },
+      {
+        "executionId": "bff22f20-01f6-4970-b668-10b278a7a33d",
+        "chatSessionId": "sess_f5160548-473f-4a3f-9f91-0791a1cd0133",
+        "timestamp": 1785450951736
+      }
+    ],
+    "16.5 Localize `DailyActivityChart` (`daily_activity_chart.dart`)": [
+      {
+        "executionId": "5fceadc8-6f34-4107-a41d-d594d8868850",
+        "chatSessionId": "sess_535f0820-b180-4d76-8e17-28651b4f7789",
+        "timestamp": 1785450402156
+      },
+      {
+        "executionId": "bff22f20-01f6-4970-b668-10b278a7a33d",
+        "chatSessionId": "sess_f5160548-473f-4a3f-9f91-0791a1cd0133",
+        "timestamp": 1785450952612
+      }
+    ],
+    "16. Statistics localization": [
+      {
+        "executionId": "bff22f20-01f6-4970-b668-10b278a7a33d",
+        "chatSessionId": "sess_f5160548-473f-4a3f-9f91-0791a1cd0133",
+        "timestamp": 1785450952814
+      }
+    ],
+    "17. Checkpoint — Statistics localization": [
+      {
+        "executionId": "164662ec-3f7e-4396-b809-ed665a15b1d4",
+        "chatSessionId": "sess_f0852fdf-a533-4c90-b239-4242aec0e147",
+        "timestamp": 1785450973334
+      },
+      {
+        "executionId": "164662ec-3f7e-4396-b809-ed665a15b1d4",
+        "chatSessionId": "sess_f0852fdf-a533-4c90-b239-4242aec0e147",
+        "timestamp": 1785451531991
+      }
     ]
   }
 }

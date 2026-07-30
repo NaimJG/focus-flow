@@ -191,4 +191,51 @@ class AppLocalizationsEs extends AppLocalizations {
   String pomodoroAnnounceCompleted(String mode) {
     return '$mode terminado';
   }
+
+  @override
+  String get statisticsTitle => 'Estadísticas';
+
+  @override
+  String get statisticsPeriodToday => 'Hoy';
+
+  @override
+  String get statisticsPeriodWeek => 'Esta semana';
+
+  @override
+  String get statisticsPeriodMonth => 'Este mes';
+
+  @override
+  String get statisticsTotalTime => 'Tiempo total';
+
+  @override
+  String get statisticsSessions => 'Sesiones';
+
+  @override
+  String get statisticsAverage => 'Promedio';
+
+  @override
+  String get statisticsByTask => 'Por tarea';
+
+  @override
+  String get statisticsByCategory => 'Por categoría';
+
+  @override
+  String get statisticsEmptyTitle => 'Aún no hay sesiones de enfoque';
+
+  @override
+  String get statisticsEmptyMessage =>
+      'Completa una sesión de enfoque en el temporizador Pomodoro para ver tus estadísticas de productividad aquí.';
+
+  @override
+  String get statisticsRetry => 'Reintentar';
+
+  @override
+  String durationMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String durationHoursMinutes(int hours, int minutes) {
+    return '$hours h $minutes min';
+  }
 }

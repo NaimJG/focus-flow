@@ -301,5 +301,91 @@
         "example": "Enfoque"
       }
     }
+  },
+
+  "statisticsTitle": "Estadísticas",
+  "@statisticsTitle": {
+    "description": "AppBar title for the Statistics screen"
+  },
+
+  "statisticsPeriodToday": "Hoy",
+  "@statisticsPeriodToday": {
+    "description": "Period filter label for today"
+  },
+
+  "statisticsPeriodWeek": "Esta semana",
+  "@statisticsPeriodWeek": {
+    "description": "Period filter label for this week"
+  },
+
+  "statisticsPeriodMonth": "Este mes",
+  "@statisticsPeriodMonth": {
+    "description": "Period filter label for this month"
+  },
+
+  "statisticsTotalTime": "Tiempo total",
+  "@statisticsTotalTime": {
+    "description": "Metric label for total focused time"
+  },
+
+  "statisticsSessions": "Sesiones",
+  "@statisticsSessions": {
+    "description": "Metric label for number of completed sessions"
+  },
+
+  "statisticsAverage": "Promedio",
+  "@statisticsAverage": {
+    "description": "Metric label for average session duration"
+  },
+
+  "statisticsByTask": "Por tarea",
+  "@statisticsByTask": {
+    "description": "Section header for statistics grouped by task"
+  },
+
+  "statisticsByCategory": "Por categoría",
+  "@statisticsByCategory": {
+    "description": "Section header for statistics grouped by category"
+  },
+
+  "statisticsEmptyTitle": "Aún no hay sesiones de enfoque",
+  "@statisticsEmptyTitle": {
+    "description": "Empty state headline when no focus sessions exist"
+  },
+
+  "statisticsEmptyMessage": "Completa una sesión de enfoque en el temporizador Pomodoro para ver tus estadísticas de productividad aquí.",
+  "@statisticsEmptyMessage": {
+    "description": "Empty state supporting message when no focus sessions exist"
+  },
+
+  "statisticsRetry": "Reintentar",
+  "@statisticsRetry": {
+    "description": "Label for the retry button on statistics error state"
+  },
+
+  "durationMinutes": "{minutes} min",
+  "@durationMinutes": {
+    "description": "Duration format showing only minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "25"
+      }
+    }
+  },
+
+  "durationHoursMinutes": "{hours} h {minutes} min",
+  "@durationHoursMinutes": {
+    "description": "Duration format showing hours and minutes",
+    "placeholders": {
+      "hours": {
+        "type": "int",
+        "example": "1"
+      },
+      "minutes": {
+        "type": "int",
+        "example": "30"
+      }
+    }
   }
 }

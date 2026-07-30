@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/statistics_period.dart';
 
 /// A segmented button control for selecting the statistics time period.
@@ -22,19 +23,21 @@ class PeriodSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SegmentedButton<StatisticsPeriod>(
-      segments: const [
+      segments: [
         ButtonSegment<StatisticsPeriod>(
           value: StatisticsPeriod.today,
-          label: Text('Today'),
+          label: Text(l10n.statisticsPeriodToday),
         ),
         ButtonSegment<StatisticsPeriod>(
           value: StatisticsPeriod.week,
-          label: Text('This Week'),
+          label: Text(l10n.statisticsPeriodWeek),
         ),
         ButtonSegment<StatisticsPeriod>(
           value: StatisticsPeriod.month,
-          label: Text('This Month'),
+          label: Text(l10n.statisticsPeriodMonth),
         ),
       ],
       selected: {selectedPeriod},

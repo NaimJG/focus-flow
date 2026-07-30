@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
+
 import '../../domain/entities/statistics_summary.dart';
 import '../utils/duration_formatter.dart';
 
@@ -17,22 +19,32 @@ class SummaryCardsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalTime = formatDuration(summary.totalFocusedSeconds);
+    final l10n = AppLocalizations.of(context)!;
+    final totalTime = formatDuration(summary.totalFocusedSeconds, l10n);
     final sessions = summary.sessionCount.toString();
-    final average = formatDuration(summary.averageSessionSeconds);
+    final average = formatDuration(summary.averageSessionSeconds, l10n);
 
     return Row(
       children: [
         Expanded(
-          child: _MetricCard(label: 'Total Time', value: totalTime),
+          child: _MetricCard(
+            label: l10n.statisticsTotalTime,
+            value: totalTime,
+          ),
         ),
         const SizedBox(width: 8),
         Expanded(
-          child: _MetricCard(label: 'Sessions', value: sessions),
+          child: _MetricCard(
+            label: l10n.statisticsSessions,
+            value: sessions,
+          ),
         ),
         const SizedBox(width: 8),
         Expanded(
-          child: _MetricCard(label: 'Average', value: average),
+          child: _MetricCard(
+            label: l10n.statisticsAverage,
+            value: average,
+          ),
         ),
       ],
     );

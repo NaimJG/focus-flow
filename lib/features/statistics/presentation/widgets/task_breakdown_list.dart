@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/task_focus_statistics.dart';
 import '../utils/duration_formatter.dart';
 import 'breakdown_item.dart';
@@ -14,15 +15,16 @@ class TaskBreakdownList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('By Task', style: Theme.of(context).textTheme.titleMedium),
+        Text(l10n.statisticsByTask, style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 8),
         ...taskData.map(
           (task) => BreakdownItem(
             title: task.displayTitle,
-            formattedTime: formatDuration(task.totalFocusedSeconds),
+            formattedTime: formatDuration(task.totalFocusedSeconds, l10n),
             sessionCount: task.sessionCount,
             percentage: task.percentage,
           ),

@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/daily_focus_statistics.dart';
 import '../utils/duration_formatter.dart';
 
@@ -60,9 +62,13 @@ class _DailyBar extends StatelessWidget {
     final barHeight =
         _minBarHeight + fraction * (_maxBarHeight - _minBarHeight);
 
-    final dayLabel = _shortDayLabel(entry.date);
+    final dayLabel = _shortDayLabel(
+      entry.date,
+      Localizations.localeOf(context).languageCode,
+    );
+    final l10n = AppLocalizations.of(context)!;
     final tooltipMessage =
-        '$dayLabel: ${formatDuration(entry.totalFocusedSeconds)}';
+        '$dayLabel: ${formatDuration(entry.totalFocusedSeconds, l10n)}';
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3),
@@ -103,9 +109,7 @@ class _DailyBar extends StatelessWidget {
     );
   }
 
-  String _shortDayLabel(DateTime date) {
-    const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-    return weekdays[date.weekday - 1];
+  String _shortDayLabel(DateTime date, String locale) {
+    return DateFormat.E(locale).format(date);
   }
 }

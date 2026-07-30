@@ -445,6 +445,90 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'{mode} terminado'**
   String pomodoroAnnounceCompleted(String mode);
+
+  /// AppBar title for the Statistics screen
+  ///
+  /// In es, this message translates to:
+  /// **'Estadísticas'**
+  String get statisticsTitle;
+
+  /// Period filter label for today
+  ///
+  /// In es, this message translates to:
+  /// **'Hoy'**
+  String get statisticsPeriodToday;
+
+  /// Period filter label for this week
+  ///
+  /// In es, this message translates to:
+  /// **'Esta semana'**
+  String get statisticsPeriodWeek;
+
+  /// Period filter label for this month
+  ///
+  /// In es, this message translates to:
+  /// **'Este mes'**
+  String get statisticsPeriodMonth;
+
+  /// Metric label for total focused time
+  ///
+  /// In es, this message translates to:
+  /// **'Tiempo total'**
+  String get statisticsTotalTime;
+
+  /// Metric label for number of completed sessions
+  ///
+  /// In es, this message translates to:
+  /// **'Sesiones'**
+  String get statisticsSessions;
+
+  /// Metric label for average session duration
+  ///
+  /// In es, this message translates to:
+  /// **'Promedio'**
+  String get statisticsAverage;
+
+  /// Section header for statistics grouped by task
+  ///
+  /// In es, this message translates to:
+  /// **'Por tarea'**
+  String get statisticsByTask;
+
+  /// Section header for statistics grouped by category
+  ///
+  /// In es, this message translates to:
+  /// **'Por categoría'**
+  String get statisticsByCategory;
+
+  /// Empty state headline when no focus sessions exist
+  ///
+  /// In es, this message translates to:
+  /// **'Aún no hay sesiones de enfoque'**
+  String get statisticsEmptyTitle;
+
+  /// Empty state supporting message when no focus sessions exist
+  ///
+  /// In es, this message translates to:
+  /// **'Completa una sesión de enfoque en el temporizador Pomodoro para ver tus estadísticas de productividad aquí.'**
+  String get statisticsEmptyMessage;
+
+  /// Label for the retry button on statistics error state
+  ///
+  /// In es, this message translates to:
+  /// **'Reintentar'**
+  String get statisticsRetry;
+
+  /// Duration format showing only minutes
+  ///
+  /// In es, this message translates to:
+  /// **'{minutes} min'**
+  String durationMinutes(int minutes);
+
+  /// Duration format showing hours and minutes
+  ///
+  /// In es, this message translates to:
+  /// **'{hours} h {minutes} min'**
+  String durationHoursMinutes(int hours, int minutes);
 }
 
 class _AppLocalizationsDelegate

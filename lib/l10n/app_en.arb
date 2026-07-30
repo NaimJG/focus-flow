@@ -62,5 +62,20 @@
   "pomodoroAnnounceReady": "Timer ready",
   "pomodoroAnnounceRunning": "Timer running",
   "pomodoroAnnouncePaused": "Timer paused",
-  "pomodoroAnnounceCompleted": "{mode} finished"
+  "pomodoroAnnounceCompleted": "{mode} finished",
+
+  "statisticsTitle": "Statistics",
+  "statisticsPeriodToday": "Today",
+  "statisticsPeriodWeek": "This Week",
+  "statisticsPeriodMonth": "This Month",
+  "statisticsTotalTime": "Total Time",
+  "statisticsSessions": "Sessions",
+  "statisticsAverage": "Average",
+  "statisticsByTask": "By Task",
+  "statisticsByCategory": "By Category",
+  "statisticsEmptyTitle": "No focus sessions yet",
+  "statisticsEmptyMessage": "Complete a focus session in the Pomodoro timer to see your productivity statistics here.",
+  "statisticsRetry": "Retry",
+  "durationMinutes": "{minutes} min",
+  "durationHoursMinutes": "{hours} h {minutes} min"
 }

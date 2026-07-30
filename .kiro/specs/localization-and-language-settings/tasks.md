@@ -176,39 +176,39 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify all Pomodoro strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 16. Statistics localization
-  - [ ] 16.1 Add Statistics ARB keys to `app_es.arb` and `app_en.arb`
+- [x] 16. Statistics localization
+  - [x] 16.1 Add Statistics ARB keys to `app_es.arb` and `app_en.arb`
     - Keys for: title, period labels (today, this week, this month), metric labels (total time, sessions, average), section headers (by task, by category), empty state, retry, duration format templates (`durationMinutes`, `durationHoursMinutes`)
     - Include `@` metadata and placeholder definitions
     - _Requirements: 12.1, 12.2, 12.3, 16.2, 16.3, 18.1, 18.2, 18.4_
 
-  - [ ] 16.2 Create `lib/features/statistics/presentation/utils/statistics_labels.dart`
+  - [x] 16.2 Create `lib/features/statistics/presentation/utils/statistics_labels.dart`
     - Helper function mapping `StatisticsPeriod` to localized label via `AppLocalizations`
     - _Requirements: 12.1, 12.2_
 
-  - [ ] 16.3 Localize `PeriodSelector` (`period_selector.dart`)
+  - [x] 16.3 Localize `PeriodSelector` (`period_selector.dart`)
     - Replace hardcoded "Today", "This Week", "This Month" with `l10n.*` calls
     - Remove `const` from segments list (now runtime)
     - _Requirements: 12.1, 12.2_
 
-  - [ ] 16.4 Localize `SummaryCardsRow` (`summary_cards_row.dart`)
+  - [x] 16.4 Localize `SummaryCardsRow` (`summary_cards_row.dart`)
     - Replace "Total Time", "Sessions", "Average" labels with `l10n.*`
     - Update `formatDuration` calls to pass `AppLocalizations`
     - _Requirements: 12.1, 12.2, 16.1, 16.4_
 
-  - [ ] 16.5 Localize `DailyActivityChart` (`daily_activity_chart.dart`)
+  - [x] 16.5 Localize `DailyActivityChart` (`daily_activity_chart.dart`)
     - Replace hardcoded `weekdays` array with `DateFormat.E(locale)` using `intl`
     - Derive locale from `Localizations.localeOf(context).languageCode`
     - Update tooltip to use localized duration format
     - _Requirements: 15.1, 15.2, 15.3_
 
-  - [ ] 16.6 Update `formatDuration` in `duration_formatter.dart`
+  - [x] 16.6 Update `formatDuration` in `duration_formatter.dart`
     - Add `AppLocalizations l10n` parameter
     - Use `l10n.durationMinutes(minutes)` and `l10n.durationHoursMinutes(hours, minutes)`
     - Update all callers
     - _Requirements: 16.1, 16.2, 16.3, 16.4_
 
-- [ ] 17. Checkpoint — Statistics localization
+- [x] 17. Checkpoint — Statistics localization
   - Verify all Statistics strings render in Spanish by default, weekday labels are locale-aware
   - Ensure all tests pass, ask the user if questions arise.
 
