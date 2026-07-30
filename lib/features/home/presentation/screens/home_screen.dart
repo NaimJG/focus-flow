@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
+
 import '../../../pomodoro/presentation/screens/pomodoro_screen.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../../todo/presentation/screens/todo_screen.dart';
@@ -23,29 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   bool _hasSelectedStatistics = false;
 
-  static const _destinations = <NavigationDestination>[
-    NavigationDestination(
-      icon: Icon(Icons.checklist_outlined),
-      selectedIcon: Icon(Icons.checklist),
-      label: 'Todo',
-    ),
-    NavigationDestination(
-      icon: Icon(Icons.timer_outlined),
-      selectedIcon: Icon(Icons.timer),
-      label: 'Pomodoro',
-    ),
-    NavigationDestination(
-      icon: Icon(Icons.bar_chart_outlined),
-      selectedIcon: Icon(Icons.bar_chart),
-      label: 'Statistics',
-    ),
-    NavigationDestination(
-      icon: Icon(Icons.settings_outlined),
-      selectedIcon: Icon(Icons.settings),
-      label: 'Settings',
-    ),
-  ];
-
   void _onDestinationSelected(int index) {
     if (index == _selectedIndex) return;
     setState(() {
@@ -58,6 +37,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    final destinations = <NavigationDestination>[
+      NavigationDestination(
+        icon: const Icon(Icons.checklist_outlined),
+        selectedIcon: const Icon(Icons.checklist),
+        label: l10n.navigationTodo,
+      ),
+      NavigationDestination(
+        icon: const Icon(Icons.timer_outlined),
+        selectedIcon: const Icon(Icons.timer),
+        label: l10n.navigationPomodoro,
+      ),
+      NavigationDestination(
+        icon: const Icon(Icons.bar_chart_outlined),
+        selectedIcon: const Icon(Icons.bar_chart),
+        label: l10n.navigationStatistics,
+      ),
+      NavigationDestination(
+        icon: const Icon(Icons.settings_outlined),
+        selectedIcon: const Icon(Icons.settings),
+        label: l10n.navigationSettings,
+      ),
+    ];
+
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
@@ -73,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
         onDestinationSelected: _onDestinationSelected,
-        destinations: _destinations,
+        destinations: destinations,
       ),
     );
   }

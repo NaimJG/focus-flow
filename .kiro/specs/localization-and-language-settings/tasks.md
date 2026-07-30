@@ -83,8 +83,8 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify app builds and renders in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 9. Language Settings UI
-  - [ ] 9.1 Create `LanguageSettingsSection` widget at `lib/features/settings/presentation/widgets/language_settings_section.dart`
+- [x] 9. Language Settings UI
+  - [x] 9.1 Create `LanguageSettingsSection` widget at `lib/features/settings/presentation/widgets/language_settings_section.dart`
     - Display "Español" and "English" options with selection indicator
     - Use Material 3 controls consistent with existing sections
     - Ensure 48×48dp touch targets
@@ -93,19 +93,19 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
     - Localize section header via `AppLocalizations`
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7_
 
-  - [ ] 9.2 Add `LanguageSettingsSection` to `SettingsScreen` between Appearance and Sound
+  - [x] 9.2 Add `LanguageSettingsSection` to `SettingsScreen` between Appearance and Sound
     - Modify `_LoadedBody` in `settings_screen.dart` to insert `LanguageSettingsSection()` after `AppearanceSettingsSection()` and before `SoundSettingsSection()`
     - _Requirements: 6.1_
 
-- [ ] 10. Home navigation localization
-  - [ ] 10.1 Replace `static const _destinations` in `HomeScreen` with runtime localized list
+- [x] 10. Home navigation localization
+  - [x] 10.1 Replace `static const _destinations` in `HomeScreen` with runtime localized list
     - Remove `static const _destinations`
     - Build `destinations` list inside `build()` using `AppLocalizations.of(context)!`
     - Use keys: `navigationTodo`, `navigationPomodoro`, `navigationStatistics`, `navigationSettings`
     - Preserve `_selectedIndex` and `IndexedStack` state
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 7.2, 7.5_
 
-- [ ] 11. Checkpoint — Navigation localization
+- [x] 11. Checkpoint — Navigation localization
   - Verify nav labels render in Spanish by default and switch to English on language change
   - Ensure all tests pass, ask the user if questions arise.
 

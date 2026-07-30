@@ -211,6 +211,73 @@
         "chatSessionId": "sess_0909b725-a7c0-4fb6-9fc7-a1caabc29bc4",
         "timestamp": 1785440396405
       }
+    ],
+    "9.1 Create `LanguageSettingsSection` widget at `lib/features/settings/presentation/widgets/language_settings_section.dart`": [
+      {
+        "executionId": "49fc312f-cb8b-46c4-9aba-4bc9d8245db9",
+        "chatSessionId": "sess_ca84bee2-6128-4646-86c0-9c49a21f2802",
+        "timestamp": 1785441187951
+      },
+      {
+        "executionId": "49fc312f-cb8b-46c4-9aba-4bc9d8245db9",
+        "chatSessionId": "sess_ca84bee2-6128-4646-86c0-9c49a21f2802",
+        "timestamp": 1785442013207
+      }
+    ],
+    "9.2 Add `LanguageSettingsSection` to `SettingsScreen` between Appearance and Sound": [
+      {
+        "executionId": "49fc312f-cb8b-46c4-9aba-4bc9d8245db9",
+        "chatSessionId": "sess_ca84bee2-6128-4646-86c0-9c49a21f2802",
+        "timestamp": 1785442018168
+      },
+      {
+        "executionId": "49fc312f-cb8b-46c4-9aba-4bc9d8245db9",
+        "chatSessionId": "sess_ca84bee2-6128-4646-86c0-9c49a21f2802",
+        "timestamp": 1785442024794
+      }
+    ],
+    "9. Language Settings UI": [
+      {
+        "executionId": "49fc312f-cb8b-46c4-9aba-4bc9d8245db9",
+        "chatSessionId": "sess_ca84bee2-6128-4646-86c0-9c49a21f2802",
+        "timestamp": 1785442025007
+      }
+    ],
+    "10. Home navigation localization": [
+      {
+        "executionId": "0c777342-d33f-4117-9962-42b17c30fcf9",
+        "chatSessionId": "sess_21076f94-19be-4077-8cb5-99042f0d5db2",
+        "timestamp": 1785442136512
+      },
+      {
+        "executionId": "0c777342-d33f-4117-9962-42b17c30fcf9",
+        "chatSessionId": "sess_21076f94-19be-4077-8cb5-99042f0d5db2",
+        "timestamp": 1785442690839
+      }
+    ],
+    "10.1 Replace `static const _destinations` in `HomeScreen` with runtime localized list": [
+      {
+        "executionId": "0c777342-d33f-4117-9962-42b17c30fcf9",
+        "chatSessionId": "sess_21076f94-19be-4077-8cb5-99042f0d5db2",
+        "timestamp": 1785442141131
+      },
+      {
+        "executionId": "0c777342-d33f-4117-9962-42b17c30fcf9",
+        "chatSessionId": "sess_21076f94-19be-4077-8cb5-99042f0d5db2",
+        "timestamp": 1785442690536
+      }
+    ],
+    "11. Checkpoint — Navigation localization": [
+      {
+        "executionId": "6cc91f8a-34c2-4758-a21e-8274cf672d08",
+        "chatSessionId": "sess_ca4233d7-cbb8-4057-9d59-3565b446031d",
+        "timestamp": 1785442768468
+      },
+      {
+        "executionId": "6cc91f8a-34c2-4758-a21e-8274cf672d08",
+        "chatSessionId": "sess_ca4233d7-cbb8-4057-9d59-3565b446031d",
+        "timestamp": 1785443479425
+      }
     ]
   }
 }

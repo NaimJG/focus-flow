@@ -23,6 +23,7 @@ import 'package:focus_flow/features/todo/domain/entities/sort_direction.dart';
 import 'package:focus_flow/features/todo/domain/entities/task.dart';
 import 'package:focus_flow/features/todo/domain/entities/task_status.dart';
 import 'package:focus_flow/features/todo/presentation/controllers/todo_controller.dart';
+import 'package:focus_flow/l10n/app_localizations.dart';
 
 // --- Manual mock classes ---
 
@@ -199,6 +200,7 @@ Widget buildTestApp({
   MockPomodoroController? pomodoroController,
   MockPomodoroSessionRepository? sessionRepository,
   MockSettingsController? settingsController,
+  Locale locale = const Locale('en'),
 }) {
   final todoCtrl = todoController ?? MockTodoController();
   final pomodoroCtrl = pomodoroController ?? MockPomodoroController();
@@ -212,7 +214,12 @@ Widget buildTestApp({
       ChangeNotifierProvider<PomodoroController>.value(value: pomodoroCtrl),
       ChangeNotifierProvider<SettingsController>.value(value: settingsCtrl),
     ],
-    child: const MaterialApp(home: HomeScreen()),
+    child: MaterialApp(
+      locale: locale,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const HomeScreen(),
+    ),
   );
 }
 

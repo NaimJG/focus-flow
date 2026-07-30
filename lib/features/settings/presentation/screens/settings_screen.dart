@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../controllers/settings_controller.dart';
 import '../widgets/appearance_settings_section.dart';
+import '../widgets/language_settings_section.dart';
 import '../widgets/pomodoro_settings_section.dart';
 import '../widgets/sound_settings_section.dart';
 
@@ -116,6 +117,7 @@ class _LoadedBody extends StatelessWidget {
       children: const [
         PomodoroSettingsSection(),
         AppearanceSettingsSection(),
+        LanguageSettingsSection(),
         SoundSettingsSection(),
       ],
     );

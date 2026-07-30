@@ -34,5 +34,10 @@
   "sharedRetry": "Reintentar",
   "@sharedRetry": {
     "description": "Shared label for retry actions after errors"
+  },
+
+  "settingsLanguage": "Idioma",
+  "@settingsLanguage": {
+    "description": "Section header for language settings in the Settings screen"
   }
 }

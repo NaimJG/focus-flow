@@ -28,4 +28,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sharedRetry => 'Reintentar';
+
+  @override
+  String get settingsLanguage => 'Idioma';
 }

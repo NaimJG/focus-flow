@@ -139,6 +139,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Reintentar'**
   String get sharedRetry;
+
+  /// Section header for language settings in the Settings screen
+  ///
+  /// In es, this message translates to:
+  /// **'Idioma'**
+  String get settingsLanguage;
 }
 
 class _AppLocalizationsDelegate

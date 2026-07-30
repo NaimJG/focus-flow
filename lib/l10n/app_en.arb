@@ -8,5 +8,7 @@
 
   "sharedCancel": "Cancel",
   "sharedDelete": "Delete",
-  "sharedRetry": "Retry"
+  "sharedRetry": "Retry",
+
+  "settingsLanguage": "Language"
 }
