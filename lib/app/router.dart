@@ -10,6 +10,7 @@ import '../features/todo/domain/entities/task.dart';
 import '../features/todo/presentation/controllers/todo_controller.dart';
 import '../features/todo/presentation/screens/category_manager_screen.dart';
 import '../features/todo/presentation/screens/task_form_screen.dart';
+import '../features/settings/presentation/screens/settings_screen.dart';
 import '../features/todo/presentation/screens/todo_screen.dart';
 
 /// Centralized route name constants for the application.
@@ -37,6 +38,9 @@ abstract final class Routes {
 
   /// The Statistics screen.
   static const String statistics = '/statistics';
+
+  /// The Settings screen.
+  static const String settings = '/settings';
 
   /// Returns the concrete edit route path for the given [id].
   ///
@@ -91,6 +95,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case Routes.statistics:
       return MaterialPageRoute<void>(
         builder: (_) => const _StatisticsRoute(),
+        settings: settings,
+      );
+
+    case Routes.settings:
+      return MaterialPageRoute<void>(
+        builder: (_) => const SettingsScreen(),
         settings: settings,
       );
 

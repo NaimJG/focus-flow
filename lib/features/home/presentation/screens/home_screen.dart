@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../pomodoro/presentation/screens/pomodoro_screen.dart';
+import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../../todo/presentation/screens/todo_screen.dart';
 import '../widgets/statistics_tab_host.dart';
 
 /// The root application shell that hosts the bottom [NavigationBar]
-/// and renders the three feature tabs via an [IndexedStack].
+/// and renders the four feature tabs via an [IndexedStack].
 ///
 /// Uses [IndexedStack] to preserve widget state across tab switches.
 /// The Statistics tab is lazily loaded — its host widget is only
@@ -38,6 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
       selectedIcon: Icon(Icons.bar_chart),
       label: 'Statistics',
     ),
+    NavigationDestination(
+      icon: Icon(Icons.settings_outlined),
+      selectedIcon: Icon(Icons.settings),
+      label: 'Settings',
+    ),
   ];
 
   void _onDestinationSelected(int index) {
@@ -61,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _hasSelectedStatistics
               ? const StatisticsTabHost()
               : const SizedBox.shrink(),
+          const SettingsScreen(),
         ],
       ),
       bottomNavigationBar: NavigationBar(

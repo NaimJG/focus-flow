@@ -124,8 +124,8 @@ Implement the Settings feature following clean architecture: domain entities and
 - [x] 11. Checkpoint — Theme and Pomodoro integration complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 12. Settings UI
-  - [ ] 12.1 Create `SettingsScreen` with loading, error, and loaded states
+- [x] 12. Settings UI
+  - [x] 12.1 Create `SettingsScreen` with loading, error, and loaded states
     - Create `lib/features/settings/presentation/screens/settings_screen.dart`
     - Scaffold with AppBar title "Settings"
     - Loading: `CircularProgressIndicator` centered
@@ -134,7 +134,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - All colors/styles from `Theme.of(context)`
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.7, 11.1, 11.2, 11.3_
 
-  - [ ] 12.2 Create `PomodoroSettingsSection` widget
+  - [x] 12.2 Create `PomodoroSettingsSection` widget
     - Create `lib/features/settings/presentation/widgets/pomodoro_settings_section.dart`
     - Section header "Pomodoro"
     - Numeric input controls for focus, short break, long break durations (with "min" label)
@@ -143,7 +143,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - Inline validation error messages for out-of-range values
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 3.1, 3.2, 3.3, 3.5_
 
-  - [ ] 12.3 Create `AppearanceSettingsSection` widget
+  - [x] 12.3 Create `AppearanceSettingsSection` widget
     - Create `lib/features/settings/presentation/widgets/appearance_settings_section.dart`
     - Section header "Appearance"
     - `SegmentedButton<AppThemeMode>` for theme mode (System, Light, Dark)
@@ -152,32 +152,32 @@ Implement the Settings feature following clean architecture: domain entities and
     - Semantics annotations for accessibility
     - _Requirements: 5.1, 5.5, 5.9, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 10.1, 10.4_
 
-  - [ ] 12.4 Create `SoundSettingsSection` widget
+  - [x] 12.4 Create `SoundSettingsSection` widget
     - Create `lib/features/settings/presentation/widgets/sound_settings_section.dart`
     - Section header "Sound"
     - `SwitchListTile` with label "Sound", secondary text "Enabled"/"Disabled"
     - Calls controller on toggle, shows SnackBar and reverts on save failure
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
-- [ ] 13. Navigation integration
-  - [ ] 13.1 Add 4th NavigationDestination and IndexedStack child to `HomeScreen`
+- [x] 13. Navigation integration
+  - [x] 13.1 Add 4th NavigationDestination and IndexedStack child to `HomeScreen`
     - Modify `lib/features/home/presentation/screens/home_screen.dart`
     - Add Settings destination (Icons.settings_outlined / Icons.settings, label "Settings")
     - Add `SettingsScreen()` as 4th child in IndexedStack
     - Update lazy-load logic for Statistics index (remains index 2)
     - _Requirements: 8.1, 8.2, 8.3, 8.5, 8.6_
 
-  - [ ] 13.2 Add `Routes.settings` and route case in `router.dart`
+  - [x] 13.2 Add `Routes.settings` and route case in `router.dart`
     - Modify `lib/app/router.dart`
     - Add `static const String settings = '/settings'` to `Routes`
     - Add `case Routes.settings:` returning `MaterialPageRoute` to `SettingsScreen`
     - _Requirements: 8.4_
 
-- [ ] 14. Checkpoint — UI integration complete
+- [x] 14. Checkpoint — UI integration complete
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 15. Unit tests for controller and repository
-  - [ ] 15.1 Write unit tests for `SettingsController`
+  - [ ]* 15.1 Write unit tests for `SettingsController`
     - Test default values on first load (empty repository returns null)
     - Test load from existing record
     - Test load failure → error state with retry
@@ -187,7 +187,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - Test theme mode update triggers notifyListeners (3 enum values)
     - _Requirements: 1.1, 1.3, 1.4, 2.2, 2.3, 2.4, 2.5, 3.2, 3.3, 5.6, 5.8, 6.7, 9.6, 11.5_
 
-  - [ ] 15.2 Write unit tests for `PomodoroController.updateConfig`
+  - [ ]* 15.2 Write unit tests for `PomodoroController.updateConfig`
     - Test config applies when idle → remainingDuration updates
     - Test config applies when completed → remainingDuration updates
     - Test config ignored when running → remainingDuration unchanged
@@ -196,13 +196,13 @@ Implement the Settings feature following clean architecture: domain entities and
     - Test cycleCount, status, selectedTask preserved across updateConfig
     - _Requirements: 7.1, 7.2, 7.3, 7.5, 7.7, 7.8, 7.9_
 
-  - [ ] 15.3 Write unit tests for `AppSettings` entity and mapper
+  - [ ]* 15.3 Write unit tests for `AppSettings` entity and mapper
     - Test copyWith produces correct values
     - Test default construction matches expected defaults
     - Test mapSettingsToPomodoroConfig maps durations correctly (test lives alongside the mapper in app/mappers test)
     - _Requirements: 1.1_
 
-  - [ ] 15.4 Write unit tests for `AppSettingsModel` round-trip
+  - [ ]* 15.4 Write unit tests for `AppSettingsModel` round-trip
     - Test toEntity/fromEntity round-trip for various valid settings
     - Test default field values match domain defaults
     - _Requirements: 1.2, 1.3_

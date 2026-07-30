@@ -12,6 +12,10 @@ import 'package:focus_flow/features/pomodoro/domain/entities/timer_mode.dart';
 import 'package:focus_flow/features/pomodoro/domain/entities/timer_status.dart';
 import 'package:focus_flow/features/pomodoro/domain/repositories/pomodoro_session_repository.dart';
 import 'package:focus_flow/features/pomodoro/presentation/controllers/pomodoro_controller.dart';
+import 'package:focus_flow/features/settings/domain/entities/app_color_palette.dart';
+import 'package:focus_flow/features/settings/domain/entities/app_settings.dart';
+import 'package:focus_flow/features/settings/domain/entities/app_theme_mode.dart';
+import 'package:focus_flow/features/settings/presentation/controllers/settings_controller.dart';
 import 'package:focus_flow/features/todo/domain/entities/category.dart';
 import 'package:focus_flow/features/todo/domain/entities/priority.dart';
 import 'package:focus_flow/features/todo/domain/entities/sort_criterion.dart';
@@ -137,22 +141,76 @@ class MockPomodoroSessionRepository implements PomodoroSessionRepository {
   Future<List<PomodoroSession>> getByNullTask() async => const [];
 }
 
+class MockSettingsController extends ChangeNotifier
+    implements SettingsController {
+  @override
+  SettingsStatus get status => SettingsStatus.loaded;
+
+  @override
+  AppSettings get settings => const AppSettings();
+
+  @override
+  String? get errorMessage => null;
+
+  @override
+  String? get saveErrorMessage => null;
+
+  @override
+  bool get isSaving => false;
+
+  @override
+  void clearSaveError() {}
+
+  @override
+  Future<void> init() async {}
+
+  @override
+  Future<void> retry() async {}
+
+  @override
+  Future<bool> updateFocusDuration(int minutes) async => true;
+
+  @override
+  Future<bool> updateShortBreakDuration(int minutes) async => true;
+
+  @override
+  Future<bool> updateLongBreakDuration(int minutes) async => true;
+
+  @override
+  Future<bool> updateCyclesBeforeLongBreak(int cycles) async => true;
+
+  @override
+  Future<bool> updateSoundEnabled({required bool enabled}) async => true;
+
+  @override
+  Future<bool> updateThemeMode(AppThemeMode mode) async => true;
+
+  @override
+  Future<bool> updateColorPalette(AppColorPalette palette) async => true;
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => null;
+}
+
 // --- Helper to build the test widget tree ---
 
 Widget buildTestApp({
   MockTodoController? todoController,
   MockPomodoroController? pomodoroController,
   MockPomodoroSessionRepository? sessionRepository,
+  MockSettingsController? settingsController,
 }) {
   final todoCtrl = todoController ?? MockTodoController();
   final pomodoroCtrl = pomodoroController ?? MockPomodoroController();
   final sessionRepo = sessionRepository ?? MockPomodoroSessionRepository();
+  final settingsCtrl = settingsController ?? MockSettingsController();
 
   return MultiProvider(
     providers: [
       Provider<PomodoroSessionRepository>.value(value: sessionRepo),
       ChangeNotifierProvider<TodoController>.value(value: todoCtrl),
       ChangeNotifierProvider<PomodoroController>.value(value: pomodoroCtrl),
+      ChangeNotifierProvider<SettingsController>.value(value: settingsCtrl),
     ],
     child: const MaterialApp(home: HomeScreen()),
   );
@@ -227,12 +285,12 @@ void main() {
       expect(indexedStackAfter.index, 0);
     });
 
-    testWidgets('NavigationBar has exactly 3 destinations', (tester) async {
+    testWidgets('NavigationBar has exactly 4 destinations', (tester) async {
       await tester.pumpWidget(buildTestApp());
       await tester.pumpAndSettle();
 
       final navBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
-      expect(navBar.destinations.length, 3);
+      expect(navBar.destinations.length, 4);
     });
 
     testWidgets(
@@ -265,6 +323,14 @@ void main() {
         final statsSelectedIcon = (destinations[2].selectedIcon! as Icon).icon;
         expect(statsIcon, Icons.bar_chart_outlined);
         expect(statsSelectedIcon, Icons.bar_chart);
+
+        // Settings destination.
+        expect(destinations[3].label, 'Settings');
+        final settingsIcon = (destinations[3].icon as Icon).icon;
+        final settingsSelectedIcon =
+            (destinations[3].selectedIcon! as Icon).icon;
+        expect(settingsIcon, Icons.settings_outlined);
+        expect(settingsSelectedIcon, Icons.settings);
       },
     );
 

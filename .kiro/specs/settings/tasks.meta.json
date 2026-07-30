@@ -277,6 +277,104 @@
         "chatSessionId": "sess_663997af-57d6-486b-92bd-3cbd5d816ea7",
         "timestamp": 1785372128153
       }
+    ],
+    "12.1 Create `SettingsScreen` with loading, error, and loaded states": [
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785373798748
+      },
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374059509
+      }
+    ],
+    "12.4 Create `SoundSettingsSection` widget": [
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785373799445
+      },
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374060214
+      }
+    ],
+    "12.2 Create `PomodoroSettingsSection` widget": [
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374065114
+      },
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374269268
+      }
+    ],
+    "12.3 Create `AppearanceSettingsSection` widget": [
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374065906
+      },
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374269980
+      }
+    ],
+    "12. Settings UI": [
+      {
+        "executionId": "5adcf291-1bf3-4e69-8d37-3ed71746c918",
+        "chatSessionId": "sess_86874dd1-2455-4c60-b850-ad09bf198e0e",
+        "timestamp": 1785374270186
+      }
+    ],
+    "13.1 Add 4th NavigationDestination and IndexedStack child to `HomeScreen`": [
+      {
+        "executionId": "21aec47f-f46d-475f-8b2a-045129c31211",
+        "chatSessionId": "sess_15809ccc-eef6-40cb-913c-3edf2831b2f7",
+        "timestamp": 1785374557054
+      },
+      {
+        "executionId": "21aec47f-f46d-475f-8b2a-045129c31211",
+        "chatSessionId": "sess_15809ccc-eef6-40cb-913c-3edf2831b2f7",
+        "timestamp": 1785374745540
+      }
+    ],
+    "13.2 Add `Routes.settings` and route case in `router.dart`": [
+      {
+        "executionId": "21aec47f-f46d-475f-8b2a-045129c31211",
+        "chatSessionId": "sess_15809ccc-eef6-40cb-913c-3edf2831b2f7",
+        "timestamp": 1785374557917
+      },
+      {
+        "executionId": "21aec47f-f46d-475f-8b2a-045129c31211",
+        "chatSessionId": "sess_15809ccc-eef6-40cb-913c-3edf2831b2f7",
+        "timestamp": 1785374746259
+      }
+    ],
+    "13. Navigation integration": [
+      {
+        "executionId": "21aec47f-f46d-475f-8b2a-045129c31211",
+        "chatSessionId": "sess_15809ccc-eef6-40cb-913c-3edf2831b2f7",
+        "timestamp": 1785374746381
+      }
+    ],
+    "14. Checkpoint — UI integration complete": [
+      {
+        "executionId": "d01cd9af-d365-40f6-b8ce-3d0008065bf1",
+        "chatSessionId": "sess_d4b09f44-3c65-4a37-a6be-8d555490402e",
+        "timestamp": 1785374821427
+      },
+      {
+        "executionId": "d01cd9af-d365-40f6-b8ce-3d0008065bf1",
+        "chatSessionId": "sess_d4b09f44-3c65-4a37-a6be-8d555490402e",
+        "timestamp": 1785375855063
+      }
     ]
   }
 }
