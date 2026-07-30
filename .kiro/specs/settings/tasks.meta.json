@@ -203,6 +203,80 @@
         "chatSessionId": "sess_b8fe126d-fbfc-4174-a21d-3962e531717d",
         "timestamp": 1785370851239
       }
+    ],
+    "9.1 Add equality support to `PomodoroConfig`": [
+      {
+        "executionId": "3e7e4b13-39c4-4656-805f-cdbb7eb63c52",
+        "chatSessionId": "sess_116e8237-1127-43b0-a615-365e16a26eb8",
+        "timestamp": 1785371254818
+      },
+      {
+        "executionId": "3e7e4b13-39c4-4656-805f-cdbb7eb63c52",
+        "chatSessionId": "sess_116e8237-1127-43b0-a615-365e16a26eb8",
+        "timestamp": 1785371311118
+      }
+    ],
+    "9.2 Make `_config` non-final and add `updateConfig(PomodoroConfig)` to `PomodoroController`": [
+      {
+        "executionId": "3e7e4b13-39c4-4656-805f-cdbb7eb63c52",
+        "chatSessionId": "sess_116e8237-1127-43b0-a615-365e16a26eb8",
+        "timestamp": 1785371315155
+      },
+      {
+        "executionId": "3e7e4b13-39c4-4656-805f-cdbb7eb63c52",
+        "chatSessionId": "sess_116e8237-1127-43b0-a615-365e16a26eb8",
+        "timestamp": 1785371469930
+      }
+    ],
+    "9. Pomodoro integration": [
+      {
+        "executionId": "3e7e4b13-39c4-4656-805f-cdbb7eb63c52",
+        "chatSessionId": "sess_116e8237-1127-43b0-a615-365e16a26eb8",
+        "timestamp": 1785371470038
+      }
+    ],
+    "10.1 Modify `main.dart` to initialize `SettingsController` before `runApp`": [
+      {
+        "executionId": "a11c6566-35a6-449e-a10b-839da1724f9b",
+        "chatSessionId": "sess_e0ea74da-c0b5-44f5-8167-df42435e0248",
+        "timestamp": 1785371583772
+      },
+      {
+        "executionId": "a11c6566-35a6-449e-a10b-839da1724f9b",
+        "chatSessionId": "sess_e0ea74da-c0b5-44f5-8167-df42435e0248",
+        "timestamp": 1785371648239
+      }
+    ],
+    "10.2 Modify `app.dart` to accept `settingsController`, provide it, apply theme, and upgrade to `ProxyProvider2`": [
+      {
+        "executionId": "a11c6566-35a6-449e-a10b-839da1724f9b",
+        "chatSessionId": "sess_e0ea74da-c0b5-44f5-8167-df42435e0248",
+        "timestamp": 1785371653956
+      },
+      {
+        "executionId": "a11c6566-35a6-449e-a10b-839da1724f9b",
+        "chatSessionId": "sess_e0ea74da-c0b5-44f5-8167-df42435e0248",
+        "timestamp": 1785371873140
+      }
+    ],
+    "10. Startup sequence and app wiring": [
+      {
+        "executionId": "a11c6566-35a6-449e-a10b-839da1724f9b",
+        "chatSessionId": "sess_e0ea74da-c0b5-44f5-8167-df42435e0248",
+        "timestamp": 1785371873254
+      }
+    ],
+    "11. Checkpoint — Theme and Pomodoro integration complete": [
+      {
+        "executionId": "00deec2a-eeda-4f13-9762-0d6ed0e54117",
+        "chatSessionId": "sess_663997af-57d6-486b-92bd-3cbd5d816ea7",
+        "timestamp": 1785371891062
+      },
+      {
+        "executionId": "00deec2a-eeda-4f13-9762-0d6ed0e54117",
+        "chatSessionId": "sess_663997af-57d6-486b-92bd-3cbd5d816ea7",
+        "timestamp": 1785372128153
+      }
     ]
   }
 }

@@ -93,26 +93,26 @@ Implement the Settings feature following clean architecture: domain entities and
     - Remove or replace existing empty `lib/app/theme/app_theme.dart` and `lib/app/theme/app_colors.dart` (superseded by core/theme)
     - _Requirements: 5.5, 6.2, 9.3_
 
-- [ ] 9. Pomodoro integration
-  - [ ] 9.1 Add equality support to `PomodoroConfig`
+- [x] 9. Pomodoro integration
+  - [x] 9.1 Add equality support to `PomodoroConfig`
     - Modify `lib/features/pomodoro/domain/entities/pomodoro_config.dart`
     - Override `==` and `hashCode` so `updateConfig` can short-circuit on identical config
     - _Requirements: 7.8_
 
-  - [ ] 9.2 Make `_config` non-final and add `updateConfig(PomodoroConfig)` to `PomodoroController`
+  - [x] 9.2 Make `_config` non-final and add `updateConfig(PomodoroConfig)` to `PomodoroController`
     - Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart`
     - Remove `final` from `_config`
     - Add `updateConfig(PomodoroConfig newConfig)` method: no-op if equal, update `_config`, update `_remainingDuration` only when idle/completed
     - _Requirements: 7.1, 7.2, 7.3, 7.5, 7.6, 7.7, 7.8, 7.9_
 
-- [ ] 10. Startup sequence and app wiring
-  - [ ] 10.1 Modify `main.dart` to initialize `SettingsController` before `runApp`
+- [x] 10. Startup sequence and app wiring
+  - [x] 10.1 Modify `main.dart` to initialize `SettingsController` before `runApp`
     - Create `IsarSettingsRepository`, `GetSettingsUseCase`, `SaveSettingsUseCase`, `SettingsController`
     - `await settingsController.init()`
     - Pass `settingsController` to `FocusFlowApp`
     - _Requirements: 12.1, 12.4_
 
-  - [ ] 10.2 Modify `app.dart` to accept `settingsController`, provide it, apply theme, and upgrade to `ProxyProvider2`
+  - [x] 10.2 Modify `app.dart` to accept `settingsController`, provide it, apply theme, and upgrade to `ProxyProvider2`
     - Add `settingsController` parameter to `FocusFlowApp`
     - Provide via `ChangeNotifierProvider.value`
     - Create `lib/app/mappers/pomodoro_settings_mapper.dart` with `mapSettingsToPomodoroConfig` function
@@ -121,7 +121,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - In update callback: call `updateAvailableTasks` and `updateConfig(mapSettingsToPomodoroConfig(settingsController.settings))`
     - _Requirements: 5.5, 5.6, 6.2, 6.7, 7.1, 7.7, 12.1, 12.2, 12.3, 12.4, 12.5_
 
-- [ ] 11. Checkpoint — Theme and Pomodoro integration complete
+- [x] 11. Checkpoint — Theme and Pomodoro integration complete
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 12. Settings UI

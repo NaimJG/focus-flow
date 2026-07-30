@@ -24,7 +24,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
        _remainingDuration = config.focusDuration;
 
   // --- Configuration ---
-  final PomodoroConfig _config;
+  PomodoroConfig _config;
   final Clock _clock;
   final SavePomodoroSessionUseCase _saveSessionUseCase;
   final List<PomodoroTaskOption> Function() _taskListProvider;
@@ -48,6 +48,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
 
   // --- Session tracking ---
   DateTime? _sessionStartedAt;
+  Duration? _activeSessionPlannedDuration;
   int? _selectedTaskId;
   String? _selectedTaskTitle;
 
@@ -110,6 +111,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
     _status = TimerStatus.running;
     if (_currentMode == TimerMode.focus) {
       _sessionStartedAt = _clock.now();
+      _activeSessionPlannedDuration = _remainingDuration;
     }
     _startTimer();
     notifyListeners();
@@ -156,6 +158,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
     _status = TimerStatus.idle;
     _remainingDuration = _config.durationFor(_currentMode);
     _completedMode = null;
+    _activeSessionPlannedDuration = null;
     notifyListeners();
   }
 
@@ -176,6 +179,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
     _status = TimerStatus.idle;
     _remainingDuration = _config.durationFor(_currentMode);
     _completedMode = null;
+    _activeSessionPlannedDuration = null;
     notifyListeners();
   }
 
@@ -283,6 +287,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
 
   Future<void> _persistSession() async {
     final session = _buildSession();
+    _activeSessionPlannedDuration = null;
     try {
       await _saveSessionUseCase.call(session);
     } catch (e) {
@@ -307,8 +312,10 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
       timerMode: TimerMode.focus,
       startedAt: _sessionStartedAt!,
       completedAt: _clock.now(),
-      plannedDurationSeconds: _config.focusDuration.inSeconds,
-      actualDurationSeconds: _config.focusDuration.inSeconds,
+      plannedDurationSeconds:
+          (_activeSessionPlannedDuration ?? _config.focusDuration).inSeconds,
+      actualDurationSeconds:
+          (_activeSessionPlannedDuration ?? _config.focusDuration).inSeconds,
       taskId: _selectedTaskId,
       taskTitleSnapshot: _resolveTaskTitleSnapshot(),
     );
@@ -326,6 +333,22 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
       case TimerMode.longBreak:
         return TimerMode.focus;
     }
+  }
+
+  /// Replaces the Pomodoro duration configuration atomically.
+  ///
+  /// No-op if [newConfig] is equal to the current config.
+  /// When the timer is idle or completed, updates [remainingDuration]
+  /// immediately to reflect the new duration. When running or paused,
+  /// the remaining duration is left unchanged (deferred until next
+  /// session start, reset, or transition).
+  void updateConfig(PomodoroConfig newConfig) {
+    if (newConfig == _config) return;
+    _config = newConfig;
+    if (_status == TimerStatus.idle || _status == TimerStatus.completed) {
+      _remainingDuration = _config.durationFor(_currentMode);
+    }
+    notifyListeners();
   }
 
   /// Replaces the available task options with [tasks].

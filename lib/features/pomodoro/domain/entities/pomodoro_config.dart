@@ -24,4 +24,22 @@ class PomodoroConfig {
     TimerMode.shortBreak => shortBreakDuration,
     TimerMode.longBreak => longBreakDuration,
   };
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is PomodoroConfig &&
+          runtimeType == other.runtimeType &&
+          focusDuration == other.focusDuration &&
+          shortBreakDuration == other.shortBreakDuration &&
+          longBreakDuration == other.longBreakDuration &&
+          sessionsBeforeLongBreak == other.sessionsBeforeLongBreak;
+
+  @override
+  int get hashCode => Object.hash(
+    focusDuration,
+    shortBreakDuration,
+    longBreakDuration,
+    sessionsBeforeLongBreak,
+  );
 }
