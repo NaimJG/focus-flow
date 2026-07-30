@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../controllers/settings_controller.dart';
 
 /// Displays the "Pomodoro" settings section with numeric input controls
@@ -19,6 +20,7 @@ class PomodoroSettingsSection extends StatelessWidget {
     final controller = context.watch<SettingsController>();
     final settings = controller.settings;
     final enabled = !controller.isSaving;
+    final l10n = AppLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,13 +28,13 @@ class PomodoroSettingsSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Text(
-            'Pomodoro',
+            l10n.settingsSectionPomodoro,
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         _DurationSettingTile(
-          label: 'Focus duration',
-          suffix: 'min',
+          label: l10n.settingsFocusDuration,
+          suffix: l10n.settingsDurationUnit,
           value: settings.focusDuration.inMinutes,
           min: 1,
           max: 120,
@@ -40,8 +42,8 @@ class PomodoroSettingsSection extends StatelessWidget {
           onChanged: controller.updateFocusDuration,
         ),
         _DurationSettingTile(
-          label: 'Short break',
-          suffix: 'min',
+          label: l10n.settingsShortBreak,
+          suffix: l10n.settingsDurationUnit,
           value: settings.shortBreakDuration.inMinutes,
           min: 1,
           max: 60,
@@ -49,8 +51,8 @@ class PomodoroSettingsSection extends StatelessWidget {
           onChanged: controller.updateShortBreakDuration,
         ),
         _DurationSettingTile(
-          label: 'Long break',
-          suffix: 'min',
+          label: l10n.settingsLongBreak,
+          suffix: l10n.settingsDurationUnit,
           value: settings.longBreakDuration.inMinutes,
           min: 1,
           max: 120,
@@ -58,8 +60,8 @@ class PomodoroSettingsSection extends StatelessWidget {
           onChanged: controller.updateLongBreakDuration,
         ),
         _DurationSettingTile(
-          label: 'Cycles before long break',
-          suffix: 'cycles',
+          label: l10n.settingsCyclesBeforeLongBreak,
+          suffix: l10n.settingsCyclesUnit,
           value: settings.cyclesBeforeLongBreak,
           min: 1,
           max: 6,
@@ -139,8 +141,9 @@ class _DurationSettingTileState extends State<_DurationSettingTile> {
 
     final parsed = int.tryParse(text);
     if (parsed == null || parsed < widget.min || parsed > widget.max) {
+      final l10n = AppLocalizations.of(context)!;
       setState(() {
-        _errorText = 'Must be between ${widget.min} and ${widget.max}';
+        _errorText = l10n.settingsValidationRange(widget.min, widget.max);
       });
       // Revert the text to the last valid value.
       _textController.text = widget.value.toString();

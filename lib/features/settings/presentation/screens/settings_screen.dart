@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/appearance_settings_section.dart';
 import '../widgets/language_settings_section.dart';
@@ -30,23 +31,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _checkSaveError() {
     final controller = context.read<SettingsController>();
-    final currentError = controller.saveErrorMessage;
+    final failedSetting = controller.failedSettingName;
 
-    if (currentError != null && currentError != _lastSaveError) {
-      _lastSaveError = currentError;
+    if (failedSetting != null && failedSetting != _lastSaveError) {
+      _lastSaveError = failedSetting;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
             SnackBar(
-              content: Text(currentError),
+              content: Text(l10n.settingsSaveError(failedSetting)),
               duration: const Duration(seconds: 4),
             ),
           );
         controller.clearSaveError();
       });
-    } else if (currentError == null) {
+    } else if (failedSetting == null) {
       _lastSaveError = null;
     }
   }
@@ -54,12 +56,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = context.watch<SettingsController>();
+    final l10n = AppLocalizations.of(context)!;
 
     // Check for save errors on every rebuild.
     _checkSaveError();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(l10n.settingsTitle)),
       body: switch (controller.status) {
         SettingsStatus.loading => const Center(
           child: CircularProgressIndicator(),
@@ -85,6 +88,7 @@ class _ErrorBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Center(
       child: Padding(
@@ -100,7 +104,10 @@ class _ErrorBody extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            FilledButton(onPressed: onRetry, child: const Text('Retry')),
+            FilledButton(
+              onPressed: onRetry,
+              child: Text(l10n.sharedRetry),
+            ),
           ],
         ),
       ),

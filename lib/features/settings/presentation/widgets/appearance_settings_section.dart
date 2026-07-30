@@ -2,23 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/theme/app_palette_seeds.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/app_color_palette.dart';
 import '../../domain/entities/app_theme_mode.dart';
 import '../controllers/settings_controller.dart';
-
-/// Maps [AppThemeMode] enum values to user-facing labels.
-String _themeModeLabel(AppThemeMode mode) => switch (mode) {
-  AppThemeMode.system => 'System',
-  AppThemeMode.light => 'Light',
-  AppThemeMode.dark => 'Dark',
-};
-
-/// Maps [AppColorPalette] enum values to user-facing labels.
-String _paletteLabel(AppColorPalette palette) => switch (palette) {
-  AppColorPalette.salmon => 'Salmon',
-  AppColorPalette.lightBlue => 'Light Blue',
-  AppColorPalette.lightGreen => 'Light Green',
-};
+import '../utils/settings_labels.dart';
 
 /// Displays the "Appearance" settings section with a theme mode
 /// selector and a color palette picker.
@@ -38,6 +26,7 @@ class AppearanceSettingsSection extends StatelessWidget {
     final controller = context.watch<SettingsController>();
     final settings = controller.settings;
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final enabled = !controller.isSaving;
 
     return Column(
@@ -45,7 +34,10 @@ class AppearanceSettingsSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Text('Appearance', style: theme.textTheme.titleMedium),
+          child: Text(
+            l10n.settingsSectionAppearance,
+            style: theme.textTheme.titleMedium,
+          ),
         ),
         const SizedBox(height: 8),
         Padding(
@@ -55,7 +47,7 @@ class AppearanceSettingsSection extends StatelessWidget {
               for (final mode in AppThemeMode.values)
                 ButtonSegment<AppThemeMode>(
                   value: mode,
-                  label: Text(_themeModeLabel(mode)),
+                  label: Text(themeModeLabel(mode, l10n)),
                 ),
             ],
             selected: {settings.themeMode},
@@ -69,7 +61,10 @@ class AppearanceSettingsSection extends StatelessWidget {
         const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text('Color palette', style: theme.textTheme.bodyMedium),
+          child: Text(
+            l10n.settingsColorPalette,
+            style: theme.textTheme.bodyMedium,
+          ),
         ),
         const SizedBox(height: 8),
         Padding(
@@ -81,6 +76,7 @@ class AppearanceSettingsSection extends StatelessWidget {
               for (final palette in AppColorPalette.values)
                 _PaletteOption(
                   palette: palette,
+                  label: colorPaletteLabel(palette, l10n),
                   isSelected: settings.colorPalette == palette,
                   enabled: enabled,
                   onTap: () {
@@ -100,19 +96,20 @@ class AppearanceSettingsSection extends StatelessWidget {
 class _PaletteOption extends StatelessWidget {
   const _PaletteOption({
     required this.palette,
+    required this.label,
     required this.isSelected,
     required this.enabled,
     required this.onTap,
   });
 
   final AppColorPalette palette;
+  final String label;
   final bool isSelected;
   final bool enabled;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final label = _paletteLabel(palette);
     final color = AppPaletteSeeds.seedForPalette(palette);
     final theme = Theme.of(context);
 
@@ -128,7 +125,8 @@ class _PaletteOption extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

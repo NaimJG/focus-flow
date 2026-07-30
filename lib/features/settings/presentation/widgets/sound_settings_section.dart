@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../controllers/settings_controller.dart';
 
 /// Displays the "Sound" settings section with a toggle switch for
@@ -11,6 +12,7 @@ class SoundSettingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final controller = context.watch<SettingsController>();
     final settings = controller.settings;
     final enabled = !controller.isSaving;
@@ -20,11 +22,18 @@ class SoundSettingsSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Text('Sound', style: Theme.of(context).textTheme.titleMedium),
+          child: Text(
+            l10n.settingsSectionSound,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         SwitchListTile(
-          title: const Text('Sound'),
-          subtitle: Text(settings.soundEnabled ? 'Enabled' : 'Disabled'),
+          title: Text(l10n.settingsSectionSound),
+          subtitle: Text(
+            settings.soundEnabled
+                ? l10n.settingsSoundEnabled
+                : l10n.settingsSoundDisabled,
+          ),
           value: settings.soundEnabled,
           onChanged: enabled
               ? (value) {

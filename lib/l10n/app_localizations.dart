@@ -146,6 +146,132 @@ abstract class AppLocalizations {
   /// **'Idioma'**
   String get settingsLanguage;
 
+  /// AppBar title for the Settings screen
+  ///
+  /// In es, this message translates to:
+  /// **'Configuración'**
+  String get settingsTitle;
+
+  /// Section header for Pomodoro settings
+  ///
+  /// In es, this message translates to:
+  /// **'Pomodoro'**
+  String get settingsSectionPomodoro;
+
+  /// Section header for Appearance settings
+  ///
+  /// In es, this message translates to:
+  /// **'Apariencia'**
+  String get settingsSectionAppearance;
+
+  /// Section header for Sound settings
+  ///
+  /// In es, this message translates to:
+  /// **'Sonido'**
+  String get settingsSectionSound;
+
+  /// Theme mode label for system default
+  ///
+  /// In es, this message translates to:
+  /// **'Sistema'**
+  String get settingsThemeModeSystem;
+
+  /// Theme mode label for light mode
+  ///
+  /// In es, this message translates to:
+  /// **'Claro'**
+  String get settingsThemeModeLight;
+
+  /// Theme mode label for dark mode
+  ///
+  /// In es, this message translates to:
+  /// **'Oscuro'**
+  String get settingsThemeModeDark;
+
+  /// Color palette name for Salmon
+  ///
+  /// In es, this message translates to:
+  /// **'Salmón'**
+  String get settingsPaletteSalmon;
+
+  /// Color palette name for Light Blue
+  ///
+  /// In es, this message translates to:
+  /// **'Azul claro'**
+  String get settingsPaletteLightBlue;
+
+  /// Color palette name for Light Green
+  ///
+  /// In es, this message translates to:
+  /// **'Verde claro'**
+  String get settingsPaletteLightGreen;
+
+  /// Sub-label for the color palette picker section
+  ///
+  /// In es, this message translates to:
+  /// **'Paleta de colores'**
+  String get settingsColorPalette;
+
+  /// Sound state label when enabled
+  ///
+  /// In es, this message translates to:
+  /// **'Activado'**
+  String get settingsSoundEnabled;
+
+  /// Sound state label when disabled
+  ///
+  /// In es, this message translates to:
+  /// **'Desactivado'**
+  String get settingsSoundDisabled;
+
+  /// Duration unit abbreviation for minutes in settings inputs
+  ///
+  /// In es, this message translates to:
+  /// **'min'**
+  String get settingsDurationUnit;
+
+  /// Label for the focus duration setting field
+  ///
+  /// In es, this message translates to:
+  /// **'Duración de enfoque'**
+  String get settingsFocusDuration;
+
+  /// Label for the short break duration setting field
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso corto'**
+  String get settingsShortBreak;
+
+  /// Label for the long break duration setting field
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso largo'**
+  String get settingsLongBreak;
+
+  /// Label for cycles before long break setting field
+  ///
+  /// In es, this message translates to:
+  /// **'Ciclos antes de descanso largo'**
+  String get settingsCyclesBeforeLongBreak;
+
+  /// Unit suffix for cycles setting input
+  ///
+  /// In es, this message translates to:
+  /// **'ciclos'**
+  String get settingsCyclesUnit;
+
+  /// Error message template when a setting fails to save
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo guardar {settingName}. Intente de nuevo.'**
+  String settingsSaveError(String settingName);
+
+  /// Validation error message for out-of-range numeric input
+  ///
+  /// In es, this message translates to:
+  /// **'Debe ser entre {min} y {max}'**
+  String settingsValidationRange(int min, int max);
+
   /// AppBar title for the Todo screen
   ///
   /// In es, this message translates to:

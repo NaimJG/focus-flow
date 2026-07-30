@@ -33,6 +33,73 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsLanguage => 'Idioma';
 
   @override
+  String get settingsTitle => 'Configuración';
+
+  @override
+  String get settingsSectionPomodoro => 'Pomodoro';
+
+  @override
+  String get settingsSectionAppearance => 'Apariencia';
+
+  @override
+  String get settingsSectionSound => 'Sonido';
+
+  @override
+  String get settingsThemeModeSystem => 'Sistema';
+
+  @override
+  String get settingsThemeModeLight => 'Claro';
+
+  @override
+  String get settingsThemeModeDark => 'Oscuro';
+
+  @override
+  String get settingsPaletteSalmon => 'Salmón';
+
+  @override
+  String get settingsPaletteLightBlue => 'Azul claro';
+
+  @override
+  String get settingsPaletteLightGreen => 'Verde claro';
+
+  @override
+  String get settingsColorPalette => 'Paleta de colores';
+
+  @override
+  String get settingsSoundEnabled => 'Activado';
+
+  @override
+  String get settingsSoundDisabled => 'Desactivado';
+
+  @override
+  String get settingsDurationUnit => 'min';
+
+  @override
+  String get settingsFocusDuration => 'Duración de enfoque';
+
+  @override
+  String get settingsShortBreak => 'Descanso corto';
+
+  @override
+  String get settingsLongBreak => 'Descanso largo';
+
+  @override
+  String get settingsCyclesBeforeLongBreak => 'Ciclos antes de descanso largo';
+
+  @override
+  String get settingsCyclesUnit => 'ciclos';
+
+  @override
+  String settingsSaveError(String settingName) {
+    return 'No se pudo guardar $settingName. Intente de nuevo.';
+  }
+
+  @override
+  String settingsValidationRange(int min, int max) {
+    return 'Debe ser entre $min y $max';
+  }
+
+  @override
   String get todoTitle => 'Tareas';
 
   @override

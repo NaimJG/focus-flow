@@ -212,35 +212,35 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify all Statistics strings render in Spanish by default, weekday labels are locale-aware
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 18. Settings localization
-  - [ ] 18.1 Add Settings ARB keys to `app_es.arb` and `app_en.arb`
+- [x] 18. Settings localization
+  - [x] 18.1 Add Settings ARB keys to `app_es.arb` and `app_en.arb`
     - Keys for: title, section headers (Pomodoro, Appearance, Language, Sound), theme mode labels (System, Light, Dark), palette names (Salmon, Light Blue, Light Green), sound states (Enabled, Disabled), duration unit ("min"), save error template with placeholder, retry, validation messages
     - Include `@` metadata and placeholder definitions
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 18.1, 18.2, 18.4_
 
-  - [ ] 18.2 Create `lib/features/settings/presentation/utils/settings_labels.dart`
+  - [x] 18.2 Create `lib/features/settings/presentation/utils/settings_labels.dart`
     - Helper functions mapping `AppThemeMode` and `AppColorPalette` to localized labels via `AppLocalizations`
     - _Requirements: 17.5_
 
-  - [ ] 18.3 Localize `AppearanceSettingsSection` (`appearance_settings_section.dart`)
+  - [x] 18.3 Localize `AppearanceSettingsSection` (`appearance_settings_section.dart`)
     - Replace "Appearance" header, theme mode labels (System, Light, Dark), palette names (Salmon, Light Blue, Light Green) with `l10n.*`
     - _Requirements: 13.1, 13.2_
 
-  - [ ] 18.4 Localize `PomodoroSettingsSection` (`pomodoro_settings_section.dart`)
+  - [x] 18.4 Localize `PomodoroSettingsSection` (`pomodoro_settings_section.dart`)
     - Replace "Pomodoro" header, "min" unit label, field labels with `l10n.*`
     - _Requirements: 13.1, 13.3_
 
-  - [ ] 18.5 Localize `SoundSettingsSection` (`sound_settings_section.dart`)
+  - [x] 18.5 Localize `SoundSettingsSection` (`sound_settings_section.dart`)
     - Replace "Sound" header, "Enabled"/"Disabled" labels with `l10n.*`
     - _Requirements: 13.1, 13.2_
 
-  - [ ] 18.6 Localize `SettingsScreen` (`settings_screen.dart`)
+  - [x] 18.6 Localize `SettingsScreen` (`settings_screen.dart`)
     - Replace AppBar title "Settings" with `l10n.settingsTitle`
     - Replace error body message and "Retry" button label with localized versions
     - Localize save error SnackBar using `failedSettingName` + `l10n.settingsSaveError`
     - _Requirements: 13.1, 13.4_
 
-- [ ] 19. Checkpoint — Settings localization
+- [x] 19. Checkpoint — Settings localization
   - Verify all Settings strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 
@@ -266,33 +266,33 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 22. Essential tests
-  - [ ] 22.1 Unit tests for `AppLanguage` enum and `AppSettings` language field
+  - [ ]* 22.1 Unit tests for `AppLanguage` enum and `AppSettings` language field
     - Test `AppLanguage.values` has correct order (spanish=0, english=1)
     - Test `AppSettings` default language is `AppLanguage.spanish`
     - Test `copyWith(language:)` produces correct result with other fields unchanged
     - Test equality includes `language` field
     - _Requirements: 2.1, 3.1, 3.2, 3.3_
 
-  - [ ] 22.2 Unit tests for `AppSettingsModel` language round-trip
+  - [ ]* 22.2 Unit tests for `AppSettingsModel` language round-trip
     - Test `toEntity()` converts language field correctly
     - Test `fromEntity()` stores language field correctly
     - Test round-trip: `fromEntity(entity).toEntity() == entity` including language
     - _Requirements: 4.1, 4.4_
 
-  - [ ] 22.3 Unit tests for `SettingsController.updateLanguage`
+  - [ ]* 22.3 Unit tests for `SettingsController.updateLanguage`
     - Test successful persist updates `settings.language` and returns `true`
     - Test failed persist reverts to previous language and returns `false`
     - Test rejected while `isSaving` returns `false` without state change
     - Test language change does not alter other settings fields
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5_
 
-  - [ ] 22.4 Unit tests for `AppLanguageMapper`
+  - [ ]* 22.4 Unit tests for `AppLanguageMapper`
     - Test `spanish` maps to `Locale('es')`
     - Test `english` maps to `Locale('en')`
     - Test all values produce distinct locales
     - _Requirements: 2.3_
 
-  - [ ] 22.5 Unit tests for `formatDuration` with localization
+  - [ ]* 22.5 Unit tests for `formatDuration` with localization
     - Test produces correct output for 0 seconds (both locales)
     - Test produces correct output for values below 3600
     - Test produces correct output for values at/above 3600

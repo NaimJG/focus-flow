@@ -539,6 +539,97 @@
         "chatSessionId": "sess_f0852fdf-a533-4c90-b239-4242aec0e147",
         "timestamp": 1785451531991
       }
+    ],
+    "18.1 Add Settings ARB keys to `app_es.arb` and `app_en.arb`": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785451740475
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452188921
+      }
+    ],
+    "18.2 Create `lib/features/settings/presentation/utils/settings_labels.dart`": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452194866
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452429389
+      }
+    ],
+    "18.3 Localize `AppearanceSettingsSection` (`appearance_settings_section.dart`)": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452435769
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452637311
+      }
+    ],
+    "18.4 Localize `PomodoroSettingsSection` (`pomodoro_settings_section.dart`)": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452435952
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452637930
+      }
+    ],
+    "18.5 Localize `SoundSettingsSection` (`sound_settings_section.dart`)": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452436840
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452640296
+      }
+    ],
+    "18.6 Localize `SettingsScreen` (`settings_screen.dart`)": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452437730
+      },
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452640664
+      }
+    ],
+    "18. Settings localization": [
+      {
+        "executionId": "ccbc7c66-954d-4848-a34c-10aa6b3ccc8a",
+        "chatSessionId": "sess_3298af70-0eea-40d8-9983-4ddc94888b9d",
+        "timestamp": 1785452656293
+      }
+    ],
+    "19. Checkpoint — Settings localization": [
+      {
+        "executionId": "624d91cb-8aed-4b19-8caa-a748b75f5f31",
+        "chatSessionId": "sess_1ae3c839-f8f5-481e-a3bf-03a84bf9a9e5",
+        "timestamp": 1785452712594
+      },
+      {
+        "executionId": "624d91cb-8aed-4b19-8caa-a748b75f5f31",
+        "chatSessionId": "sess_1ae3c839-f8f5-481e-a3bf-03a84bf9a9e5",
+        "timestamp": 1785453045402
+      }
     ]
   }
 }

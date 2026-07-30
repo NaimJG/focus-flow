@@ -41,6 +41,127 @@
     "description": "Section header for language settings in the Settings screen"
   },
 
+  "settingsTitle": "Configuración",
+  "@settingsTitle": {
+    "description": "AppBar title for the Settings screen"
+  },
+
+  "settingsSectionPomodoro": "Pomodoro",
+  "@settingsSectionPomodoro": {
+    "description": "Section header for Pomodoro settings"
+  },
+
+  "settingsSectionAppearance": "Apariencia",
+  "@settingsSectionAppearance": {
+    "description": "Section header for Appearance settings"
+  },
+
+  "settingsSectionSound": "Sonido",
+  "@settingsSectionSound": {
+    "description": "Section header for Sound settings"
+  },
+
+  "settingsThemeModeSystem": "Sistema",
+  "@settingsThemeModeSystem": {
+    "description": "Theme mode label for system default"
+  },
+
+  "settingsThemeModeLight": "Claro",
+  "@settingsThemeModeLight": {
+    "description": "Theme mode label for light mode"
+  },
+
+  "settingsThemeModeDark": "Oscuro",
+  "@settingsThemeModeDark": {
+    "description": "Theme mode label for dark mode"
+  },
+
+  "settingsPaletteSalmon": "Salmón",
+  "@settingsPaletteSalmon": {
+    "description": "Color palette name for Salmon"
+  },
+
+  "settingsPaletteLightBlue": "Azul claro",
+  "@settingsPaletteLightBlue": {
+    "description": "Color palette name for Light Blue"
+  },
+
+  "settingsPaletteLightGreen": "Verde claro",
+  "@settingsPaletteLightGreen": {
+    "description": "Color palette name for Light Green"
+  },
+
+  "settingsColorPalette": "Paleta de colores",
+  "@settingsColorPalette": {
+    "description": "Sub-label for the color palette picker section"
+  },
+
+  "settingsSoundEnabled": "Activado",
+  "@settingsSoundEnabled": {
+    "description": "Sound state label when enabled"
+  },
+
+  "settingsSoundDisabled": "Desactivado",
+  "@settingsSoundDisabled": {
+    "description": "Sound state label when disabled"
+  },
+
+  "settingsDurationUnit": "min",
+  "@settingsDurationUnit": {
+    "description": "Duration unit abbreviation for minutes in settings inputs"
+  },
+
+  "settingsFocusDuration": "Duración de enfoque",
+  "@settingsFocusDuration": {
+    "description": "Label for the focus duration setting field"
+  },
+
+  "settingsShortBreak": "Descanso corto",
+  "@settingsShortBreak": {
+    "description": "Label for the short break duration setting field"
+  },
+
+  "settingsLongBreak": "Descanso largo",
+  "@settingsLongBreak": {
+    "description": "Label for the long break duration setting field"
+  },
+
+  "settingsCyclesBeforeLongBreak": "Ciclos antes de descanso largo",
+  "@settingsCyclesBeforeLongBreak": {
+    "description": "Label for cycles before long break setting field"
+  },
+
+  "settingsCyclesUnit": "ciclos",
+  "@settingsCyclesUnit": {
+    "description": "Unit suffix for cycles setting input"
+  },
+
+  "settingsSaveError": "No se pudo guardar {settingName}. Intente de nuevo.",
+  "@settingsSaveError": {
+    "description": "Error message template when a setting fails to save",
+    "placeholders": {
+      "settingName": {
+        "type": "String",
+        "example": "idioma"
+      }
+    }
+  },
+
+  "settingsValidationRange": "Debe ser entre {min} y {max}",
+  "@settingsValidationRange": {
+    "description": "Validation error message for out-of-range numeric input",
+    "placeholders": {
+      "min": {
+        "type": "int",
+        "example": "1"
+      },
+      "max": {
+        "type": "int",
+        "example": "120"
+      }
+    }
+  },
+
   "todoTitle": "Tareas",
   "@todoTitle": {
     "description": "AppBar title for the Todo screen"

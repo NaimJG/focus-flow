@@ -33,6 +33,73 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguage => 'Language';
 
   @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsSectionPomodoro => 'Pomodoro';
+
+  @override
+  String get settingsSectionAppearance => 'Appearance';
+
+  @override
+  String get settingsSectionSound => 'Sound';
+
+  @override
+  String get settingsThemeModeSystem => 'System';
+
+  @override
+  String get settingsThemeModeLight => 'Light';
+
+  @override
+  String get settingsThemeModeDark => 'Dark';
+
+  @override
+  String get settingsPaletteSalmon => 'Salmon';
+
+  @override
+  String get settingsPaletteLightBlue => 'Light Blue';
+
+  @override
+  String get settingsPaletteLightGreen => 'Light Green';
+
+  @override
+  String get settingsColorPalette => 'Color palette';
+
+  @override
+  String get settingsSoundEnabled => 'Enabled';
+
+  @override
+  String get settingsSoundDisabled => 'Disabled';
+
+  @override
+  String get settingsDurationUnit => 'min';
+
+  @override
+  String get settingsFocusDuration => 'Focus duration';
+
+  @override
+  String get settingsShortBreak => 'Short break';
+
+  @override
+  String get settingsLongBreak => 'Long break';
+
+  @override
+  String get settingsCyclesBeforeLongBreak => 'Cycles before long break';
+
+  @override
+  String get settingsCyclesUnit => 'cycles';
+
+  @override
+  String settingsSaveError(String settingName) {
+    return 'Could not save $settingName. Please try again.';
+  }
+
+  @override
+  String settingsValidationRange(int min, int max) {
+    return 'Must be between $min and $max';
+  }
+
+  @override
   String get todoTitle => 'Tasks';
 
   @override
