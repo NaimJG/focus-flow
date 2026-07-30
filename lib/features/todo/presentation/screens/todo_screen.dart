@@ -157,6 +157,7 @@ class _TodoScreenContentState extends State<_TodoScreenContent> {
 
   void _showErrorSnackBar(String message) {
     if (!mounted) return;
+    final l10n = AppLocalizations.of(context)!;
 
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
@@ -164,7 +165,7 @@ class _TodoScreenContentState extends State<_TodoScreenContent> {
         SnackBar(
           content: Text(message),
           action: SnackBarAction(
-            label: 'Reload',
+            label: l10n.sharedRetry,
             onPressed: () {
               widget.controller.init();
             },

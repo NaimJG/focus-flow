@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../../../shared/widgets/confirmation_dialog.dart';
 import '../../domain/entities/category.dart';
 import '../controllers/todo_controller.dart';
@@ -55,8 +56,9 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
     final name = _newCategoryController.text.trim();
 
     if (name.isEmpty) {
+      final l10n = AppLocalizations.of(context)!;
       setState(() {
-        _newCategoryError = 'Category name is required';
+        _newCategoryError = l10n.todoCategoryNameRequired;
       });
       return;
     }
@@ -115,6 +117,8 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
           return StatefulBuilder(
             builder: (builderContext, setDialogState) {
+              final l10n = AppLocalizations.of(builderContext)!;
+
               Future<void> submitRename() async {
                 if (isSubmitting) {
                   return;
@@ -124,7 +128,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
                 if (name.isEmpty) {
                   setDialogState(() {
-                    renameError = 'Category name is required';
+                    renameError = l10n.todoCategoryNameRequired;
                   });
                   return;
                 }
@@ -158,14 +162,14 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
               return PopScope(
                 canPop: !isSubmitting,
                 child: AlertDialog(
-                  title: const Text('Rename Category'),
+                  title: Text(l10n.todoCategoryRenameTitle),
                   content: TextField(
                     controller: renameController,
                     autofocus: true,
                     enabled: !isSubmitting,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      labelText: 'Category name',
+                      labelText: l10n.todoCategoryNameLabel,
                       errorText: renameError,
                     ),
                     onSubmitted: isSubmitting ? null : (_) => submitRename(),
@@ -177,7 +181,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                           : () {
                               Navigator.of(dialogContext).pop();
                             },
-                      child: const Text('Cancel'),
+                      child: Text(l10n.sharedCancel),
                     ),
                     FilledButton(
                       onPressed: isSubmitting ? null : submitRename,
@@ -186,7 +190,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                               dimension: 18,
                               child: CircularProgressIndicator(strokeWidth: 2),
                             )
-                          : const Text('Rename'),
+                          : Text(l10n.todoCategoryRename),
                     ),
                   ],
                 ),
@@ -201,14 +205,13 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
   }
 
   Future<void> _confirmDelete(Category category) async {
+    final l10n = AppLocalizations.of(context)!;
     await ConfirmationDialog.show(
       context,
-      title: 'Delete Category',
-      message:
-          'Are you sure you want to delete "${category.name}"? '
-          'Its tasks will not be deleted. They will become uncategorized.',
-      confirmLabel: 'Delete',
-      cancelLabel: 'Cancel',
+      title: l10n.categoryDeleteTitle,
+      message: l10n.categoryDeleteMessage(category.name),
+      confirmLabel: l10n.sharedDelete,
+      cancelLabel: l10n.sharedCancel,
       onConfirm: () async {
         final controller = context.read<TodoController>();
 
@@ -238,6 +241,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final categories = context.select<TodoController, List<Category>>(
       (controller) => controller.categories.toList(),
     );
@@ -249,7 +253,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
     final mutationsDisabled = controllerIsLoading || _isCreatingCategory;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Categories')),
+      appBar: AppBar(title: Text(l10n.todoCategoriesTitle)),
       body: SafeArea(
         child: Column(
           children: [
@@ -266,7 +270,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                         enabled: !_isCreatingCategory,
                         textInputAction: TextInputAction.done,
                         decoration: InputDecoration(
-                          labelText: 'New category name',
+                          labelText: l10n.todoCategoryNewName,
                           errorText: _newCategoryError,
                         ),
                         onSubmitted: _isCreatingCategory
@@ -276,11 +280,11 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                     ),
                     const SizedBox(width: 8),
                     Semantics(
-                      label: 'Save category',
+                      label: l10n.todoCategorySaveSemantics,
                       button: true,
                       child: IconButton(
                         onPressed: _isCreatingCategory ? null : _createCategory,
-                        tooltip: 'Save category',
+                        tooltip: l10n.todoCategorySaveSemantics,
                         icon: _isCreatingCategory
                             ? const SizedBox.square(
                                 dimension: 20,
@@ -292,13 +296,13 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
                       ),
                     ),
                     Semantics(
-                      label: 'Cancel category creation',
+                      label: l10n.todoCategoryCancelSemantics,
                       button: true,
                       child: IconButton(
                         onPressed: _isCreatingCategory
                             ? null
                             : _cancelCategoryCreation,
-                        tooltip: 'Cancel',
+                        tooltip: l10n.sharedCancel,
                         icon: const Icon(Icons.close),
                       ),
                     ),
@@ -309,7 +313,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
               child: categories.isEmpty
                   ? Center(
                       child: Text(
-                        'No categories yet',
+                        l10n.todoCategoryEmptyState,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     )
@@ -338,7 +342,7 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
           ? null
           : FloatingActionButton(
               onPressed: controllerIsLoading ? null : _startCategoryCreation,
-              tooltip: 'Add category',
+              tooltip: l10n.todoCategoryAdd,
               child: const Icon(Icons.add),
             ),
     );
@@ -360,27 +364,28 @@ class _CategoryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return ListTile(
       title: Text(category.name),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Semantics(
-            label: 'Rename ${category.name}',
+            label: l10n.todoCategoryRenameSemantics(category.name),
             button: true,
             child: IconButton(
               onPressed: actionsEnabled ? onRename : null,
               icon: const Icon(Icons.edit_outlined),
-              tooltip: 'Rename ${category.name}',
+              tooltip: l10n.todoCategoryRenameSemantics(category.name),
             ),
           ),
           Semantics(
-            label: 'Delete ${category.name}',
+            label: l10n.todoCategoryDeleteSemantics(category.name),
             button: true,
             child: IconButton(
               onPressed: actionsEnabled ? onDelete : null,
               icon: const Icon(Icons.delete_outline),
-              tooltip: 'Delete ${category.name}',
+              tooltip: l10n.todoCategoryDeleteSemantics(category.name),
             ),
           ),
         ],

@@ -95,6 +95,10 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get settingsLoadError =>
+      'No se pudo cargar la configuración. Intente de nuevo.';
+
+  @override
   String settingsValidationRange(int min, int max) {
     return 'Debe ser entre $min y $max';
   }
@@ -305,4 +309,153 @@ class AppLocalizationsEs extends AppLocalizations {
   String durationHoursMinutes(int hours, int minutes) {
     return '$hours h $minutes min';
   }
+
+  @override
+  String get categoryDeleteTitle => 'Eliminar categoría';
+
+  @override
+  String categoryDeleteMessage(String categoryName) {
+    return '¿Estás seguro de que deseas eliminar \"$categoryName\"? Sus tareas no se eliminarán. Quedarán sin categoría.';
+  }
+
+  @override
+  String get errorNotFoundTitle => 'No encontrado';
+
+  @override
+  String get errorNotFoundMessage => 'Página no encontrada';
+
+  @override
+  String pomodoroCycleSemantics(int completed, int total) {
+    return '$completed de $total sesiones de enfoque completadas';
+  }
+
+  @override
+  String pomodoroCycleSessionCompleted(int index) {
+    return 'Sesión $index completada';
+  }
+
+  @override
+  String pomodoroCycleSessionIncomplete(int index) {
+    return 'Sesión $index incompleta';
+  }
+
+  @override
+  String pomodoroTimerSemantics(int minutes, int seconds) {
+    return '$minutes minutos $seconds segundos restantes';
+  }
+
+  @override
+  String get todoSortAscendingSemantics =>
+      'Orden ascendente, toca para ordenar descendente';
+
+  @override
+  String get todoSortDescendingSemantics =>
+      'Orden descendente, toca para ordenar ascendente';
+
+  @override
+  String get todoSortAscendingTooltip => 'Ordenar descendente';
+
+  @override
+  String get todoSortDescendingTooltip => 'Ordenar ascendente';
+
+  @override
+  String get todoDeleteTaskSemantics => 'Eliminar tarea';
+
+  @override
+  String get todoFormNewTitle => 'Nueva tarea';
+
+  @override
+  String get todoFormEditTitle => 'Editar tarea';
+
+  @override
+  String get todoFormTitleLabel => 'Título';
+
+  @override
+  String get todoFormTitleHint => 'Ingrese un título de tarea';
+
+  @override
+  String get todoFormTitleRequired => 'El título es obligatorio';
+
+  @override
+  String get todoFormDescriptionLabel => 'Descripción';
+
+  @override
+  String get todoFormDescriptionHint => 'Agregue una descripción opcional';
+
+  @override
+  String get todoFormPriorityLabel => 'Prioridad';
+
+  @override
+  String get todoFormCategoryLabel => 'Categoría';
+
+  @override
+  String get todoFormNoCategory => 'Sin categoría';
+
+  @override
+  String get todoFormSaveChanges => 'Guardar cambios';
+
+  @override
+  String get todoFormGenericError => 'Algo salió mal. Intente de nuevo.';
+
+  @override
+  String get todoPriorityHigh => 'Alta';
+
+  @override
+  String get todoPriorityMedium => 'Media';
+
+  @override
+  String get todoPriorityLow => 'Baja';
+
+  @override
+  String get todoCategorySaveSemantics => 'Guardar categoría';
+
+  @override
+  String get todoCategoryCancelSemantics => 'Cancelar creación de categoría';
+
+  @override
+  String todoCategoryRenameSemantics(String name) {
+    return 'Renombrar $name';
+  }
+
+  @override
+  String todoCategoryDeleteSemantics(String name) {
+    return 'Eliminar $name';
+  }
+
+  @override
+  String get todoCreateTaskFab => 'Crear tarea';
+
+  @override
+  String get todoCreateCategoryFab => 'Crear categoría';
+
+  @override
+  String get todoFabCloseMenu => 'Cerrar menú';
+
+  @override
+  String get todoFabCreate => 'Crear';
+
+  @override
+  String get todoCategoriesTitle => 'Categorías';
+
+  @override
+  String get todoCategoryNewName => 'Nombre de la nueva categoría';
+
+  @override
+  String get todoCategoryEmptyState => 'Aún no hay categorías';
+
+  @override
+  String get todoCategoryRenameTitle => 'Renombrar categoría';
+
+  @override
+  String get todoCategoryNameLabel => 'Nombre de la categoría';
+
+  @override
+  String get todoCategoryRename => 'Renombrar';
+
+  @override
+  String get todoCategoryAdd => 'Agregar categoría';
+
+  @override
+  String get todoCategoryNameRequired =>
+      'El nombre de la categoría es obligatorio';
 }

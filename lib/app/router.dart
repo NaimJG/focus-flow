@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../features/home/presentation/screens/home_screen.dart';
+import '../l10n/app_localizations.dart';
 import '../features/pomodoro/presentation/screens/pomodoro_screen.dart';
 import '../features/statistics/presentation/controllers/statistics_controller.dart';
 import '../features/statistics/presentation/screens/statistics_screen.dart';
@@ -172,7 +173,9 @@ class _StatisticsRouteState extends State<_StatisticsRoute> {
 
     if (_controller == null && todoController.isLoading) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Statistics')),
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context)!.statisticsTitle),
+        ),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -191,9 +194,10 @@ class _NotFoundScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('Not Found')),
-      body: const Center(child: Text('Page not found')),
+      appBar: AppBar(title: Text(l10n.errorNotFoundTitle)),
+      body: Center(child: Text(l10n.errorNotFoundMessage)),
     );
   }
 }

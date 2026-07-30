@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/entities/priority.dart';
 import '../../domain/entities/task.dart';
@@ -128,8 +129,9 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
         return;
       }
 
+      final l10n = AppLocalizations.of(context)!;
       setState(() {
-        _submissionError = 'Something went wrong. Please try again.';
+        _submissionError = l10n.todoFormGenericError;
         _isSubmitting = false;
       });
     }
@@ -137,6 +139,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final categories = context.select<TodoController, List<Category>>(
       (controller) => controller.categories.toList(),
     );
@@ -150,7 +153,11 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text(_isEditMode ? 'Edit Task' : 'New Task')),
+      appBar: AppBar(
+        title: Text(
+          _isEditMode ? l10n.todoFormEditTitle : l10n.todoFormNewTitle,
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -164,13 +171,13 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                   autofocus: !_isEditMode,
                   enabled: !_isSubmitting,
                   textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(
-                    labelText: 'Title',
-                    hintText: 'Enter a task title',
+                  decoration: InputDecoration(
+                    labelText: l10n.todoFormTitleLabel,
+                    hintText: l10n.todoFormTitleHint,
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Title is required';
+                      return l10n.todoFormTitleRequired;
                     }
 
                     return null;
@@ -183,21 +190,23 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                   minLines: 3,
                   maxLines: 5,
                   textInputAction: TextInputAction.newline,
-                  decoration: const InputDecoration(
-                    labelText: 'Description',
-                    hintText: 'Add an optional description',
+                  decoration: InputDecoration(
+                    labelText: l10n.todoFormDescriptionLabel,
+                    hintText: l10n.todoFormDescriptionHint,
                     alignLabelWithHint: true,
                   ),
                 ),
                 const SizedBox(height: 16),
                 DropdownButtonFormField<Priority>(
                   initialValue: _selectedPriority,
-                  decoration: const InputDecoration(labelText: 'Priority'),
+                  decoration: InputDecoration(
+                    labelText: l10n.todoFormPriorityLabel,
+                  ),
                   items: Priority.values
                       .map(
                         (priority) => DropdownMenuItem<Priority>(
                           value: priority,
-                          child: Text(_priorityLabel(priority)),
+                          child: Text(_priorityLabel(priority, l10n)),
                         ),
                       )
                       .toList(),
@@ -216,11 +225,13 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                 const SizedBox(height: 16),
                 DropdownButtonFormField<int?>(
                   initialValue: _selectedCategoryId,
-                  decoration: const InputDecoration(labelText: 'Category'),
+                  decoration: InputDecoration(
+                    labelText: l10n.todoFormCategoryLabel,
+                  ),
                   items: [
-                    const DropdownMenuItem<int?>(
+                    DropdownMenuItem<int?>(
                       value: null,
-                      child: Text('No category'),
+                      child: Text(l10n.todoFormNoCategory),
                     ),
                     ...categories.map(
                       (category) => DropdownMenuItem<int?>(
@@ -257,7 +268,11 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                           dimension: 20,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : Text(_isEditMode ? 'Save Changes' : 'Create Task'),
+                      : Text(
+                          _isEditMode
+                              ? l10n.todoFormSaveChanges
+                              : l10n.todoCreateTask,
+                        ),
                 ),
               ],
             ),
@@ -267,14 +282,14 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
     );
   }
 
-  String _priorityLabel(Priority priority) {
+  String _priorityLabel(Priority priority, AppLocalizations l10n) {
     switch (priority) {
       case Priority.high:
-        return 'High';
+        return l10n.todoPriorityHigh;
       case Priority.medium:
-        return 'Medium';
+        return l10n.todoPriorityMedium;
       case Priority.low:
-        return 'Low';
+        return l10n.todoPriorityLow;
     }
   }
 }

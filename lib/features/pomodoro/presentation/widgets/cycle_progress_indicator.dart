@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
+
 /// Displays the current Pomodoro cycle progress as circular indicators.
 ///
 /// The number of indicators is determined by [totalCycles]. Filled circles
@@ -22,19 +24,20 @@ class CycleProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final completedCycles = cycleCount.clamp(0, totalCycles);
 
     return Semantics(
-      label: '$completedCycles of $totalCycles focus sessions completed',
+      label: l10n.pomodoroCycleSemantics(completedCycles, totalCycles),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: List.generate(totalCycles, (index) {
           final isCompleted = index < completedCycles;
           return Semantics(
-            label:
-                'Session ${index + 1} '
-                '${isCompleted ? "completed" : "incomplete"}',
+            label: isCompleted
+                ? l10n.pomodoroCycleSessionCompleted(index + 1)
+                : l10n.pomodoroCycleSessionIncomplete(index + 1),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: AnimatedContainer(

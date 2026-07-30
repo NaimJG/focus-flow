@@ -57,13 +57,13 @@ class SortControl extends StatelessWidget {
         ),
         Semantics(
           label: activeDirection == SortDirection.ascending
-              ? 'Sort ascending, tap to sort descending'
-              : 'Sort descending, tap to sort ascending',
+              ? l10n.todoSortAscendingSemantics
+              : l10n.todoSortDescendingSemantics,
           button: true,
           child: IconButton(
             tooltip: activeDirection == SortDirection.ascending
-                ? 'Sort descending'
-                : 'Sort ascending',
+                ? l10n.todoSortAscendingTooltip
+                : l10n.todoSortDescendingTooltip,
             icon: Icon(
               activeDirection == SortDirection.ascending
                   ? Icons.arrow_upward

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/priority.dart';
 import '../../domain/entities/task.dart';
 import '../../domain/entities/task_status.dart';
@@ -40,6 +41,7 @@ class TaskCard extends StatelessWidget {
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
     final isCompleted = task.status == TaskStatus.completed;
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       child: InkWell(
@@ -91,7 +93,7 @@ class TaskCard extends StatelessWidget {
                 ),
               ),
               Semantics(
-                label: 'Delete task',
+                label: l10n.todoDeleteTaskSemantics,
                 child: IconButton(
                   icon: const Icon(Icons.delete_outline),
                   onPressed: onDelete,
@@ -118,7 +120,8 @@ class _PriorityChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (icon, label, color) = _priorityData();
+    final l10n = AppLocalizations.of(context)!;
+    final (icon, label, color) = _priorityData(l10n);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -137,14 +140,18 @@ class _PriorityChip extends StatelessWidget {
     );
   }
 
-  (IconData, String, Color) _priorityData() {
+  (IconData, String, Color) _priorityData(AppLocalizations l10n) {
     switch (priority) {
       case Priority.high:
-        return (Icons.arrow_upward, 'High', colorScheme.error);
+        return (Icons.arrow_upward, l10n.todoPriorityHigh, colorScheme.error);
       case Priority.medium:
-        return (Icons.remove, 'Medium', colorScheme.primary);
+        return (Icons.remove, l10n.todoPriorityMedium, colorScheme.primary);
       case Priority.low:
-        return (Icons.arrow_downward, 'Low', colorScheme.tertiary);
+        return (
+          Icons.arrow_downward,
+          l10n.todoPriorityLow,
+          colorScheme.tertiary,
+        );
     }
   }
 }

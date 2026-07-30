@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
+
 /// A Material 3 search bar with a clear button for filtering tasks.
 ///
 /// Fires [onChanged] on every keystroke. The [onClear] callback is invoked
@@ -68,18 +70,19 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return TextField(
       controller: _controller,
       decoration: InputDecoration(
-        hintText: 'Search tasks...',
+        hintText: l10n.todoSearchHint,
         prefixIcon: const Icon(Icons.search),
         suffixIcon: _controller.text.isNotEmpty
             ? Semantics(
-                label: 'Clear search',
+                label: l10n.todoSearchClear,
                 button: true,
                 child: IconButton(
                   icon: const Icon(Icons.close),
-                  tooltip: 'Clear search',
+                  tooltip: l10n.todoSearchClear,
                   onPressed: _clear,
                 ),
               )

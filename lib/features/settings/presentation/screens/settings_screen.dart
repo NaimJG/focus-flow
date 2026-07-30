@@ -68,9 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: CircularProgressIndicator(),
         ),
         SettingsStatus.error => _ErrorBody(
-          message:
-              controller.errorMessage ??
-              'Could not load settings. Please try again.',
+          message: controller.errorMessage ?? l10n.settingsLoadError,
           onRetry: controller.retry,
         ),
         SettingsStatus.loaded => const _LoadedBody(),
@@ -104,10 +102,7 @@ class _ErrorBody extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            FilledButton(
-              onPressed: onRetry,
-              child: Text(l10n.sharedRetry),
-            ),
+            FilledButton(onPressed: onRetry, child: Text(l10n.sharedRetry)),
           ],
         ),
       ),

@@ -19,7 +19,10 @@ class TaskBreakdownList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(l10n.statisticsByTask, style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          l10n.statisticsByTask,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         const SizedBox(height: 8),
         ...taskData.map(
           (task) => BreakdownItem(

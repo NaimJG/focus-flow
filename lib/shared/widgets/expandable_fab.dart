@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// A reusable expandable floating action button that reveals multiple
 /// actions when pressed.
 ///
@@ -74,6 +76,7 @@ class _ExpandableFabState extends State<ExpandableFab>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -81,7 +84,7 @@ class _ExpandableFabState extends State<ExpandableFab>
         // Child action: Create category (furthest from main FAB).
         _buildExpandingAction(
           icon: Icons.category,
-          label: 'Create category',
+          label: l10n.todoCreateCategoryFab,
           heroTag: 'fab_create_category',
           onPressed: () => _onActionPressed(widget.onCreateCategory),
         ),
@@ -89,7 +92,7 @@ class _ExpandableFabState extends State<ExpandableFab>
         // Child action: Create task (closer to main FAB).
         _buildExpandingAction(
           icon: Icons.task_alt,
-          label: 'Create task',
+          label: l10n.todoCreateTaskFab,
           heroTag: 'fab_create_task',
           onPressed: () => _onActionPressed(widget.onCreateTask),
         ),
@@ -98,7 +101,7 @@ class _ExpandableFabState extends State<ExpandableFab>
         FloatingActionButton(
           heroTag: 'fab_main',
           onPressed: _toggle,
-          tooltip: _isOpen ? 'Close menu' : 'Create',
+          tooltip: _isOpen ? l10n.todoFabCloseMenu : l10n.todoFabCreate,
           child: AnimatedBuilder(
             animation: _expandAnimation,
             builder: (context, child) {

@@ -266,6 +266,12 @@ abstract class AppLocalizations {
   /// **'No se pudo guardar {settingName}. Intente de nuevo.'**
   String settingsSaveError(String settingName);
 
+  /// Fallback error message when settings fail to load
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo cargar la configuración. Intente de nuevo.'**
+  String get settingsLoadError;
+
   /// Validation error message for out-of-range numeric input
   ///
   /// In es, this message translates to:
@@ -655,6 +661,270 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'{hours} h {minutes} min'**
   String durationHoursMinutes(int hours, int minutes);
+
+  /// Title of the delete category confirmation dialog
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar categoría'**
+  String get categoryDeleteTitle;
+
+  /// Body message of the delete category confirmation dialog
+  ///
+  /// In es, this message translates to:
+  /// **'¿Estás seguro de que deseas eliminar \"{categoryName}\"? Sus tareas no se eliminarán. Quedarán sin categoría.'**
+  String categoryDeleteMessage(String categoryName);
+
+  /// AppBar title for the not-found screen
+  ///
+  /// In es, this message translates to:
+  /// **'No encontrado'**
+  String get errorNotFoundTitle;
+
+  /// Body text for the not-found screen
+  ///
+  /// In es, this message translates to:
+  /// **'Página no encontrada'**
+  String get errorNotFoundMessage;
+
+  /// Semantics label for the cycle progress indicator
+  ///
+  /// In es, this message translates to:
+  /// **'{completed} de {total} sesiones de enfoque completadas'**
+  String pomodoroCycleSemantics(int completed, int total);
+
+  /// Semantics label for a completed cycle dot
+  ///
+  /// In es, this message translates to:
+  /// **'Sesión {index} completada'**
+  String pomodoroCycleSessionCompleted(int index);
+
+  /// Semantics label for an incomplete cycle dot
+  ///
+  /// In es, this message translates to:
+  /// **'Sesión {index} incompleta'**
+  String pomodoroCycleSessionIncomplete(int index);
+
+  /// Semantics label for the timer display showing remaining time
+  ///
+  /// In es, this message translates to:
+  /// **'{minutes} minutos {seconds} segundos restantes'**
+  String pomodoroTimerSemantics(int minutes, int seconds);
+
+  /// Semantics label for sort direction button when ascending
+  ///
+  /// In es, this message translates to:
+  /// **'Orden ascendente, toca para ordenar descendente'**
+  String get todoSortAscendingSemantics;
+
+  /// Semantics label for sort direction button when descending
+  ///
+  /// In es, this message translates to:
+  /// **'Orden descendente, toca para ordenar ascendente'**
+  String get todoSortDescendingSemantics;
+
+  /// Tooltip for sort direction button when currently ascending
+  ///
+  /// In es, this message translates to:
+  /// **'Ordenar descendente'**
+  String get todoSortAscendingTooltip;
+
+  /// Tooltip for sort direction button when currently descending
+  ///
+  /// In es, this message translates to:
+  /// **'Ordenar ascendente'**
+  String get todoSortDescendingTooltip;
+
+  /// Semantics label for the delete task icon button on task cards
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar tarea'**
+  String get todoDeleteTaskSemantics;
+
+  /// AppBar title when creating a new task
+  ///
+  /// In es, this message translates to:
+  /// **'Nueva tarea'**
+  String get todoFormNewTitle;
+
+  /// AppBar title when editing an existing task
+  ///
+  /// In es, this message translates to:
+  /// **'Editar tarea'**
+  String get todoFormEditTitle;
+
+  /// Label for the task title input field
+  ///
+  /// In es, this message translates to:
+  /// **'Título'**
+  String get todoFormTitleLabel;
+
+  /// Hint text for the task title input field
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese un título de tarea'**
+  String get todoFormTitleHint;
+
+  /// Validation error when the task title is empty
+  ///
+  /// In es, this message translates to:
+  /// **'El título es obligatorio'**
+  String get todoFormTitleRequired;
+
+  /// Label for the task description input field
+  ///
+  /// In es, this message translates to:
+  /// **'Descripción'**
+  String get todoFormDescriptionLabel;
+
+  /// Hint text for the task description input field
+  ///
+  /// In es, this message translates to:
+  /// **'Agregue una descripción opcional'**
+  String get todoFormDescriptionHint;
+
+  /// Label for the priority dropdown
+  ///
+  /// In es, this message translates to:
+  /// **'Prioridad'**
+  String get todoFormPriorityLabel;
+
+  /// Label for the category dropdown
+  ///
+  /// In es, this message translates to:
+  /// **'Categoría'**
+  String get todoFormCategoryLabel;
+
+  /// Option text for no category in the category dropdown
+  ///
+  /// In es, this message translates to:
+  /// **'Sin categoría'**
+  String get todoFormNoCategory;
+
+  /// Button label when saving edits to an existing task
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar cambios'**
+  String get todoFormSaveChanges;
+
+  /// Generic error message when an unexpected error occurs
+  ///
+  /// In es, this message translates to:
+  /// **'Algo salió mal. Intente de nuevo.'**
+  String get todoFormGenericError;
+
+  /// Priority label for high
+  ///
+  /// In es, this message translates to:
+  /// **'Alta'**
+  String get todoPriorityHigh;
+
+  /// Priority label for medium
+  ///
+  /// In es, this message translates to:
+  /// **'Media'**
+  String get todoPriorityMedium;
+
+  /// Priority label for low
+  ///
+  /// In es, this message translates to:
+  /// **'Baja'**
+  String get todoPriorityLow;
+
+  /// Semantics label and tooltip for the save category button
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar categoría'**
+  String get todoCategorySaveSemantics;
+
+  /// Semantics label for the cancel category creation button
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelar creación de categoría'**
+  String get todoCategoryCancelSemantics;
+
+  /// Semantics label for the rename category button
+  ///
+  /// In es, this message translates to:
+  /// **'Renombrar {name}'**
+  String todoCategoryRenameSemantics(String name);
+
+  /// Semantics label for the delete category button
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar {name}'**
+  String todoCategoryDeleteSemantics(String name);
+
+  /// Label for the create task FAB action
+  ///
+  /// In es, this message translates to:
+  /// **'Crear tarea'**
+  String get todoCreateTaskFab;
+
+  /// Label for the create category FAB action
+  ///
+  /// In es, this message translates to:
+  /// **'Crear categoría'**
+  String get todoCreateCategoryFab;
+
+  /// Tooltip for the main FAB when menu is open
+  ///
+  /// In es, this message translates to:
+  /// **'Cerrar menú'**
+  String get todoFabCloseMenu;
+
+  /// Tooltip for the main FAB when menu is closed
+  ///
+  /// In es, this message translates to:
+  /// **'Crear'**
+  String get todoFabCreate;
+
+  /// AppBar title for the category manager screen
+  ///
+  /// In es, this message translates to:
+  /// **'Categorías'**
+  String get todoCategoriesTitle;
+
+  /// Label text for the new category name input field
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre de la nueva categoría'**
+  String get todoCategoryNewName;
+
+  /// Empty state message when no categories exist
+  ///
+  /// In es, this message translates to:
+  /// **'Aún no hay categorías'**
+  String get todoCategoryEmptyState;
+
+  /// Title of the rename category dialog
+  ///
+  /// In es, this message translates to:
+  /// **'Renombrar categoría'**
+  String get todoCategoryRenameTitle;
+
+  /// Label text for category name input field in rename dialog
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre de la categoría'**
+  String get todoCategoryNameLabel;
+
+  /// Label for the rename action button in the rename dialog
+  ///
+  /// In es, this message translates to:
+  /// **'Renombrar'**
+  String get todoCategoryRename;
+
+  /// Tooltip for the floating action button to add a new category
+  ///
+  /// In es, this message translates to:
+  /// **'Agregar categoría'**
+  String get todoCategoryAdd;
+
+  /// Validation error when category name is empty
+  ///
+  /// In es, this message translates to:
+  /// **'El nombre de la categoría es obligatorio'**
+  String get todoCategoryNameRequired;
 }
 
 class _AppLocalizationsDelegate

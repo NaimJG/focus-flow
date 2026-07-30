@@ -95,6 +95,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get settingsLoadError => 'Could not load settings. Please try again.';
+
+  @override
   String settingsValidationRange(int min, int max) {
     return 'Must be between $min and $max';
   }
@@ -302,4 +305,152 @@ class AppLocalizationsEn extends AppLocalizations {
   String durationHoursMinutes(int hours, int minutes) {
     return '$hours h $minutes min';
   }
+
+  @override
+  String get categoryDeleteTitle => 'Delete Category';
+
+  @override
+  String categoryDeleteMessage(String categoryName) {
+    return 'Are you sure you want to delete \"$categoryName\"? Its tasks will not be deleted. They will become uncategorized.';
+  }
+
+  @override
+  String get errorNotFoundTitle => 'Not Found';
+
+  @override
+  String get errorNotFoundMessage => 'Page not found';
+
+  @override
+  String pomodoroCycleSemantics(int completed, int total) {
+    return '$completed of $total focus sessions completed';
+  }
+
+  @override
+  String pomodoroCycleSessionCompleted(int index) {
+    return 'Session $index completed';
+  }
+
+  @override
+  String pomodoroCycleSessionIncomplete(int index) {
+    return 'Session $index incomplete';
+  }
+
+  @override
+  String pomodoroTimerSemantics(int minutes, int seconds) {
+    return '$minutes minutes $seconds seconds remaining';
+  }
+
+  @override
+  String get todoSortAscendingSemantics =>
+      'Sort ascending, tap to sort descending';
+
+  @override
+  String get todoSortDescendingSemantics =>
+      'Sort descending, tap to sort ascending';
+
+  @override
+  String get todoSortAscendingTooltip => 'Sort descending';
+
+  @override
+  String get todoSortDescendingTooltip => 'Sort ascending';
+
+  @override
+  String get todoDeleteTaskSemantics => 'Delete task';
+
+  @override
+  String get todoFormNewTitle => 'New Task';
+
+  @override
+  String get todoFormEditTitle => 'Edit Task';
+
+  @override
+  String get todoFormTitleLabel => 'Title';
+
+  @override
+  String get todoFormTitleHint => 'Enter a task title';
+
+  @override
+  String get todoFormTitleRequired => 'Title is required';
+
+  @override
+  String get todoFormDescriptionLabel => 'Description';
+
+  @override
+  String get todoFormDescriptionHint => 'Add an optional description';
+
+  @override
+  String get todoFormPriorityLabel => 'Priority';
+
+  @override
+  String get todoFormCategoryLabel => 'Category';
+
+  @override
+  String get todoFormNoCategory => 'No category';
+
+  @override
+  String get todoFormSaveChanges => 'Save Changes';
+
+  @override
+  String get todoFormGenericError => 'Something went wrong. Please try again.';
+
+  @override
+  String get todoPriorityHigh => 'High';
+
+  @override
+  String get todoPriorityMedium => 'Medium';
+
+  @override
+  String get todoPriorityLow => 'Low';
+
+  @override
+  String get todoCategorySaveSemantics => 'Save category';
+
+  @override
+  String get todoCategoryCancelSemantics => 'Cancel category creation';
+
+  @override
+  String todoCategoryRenameSemantics(String name) {
+    return 'Rename $name';
+  }
+
+  @override
+  String todoCategoryDeleteSemantics(String name) {
+    return 'Delete $name';
+  }
+
+  @override
+  String get todoCreateTaskFab => 'Create task';
+
+  @override
+  String get todoCreateCategoryFab => 'Create category';
+
+  @override
+  String get todoFabCloseMenu => 'Close menu';
+
+  @override
+  String get todoFabCreate => 'Create';
+
+  @override
+  String get todoCategoriesTitle => 'Categories';
+
+  @override
+  String get todoCategoryNewName => 'New category name';
+
+  @override
+  String get todoCategoryEmptyState => 'No categories yet';
+
+  @override
+  String get todoCategoryRenameTitle => 'Rename Category';
+
+  @override
+  String get todoCategoryNameLabel => 'Category name';
+
+  @override
+  String get todoCategoryRename => 'Rename';
+
+  @override
+  String get todoCategoryAdd => 'Add category';
+
+  @override
+  String get todoCategoryNameRequired => 'Category name is required';
 }

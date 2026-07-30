@@ -147,6 +147,11 @@
     }
   },
 
+  "settingsLoadError": "No se pudo cargar la configuración. Intente de nuevo.",
+  "@settingsLoadError": {
+    "description": "Fallback error message when settings fail to load"
+  },
+
   "settingsValidationRange": "Debe ser entre {min} y {max}",
   "@settingsValidationRange": {
     "description": "Validation error message for out-of-range numeric input",
@@ -508,5 +513,275 @@
         "example": "30"
       }
     }
+  },
+
+  "categoryDeleteTitle": "Eliminar categoría",
+  "@categoryDeleteTitle": {
+    "description": "Title of the delete category confirmation dialog"
+  },
+
+  "categoryDeleteMessage": "¿Estás seguro de que deseas eliminar \"{categoryName}\"? Sus tareas no se eliminarán. Quedarán sin categoría.",
+  "@categoryDeleteMessage": {
+    "description": "Body message of the delete category confirmation dialog",
+    "placeholders": {
+      "categoryName": {
+        "type": "String",
+        "example": "Work"
+      }
+    }
+  },
+
+  "errorNotFoundTitle": "No encontrado",
+  "@errorNotFoundTitle": {
+    "description": "AppBar title for the not-found screen"
+  },
+
+  "errorNotFoundMessage": "Página no encontrada",
+  "@errorNotFoundMessage": {
+    "description": "Body text for the not-found screen"
+  },
+
+  "pomodoroCycleSemantics": "{completed} de {total} sesiones de enfoque completadas",
+  "@pomodoroCycleSemantics": {
+    "description": "Semantics label for the cycle progress indicator",
+    "placeholders": {
+      "completed": {
+        "type": "int",
+        "example": "2"
+      },
+      "total": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+
+  "pomodoroCycleSessionCompleted": "Sesión {index} completada",
+  "@pomodoroCycleSessionCompleted": {
+    "description": "Semantics label for a completed cycle dot",
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+
+  "pomodoroCycleSessionIncomplete": "Sesión {index} incompleta",
+  "@pomodoroCycleSessionIncomplete": {
+    "description": "Semantics label for an incomplete cycle dot",
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+
+  "pomodoroTimerSemantics": "{minutes} minutos {seconds} segundos restantes",
+  "@pomodoroTimerSemantics": {
+    "description": "Semantics label for the timer display showing remaining time",
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "24"
+      },
+      "seconds": {
+        "type": "int",
+        "example": "59"
+      }
+    }
+  },
+
+  "todoSortAscendingSemantics": "Orden ascendente, toca para ordenar descendente",
+  "@todoSortAscendingSemantics": {
+    "description": "Semantics label for sort direction button when ascending"
+  },
+
+  "todoSortDescendingSemantics": "Orden descendente, toca para ordenar ascendente",
+  "@todoSortDescendingSemantics": {
+    "description": "Semantics label for sort direction button when descending"
+  },
+
+  "todoSortAscendingTooltip": "Ordenar descendente",
+  "@todoSortAscendingTooltip": {
+    "description": "Tooltip for sort direction button when currently ascending"
+  },
+
+  "todoSortDescendingTooltip": "Ordenar ascendente",
+  "@todoSortDescendingTooltip": {
+    "description": "Tooltip for sort direction button when currently descending"
+  },
+
+  "todoDeleteTaskSemantics": "Eliminar tarea",
+  "@todoDeleteTaskSemantics": {
+    "description": "Semantics label for the delete task icon button on task cards"
+  },
+
+  "todoFormNewTitle": "Nueva tarea",
+  "@todoFormNewTitle": {
+    "description": "AppBar title when creating a new task"
+  },
+
+  "todoFormEditTitle": "Editar tarea",
+  "@todoFormEditTitle": {
+    "description": "AppBar title when editing an existing task"
+  },
+
+  "todoFormTitleLabel": "Título",
+  "@todoFormTitleLabel": {
+    "description": "Label for the task title input field"
+  },
+
+  "todoFormTitleHint": "Ingrese un título de tarea",
+  "@todoFormTitleHint": {
+    "description": "Hint text for the task title input field"
+  },
+
+  "todoFormTitleRequired": "El título es obligatorio",
+  "@todoFormTitleRequired": {
+    "description": "Validation error when the task title is empty"
+  },
+
+  "todoFormDescriptionLabel": "Descripción",
+  "@todoFormDescriptionLabel": {
+    "description": "Label for the task description input field"
+  },
+
+  "todoFormDescriptionHint": "Agregue una descripción opcional",
+  "@todoFormDescriptionHint": {
+    "description": "Hint text for the task description input field"
+  },
+
+  "todoFormPriorityLabel": "Prioridad",
+  "@todoFormPriorityLabel": {
+    "description": "Label for the priority dropdown"
+  },
+
+  "todoFormCategoryLabel": "Categoría",
+  "@todoFormCategoryLabel": {
+    "description": "Label for the category dropdown"
+  },
+
+  "todoFormNoCategory": "Sin categoría",
+  "@todoFormNoCategory": {
+    "description": "Option text for no category in the category dropdown"
+  },
+
+  "todoFormSaveChanges": "Guardar cambios",
+  "@todoFormSaveChanges": {
+    "description": "Button label when saving edits to an existing task"
+  },
+
+  "todoFormGenericError": "Algo salió mal. Intente de nuevo.",
+  "@todoFormGenericError": {
+    "description": "Generic error message when an unexpected error occurs"
+  },
+
+  "todoPriorityHigh": "Alta",
+  "@todoPriorityHigh": {
+    "description": "Priority label for high"
+  },
+
+  "todoPriorityMedium": "Media",
+  "@todoPriorityMedium": {
+    "description": "Priority label for medium"
+  },
+
+  "todoPriorityLow": "Baja",
+  "@todoPriorityLow": {
+    "description": "Priority label for low"
+  },
+
+  "todoCategorySaveSemantics": "Guardar categoría",
+  "@todoCategorySaveSemantics": {
+    "description": "Semantics label and tooltip for the save category button"
+  },
+
+  "todoCategoryCancelSemantics": "Cancelar creación de categoría",
+  "@todoCategoryCancelSemantics": {
+    "description": "Semantics label for the cancel category creation button"
+  },
+
+  "todoCategoryRenameSemantics": "Renombrar {name}",
+  "@todoCategoryRenameSemantics": {
+    "description": "Semantics label for the rename category button",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Trabajo"
+      }
+    }
+  },
+
+  "todoCategoryDeleteSemantics": "Eliminar {name}",
+  "@todoCategoryDeleteSemantics": {
+    "description": "Semantics label for the delete category button",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Trabajo"
+      }
+    }
+  },
+
+  "todoCreateTaskFab": "Crear tarea",
+  "@todoCreateTaskFab": {
+    "description": "Label for the create task FAB action"
+  },
+
+  "todoCreateCategoryFab": "Crear categoría",
+  "@todoCreateCategoryFab": {
+    "description": "Label for the create category FAB action"
+  },
+
+  "todoFabCloseMenu": "Cerrar menú",
+  "@todoFabCloseMenu": {
+    "description": "Tooltip for the main FAB when menu is open"
+  },
+
+  "todoFabCreate": "Crear",
+  "@todoFabCreate": {
+    "description": "Tooltip for the main FAB when menu is closed"
+  },
+
+  "todoCategoriesTitle": "Categorías",
+  "@todoCategoriesTitle": {
+    "description": "AppBar title for the category manager screen"
+  },
+
+  "todoCategoryNewName": "Nombre de la nueva categoría",
+  "@todoCategoryNewName": {
+    "description": "Label text for the new category name input field"
+  },
+
+  "todoCategoryEmptyState": "Aún no hay categorías",
+  "@todoCategoryEmptyState": {
+    "description": "Empty state message when no categories exist"
+  },
+
+  "todoCategoryRenameTitle": "Renombrar categoría",
+  "@todoCategoryRenameTitle": {
+    "description": "Title of the rename category dialog"
+  },
+
+  "todoCategoryNameLabel": "Nombre de la categoría",
+  "@todoCategoryNameLabel": {
+    "description": "Label text for category name input field in rename dialog"
+  },
+
+  "todoCategoryRename": "Renombrar",
+  "@todoCategoryRename": {
+    "description": "Label for the rename action button in the rename dialog"
+  },
+
+  "todoCategoryAdd": "Agregar categoría",
+  "@todoCategoryAdd": {
+    "description": "Tooltip for the floating action button to add a new category"
+  },
+
+  "todoCategoryNameRequired": "El nombre de la categoría es obligatorio",
+  "@todoCategoryNameRequired": {
+    "description": "Validation error when category name is empty"
   }
 }

@@ -630,6 +630,46 @@
         "chatSessionId": "sess_1ae3c839-f8f5-481e-a3bf-03a84bf9a9e5",
         "timestamp": 1785453045402
       }
+    ],
+    "20. Generic routes, dialogs, SnackBars, semantics, and formatters": [
+      {
+        "executionId": "ff05766c-d460-4d03-9989-795ea40f5c7c",
+        "chatSessionId": "sess_12fcebb4-240f-4a5c-a929-70d01754dad1",
+        "timestamp": 1785453198684
+      }
+    ],
+    "20.1 Localize `_NotFoundScreen` in `router.dart`": [
+      {
+        "executionId": "ff05766c-d460-4d03-9989-795ea40f5c7c",
+        "chatSessionId": "sess_12fcebb4-240f-4a5c-a929-70d01754dad1",
+        "timestamp": 1785453224797
+      }
+    ],
+    "20.2 Localize shared `ConfirmationDialog` labels": [
+      {
+        "executionId": "ff05766c-d460-4d03-9989-795ea40f5c7c",
+        "chatSessionId": "sess_12fcebb4-240f-4a5c-a929-70d01754dad1",
+        "timestamp": 1785453225755
+      }
+    ],
+    "20.3 Verify Semantics text direction and localized labels": [
+      {
+        "executionId": "ff05766c-d460-4d03-9989-795ea40f5c7c",
+        "chatSessionId": "sess_12fcebb4-240f-4a5c-a929-70d01754dad1",
+        "timestamp": 1785453226953
+      }
+    ],
+    "21. Checkpoint — Full feature localization complete": [
+      {
+        "executionId": "a6b3a4a8-2dd8-4073-aa12-c5758842254f",
+        "chatSessionId": "sess_abfa68cb-067e-43c3-9721-b7396e5ee61e",
+        "timestamp": 1785454370354
+      },
+      {
+        "executionId": "a6b3a4a8-2dd8-4073-aa12-c5758842254f",
+        "chatSessionId": "sess_abfa68cb-067e-43c3-9721-b7396e5ee61e",
+        "timestamp": 1785455527321
+      }
     ]
   }
 }

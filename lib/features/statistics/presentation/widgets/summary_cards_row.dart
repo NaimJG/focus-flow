@@ -27,24 +27,15 @@ class SummaryCardsRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: _MetricCard(
-            label: l10n.statisticsTotalTime,
-            value: totalTime,
-          ),
+          child: _MetricCard(label: l10n.statisticsTotalTime, value: totalTime),
         ),
         const SizedBox(width: 8),
         Expanded(
-          child: _MetricCard(
-            label: l10n.statisticsSessions,
-            value: sessions,
-          ),
+          child: _MetricCard(label: l10n.statisticsSessions, value: sessions),
         ),
         const SizedBox(width: 8),
         Expanded(
-          child: _MetricCard(
-            label: l10n.statisticsAverage,
-            value: average,
-          ),
+          child: _MetricCard(label: l10n.statisticsAverage, value: average),
         ),
       ],
     );

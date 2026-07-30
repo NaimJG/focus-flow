@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/timer_status.dart';
 
 /// Displays the remaining time as MM:SS with a circular progress indicator
@@ -24,9 +25,10 @@ class TimerDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final progressValue = _calculateProgress();
     final timeText = _formatDuration(remainingDuration);
-    final semanticsLabel = _buildSemanticsLabel();
+    final semanticsLabel = _buildSemanticsLabel(l10n);
 
     return Semantics(
       label: semanticsLabel,
@@ -84,10 +86,10 @@ class TimerDisplay extends StatelessWidget {
   }
 
   /// Builds an accessibility label conveying minutes and seconds remaining.
-  String _buildSemanticsLabel() {
+  String _buildSemanticsLabel(AppLocalizations l10n) {
     final totalSeconds = remainingDuration.inSeconds;
     final minutes = totalSeconds ~/ 60;
     final seconds = totalSeconds % 60;
-    return '$minutes minutes $seconds seconds remaining';
+    return l10n.pomodoroTimerSemantics(minutes, seconds);
   }
 }

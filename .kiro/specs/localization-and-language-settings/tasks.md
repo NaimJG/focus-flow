@@ -244,23 +244,23 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify all Settings strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 20. Generic routes, dialogs, SnackBars, semantics, and formatters
-  - [ ] 20.1 Localize `_NotFoundScreen` in `router.dart`
+- [x] 20. Generic routes, dialogs, SnackBars, semantics, and formatters
+  - [x] 20.1 Localize `_NotFoundScreen` in `router.dart`
     - Replace "Not Found" title and "Page not found" body with `l10n.*` calls
     - _Requirements: 14.1, 14.2_
 
-  - [ ] 20.2 Localize shared `ConfirmationDialog` labels
+  - [x] 20.2 Localize shared `ConfirmationDialog` labels
     - Ensure callers pass localized labels (already accepts params — update call sites in `todo_screen.dart`)
     - Replace hardcoded "Delete Task", "Cancel", "Delete" at call sites with `l10n.*`
     - _Requirements: 14.3, 10.4_
 
-  - [ ] 20.3 Verify Semantics text direction and localized labels
+  - [x] 20.3 Verify Semantics text direction and localized labels
     - Ensure `Semantics` `textDirection` is set based on locale (LTR for both es/en)
     - Verify all `Semantics` labels use `l10n.*` in screens already migrated
     - Confirm accessibility announcements in Pomodoro use `Localizations.localeOf(context)` text direction
     - _Requirements: 22.1, 22.2, 22.3_
 
-- [ ] 21. Checkpoint — Full feature localization complete
+- [x] 21. Checkpoint — Full feature localization complete
   - Run `dart format .` and `flutter analyze`
   - Verify no hardcoded user-facing strings remain (spot-check all screens)
   - Ensure all tests pass, ask the user if questions arise.
