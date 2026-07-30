@@ -278,6 +278,97 @@
         "chatSessionId": "sess_ca4233d7-cbb8-4057-9d59-3565b446031d",
         "timestamp": 1785443479425
       }
+    ],
+    "12.1 Add Todo ARB keys to `app_es.arb` and `app_en.arb`": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785443842363
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444194501
+      }
+    ],
+    "12.2 Create `lib/features/todo/presentation/utils/todo_labels.dart`": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444206106
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444317363
+      }
+    ],
+    "12.3 Localize `TodoScreen` (`todo_screen.dart`)": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444324017
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444642282
+      }
+    ],
+    "12.4 Localize `EmptyStateWidget` (`empty_state_widget.dart`)": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444324725
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444642849
+      }
+    ],
+    "12.5 Localize `FilterBar` (`filter_bar.dart`)": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444325627
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444643667
+      }
+    ],
+    "12.6 Localize `SortControl` (`sort_control.dart`)": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444326790
+      },
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444644279
+      }
+    ],
+    "12. Todo localization": [
+      {
+        "executionId": "2e787fbb-ca15-4512-95c3-dbf3eea92b23",
+        "chatSessionId": "sess_a45cbe97-d315-4647-a80d-15bb3bd06a34",
+        "timestamp": 1785444644507
+      }
+    ],
+    "13. Checkpoint — Todo localization": [
+      {
+        "executionId": "45d3057d-e863-4668-b4e3-c675ad5e6317",
+        "chatSessionId": "sess_a317f4f3-30f0-4cba-8867-9c35a155ec71",
+        "timestamp": 1785444802945
+      },
+      {
+        "executionId": "45d3057d-e863-4668-b4e3-c675ad5e6317",
+        "chatSessionId": "sess_a317f4f3-30f0-4cba-8867-9c35a155ec71",
+        "timestamp": 1785445629998
+      }
     ]
   }
 }

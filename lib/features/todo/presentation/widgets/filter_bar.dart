@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../domain/entities/category.dart';
 import '../../domain/entities/priority.dart';
@@ -53,6 +54,8 @@ class FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -60,7 +63,7 @@ class FilterBar extends StatelessWidget {
         children: [
           // Status filters
           FilterChip(
-            label: const Text('Pending'),
+            label: Text(l10n.todoFilterPending),
             selected: activeStatus == TaskStatus.pending,
             onSelected: (_) {
               onStatusChanged(
@@ -69,7 +72,7 @@ class FilterBar extends StatelessWidget {
             },
           ),
           FilterChip(
-            label: const Text('Completed'),
+            label: Text(l10n.todoFilterCompleted),
             selected: activeStatus == TaskStatus.completed,
             onSelected: (_) {
               onStatusChanged(
@@ -82,7 +85,7 @@ class FilterBar extends StatelessWidget {
 
           // Priority filters
           FilterChip(
-            label: const Text('High'),
+            label: Text(l10n.todoFilterHigh),
             selected: activePriority == Priority.high,
             onSelected: (_) {
               onPriorityChanged(
@@ -91,7 +94,7 @@ class FilterBar extends StatelessWidget {
             },
           ),
           FilterChip(
-            label: const Text('Medium'),
+            label: Text(l10n.todoFilterMedium),
             selected: activePriority == Priority.medium,
             onSelected: (_) {
               onPriorityChanged(
@@ -100,7 +103,7 @@ class FilterBar extends StatelessWidget {
             },
           ),
           FilterChip(
-            label: const Text('Low'),
+            label: Text(l10n.todoFilterLow),
             selected: activePriority == Priority.low,
             onSelected: (_) {
               onPriorityChanged(
@@ -111,7 +114,7 @@ class FilterBar extends StatelessWidget {
 
           // Category filters
           FilterChip(
-            label: const Text('Uncategorized'),
+            label: Text(l10n.todoFilterUncategorized),
             selected: activeCategoryId == -1,
             onSelected: (_) {
               onCategoryChanged(activeCategoryId == -1 ? null : -1);
@@ -131,7 +134,10 @@ class FilterBar extends StatelessWidget {
 
           // Clear all
           if (hasActiveFilters)
-            ActionChip(label: const Text('Clear all'), onPressed: onClearAll),
+            ActionChip(
+              label: Text(l10n.todoFilterClearAll),
+              onPressed: onClearAll,
+            ),
         ],
       ),
     );

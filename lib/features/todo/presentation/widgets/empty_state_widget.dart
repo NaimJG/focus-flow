@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 /// Describes which empty state scenario to display.
 enum EmptyStateVariant {
@@ -34,10 +35,29 @@ class EmptyStateWidget extends StatelessWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     final icon = _iconForVariant(variant);
-    final headline = _headlineForVariant(variant);
-    final message = _messageForVariant(variant);
+
+    final headline = switch (variant) {
+      EmptyStateVariant.noTasks => l10n.todoEmptyNoTasksHeadline,
+      EmptyStateVariant.noSearchResults =>
+        l10n.todoEmptyNoSearchResultsHeadline,
+      EmptyStateVariant.noFilterResults =>
+        l10n.todoEmptyNoFilterResultsHeadline,
+      EmptyStateVariant.noCategoryTasks =>
+        l10n.todoEmptyNoCategoryTasksHeadline,
+    };
+
+    final message = switch (variant) {
+      EmptyStateVariant.noTasks => l10n.todoEmptyNoTasksMessage,
+      EmptyStateVariant.noSearchResults =>
+        l10n.todoEmptyNoSearchResultsMessage,
+      EmptyStateVariant.noFilterResults =>
+        l10n.todoEmptyNoFilterResultsMessage,
+      EmptyStateVariant.noCategoryTasks =>
+        l10n.todoEmptyNoCategoryTasksMessage,
+    };
 
     return Center(
       child: Padding(
@@ -58,11 +78,12 @@ class EmptyStateWidget extends StatelessWidget {
               style: textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
-            if (variant == EmptyStateVariant.noTasks && onAction != null) ...[
+            if (variant == EmptyStateVariant.noTasks &&
+                onAction != null) ...[
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: onAction,
-                child: const Text('Create Task'),
+                child: Text(l10n.todoCreateTask),
               ),
             ],
           ],
@@ -81,32 +102,6 @@ class EmptyStateWidget extends StatelessWidget {
         return Icons.filter_list_off;
       case EmptyStateVariant.noCategoryTasks:
         return Icons.folder_off;
-    }
-  }
-
-  String _headlineForVariant(EmptyStateVariant variant) {
-    switch (variant) {
-      case EmptyStateVariant.noTasks:
-        return 'No tasks yet';
-      case EmptyStateVariant.noSearchResults:
-        return 'No results';
-      case EmptyStateVariant.noFilterResults:
-        return 'No matching tasks';
-      case EmptyStateVariant.noCategoryTasks:
-        return 'No tasks in this category';
-    }
-  }
-
-  String _messageForVariant(EmptyStateVariant variant) {
-    switch (variant) {
-      case EmptyStateVariant.noTasks:
-        return 'Create your first task to get started';
-      case EmptyStateVariant.noSearchResults:
-        return 'Try a different search term';
-      case EmptyStateVariant.noFilterResults:
-        return 'Adjust your filters to see more tasks';
-      case EmptyStateVariant.noCategoryTasks:
-        return 'Tasks assigned to this category will appear here';
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../app/router.dart';
@@ -60,14 +61,13 @@ class _TodoScreenState extends State<TodoScreen> {
   }
 
   Future<void> _confirmDeleteTask(int taskId) async {
+    final l10n = AppLocalizations.of(context)!;
     await ConfirmationDialog.show(
       context,
-      title: 'Delete Task',
-      message:
-          'Are you sure you want to delete this task? '
-          'This action cannot be undone.',
-      confirmLabel: 'Delete',
-      cancelLabel: 'Cancel',
+      title: l10n.todoDeleteTitle,
+      message: l10n.todoDeleteMessage,
+      confirmLabel: l10n.sharedDelete,
+      cancelLabel: l10n.sharedCancel,
       onConfirm: () async {
         await _controller.deleteTask(taskId);
       },
@@ -175,16 +175,17 @@ class _TodoScreenContentState extends State<_TodoScreenContent> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tasks'),
+        title: Text(l10n.todoTitle),
         actions: [
           Semantics(
-            label: 'Manage categories',
+            label: l10n.todoCategoriesSemantics,
             button: true,
             child: IconButton(
               icon: const Icon(Icons.category_outlined),
-              tooltip: 'Categories',
+              tooltip: l10n.todoCategoriesTooltip,
               onPressed: widget.onCategories,
             ),
           ),

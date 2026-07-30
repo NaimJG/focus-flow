@@ -145,6 +145,162 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Idioma'**
   String get settingsLanguage;
+
+  /// AppBar title for the Todo screen
+  ///
+  /// In es, this message translates to:
+  /// **'Tareas'**
+  String get todoTitle;
+
+  /// Label for the create task button in the empty state
+  ///
+  /// In es, this message translates to:
+  /// **'Crear tarea'**
+  String get todoCreateTask;
+
+  /// Title of the delete task confirmation dialog
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar tarea'**
+  String get todoDeleteTitle;
+
+  /// Body message of the delete task confirmation dialog
+  ///
+  /// In es, this message translates to:
+  /// **'¿Estás seguro de que deseas eliminar esta tarea? Esta acción no se puede deshacer.'**
+  String get todoDeleteMessage;
+
+  /// Hint text for the task search input field
+  ///
+  /// In es, this message translates to:
+  /// **'Buscar tareas...'**
+  String get todoSearchHint;
+
+  /// Semantics label and tooltip for the clear search button
+  ///
+  /// In es, this message translates to:
+  /// **'Limpiar búsqueda'**
+  String get todoSearchClear;
+
+  /// Tooltip for the categories icon button in the AppBar
+  ///
+  /// In es, this message translates to:
+  /// **'Categorías'**
+  String get todoCategoriesTooltip;
+
+  /// Semantics label for the categories icon button
+  ///
+  /// In es, this message translates to:
+  /// **'Gestionar categorías'**
+  String get todoCategoriesSemantics;
+
+  /// Filter chip label for pending tasks
+  ///
+  /// In es, this message translates to:
+  /// **'Pendientes'**
+  String get todoFilterPending;
+
+  /// Filter chip label for completed tasks
+  ///
+  /// In es, this message translates to:
+  /// **'Completadas'**
+  String get todoFilterCompleted;
+
+  /// Filter chip label for high priority
+  ///
+  /// In es, this message translates to:
+  /// **'Alta'**
+  String get todoFilterHigh;
+
+  /// Filter chip label for medium priority
+  ///
+  /// In es, this message translates to:
+  /// **'Media'**
+  String get todoFilterMedium;
+
+  /// Filter chip label for low priority
+  ///
+  /// In es, this message translates to:
+  /// **'Baja'**
+  String get todoFilterLow;
+
+  /// Filter chip label for tasks without a category
+  ///
+  /// In es, this message translates to:
+  /// **'Sin categoría'**
+  String get todoFilterUncategorized;
+
+  /// Action chip label to clear all active filters
+  ///
+  /// In es, this message translates to:
+  /// **'Limpiar todo'**
+  String get todoFilterClearAll;
+
+  /// Sort criterion label for creation date
+  ///
+  /// In es, this message translates to:
+  /// **'Fecha'**
+  String get todoSortDate;
+
+  /// Sort criterion label for priority
+  ///
+  /// In es, this message translates to:
+  /// **'Prioridad'**
+  String get todoSortPriority;
+
+  /// Sort criterion label for alphabetical order
+  ///
+  /// In es, this message translates to:
+  /// **'A–Z'**
+  String get todoSortAlphabetical;
+
+  /// Headline for the empty state when no tasks exist
+  ///
+  /// In es, this message translates to:
+  /// **'Aún no hay tareas'**
+  String get todoEmptyNoTasksHeadline;
+
+  /// Supporting message for the empty state when no tasks exist
+  ///
+  /// In es, this message translates to:
+  /// **'Crea tu primera tarea para comenzar'**
+  String get todoEmptyNoTasksMessage;
+
+  /// Headline for the empty state when search yields no results
+  ///
+  /// In es, this message translates to:
+  /// **'Sin resultados'**
+  String get todoEmptyNoSearchResultsHeadline;
+
+  /// Supporting message for the empty state when search yields no results
+  ///
+  /// In es, this message translates to:
+  /// **'Prueba con un término de búsqueda diferente'**
+  String get todoEmptyNoSearchResultsMessage;
+
+  /// Headline for the empty state when filters yield no results
+  ///
+  /// In es, this message translates to:
+  /// **'No hay tareas que coincidan'**
+  String get todoEmptyNoFilterResultsHeadline;
+
+  /// Supporting message for the empty state when filters yield no results
+  ///
+  /// In es, this message translates to:
+  /// **'Ajusta tus filtros para ver más tareas'**
+  String get todoEmptyNoFilterResultsMessage;
+
+  /// Headline for the empty state when a category has no tasks
+  ///
+  /// In es, this message translates to:
+  /// **'No hay tareas en esta categoría'**
+  String get todoEmptyNoCategoryTasksHeadline;
+
+  /// Supporting message for the empty state when a category has no tasks
+  ///
+  /// In es, this message translates to:
+  /// **'Las tareas asignadas a esta categoría aparecerán aquí'**
+  String get todoEmptyNoCategoryTasksMessage;
 }
 
 class _AppLocalizationsDelegate

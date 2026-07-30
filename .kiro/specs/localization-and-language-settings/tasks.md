@@ -109,36 +109,36 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify nav labels render in Spanish by default and switch to English on language change
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 12. Todo localization
-  - [ ] 12.1 Add Todo ARB keys to `app_es.arb` and `app_en.arb`
+- [x] 12. Todo localization
+  - [x] 12.1 Add Todo ARB keys to `app_es.arb` and `app_en.arb`
     - Keys for: title, create task, delete task, delete confirmation dialog, search hint, filter labels, sort labels, empty states (all 4 variants)
     - Include `@` metadata for all new keys in Spanish template
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 18.1, 18.4_
 
-  - [ ] 12.2 Create `lib/features/todo/presentation/utils/todo_labels.dart`
+  - [x] 12.2 Create `lib/features/todo/presentation/utils/todo_labels.dart`
     - Helper functions mapping Priority, TaskStatus, SortCriterion to localized labels via `AppLocalizations`
     - _Requirements: 17.1, 17.2, 17.3, 17.5_
 
-  - [ ] 12.3 Localize `TodoScreen` (`todo_screen.dart`)
+  - [x] 12.3 Localize `TodoScreen` (`todo_screen.dart`)
     - Replace AppBar title "Tasks" with `l10n.todoTitle`
     - Replace "Delete Task" dialog strings with localized equivalents
     - Replace "Categories" tooltip with localized string
     - _Requirements: 10.1, 10.2, 10.4, 21.1, 21.2, 21.3_
 
-  - [ ] 12.4 Localize `EmptyStateWidget` (`empty_state_widget.dart`)
+  - [x] 12.4 Localize `EmptyStateWidget` (`empty_state_widget.dart`)
     - Replace `_headlineForVariant` and `_messageForVariant` with `AppLocalizations.of(context)!` calls
     - Replace "Create Task" button label
     - _Requirements: 10.3_
 
-  - [ ] 12.5 Localize `FilterBar` (`filter_bar.dart`)
+  - [x] 12.5 Localize `FilterBar` (`filter_bar.dart`)
     - Replace filter chip labels with localized strings
     - _Requirements: 10.1_
 
-  - [ ] 12.6 Localize `SortControl` (`sort_control.dart`)
+  - [x] 12.6 Localize `SortControl` (`sort_control.dart`)
     - Replace sort criterion labels with localized strings using `todo_labels.dart` helpers
     - _Requirements: 10.1_
 
-- [ ] 13. Checkpoint — Todo localization
+- [x] 13. Checkpoint — Todo localization
   - Verify all Todo strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 

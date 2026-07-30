@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../domain/entities/sort_criterion.dart';
 import '../../domain/entities/sort_direction.dart';
+import '../utils/todo_labels.dart';
 
 /// A compact row with a sort criterion dropdown and a direction toggle button.
 ///
@@ -29,20 +31,10 @@ class SortControl extends StatelessWidget {
   /// Called when the user toggles the sort direction.
   final ValueChanged<SortDirection> onDirectionChanged;
 
-  String _criterionLabel(SortCriterion criterion) {
-    switch (criterion) {
-      case SortCriterion.creationDate:
-        return 'Date';
-      case SortCriterion.priority:
-        return 'Priority';
-      case SortCriterion.alphabetical:
-        return 'A–Z';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -54,7 +46,7 @@ class SortControl extends StatelessWidget {
           items: SortCriterion.values.map((criterion) {
             return DropdownMenuItem<SortCriterion>(
               value: criterion,
-              child: Text(_criterionLabel(criterion)),
+              child: Text(sortCriterionLabel(criterion, l10n)),
             );
           }).toList(),
           onChanged: (value) {

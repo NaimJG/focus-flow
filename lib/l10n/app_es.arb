@@ -39,5 +39,135 @@
   "settingsLanguage": "Idioma",
   "@settingsLanguage": {
     "description": "Section header for language settings in the Settings screen"
+  },
+
+  "todoTitle": "Tareas",
+  "@todoTitle": {
+    "description": "AppBar title for the Todo screen"
+  },
+
+  "todoCreateTask": "Crear tarea",
+  "@todoCreateTask": {
+    "description": "Label for the create task button in the empty state"
+  },
+
+  "todoDeleteTitle": "Eliminar tarea",
+  "@todoDeleteTitle": {
+    "description": "Title of the delete task confirmation dialog"
+  },
+
+  "todoDeleteMessage": "¿Estás seguro de que deseas eliminar esta tarea? Esta acción no se puede deshacer.",
+  "@todoDeleteMessage": {
+    "description": "Body message of the delete task confirmation dialog"
+  },
+
+  "todoSearchHint": "Buscar tareas...",
+  "@todoSearchHint": {
+    "description": "Hint text for the task search input field"
+  },
+
+  "todoSearchClear": "Limpiar búsqueda",
+  "@todoSearchClear": {
+    "description": "Semantics label and tooltip for the clear search button"
+  },
+
+  "todoCategoriesTooltip": "Categorías",
+  "@todoCategoriesTooltip": {
+    "description": "Tooltip for the categories icon button in the AppBar"
+  },
+
+  "todoCategoriesSemantics": "Gestionar categorías",
+  "@todoCategoriesSemantics": {
+    "description": "Semantics label for the categories icon button"
+  },
+
+  "todoFilterPending": "Pendientes",
+  "@todoFilterPending": {
+    "description": "Filter chip label for pending tasks"
+  },
+
+  "todoFilterCompleted": "Completadas",
+  "@todoFilterCompleted": {
+    "description": "Filter chip label for completed tasks"
+  },
+
+  "todoFilterHigh": "Alta",
+  "@todoFilterHigh": {
+    "description": "Filter chip label for high priority"
+  },
+
+  "todoFilterMedium": "Media",
+  "@todoFilterMedium": {
+    "description": "Filter chip label for medium priority"
+  },
+
+  "todoFilterLow": "Baja",
+  "@todoFilterLow": {
+    "description": "Filter chip label for low priority"
+  },
+
+  "todoFilterUncategorized": "Sin categoría",
+  "@todoFilterUncategorized": {
+    "description": "Filter chip label for tasks without a category"
+  },
+
+  "todoFilterClearAll": "Limpiar todo",
+  "@todoFilterClearAll": {
+    "description": "Action chip label to clear all active filters"
+  },
+
+  "todoSortDate": "Fecha",
+  "@todoSortDate": {
+    "description": "Sort criterion label for creation date"
+  },
+
+  "todoSortPriority": "Prioridad",
+  "@todoSortPriority": {
+    "description": "Sort criterion label for priority"
+  },
+
+  "todoSortAlphabetical": "A–Z",
+  "@todoSortAlphabetical": {
+    "description": "Sort criterion label for alphabetical order"
+  },
+
+  "todoEmptyNoTasksHeadline": "Aún no hay tareas",
+  "@todoEmptyNoTasksHeadline": {
+    "description": "Headline for the empty state when no tasks exist"
+  },
+
+  "todoEmptyNoTasksMessage": "Crea tu primera tarea para comenzar",
+  "@todoEmptyNoTasksMessage": {
+    "description": "Supporting message for the empty state when no tasks exist"
+  },
+
+  "todoEmptyNoSearchResultsHeadline": "Sin resultados",
+  "@todoEmptyNoSearchResultsHeadline": {
+    "description": "Headline for the empty state when search yields no results"
+  },
+
+  "todoEmptyNoSearchResultsMessage": "Prueba con un término de búsqueda diferente",
+  "@todoEmptyNoSearchResultsMessage": {
+    "description": "Supporting message for the empty state when search yields no results"
+  },
+
+  "todoEmptyNoFilterResultsHeadline": "No hay tareas que coincidan",
+  "@todoEmptyNoFilterResultsHeadline": {
+    "description": "Headline for the empty state when filters yield no results"
+  },
+
+  "todoEmptyNoFilterResultsMessage": "Ajusta tus filtros para ver más tareas",
+  "@todoEmptyNoFilterResultsMessage": {
+    "description": "Supporting message for the empty state when filters yield no results"
+  },
+
+  "todoEmptyNoCategoryTasksHeadline": "No hay tareas en esta categoría",
+  "@todoEmptyNoCategoryTasksHeadline": {
+    "description": "Headline for the empty state when a category has no tasks"
+  },
+
+  "todoEmptyNoCategoryTasksMessage": "Las tareas asignadas a esta categoría aparecerán aquí",
+  "@todoEmptyNoCategoryTasksMessage": {
+    "description": "Supporting message for the empty state when a category has no tasks"
   }
 }
