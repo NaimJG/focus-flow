@@ -1,4 +1,5 @@
 import 'app_color_palette.dart';
+import 'app_language.dart';
 import 'app_theme_mode.dart';
 
 /// Immutable value object representing all user-configurable preferences.
@@ -14,6 +15,7 @@ class AppSettings {
     this.soundEnabled = true,
     this.themeMode = AppThemeMode.system,
     this.colorPalette = AppColorPalette.salmon,
+    this.language = AppLanguage.spanish,
   });
 
   final Duration focusDuration;
@@ -23,6 +25,7 @@ class AppSettings {
   final bool soundEnabled;
   final AppThemeMode themeMode;
   final AppColorPalette colorPalette;
+  final AppLanguage language;
 
   AppSettings copyWith({
     Duration? focusDuration,
@@ -32,6 +35,7 @@ class AppSettings {
     bool? soundEnabled,
     AppThemeMode? themeMode,
     AppColorPalette? colorPalette,
+    AppLanguage? language,
   }) {
     return AppSettings(
       focusDuration: focusDuration ?? this.focusDuration,
@@ -42,6 +46,7 @@ class AppSettings {
       soundEnabled: soundEnabled ?? this.soundEnabled,
       themeMode: themeMode ?? this.themeMode,
       colorPalette: colorPalette ?? this.colorPalette,
+      language: language ?? this.language,
     );
   }
 
@@ -56,7 +61,8 @@ class AppSettings {
           cyclesBeforeLongBreak == other.cyclesBeforeLongBreak &&
           soundEnabled == other.soundEnabled &&
           themeMode == other.themeMode &&
-          colorPalette == other.colorPalette;
+          colorPalette == other.colorPalette &&
+          language == other.language;
 
   @override
   int get hashCode => Object.hash(
@@ -67,5 +73,6 @@ class AppSettings {
     soundEnabled,
     themeMode,
     colorPalette,
+    language,
   );
 }

@@ -1,0 +1,38 @@
+{
+  "@@locale": "es",
+
+  "navigationTodo": "Tareas",
+  "@navigationTodo": {
+    "description": "Navigation bar label for the Todo tab"
+  },
+
+  "navigationPomodoro": "Pomodoro",
+  "@navigationPomodoro": {
+    "description": "Navigation bar label for the Pomodoro tab"
+  },
+
+  "navigationStatistics": "Estadísticas",
+  "@navigationStatistics": {
+    "description": "Navigation bar label for the Statistics tab"
+  },
+
+  "navigationSettings": "Configuración",
+  "@navigationSettings": {
+    "description": "Navigation bar label for the Settings tab"
+  },
+
+  "sharedCancel": "Cancelar",
+  "@sharedCancel": {
+    "description": "Shared label for cancel actions in dialogs and buttons"
+  },
+
+  "sharedDelete": "Eliminar",
+  "@sharedDelete": {
+    "description": "Shared label for delete actions in dialogs and buttons"
+  },
+
+  "sharedRetry": "Reintentar",
+  "@sharedRetry": {
+    "description": "Shared label for retry actions after errors"
+  }
+}

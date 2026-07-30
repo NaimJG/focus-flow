@@ -33,23 +33,29 @@ const AppSettingsModelSchema = CollectionSchema(
       name: r'focusDurationMinutes',
       type: IsarType.long,
     ),
-    r'longBreakDurationMinutes': PropertySchema(
+    r'language': PropertySchema(
       id: 3,
+      name: r'language',
+      type: IsarType.byte,
+      enumMap: _AppSettingsModellanguageEnumValueMap,
+    ),
+    r'longBreakDurationMinutes': PropertySchema(
+      id: 4,
       name: r'longBreakDurationMinutes',
       type: IsarType.long,
     ),
     r'shortBreakDurationMinutes': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'shortBreakDurationMinutes',
       type: IsarType.long,
     ),
     r'soundEnabled': PropertySchema(
-      id: 5,
+      id: 6,
       name: r'soundEnabled',
       type: IsarType.bool,
     ),
     r'themeMode': PropertySchema(
-      id: 6,
+      id: 7,
       name: r'themeMode',
       type: IsarType.byte,
       enumMap: _AppSettingsModelthemeModeEnumValueMap,
@@ -87,10 +93,11 @@ void _appSettingsModelSerialize(
   writer.writeByte(offsets[0], object.colorPalette.index);
   writer.writeLong(offsets[1], object.cyclesBeforeLongBreak);
   writer.writeLong(offsets[2], object.focusDurationMinutes);
-  writer.writeLong(offsets[3], object.longBreakDurationMinutes);
-  writer.writeLong(offsets[4], object.shortBreakDurationMinutes);
-  writer.writeBool(offsets[5], object.soundEnabled);
-  writer.writeByte(offsets[6], object.themeMode.index);
+  writer.writeByte(offsets[3], object.language.index);
+  writer.writeLong(offsets[4], object.longBreakDurationMinutes);
+  writer.writeLong(offsets[5], object.shortBreakDurationMinutes);
+  writer.writeBool(offsets[6], object.soundEnabled);
+  writer.writeByte(offsets[7], object.themeMode.index);
 }
 
 AppSettingsModel _appSettingsModelDeserialize(
@@ -108,12 +115,17 @@ AppSettingsModel _appSettingsModelDeserialize(
   object.cyclesBeforeLongBreak = reader.readLong(offsets[1]);
   object.focusDurationMinutes = reader.readLong(offsets[2]);
   object.id = id;
-  object.longBreakDurationMinutes = reader.readLong(offsets[3]);
-  object.shortBreakDurationMinutes = reader.readLong(offsets[4]);
-  object.soundEnabled = reader.readBool(offsets[5]);
+  object.language =
+      _AppSettingsModellanguageValueEnumMap[reader.readByteOrNull(
+        offsets[3],
+      )] ??
+      AppLanguage.spanish;
+  object.longBreakDurationMinutes = reader.readLong(offsets[4]);
+  object.shortBreakDurationMinutes = reader.readLong(offsets[5]);
+  object.soundEnabled = reader.readBool(offsets[6]);
   object.themeMode =
       _AppSettingsModelthemeModeValueEnumMap[reader.readByteOrNull(
-        offsets[6],
+        offsets[7],
       )] ??
       AppThemeMode.system;
   return object;
@@ -137,12 +149,18 @@ P _appSettingsModelDeserializeProp<P>(
     case 2:
       return (reader.readLong(offset)) as P;
     case 3:
-      return (reader.readLong(offset)) as P;
+      return (_AppSettingsModellanguageValueEnumMap[reader.readByteOrNull(
+                offset,
+              )] ??
+              AppLanguage.spanish)
+          as P;
     case 4:
       return (reader.readLong(offset)) as P;
     case 5:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 6:
+      return (reader.readBool(offset)) as P;
+    case 7:
       return (_AppSettingsModelthemeModeValueEnumMap[reader.readByteOrNull(
                 offset,
               )] ??
@@ -162,6 +180,11 @@ const _AppSettingsModelcolorPaletteValueEnumMap = {
   0: AppColorPalette.salmon,
   1: AppColorPalette.lightBlue,
   2: AppColorPalette.lightGreen,
+};
+const _AppSettingsModellanguageEnumValueMap = {'spanish': 0, 'english': 1};
+const _AppSettingsModellanguageValueEnumMap = {
+  0: AppLanguage.spanish,
+  1: AppLanguage.english,
 };
 const _AppSettingsModelthemeModeEnumValueMap = {
   'system': 0,
@@ -498,6 +521,61 @@ extension AppSettingsModelQueryFilter
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
+  languageEqualTo(AppLanguage value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'language', value: value),
+      );
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
+  languageGreaterThan(AppLanguage value, {bool include = false}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'language',
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
+  languageLessThan(AppLanguage value, {bool include = false}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'language',
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
+  languageBetween(
+    AppLanguage lower,
+    AppLanguage upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'language',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
   longBreakDurationMinutesEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
@@ -729,6 +807,20 @@ extension AppSettingsModelQuerySortBy
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+  sortByLanguage() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'language', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+  sortByLanguageDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'language', Sort.desc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
   sortByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.asc);
@@ -843,6 +935,20 @@ extension AppSettingsModelQuerySortThenBy
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+  thenByLanguage() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'language', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+  thenByLanguageDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'language', Sort.desc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
   thenByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.asc);
@@ -923,6 +1029,13 @@ extension AppSettingsModelQueryWhereDistinct
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
+  distinctByLanguage() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'language');
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
   distinctByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'longBreakDurationMinutes');
@@ -977,6 +1090,13 @@ extension AppSettingsModelQueryProperty
   focusDurationMinutesProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'focusDurationMinutes');
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppLanguage, QQueryOperations>
+  languageProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'language');
     });
   }
 

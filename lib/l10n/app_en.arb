@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+
+  "navigationTodo": "Todo",
+  "navigationPomodoro": "Pomodoro",
+  "navigationStatistics": "Statistics",
+  "navigationSettings": "Settings",
+
+  "sharedCancel": "Cancel",
+  "sharedDelete": "Delete",
+  "sharedRetry": "Retry"
+}

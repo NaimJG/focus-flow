@@ -1,0 +1,144 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add `flutter_localizations` and `intl` dependencies to pubspec.yaml, set `generate: true` under flutter section": [
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785426793046
+      },
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427161235
+      }
+    ],
+    "1.2 Create `l10n.yaml` at project root": [
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785426795514
+      },
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427161853
+      }
+    ],
+    "1.3 Create `lib/l10n/app_es.arb` with navigation and shared keys": [
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427166788
+      },
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427289756
+      }
+    ],
+    "1.4 Create `lib/l10n/app_en.arb` with navigation and shared keys": [
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427167696
+      },
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427289909
+      }
+    ],
+    "1. Localization configuration and ARB foundation": [
+      {
+        "executionId": "2b74c6a4-90ed-480b-a64e-63cdc60a7727",
+        "chatSessionId": "sess_72d84023-b743-403a-90dc-503fa295e7b5",
+        "timestamp": 1785427300588
+      }
+    ],
+    "2. Checkpoint — Localization generation setup": [
+      {
+        "executionId": "6f963304-fb1d-4e8f-9e30-ba997c1496a4",
+        "chatSessionId": "sess_bde27b35-512f-4b77-812e-48ee7f3f31b7",
+        "timestamp": 1785427461247
+      },
+      {
+        "executionId": "6f963304-fb1d-4e8f-9e30-ba997c1496a4",
+        "chatSessionId": "sess_bde27b35-512f-4b77-812e-48ee7f3f31b7",
+        "timestamp": 1785429241825
+      }
+    ],
+    "3. AppLanguage domain enum and AppSettings changes": [
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429319198
+      },
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429764522
+      }
+    ],
+    "3.1 Create `AppLanguage` enum at `lib/features/settings/domain/entities/app_language.dart`": [
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429323296
+      },
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429472737
+      }
+    ],
+    "3.2 Add `language` field to `AppSettings` entity": [
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429477398
+      },
+      {
+        "executionId": "1e17c5b7-e8dc-4c55-88a0-1564b9c14ff0",
+        "chatSessionId": "sess_75856b2b-7261-4c6f-919f-35e5cd996c00",
+        "timestamp": 1785429764204
+      }
+    ],
+    "4. Isar model persistence update": [
+      {
+        "executionId": "6b3a40b0-da16-4d98-833b-0e58b2f0b464",
+        "chatSessionId": "sess_c5d75327-d20c-45c0-92bc-f708fffb85ad",
+        "timestamp": 1785429870158
+      },
+      {
+        "executionId": "6b3a40b0-da16-4d98-833b-0e58b2f0b464",
+        "chatSessionId": "sess_c5d75327-d20c-45c0-92bc-f708fffb85ad",
+        "timestamp": 1785432507963
+      }
+    ],
+    "4.1 Add `language` field to `AppSettingsModel` and update converters": [
+      {
+        "executionId": "6b3a40b0-da16-4d98-833b-0e58b2f0b464",
+        "chatSessionId": "sess_c5d75327-d20c-45c0-92bc-f708fffb85ad",
+        "timestamp": 1785429874212
+      },
+      {
+        "executionId": "6b3a40b0-da16-4d98-833b-0e58b2f0b464",
+        "chatSessionId": "sess_c5d75327-d20c-45c0-92bc-f708fffb85ad",
+        "timestamp": 1785432507574
+      }
+    ],
+    "5. Checkpoint — Persistence integration": [
+      {
+        "executionId": "c2ae54c7-b01f-4bd3-b834-b3d6009fe661",
+        "chatSessionId": "sess_feec0a1b-a641-44eb-8145-0957bdbb75a6",
+        "timestamp": 1785432553572
+      },
+      {
+        "executionId": "c2ae54c7-b01f-4bd3-b834-b3d6009fe661",
+        "chatSessionId": "sess_feec0a1b-a641-44eb-8145-0957bdbb75a6",
+        "timestamp": 1785435540601
+      }
+    ]
+  }
+}

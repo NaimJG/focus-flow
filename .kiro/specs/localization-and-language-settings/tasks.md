@@ -6,55 +6,55 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
 
 ## Tasks
 
-- [ ] 1. Localization configuration and ARB foundation
-  - [ ] 1.1 Add `flutter_localizations` and `intl` dependencies to pubspec.yaml, set `generate: true` under flutter section
+- [x] 1. Localization configuration and ARB foundation
+  - [x] 1.1 Add `flutter_localizations` and `intl` dependencies to pubspec.yaml, set `generate: true` under flutter section
     - Add `flutter_localizations: sdk: flutter` to dependencies
     - Add `intl: any` to dependencies
     - Add `generate: true` under the `flutter:` section
     - _Requirements: 1.1, 1.3_
 
-  - [ ] 1.2 Create `l10n.yaml` at project root
+  - [x] 1.2 Create `l10n.yaml` at project root
     - Set `arb-dir: lib/l10n`
     - Set `template-arb-file: app_es.arb`
     - Set `output-localization-file: app_localizations.dart`
     - Set `output-class: AppLocalizations`
     - _Requirements: 1.2_
 
-  - [ ] 1.3 Create `lib/l10n/app_es.arb` with navigation and shared keys
+  - [x] 1.3 Create `lib/l10n/app_es.arb` with navigation and shared keys
     - Add keys: `navigationTodo`, `navigationPomodoro`, `navigationStatistics`, `navigationSettings`
     - Add shared keys: `sharedCancel`, `sharedDelete`, `sharedRetry`
     - Add `@` metadata descriptions for all keys
     - _Requirements: 1.4, 9.1, 14.3, 14.4, 18.1, 18.4, 19.1, 19.2_
 
-  - [ ] 1.4 Create `lib/l10n/app_en.arb` with navigation and shared keys
+  - [x] 1.4 Create `lib/l10n/app_en.arb` with navigation and shared keys
     - Mirror all keys from `app_es.arb` with English translations
     - _Requirements: 1.4, 9.2, 14.2, 14.3, 14.4, 20.1, 20.2_
 
-- [ ] 2. Checkpoint — Localization generation setup
+- [x] 2. Checkpoint — Localization generation setup
   - Run `flutter gen-l10n` (or `flutter pub get`) and verify `AppLocalizations` class is generated without errors
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 3. AppLanguage domain enum and AppSettings changes
-  - [ ] 3.1 Create `AppLanguage` enum at `lib/features/settings/domain/entities/app_language.dart`
+- [x] 3. AppLanguage domain enum and AppSettings changes
+  - [x] 3.1 Create `AppLanguage` enum at `lib/features/settings/domain/entities/app_language.dart`
     - Values: `spanish` (index 0), `english` (index 1)
     - Pure Dart — no Flutter imports
     - _Requirements: 2.1, 2.2_
 
-  - [ ] 3.2 Add `language` field to `AppSettings` entity
+  - [x] 3.2 Add `language` field to `AppSettings` entity
     - Add `AppLanguage language` with default `AppLanguage.spanish`
     - Update `copyWith` to include optional `language` parameter
     - Update `==` and `hashCode` to include `language`
     - _Requirements: 3.1, 3.2, 3.3, 3.4_
 
-- [ ] 4. Isar model persistence update
-  - [ ] 4.1 Add `language` field to `AppSettingsModel` and update converters
+- [x] 4. Isar model persistence update
+  - [x] 4.1 Add `language` field to `AppSettingsModel` and update converters
     - Add `@enumerated AppLanguage language = AppLanguage.spanish`
     - Update `toEntity()` to include language
     - Update `fromEntity()` to include language
     - Run `dart run build_runner build` to regenerate `app_settings_model.g.dart`
     - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-- [ ] 5. Checkpoint — Persistence integration
+- [x] 5. Checkpoint — Persistence integration
   - Verify `build_runner` completes without errors, schema is regenerated
   - Run `flutter analyze` and `flutter test` to ensure no regressions
   - Ensure all tests pass, ask the user if questions arise.

@@ -1,6 +1,7 @@
 import 'package:isar/isar.dart';
 
 import '../../domain/entities/app_color_palette.dart';
+import '../../domain/entities/app_language.dart';
 import '../../domain/entities/app_settings.dart';
 import '../../domain/entities/app_theme_mode.dart';
 
@@ -37,6 +38,10 @@ class AppSettingsModel {
   @enumerated
   AppColorPalette colorPalette = AppColorPalette.salmon;
 
+  /// Selected application language stored as ordinal index.
+  @enumerated
+  AppLanguage language = AppLanguage.spanish;
+
   /// Converts this Isar model to a domain [AppSettings] entity.
   AppSettings toEntity() {
     return AppSettings(
@@ -47,6 +52,7 @@ class AppSettingsModel {
       soundEnabled: soundEnabled,
       themeMode: themeMode,
       colorPalette: colorPalette,
+      language: language,
     );
   }
 
@@ -59,6 +65,7 @@ class AppSettingsModel {
       ..cyclesBeforeLongBreak = entity.cyclesBeforeLongBreak
       ..soundEnabled = entity.soundEnabled
       ..themeMode = entity.themeMode
-      ..colorPalette = entity.colorPalette;
+      ..colorPalette = entity.colorPalette
+      ..language = entity.language;
   }
 }
