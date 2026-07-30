@@ -64,11 +64,11 @@ Implement the Settings feature following clean architecture: domain entities and
     - Add `AppSettingsModelSchema` to the schema list in `openIsar()`
     - _Requirements: 1.2, 1.6_
 
-- [ ] 5. Checkpoint — Persistence layer complete
+- [x] 5. Checkpoint — Persistence layer complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 6. SettingsController
-  - [ ] 6.1 Create `SettingsController` with status, validation, load, save, and error handling
+- [x] 6. SettingsController
+  - [x] 6.1 Create `SettingsController` with status, validation, load, save, and error handling
     - Create `lib/features/settings/presentation/controllers/settings_controller.dart`
     - `SettingsStatus` enum: `loading`, `loaded`, `error`
     - Constructor receives `GetSettingsUseCase` and `SaveSettingsUseCase`
@@ -81,7 +81,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - Optimistic persist with revert on failure
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 2.2, 2.3, 2.4, 2.5, 3.2, 3.3, 4.2, 4.3, 4.5, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.2, 6.3, 6.7, 9.5, 9.6, 11.4, 11.5, 12.1, 12.4_
 
-- [ ] 7. Checkpoint — Controller integration complete
+- [x] 7. Checkpoint — Controller integration complete
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 8. Theme integration
