@@ -142,19 +142,19 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Verify all Todo strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 14. Pomodoro localization
-  - [ ] 14.1 Add Pomodoro ARB keys to `app_es.arb` and `app_en.arb`
+- [x] 14. Pomodoro localization
+  - [x] 14.1 Add Pomodoro ARB keys to `app_es.arb` and `app_en.arb`
     - Keys for: title, mode labels (focus, short break, long break), status labels (ready, running, paused), control labels (start, pause, resume, reset, skip), completion messages, next-ready messages, session not saved, accessibility announcements
     - Include `@` metadata for all new keys in Spanish template
     - _Requirements: 11.1, 11.2, 11.3, 11.4, 11.5, 18.1, 18.4_
 
-  - [ ] 14.2 Create `lib/features/pomodoro/presentation/utils/timer_mode_labels.dart`
+  - [x] 14.2 Create `lib/features/pomodoro/presentation/utils/timer_mode_labels.dart`
     - `String timerModeLabel(TimerMode, AppLocalizations)` helper
     - `String timerModeCompletedLabel(TimerMode?, AppLocalizations)` helper
     - `String timerModeNextReadyLabel(TimerMode, AppLocalizations)` helper
     - _Requirements: 17.4, 17.5_
 
-  - [ ] 14.3 Localize `PomodoroScreen` (`pomodoro_screen.dart`)
+  - [x] 14.3 Localize `PomodoroScreen` (`pomodoro_screen.dart`)
     - Replace AppBar title "Pomodoro" with `l10n.pomodoroTitle`
     - Replace `_modeLabel` and `_modeLabelForCompleted` with `timer_mode_labels.dart` helpers
     - Replace `_StatusText` hardcoded strings (Ready, Running, Paused, completion/next-ready messages)
@@ -163,16 +163,16 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
     - Use `Localizations.localeOf(context)` for text direction in announcements
     - _Requirements: 11.1, 11.2, 11.3, 11.4, 11.5, 22.1, 22.2_
 
-  - [ ] 14.4 Localize `TimerControls` (`timer_controls.dart`)
+  - [x] 14.4 Localize `TimerControls` (`timer_controls.dart`)
     - Replace button labels (Start, Pause, Resume, Reset, Skip) with `l10n.*` calls
     - Pass `AppLocalizations` or access via `context`
     - _Requirements: 11.1, 11.2_
 
-  - [ ] 14.5 Localize Pomodoro error SnackBar
+  - [x] 14.5 Localize Pomodoro error SnackBar
     - Replace "Retry" label with `l10n.sharedRetry`
     - _Requirements: 11.5, 14.4_
 
-- [ ] 15. Checkpoint — Pomodoro localization
+- [x] 15. Checkpoint — Pomodoro localization
   - Verify all Pomodoro strings render in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.
 

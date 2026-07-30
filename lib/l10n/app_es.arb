@@ -169,5 +169,137 @@
   "todoEmptyNoCategoryTasksMessage": "Las tareas asignadas a esta categoría aparecerán aquí",
   "@todoEmptyNoCategoryTasksMessage": {
     "description": "Supporting message for the empty state when a category has no tasks"
+  },
+
+  "pomodoroTitle": "Pomodoro",
+  "@pomodoroTitle": {
+    "description": "AppBar title for the Pomodoro screen"
+  },
+
+  "pomodoroModeFocus": "Enfoque",
+  "@pomodoroModeFocus": {
+    "description": "Label for focus timer mode"
+  },
+
+  "pomodoroModeShortBreak": "Descanso corto",
+  "@pomodoroModeShortBreak": {
+    "description": "Label for short break timer mode"
+  },
+
+  "pomodoroModeLongBreak": "Descanso largo",
+  "@pomodoroModeLongBreak": {
+    "description": "Label for long break timer mode"
+  },
+
+  "pomodoroStatusReady": "Listo",
+  "@pomodoroStatusReady": {
+    "description": "Status label when the timer is ready to start"
+  },
+
+  "pomodoroStatusRunning": "En curso",
+  "@pomodoroStatusRunning": {
+    "description": "Status label when the timer is running"
+  },
+
+  "pomodoroStatusPaused": "Pausado",
+  "@pomodoroStatusPaused": {
+    "description": "Status label when the timer is paused"
+  },
+
+  "pomodoroControlStart": "Iniciar",
+  "@pomodoroControlStart": {
+    "description": "Label for the start timer button"
+  },
+
+  "pomodoroControlPause": "Pausar",
+  "@pomodoroControlPause": {
+    "description": "Label for the pause timer button"
+  },
+
+  "pomodoroControlResume": "Reanudar",
+  "@pomodoroControlResume": {
+    "description": "Label for the resume timer button"
+  },
+
+  "pomodoroControlReset": "Reiniciar",
+  "@pomodoroControlReset": {
+    "description": "Label for the reset timer button"
+  },
+
+  "pomodoroControlSkip": "Saltar",
+  "@pomodoroControlSkip": {
+    "description": "Label for the skip to next session button"
+  },
+
+  "pomodoroCompletedFocus": "Sesión de enfoque terminada",
+  "@pomodoroCompletedFocus": {
+    "description": "Message shown when a focus session completes"
+  },
+
+  "pomodoroCompletedShortBreak": "Descanso corto terminado",
+  "@pomodoroCompletedShortBreak": {
+    "description": "Message shown when a short break completes"
+  },
+
+  "pomodoroCompletedLongBreak": "Descanso largo terminado",
+  "@pomodoroCompletedLongBreak": {
+    "description": "Message shown when a long break completes"
+  },
+
+  "pomodoroCompletedGeneric": "{mode} terminado",
+  "@pomodoroCompletedGeneric": {
+    "description": "Generic completion message with mode placeholder",
+    "placeholders": {
+      "mode": {
+        "type": "String",
+        "example": "Enfoque"
+      }
+    }
+  },
+
+  "pomodoroNextFocus": "Enfoque listo",
+  "@pomodoroNextFocus": {
+    "description": "Message indicating the next focus session is ready"
+  },
+
+  "pomodoroNextShortBreak": "Descanso corto listo",
+  "@pomodoroNextShortBreak": {
+    "description": "Message indicating the next short break is ready"
+  },
+
+  "pomodoroNextLongBreak": "Descanso largo listo",
+  "@pomodoroNextLongBreak": {
+    "description": "Message indicating the next long break is ready"
+  },
+
+  "pomodoroSessionNotSaved": "Sesión no guardada — toca para reintentar",
+  "@pomodoroSessionNotSaved": {
+    "description": "Error message shown when a Pomodoro session fails to save"
+  },
+
+  "pomodoroAnnounceReady": "Temporizador listo",
+  "@pomodoroAnnounceReady": {
+    "description": "Accessibility announcement when timer is ready"
+  },
+
+  "pomodoroAnnounceRunning": "Temporizador en curso",
+  "@pomodoroAnnounceRunning": {
+    "description": "Accessibility announcement when timer starts running"
+  },
+
+  "pomodoroAnnouncePaused": "Temporizador pausado",
+  "@pomodoroAnnouncePaused": {
+    "description": "Accessibility announcement when timer is paused"
+  },
+
+  "pomodoroAnnounceCompleted": "{mode} terminado",
+  "@pomodoroAnnounceCompleted": {
+    "description": "Accessibility announcement when a timer mode completes",
+    "placeholders": {
+      "mode": {
+        "type": "String",
+        "example": "Enfoque"
+      }
+    }
   }
 }

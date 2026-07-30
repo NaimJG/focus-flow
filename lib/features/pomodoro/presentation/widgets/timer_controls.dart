@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/timer_status.dart';
 
 /// Controls for the Pomodoro timer, showing contextual buttons based on the
@@ -52,21 +53,33 @@ class TimerControls extends StatelessWidget {
   }
 
   List<Widget> _buildButtons(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     switch (status) {
       case TimerStatus.idle:
       case TimerStatus.completed:
-        return [_PrimaryButton(label: 'Start', onPressed: onStart)];
+        return [
+          _PrimaryButton(label: l10n.pomodoroControlStart, onPressed: onStart),
+        ];
       case TimerStatus.running:
         return [
-          _PrimaryButton(label: 'Pause', onPressed: onPause),
-          _SecondaryButton(label: 'Reset', onPressed: onReset),
-          _SecondaryButton(label: 'Skip', onPressed: onSkip),
+          _PrimaryButton(label: l10n.pomodoroControlPause, onPressed: onPause),
+          _SecondaryButton(
+            label: l10n.pomodoroControlReset,
+            onPressed: onReset,
+          ),
+          _SecondaryButton(label: l10n.pomodoroControlSkip, onPressed: onSkip),
         ];
       case TimerStatus.paused:
         return [
-          _PrimaryButton(label: 'Resume', onPressed: onResume),
-          _SecondaryButton(label: 'Reset', onPressed: onReset),
-          _SecondaryButton(label: 'Skip', onPressed: onSkip),
+          _PrimaryButton(
+            label: l10n.pomodoroControlResume,
+            onPressed: onResume,
+          ),
+          _SecondaryButton(
+            label: l10n.pomodoroControlReset,
+            onPressed: onReset,
+          ),
+          _SecondaryButton(label: l10n.pomodoroControlSkip, onPressed: onSkip),
         ];
     }
   }

@@ -114,4 +114,81 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get todoEmptyNoCategoryTasksMessage =>
       'Las tareas asignadas a esta categoría aparecerán aquí';
+
+  @override
+  String get pomodoroTitle => 'Pomodoro';
+
+  @override
+  String get pomodoroModeFocus => 'Enfoque';
+
+  @override
+  String get pomodoroModeShortBreak => 'Descanso corto';
+
+  @override
+  String get pomodoroModeLongBreak => 'Descanso largo';
+
+  @override
+  String get pomodoroStatusReady => 'Listo';
+
+  @override
+  String get pomodoroStatusRunning => 'En curso';
+
+  @override
+  String get pomodoroStatusPaused => 'Pausado';
+
+  @override
+  String get pomodoroControlStart => 'Iniciar';
+
+  @override
+  String get pomodoroControlPause => 'Pausar';
+
+  @override
+  String get pomodoroControlResume => 'Reanudar';
+
+  @override
+  String get pomodoroControlReset => 'Reiniciar';
+
+  @override
+  String get pomodoroControlSkip => 'Saltar';
+
+  @override
+  String get pomodoroCompletedFocus => 'Sesión de enfoque terminada';
+
+  @override
+  String get pomodoroCompletedShortBreak => 'Descanso corto terminado';
+
+  @override
+  String get pomodoroCompletedLongBreak => 'Descanso largo terminado';
+
+  @override
+  String pomodoroCompletedGeneric(String mode) {
+    return '$mode terminado';
+  }
+
+  @override
+  String get pomodoroNextFocus => 'Enfoque listo';
+
+  @override
+  String get pomodoroNextShortBreak => 'Descanso corto listo';
+
+  @override
+  String get pomodoroNextLongBreak => 'Descanso largo listo';
+
+  @override
+  String get pomodoroSessionNotSaved =>
+      'Sesión no guardada — toca para reintentar';
+
+  @override
+  String get pomodoroAnnounceReady => 'Temporizador listo';
+
+  @override
+  String get pomodoroAnnounceRunning => 'Temporizador en curso';
+
+  @override
+  String get pomodoroAnnouncePaused => 'Temporizador pausado';
+
+  @override
+  String pomodoroAnnounceCompleted(String mode) {
+    return '$mode terminado';
+  }
 }

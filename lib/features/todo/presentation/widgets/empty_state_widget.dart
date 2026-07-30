@@ -51,12 +51,9 @@ class EmptyStateWidget extends StatelessWidget {
 
     final message = switch (variant) {
       EmptyStateVariant.noTasks => l10n.todoEmptyNoTasksMessage,
-      EmptyStateVariant.noSearchResults =>
-        l10n.todoEmptyNoSearchResultsMessage,
-      EmptyStateVariant.noFilterResults =>
-        l10n.todoEmptyNoFilterResultsMessage,
-      EmptyStateVariant.noCategoryTasks =>
-        l10n.todoEmptyNoCategoryTasksMessage,
+      EmptyStateVariant.noSearchResults => l10n.todoEmptyNoSearchResultsMessage,
+      EmptyStateVariant.noFilterResults => l10n.todoEmptyNoFilterResultsMessage,
+      EmptyStateVariant.noCategoryTasks => l10n.todoEmptyNoCategoryTasksMessage,
     };
 
     return Center(
@@ -78,8 +75,7 @@ class EmptyStateWidget extends StatelessWidget {
               style: textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
-            if (variant == EmptyStateVariant.noTasks &&
-                onAction != null) ...[
+            if (variant == EmptyStateVariant.noTasks && onAction != null) ...[
               const SizedBox(height: 24),
               FilledButton(
                 onPressed: onAction,

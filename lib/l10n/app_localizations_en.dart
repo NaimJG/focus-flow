@@ -112,4 +112,80 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get todoEmptyNoCategoryTasksMessage =>
       'Tasks assigned to this category will appear here';
+
+  @override
+  String get pomodoroTitle => 'Pomodoro';
+
+  @override
+  String get pomodoroModeFocus => 'Focus';
+
+  @override
+  String get pomodoroModeShortBreak => 'Short Break';
+
+  @override
+  String get pomodoroModeLongBreak => 'Long Break';
+
+  @override
+  String get pomodoroStatusReady => 'Ready';
+
+  @override
+  String get pomodoroStatusRunning => 'Running';
+
+  @override
+  String get pomodoroStatusPaused => 'Paused';
+
+  @override
+  String get pomodoroControlStart => 'Start';
+
+  @override
+  String get pomodoroControlPause => 'Pause';
+
+  @override
+  String get pomodoroControlResume => 'Resume';
+
+  @override
+  String get pomodoroControlReset => 'Reset';
+
+  @override
+  String get pomodoroControlSkip => 'Skip';
+
+  @override
+  String get pomodoroCompletedFocus => 'Focus session finished';
+
+  @override
+  String get pomodoroCompletedShortBreak => 'Short break finished';
+
+  @override
+  String get pomodoroCompletedLongBreak => 'Long break finished';
+
+  @override
+  String pomodoroCompletedGeneric(String mode) {
+    return '$mode finished';
+  }
+
+  @override
+  String get pomodoroNextFocus => 'Focus ready';
+
+  @override
+  String get pomodoroNextShortBreak => 'Short break ready';
+
+  @override
+  String get pomodoroNextLongBreak => 'Long break ready';
+
+  @override
+  String get pomodoroSessionNotSaved => 'Session not saved — tap to retry';
+
+  @override
+  String get pomodoroAnnounceReady => 'Timer ready';
+
+  @override
+  String get pomodoroAnnounceRunning => 'Timer running';
+
+  @override
+  String get pomodoroAnnouncePaused => 'Timer paused';
+
+  @override
+  String pomodoroAnnounceCompleted(String mode) {
+    return '$mode finished';
+  }
 }

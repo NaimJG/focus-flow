@@ -369,6 +369,85 @@
         "chatSessionId": "sess_a317f4f3-30f0-4cba-8867-9c35a155ec71",
         "timestamp": 1785445629998
       }
+    ],
+    "14.1 Add Pomodoro ARB keys to `app_es.arb` and `app_en.arb`": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785446253018
+      },
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447046065
+      }
+    ],
+    "14.2 Create `lib/features/pomodoro/presentation/utils/timer_mode_labels.dart`": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785446271169
+      },
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447046855
+      }
+    ],
+    "14.3 Localize `PomodoroScreen` (`pomodoro_screen.dart`)": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447053990
+      },
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447596974
+      }
+    ],
+    "14.4 Localize `TimerControls` (`timer_controls.dart`)": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447054480
+      },
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447597384
+      }
+    ],
+    "14.5 Localize Pomodoro error SnackBar": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447055544
+      },
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447598023
+      }
+    ],
+    "14. Pomodoro localization": [
+      {
+        "executionId": "91defcb9-7692-4546-add5-cae17c4237c8",
+        "chatSessionId": "sess_ac9e8690-639d-4267-933e-25f75360a4cc",
+        "timestamp": 1785447598255
+      }
+    ],
+    "15. Checkpoint — Pomodoro localization": [
+      {
+        "executionId": "dd51ad78-fa22-4a5f-b50b-39b7be12b5ea",
+        "chatSessionId": "sess_ee66eb1d-c299-40ef-acad-0b323ccfb860",
+        "timestamp": 1785447763138
+      },
+      {
+        "executionId": "dd51ad78-fa22-4a5f-b50b-39b7be12b5ea",
+        "chatSessionId": "sess_ee66eb1d-c299-40ef-acad-0b323ccfb860",
+        "timestamp": 1785448353086
+      }
     ]
   }
 }

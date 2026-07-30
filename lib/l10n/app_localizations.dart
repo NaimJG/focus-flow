@@ -301,6 +301,150 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Las tareas asignadas a esta categoría aparecerán aquí'**
   String get todoEmptyNoCategoryTasksMessage;
+
+  /// AppBar title for the Pomodoro screen
+  ///
+  /// In es, this message translates to:
+  /// **'Pomodoro'**
+  String get pomodoroTitle;
+
+  /// Label for focus timer mode
+  ///
+  /// In es, this message translates to:
+  /// **'Enfoque'**
+  String get pomodoroModeFocus;
+
+  /// Label for short break timer mode
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso corto'**
+  String get pomodoroModeShortBreak;
+
+  /// Label for long break timer mode
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso largo'**
+  String get pomodoroModeLongBreak;
+
+  /// Status label when the timer is ready to start
+  ///
+  /// In es, this message translates to:
+  /// **'Listo'**
+  String get pomodoroStatusReady;
+
+  /// Status label when the timer is running
+  ///
+  /// In es, this message translates to:
+  /// **'En curso'**
+  String get pomodoroStatusRunning;
+
+  /// Status label when the timer is paused
+  ///
+  /// In es, this message translates to:
+  /// **'Pausado'**
+  String get pomodoroStatusPaused;
+
+  /// Label for the start timer button
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar'**
+  String get pomodoroControlStart;
+
+  /// Label for the pause timer button
+  ///
+  /// In es, this message translates to:
+  /// **'Pausar'**
+  String get pomodoroControlPause;
+
+  /// Label for the resume timer button
+  ///
+  /// In es, this message translates to:
+  /// **'Reanudar'**
+  String get pomodoroControlResume;
+
+  /// Label for the reset timer button
+  ///
+  /// In es, this message translates to:
+  /// **'Reiniciar'**
+  String get pomodoroControlReset;
+
+  /// Label for the skip to next session button
+  ///
+  /// In es, this message translates to:
+  /// **'Saltar'**
+  String get pomodoroControlSkip;
+
+  /// Message shown when a focus session completes
+  ///
+  /// In es, this message translates to:
+  /// **'Sesión de enfoque terminada'**
+  String get pomodoroCompletedFocus;
+
+  /// Message shown when a short break completes
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso corto terminado'**
+  String get pomodoroCompletedShortBreak;
+
+  /// Message shown when a long break completes
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso largo terminado'**
+  String get pomodoroCompletedLongBreak;
+
+  /// Generic completion message with mode placeholder
+  ///
+  /// In es, this message translates to:
+  /// **'{mode} terminado'**
+  String pomodoroCompletedGeneric(String mode);
+
+  /// Message indicating the next focus session is ready
+  ///
+  /// In es, this message translates to:
+  /// **'Enfoque listo'**
+  String get pomodoroNextFocus;
+
+  /// Message indicating the next short break is ready
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso corto listo'**
+  String get pomodoroNextShortBreak;
+
+  /// Message indicating the next long break is ready
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso largo listo'**
+  String get pomodoroNextLongBreak;
+
+  /// Error message shown when a Pomodoro session fails to save
+  ///
+  /// In es, this message translates to:
+  /// **'Sesión no guardada — toca para reintentar'**
+  String get pomodoroSessionNotSaved;
+
+  /// Accessibility announcement when timer is ready
+  ///
+  /// In es, this message translates to:
+  /// **'Temporizador listo'**
+  String get pomodoroAnnounceReady;
+
+  /// Accessibility announcement when timer starts running
+  ///
+  /// In es, this message translates to:
+  /// **'Temporizador en curso'**
+  String get pomodoroAnnounceRunning;
+
+  /// Accessibility announcement when timer is paused
+  ///
+  /// In es, this message translates to:
+  /// **'Temporizador pausado'**
+  String get pomodoroAnnouncePaused;
+
+  /// Accessibility announcement when a timer mode completes
+  ///
+  /// In es, this message translates to:
+  /// **'{mode} terminado'**
+  String pomodoroAnnounceCompleted(String mode);
 }
 
 class _AppLocalizationsDelegate

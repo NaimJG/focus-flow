@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/timer_mode.dart';
 import '../../domain/entities/timer_status.dart';
 import '../controllers/pomodoro_controller.dart';
+import '../utils/timer_mode_labels.dart';
 import '../widgets/cycle_progress_indicator.dart';
 import '../widgets/task_selector_widget.dart';
 import '../widgets/timer_controls.dart';
@@ -67,33 +69,40 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
   }
 
   void _announceStatusChange(PomodoroController controller) {
+    final l10n = AppLocalizations.of(context)!;
+    final textDirection = Directionality.of(context);
+
     final String announcement;
     switch (controller.status) {
       case TimerStatus.idle:
-        announcement = 'Timer ready';
+        announcement = l10n.pomodoroAnnounceReady;
       case TimerStatus.running:
-        announcement = 'Timer running';
+        announcement = l10n.pomodoroAnnounceRunning;
       case TimerStatus.paused:
-        announcement = 'Timer paused';
+        announcement = l10n.pomodoroAnnouncePaused;
       case TimerStatus.completed:
-        final completedLabel = _modeLabelForCompleted(controller.completedMode);
-        announcement = '$completedLabel finished';
+        final modeLabel = timerModeLabel(
+          controller.completedMode ?? TimerMode.focus,
+          l10n,
+        );
+        announcement = l10n.pomodoroAnnounceCompleted(modeLabel);
     }
     SemanticsService.sendAnnouncement(
       View.of(context),
       announcement,
-      TextDirection.ltr,
+      textDirection,
     );
   }
 
   void _showErrorSnackBar(String message) {
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
           content: Text(message),
           action: SnackBarAction(
-            label: 'Retry',
+            label: l10n.sharedRetry,
             onPressed: () {
               context.read<PomodoroController>().retryPersistence();
             },
@@ -106,10 +115,11 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
   Widget build(BuildContext context) {
     final controller = context.watch<PomodoroController>();
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     if (controller.isLoading) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Pomodoro')),
+        appBar: AppBar(title: Text(l10n.pomodoroTitle)),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -121,7 +131,7 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
         status == TimerStatus.idle || status == TimerStatus.completed;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Pomodoro')),
+      appBar: AppBar(title: Text(l10n.pomodoroTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -131,7 +141,7 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
               children: [
                 // Mode label
                 Text(
-                  _modeLabel(currentMode),
+                  timerModeLabel(currentMode, l10n),
                   style: theme.textTheme.titleLarge?.copyWith(
                     color: theme.colorScheme.primary,
                   ),
@@ -179,7 +189,7 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
                         color: theme.colorScheme.error,
                       ),
                       label: Text(
-                        'Session not saved — tap to retry',
+                        l10n.pomodoroSessionNotSaved,
                         style: TextStyle(color: theme.colorScheme.error),
                       ),
                       style: TextButton.styleFrom(
@@ -207,29 +217,6 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
       ),
     );
   }
-
-  String _modeLabel(TimerMode mode) {
-    switch (mode) {
-      case TimerMode.focus:
-        return 'Focus';
-      case TimerMode.shortBreak:
-        return 'Short Break';
-      case TimerMode.longBreak:
-        return 'Long Break';
-    }
-  }
-
-  String _modeLabelForCompleted(TimerMode? mode) {
-    if (mode == null) return 'Session';
-    switch (mode) {
-      case TimerMode.focus:
-        return 'Focus session';
-      case TimerMode.shortBreak:
-        return 'Short break';
-      case TimerMode.longBreak:
-        return 'Long break';
-    }
-  }
 }
 
 /// Displays a contextual status label depending on the current timer state.
@@ -241,26 +228,27 @@ class _StatusText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final status = controller.status;
 
     switch (status) {
       case TimerStatus.idle:
         return Text(
-          'Ready',
+          l10n.pomodoroStatusReady,
           style: theme.textTheme.bodyLarge?.copyWith(
             color: theme.colorScheme.onSurfaceVariant,
           ),
         );
       case TimerStatus.running:
         return Text(
-          'Running',
+          l10n.pomodoroStatusRunning,
           style: theme.textTheme.bodyLarge?.copyWith(
             color: theme.colorScheme.primary,
           ),
         );
       case TimerStatus.paused:
         return Text(
-          'Paused',
+          l10n.pomodoroStatusPaused,
           style: theme.textTheme.bodyLarge?.copyWith(
             color: theme.colorScheme.tertiary,
           ),
@@ -271,7 +259,7 @@ class _StatusText extends StatelessWidget {
         return Column(
           children: [
             Text(
-              _completedMessage(completedMode),
+              timerModeCompletedLabel(completedMode, l10n),
               style: theme.textTheme.bodyLarge?.copyWith(
                 color: theme.colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
@@ -279,36 +267,13 @@ class _StatusText extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              _nextReadyMessage(currentMode),
+              timerModeNextReadyLabel(currentMode, l10n),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
         );
-    }
-  }
-
-  String _completedMessage(TimerMode? mode) {
-    if (mode == null) return 'Session finished';
-    switch (mode) {
-      case TimerMode.focus:
-        return 'Focus session finished';
-      case TimerMode.shortBreak:
-        return 'Short break finished';
-      case TimerMode.longBreak:
-        return 'Long break finished';
-    }
-  }
-
-  String _nextReadyMessage(TimerMode mode) {
-    switch (mode) {
-      case TimerMode.focus:
-        return 'Focus ready';
-      case TimerMode.shortBreak:
-        return 'Short break ready';
-      case TimerMode.longBreak:
-        return 'Long break ready';
     }
   }
 }

@@ -20,10 +20,7 @@ String taskStatusLabel(TaskStatus status, AppLocalizations l10n) =>
     };
 
 /// Returns the localized display label for a [SortCriterion] value.
-String sortCriterionLabel(
-  SortCriterion criterion,
-  AppLocalizations l10n,
-) =>
+String sortCriterionLabel(SortCriterion criterion, AppLocalizations l10n) =>
     switch (criterion) {
       SortCriterion.creationDate => l10n.todoSortDate,
       SortCriterion.priority => l10n.todoSortPriority,
