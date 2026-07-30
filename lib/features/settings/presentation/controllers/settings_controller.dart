@@ -113,12 +113,12 @@ class SettingsController extends ChangeNotifier {
     );
   }
 
-  /// Updates cycles before long break if [cycles] is within 1–12.
+  /// Updates cycles before long break if [cycles] is within 1–6.
   ///
   /// Returns `true` on successful persist, `false` on invalid input
   /// or persistence failure.
   Future<bool> updateCyclesBeforeLongBreak(int cycles) async {
-    if (cycles < 1 || cycles > 12) return false;
+    if (cycles < 1 || cycles > 6) return false;
     return _applyChange(
       _settings.copyWith(cyclesBeforeLongBreak: cycles),
       settingName: 'cycles before long break',

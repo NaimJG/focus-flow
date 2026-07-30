@@ -77,7 +77,7 @@ Implement the Settings feature following clean architecture: domain entities and
     - Exposes: `SettingsStatus get status`, `AppSettings get settings`, `String? get errorMessage`, validated update methods, init/retry
     - SettingsController does not construct ThemeData or ColorScheme. It exposes AppSettings and status only.
     - Mutation methods: `updateFocusDuration`, `updateShortBreakDuration`, `updateLongBreakDuration`, `updateCyclesBeforeLongBreak`, `updateSoundEnabled`, `updateThemeMode`, `updateColorPalette`
-    - Validation: reject out-of-range values (focus 1–120, short 1–60, long 1–120, cycles 1–12)
+    - Validation: reject out-of-range values (focus 1–120, short 1–60, long 1–120, cycles 1–6)
     - Optimistic persist with revert on failure
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 2.2, 2.3, 2.4, 2.5, 3.2, 3.3, 4.2, 4.3, 4.5, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.2, 6.3, 6.7, 9.5, 9.6, 11.4, 11.5, 12.1, 12.4_
 

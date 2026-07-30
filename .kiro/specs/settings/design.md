@@ -436,7 +436,7 @@ AppSettings (immutable, copyWith, equality)
 | focusDuration (minutes) | 1 | 120 | 25 |
 | shortBreakDuration (minutes) | 1 | 60 | 5 |
 | longBreakDuration (minutes) | 1 | 120 | 15 |
-| cyclesBeforeLongBreak | 1 | 12 | 4 |
+| cyclesBeforeLongBreak | 1 | 6 | 4 |
 | soundEnabled | — | — | true |
 | themeMode | — | — | system |
 | colorPalette | — | — | salmon |
@@ -481,7 +481,7 @@ ColorScheme.fromSeed provides the base Material 3 tonal palette. Standard Materi
 
 ### Property 2: Duration and cycle validation accepts only in-range values
 
-*For any* setting field (focus duration, short break duration, long break duration, cycles before long break) and *for any* integer value, the `SettingsController` SHALL accept the value if and only if it falls within the field's defined valid range (focus: 1–120, short break: 1–60, long break: 1–120, cycles: 1–12). Out-of-range values SHALL leave the persisted state unchanged.
+*For any* setting field (focus duration, short break duration, long break duration, cycles before long break) and *for any* integer value, the `SettingsController` SHALL accept the value if and only if it falls within the field's defined valid range (focus: 1–120, short break: 1–60, long break: 1–120, cycles: 1–6). Out-of-range values SHALL leave the persisted state unchanged.
 
 **Validates: Requirements 2.2, 2.3, 2.4, 2.5, 3.2, 3.3**
 

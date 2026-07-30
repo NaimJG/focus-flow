@@ -151,7 +151,10 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
                 const SizedBox(height: 16),
 
                 // Cycle progress indicator
-                CycleProgressIndicator(cycleCount: controller.cycleCount),
+                CycleProgressIndicator(
+                  cycleCount: controller.cycleCount,
+                  totalCycles: controller.config.sessionsBeforeLongBreak,
+                ),
                 const SizedBox(height: 24),
 
                 // Timer controls

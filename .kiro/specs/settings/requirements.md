@@ -50,9 +50,9 @@ The Settings feature provides a centralized screen where users configure applica
 
 #### Acceptance Criteria
 
-1. THE Settings_Screen SHALL display a numeric input control for cycles before long break within the "Pomodoro" section, showing the current value and allowing selection of whole integers from 1 to 12 inclusive.
-2. WHEN the user sets cycles before long break to a value between 1 and 12 inclusive, THE Settings_Controller SHALL persist the selected value locally within 1 second and apply it to subsequent Pomodoro cycles without requiring an app restart.
-3. IF the user attempts to set a value outside the range of 1 to 12, THEN THE Settings_Controller SHALL reject the input, retain the previous valid value, and display a transient error message indicating the allowed range.
+1. THE Settings_Screen SHALL display a numeric input control for cycles before long break within the "Pomodoro" section, showing the current value and allowing selection of whole integers from 1 to 6 inclusive.
+2. WHEN the user sets cycles before long break to a value between 1 and 6 inclusive, THE Settings_Controller SHALL persist the selected value locally within 1 second and apply it to subsequent Pomodoro cycles without requiring an app restart.
+3. IF the user attempts to set a value outside the range of 1 to 6, THEN THE Settings_Controller SHALL reject the input, retain the previous valid value, and display a transient error message indicating the allowed range.
 4. WHEN the app is opened and no user-configured value for cycles before long break exists, THE Settings_Controller SHALL default the value to 4.
 5. WHEN the user reopens the app after previously setting cycles before long break, THE Settings_Screen SHALL display the persisted value.
 

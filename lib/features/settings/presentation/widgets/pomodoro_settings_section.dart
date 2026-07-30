@@ -62,7 +62,7 @@ class PomodoroSettingsSection extends StatelessWidget {
           suffix: 'cycles',
           value: settings.cyclesBeforeLongBreak,
           min: 1,
-          max: 12,
+          max: 6,
           enabled: enabled,
           onChanged: controller.updateCyclesBeforeLongBreak,
         ),

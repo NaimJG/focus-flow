@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
 
-/// Displays the current Pomodoro cycle progress as four circular indicators.
+/// Displays the current Pomodoro cycle progress as circular indicators.
 ///
-/// Filled circles represent completed focus sessions. Empty circles with a
-/// primary outline represent incomplete sessions.
+/// The number of indicators is determined by [totalCycles]. Filled circles
+/// represent completed focus sessions. Empty circles with a primary outline
+/// represent incomplete sessions.
 class CycleProgressIndicator extends StatelessWidget {
   /// Creates a [CycleProgressIndicator].
-  const CycleProgressIndicator({super.key, required this.cycleCount});
+  const CycleProgressIndicator({
+    super.key,
+    required this.cycleCount,
+    required this.totalCycles,
+  });
 
-  /// Number of Focus sessions completed in the current cycle (0–4).
+  /// Number of Focus sessions completed in the current cycle.
   final int cycleCount;
+
+  /// Total number of cycles before a long break (from config).
+  final int totalCycles;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final clamped = cycleCount.clamp(0, 4);
+    final completedCycles = cycleCount.clamp(0, totalCycles);
 
     return Semantics(
-      label: '$clamped of 4 focus sessions completed',
+      label: '$completedCycles of $totalCycles focus sessions completed',
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
-        children: List.generate(4, (index) {
-          final isCompleted = index < clamped;
+        children: List.generate(totalCycles, (index) {
+          final isCompleted = index < completedCycles;
           return Semantics(
             label:
                 'Session ${index + 1} '
