@@ -139,6 +139,78 @@
         "chatSessionId": "sess_feec0a1b-a641-44eb-8145-0957bdbb75a6",
         "timestamp": 1785435540601
       }
+    ],
+    "6. SettingsController updateLanguage behavior": [
+      {
+        "executionId": "55ed62a6-046a-4488-b4eb-6bf44315fc0d",
+        "chatSessionId": "sess_d1443923-9817-47e3-95d6-25ca10cfe5da",
+        "timestamp": 1785437435266
+      },
+      {
+        "executionId": "55ed62a6-046a-4488-b4eb-6bf44315fc0d",
+        "chatSessionId": "sess_d1443923-9817-47e3-95d6-25ca10cfe5da",
+        "timestamp": 1785438339039
+      }
+    ],
+    "6.1 Add `updateLanguage(AppLanguage)` method to `SettingsController`": [
+      {
+        "executionId": "55ed62a6-046a-4488-b4eb-6bf44315fc0d",
+        "chatSessionId": "sess_d1443923-9817-47e3-95d6-25ca10cfe5da",
+        "timestamp": 1785437439547
+      },
+      {
+        "executionId": "55ed62a6-046a-4488-b4eb-6bf44315fc0d",
+        "chatSessionId": "sess_d1443923-9817-47e3-95d6-25ca10cfe5da",
+        "timestamp": 1785438338573
+      }
+    ],
+    "7. Core locale mapper and MaterialApp integration": [
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785438789912
+      },
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785439450529
+      }
+    ],
+    "7.1 Create `AppLanguageMapper` at `lib/core/localization/app_language_mapper.dart`": [
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785438794499
+      },
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785438907674
+      }
+    ],
+    "7.2 Integrate locale, delegates, and supportedLocales into MaterialApp in `app.dart`": [
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785438912768
+      },
+      {
+        "executionId": "ab7d31ef-e989-4465-bb05-d95df0f63a37",
+        "chatSessionId": "sess_f27f076e-b870-4209-8b18-3680a30625bb",
+        "timestamp": 1785439450180
+      }
+    ],
+    "8. Checkpoint — MaterialApp locale integration": [
+      {
+        "executionId": "ac3bad65-ce4f-49c6-b09e-aecd8bbcef33",
+        "chatSessionId": "sess_0909b725-a7c0-4fb6-9fc7-a1caabc29bc4",
+        "timestamp": 1785440083998
+      },
+      {
+        "executionId": "ac3bad65-ce4f-49c6-b09e-aecd8bbcef33",
+        "chatSessionId": "sess_0909b725-a7c0-4fb6-9fc7-a1caabc29bc4",
+        "timestamp": 1785440396405
+      }
     ]
   }
 }

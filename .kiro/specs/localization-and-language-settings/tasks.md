@@ -59,26 +59,26 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
   - Run `flutter analyze` and `flutter test` to ensure no regressions
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 6. SettingsController updateLanguage behavior
-  - [ ] 6.1 Add `updateLanguage(AppLanguage)` method to `SettingsController`
+- [x] 6. SettingsController updateLanguage behavior
+  - [x] 6.1 Add `updateLanguage(AppLanguage)` method to `SettingsController`
     - Follow existing `_applyChange` optimistic-update-with-rollback pattern
     - Add `String? get failedSettingName` getter for presentation-layer error localization
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5_
 
-- [ ] 7. Core locale mapper and MaterialApp integration
-  - [ ] 7.1 Create `AppLanguageMapper` at `lib/core/localization/app_language_mapper.dart`
+- [x] 7. Core locale mapper and MaterialApp integration
+  - [x] 7.1 Create `AppLanguageMapper` at `lib/core/localization/app_language_mapper.dart`
     - Static `toLocale(AppLanguage)` method returning `Locale('es')` or `Locale('en')`
     - Uses `dart:ui` Locale only
     - _Requirements: 2.3_
 
-  - [ ] 7.2 Integrate locale, delegates, and supportedLocales into MaterialApp in `app.dart`
+  - [x] 7.2 Integrate locale, delegates, and supportedLocales into MaterialApp in `app.dart`
     - Add `locale: AppLanguageMapper.toLocale(settings.settings.language)`
     - Add `localizationsDelegates: AppLocalizations.localizationsDelegates`
     - Add `supportedLocales: AppLocalizations.supportedLocales`
     - Import generated `AppLocalizations` and `AppLanguageMapper`
     - _Requirements: 1.5, 1.6, 7.1, 7.4, 8.1, 8.2, 8.3, 8.4, 23.1, 24.1, 24.2, 24.3_
 
-- [ ] 8. Checkpoint — MaterialApp locale integration
+- [x] 8. Checkpoint — MaterialApp locale integration
   - Run `flutter analyze` and `flutter test`
   - Verify app builds and renders in Spanish by default
   - Ensure all tests pass, ask the user if questions arise.

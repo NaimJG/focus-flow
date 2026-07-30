@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../domain/entities/app_color_palette.dart';
+import '../../domain/entities/app_language.dart';
 import '../../domain/entities/app_settings.dart';
 import '../../domain/entities/app_theme_mode.dart';
 import '../../domain/use_cases/get_settings_use_case.dart';
@@ -29,6 +30,7 @@ class SettingsController extends ChangeNotifier {
   String? _errorMessage;
   String? _saveErrorMessage;
   bool _isSaving = false;
+  String? _failedSettingName;
 
   /// Current loading status of the settings feature.
   SettingsStatus get status => _status;
@@ -45,10 +47,16 @@ class SettingsController extends ChangeNotifier {
   /// Whether a save operation is currently in progress.
   bool get isSaving => _isSaving;
 
+  /// The setting name key from the most recent failed save, for use
+  /// by the presentation layer when constructing localized error
+  /// messages. `null` when no error is active.
+  String? get failedSettingName => _failedSettingName;
+
   /// Clears the current [saveErrorMessage] and notifies listeners.
   void clearSaveError() {
     if (_saveErrorMessage == null) return;
     _saveErrorMessage = null;
+    _failedSettingName = null;
     notifyListeners();
   }
 
@@ -158,6 +166,17 @@ class SettingsController extends ChangeNotifier {
     );
   }
 
+  /// Updates the application language.
+  ///
+  /// Returns `true` on successful persist, `false` on persistence
+  /// failure.
+  Future<bool> updateLanguage(AppLanguage language) async {
+    return _applyChange(
+      _settings.copyWith(language: language),
+      settingName: 'language',
+    );
+  }
+
   // -- Private helpers -------------------------------------------------
 
   /// Applies an optimistic update: sets the new state, notifies,
@@ -183,6 +202,7 @@ class SettingsController extends ChangeNotifier {
       await _saveSettingsUseCase.call(newSettings);
       _lastPersistedSettings = newSettings;
       _saveErrorMessage = null;
+      _failedSettingName = null;
       _isSaving = false;
       notifyListeners();
       return true;
@@ -190,6 +210,7 @@ class SettingsController extends ChangeNotifier {
       // Roll back to last known good state.
       _settings = _lastPersistedSettings;
       _saveErrorMessage = 'Could not save $settingName. Please try again.';
+      _failedSettingName = settingName;
       _isSaving = false;
       notifyListeners();
       return false;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
 
+import '../core/localization/app_language_mapper.dart';
 import '../core/theme/app_theme.dart';
 import '../core/theme/app_theme_mode_mapper.dart';
 import '../features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart';
@@ -24,6 +25,7 @@ import '../features/todo/domain/use_cases/get_all_tasks_use_case.dart';
 import '../features/todo/domain/use_cases/rename_category_use_case.dart';
 import '../features/todo/domain/use_cases/reopen_task_use_case.dart';
 import '../features/todo/presentation/controllers/todo_controller.dart';
+import '../l10n/app_localizations.dart';
 import 'mappers/pomodoro_settings_mapper.dart';
 import 'router.dart';
 
@@ -120,6 +122,9 @@ class FocusFlowApp extends StatelessWidget {
         builder: (context, settings, _) => MaterialApp(
           title: 'Focus Flow',
           debugShowCheckedModeBanner: false,
+          locale: AppLanguageMapper.toLocale(settings.settings.language),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           themeMode: settings.settings.themeMode.toFlutterThemeMode(),
           theme: AppTheme.light(settings.settings.colorPalette),
           darkTheme: AppTheme.dark(settings.settings.colorPalette),
