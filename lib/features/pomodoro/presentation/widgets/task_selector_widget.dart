@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/pomodoro_task_option.dart';
 
 /// A dropdown selector for associating a task with the current Pomodoro
@@ -43,13 +44,15 @@ class TaskSelectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     if (tasks.isEmpty) {
       return DropdownButtonFormField<int?>(
         initialValue: null,
         isExpanded: true,
-        decoration: const InputDecoration(
-          labelText: 'Task',
-          hintText: 'No tasks available',
+        decoration: InputDecoration(
+          labelText: l10n.pomodoroTaskLabel,
+          hintText: l10n.pomodoroNoTasksAvailable,
         ),
         items: const [],
         onChanged: null,
@@ -60,7 +63,7 @@ class TaskSelectorWidget extends StatelessWidget {
 
     // Build the list of dropdown items: "No task" + sorted tasks.
     final items = <DropdownMenuItem<int?>>[
-      const DropdownMenuItem<int?>(value: null, child: Text('No task')),
+      DropdownMenuItem<int?>(value: null, child: Text(l10n.pomodoroNoTask)),
       ...sorted.map((task) {
         return DropdownMenuItem<int?>(
           value: task.id,
@@ -72,9 +75,13 @@ class TaskSelectorWidget extends StatelessWidget {
     // selectedItemBuilder ensures the selected value in the closed
     // dropdown also respects available width with ellipsis.
     final selectedItemBuilders = <Widget>[
-      const Align(
+      Align(
         alignment: AlignmentDirectional.centerStart,
-        child: Text('No task', maxLines: 1, overflow: TextOverflow.ellipsis),
+        child: Text(
+          l10n.pomodoroNoTask,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
       ),
       ...sorted.map((task) {
         return Align(
@@ -87,7 +94,7 @@ class TaskSelectorWidget extends StatelessWidget {
     return DropdownButtonFormField<int?>(
       initialValue: selectedTaskId,
       isExpanded: true,
-      decoration: const InputDecoration(labelText: 'Task'),
+      decoration: InputDecoration(labelText: l10n.pomodoroTaskLabel),
       items: items,
       selectedItemBuilder: (context) => selectedItemBuilders,
       onChanged: enabled

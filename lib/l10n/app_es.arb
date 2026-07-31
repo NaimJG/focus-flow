@@ -403,6 +403,21 @@
     "description": "Error message shown when a Pomodoro session fails to save"
   },
 
+  "pomodoroNoTask": "Sin tarea",
+  "@pomodoroNoTask": {
+    "description": "Label shown in the Pomodoro task selector when no task is associated with the session"
+  },
+
+  "pomodoroTaskLabel": "Tarea",
+  "@pomodoroTaskLabel": {
+    "description": "Label for the task selector dropdown in the Pomodoro screen"
+  },
+
+  "pomodoroNoTasksAvailable": "No hay tareas disponibles",
+  "@pomodoroNoTasksAvailable": {
+    "description": "Hint text shown in the Pomodoro task selector when no tasks exist"
+  },
+
   "pomodoroAnnounceReady": "Temporizador listo",
   "@pomodoroAnnounceReady": {
     "description": "Accessibility announcement when timer is ready"
@@ -472,6 +487,11 @@
   "statisticsByCategory": "Por categoría",
   "@statisticsByCategory": {
     "description": "Section header for statistics grouped by category"
+  },
+
+  "statisticsUncategorized": "Sin categoría",
+  "@statisticsUncategorized": {
+    "description": "Fallback display name for sessions whose task has no category in the statistics breakdown"
   },
 
   "statisticsEmptyTitle": "Aún no hay sesiones de enfoque",

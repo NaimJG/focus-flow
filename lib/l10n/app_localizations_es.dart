@@ -250,6 +250,15 @@ class AppLocalizationsEs extends AppLocalizations {
       'Sesión no guardada — toca para reintentar';
 
   @override
+  String get pomodoroNoTask => 'Sin tarea';
+
+  @override
+  String get pomodoroTaskLabel => 'Tarea';
+
+  @override
+  String get pomodoroNoTasksAvailable => 'No hay tareas disponibles';
+
+  @override
   String get pomodoroAnnounceReady => 'Temporizador listo';
 
   @override
@@ -289,6 +298,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get statisticsByCategory => 'Por categoría';
+
+  @override
+  String get statisticsUncategorized => 'Sin categoría';
 
   @override
   String get statisticsEmptyTitle => 'Aún no hay sesiones de enfoque';

@@ -30,7 +30,9 @@ class CategoryBreakdownList extends StatelessWidget {
         ),
         ...categoryData.map(
           (category) => BreakdownItem(
-            title: category.displayName,
+            title: category.categoryId == null
+                ? l10n.statisticsUncategorized
+                : category.displayName,
             formattedTime: formatDuration(category.totalFocusedSeconds, l10n),
             sessionCount: category.sessionCount,
             percentage: category.percentage,

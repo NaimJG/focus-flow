@@ -246,6 +246,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pomodoroSessionNotSaved => 'Session not saved — tap to retry';
 
   @override
+  String get pomodoroNoTask => 'No task';
+
+  @override
+  String get pomodoroTaskLabel => 'Task';
+
+  @override
+  String get pomodoroNoTasksAvailable => 'No tasks available';
+
+  @override
   String get pomodoroAnnounceReady => 'Timer ready';
 
   @override
@@ -285,6 +294,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statisticsByCategory => 'By Category';
+
+  @override
+  String get statisticsUncategorized => 'Uncategorized';
 
   @override
   String get statisticsEmptyTitle => 'No focus sessions yet';

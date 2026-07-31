@@ -554,6 +554,24 @@ abstract class AppLocalizations {
   /// **'Sesión no guardada — toca para reintentar'**
   String get pomodoroSessionNotSaved;
 
+  /// Label shown in the Pomodoro task selector when no task is associated with the session
+  ///
+  /// In es, this message translates to:
+  /// **'Sin tarea'**
+  String get pomodoroNoTask;
+
+  /// Label for the task selector dropdown in the Pomodoro screen
+  ///
+  /// In es, this message translates to:
+  /// **'Tarea'**
+  String get pomodoroTaskLabel;
+
+  /// Hint text shown in the Pomodoro task selector when no tasks exist
+  ///
+  /// In es, this message translates to:
+  /// **'No hay tareas disponibles'**
+  String get pomodoroNoTasksAvailable;
+
   /// Accessibility announcement when timer is ready
   ///
   /// In es, this message translates to:
@@ -631,6 +649,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Por categoría'**
   String get statisticsByCategory;
+
+  /// Fallback display name for sessions whose task has no category in the statistics breakdown
+  ///
+  /// In es, this message translates to:
+  /// **'Sin categoría'**
+  String get statisticsUncategorized;
 
   /// Empty state headline when no focus sessions exist
   ///

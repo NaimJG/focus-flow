@@ -26,7 +26,9 @@ class TaskBreakdownList extends StatelessWidget {
         const SizedBox(height: 8),
         ...taskData.map(
           (task) => BreakdownItem(
-            title: task.displayTitle,
+            title: task.taskId == null
+                ? l10n.pomodoroNoTask
+                : task.displayTitle,
             formattedTime: formatDuration(task.totalFocusedSeconds, l10n),
             sessionCount: task.sessionCount,
             percentage: task.percentage,
