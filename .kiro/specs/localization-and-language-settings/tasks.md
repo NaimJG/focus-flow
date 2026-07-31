@@ -363,14 +363,14 @@ Add complete Spanish/English localization to Focus Flow using Flutter's `gen_l10
     - Verify text scaling does not cause overflow in both locales
     - _Requirements: 22.1, 22.2, 22.3_
 
-- [ ] 23. Final verification
-  - [ ] 23.1 Run `dart format .`, `flutter analyze`, and `flutter test`
+- [x] 23. Final verification
+  - [x] 23.1 Run `dart format .`, `flutter analyze`, and `flutter test`
     - Fix any formatting issues, lint warnings, or test failures
     - Verify zero analyzer issues
     - Ensure all non-optional tests pass
     - _Requirements: all_
 
-- [ ] 24. Final checkpoint — App-wide verification
+- [x] 24. Final checkpoint — App-wide verification
   - Confirm all screens show localized strings in both languages
   - Confirm language switch is immediate, no restart needed
   - Confirm user-generated content (task titles, notes, categories) is never modified
