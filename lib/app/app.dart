@@ -132,6 +132,7 @@ class FocusFlowApp extends StatelessWidget {
           themeMode: settings.settings.themeMode.toFlutterThemeMode(),
           theme: AppTheme.light(settings.settings.colorPalette),
           darkTheme: AppTheme.dark(settings.settings.colorPalette),
+          navigatorObservers: [routeObserver],
           initialRoute: Routes.home,
           onGenerateRoute: onGenerateRoute,
         ),

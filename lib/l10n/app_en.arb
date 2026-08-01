@@ -154,5 +154,13 @@
   "todoCategoryNameLabel": "Category name",
   "todoCategoryRename": "Rename",
   "todoCategoryAdd": "Add category",
-  "todoCategoryNameRequired": "Category name is required"
+  "todoCategoryNameRequired": "Category name is required",
+
+  "taskPomodoroActivity": "Pomodoro activity",
+  "taskCompletedPomodoros": "Pomodoros",
+  "taskEquivalentCycles": "Equivalent cycles",
+  "taskFocusedTime": "Focused time",
+  "taskNoPomodoroActivity": "There is no Pomodoro activity for this task yet",
+  "taskPomodoroCount": "{count, plural, one{1 pomodoro} other{{count} pomodoros}}",
+  "taskEquivalentCycleCount": "{count, plural, one{1 cycle} other{{count} cycles}}"
 }

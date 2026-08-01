@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../app/router.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../pomodoro/domain/use_cases/get_task_pomodoro_stats_use_case.dart';
+import '../../../settings/presentation/controllers/settings_controller.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/entities/priority.dart';
 import '../../domain/entities/task.dart';
+import '../controllers/task_pomodoro_stats_controller.dart';
 import '../controllers/todo_controller.dart';
+import '../widgets/task_pomodoro_stats_section.dart';
 
 /// Screen for creating or editing a task.
 ///
 /// When [initialTask] is `null`, the screen operates in create mode.
-/// When [initialTask] is provided, the form pre-populates its editable fields
-/// and submits the changes through [TodoController.editTask].
+/// When [initialTask] is provided, the form pre-populates its editable
+/// fields and submits the changes through [TodoController.editTask].
 class TaskFormScreen extends StatefulWidget {
   /// Creates a task form screen.
   const TaskFormScreen({super.key, this.initialTask});
@@ -25,7 +30,7 @@ class TaskFormScreen extends StatefulWidget {
   State<TaskFormScreen> createState() => _TaskFormScreenState();
 }
 
-class _TaskFormScreenState extends State<TaskFormScreen> {
+class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late final TextEditingController _titleController;
@@ -38,6 +43,8 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
   String? _submissionError;
 
   bool get _isEditMode => widget.initialTask != null;
+
+  TaskPomodoroStatsController? _statsController;
 
   @override
   void initState() {
@@ -54,14 +61,43 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
     _selectedPriority = widget.initialTask?.priority ?? Priority.medium;
 
     _selectedCategoryId = widget.initialTask?.categoryId;
+
+    if (_isEditMode) {
+      // Defer controller creation to after the first frame so that
+      // `context.read` is safe to call.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        final useCase = context.read<GetTaskPomodoroStatsUseCase>();
+        setState(() {
+          _statsController = TaskPomodoroStatsController(
+            getTaskPomodoroStatsUseCase: useCase,
+            taskId: widget.initialTask!.id,
+          );
+        });
+      });
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
   @override
   void dispose() {
+    routeObserver.unsubscribe(this);
     _titleController.dispose();
     _descriptionController.dispose();
-
+    _statsController?.dispose();
     super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // Called when a route that was pushed on top is popped, returning
+    // focus to this screen. Refresh stats to capture any new sessions.
+    _statsController?.load();
   }
 
   Future<void> _submit() async {
@@ -87,9 +123,8 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
 
     final normalizedDescription = _descriptionController.text.trim();
 
-    final description = normalizedDescription.isEmpty
-        ? null
-        : normalizedDescription;
+    final description =
+        normalizedDescription.isEmpty ? null : normalizedDescription;
 
     try {
       if (_isEditMode) {
@@ -144,13 +179,20 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
       (controller) => controller.categories.toList(),
     );
 
-    final selectedCategoryExists =
-        _selectedCategoryId == null ||
-        categories.any((category) => category.id == _selectedCategoryId);
+    final selectedCategoryExists = _selectedCategoryId == null ||
+        categories.any(
+          (category) => category.id == _selectedCategoryId,
+        );
 
     if (!selectedCategoryExists) {
       _selectedCategoryId = null;
     }
+
+    // Read cyclesBeforeLongBreak reactively from SettingsController.
+    final cyclesBeforeLongBreak =
+        context.select<SettingsController, int>(
+      (c) => c.settings.cyclesBeforeLongBreak,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -248,6 +290,18 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                           });
                         },
                 ),
+                if (_isEditMode && _statsController != null) ...[
+                  const SizedBox(height: 24),
+                  ListenableBuilder(
+                    listenable: _statsController!,
+                    builder: (context, _) => TaskPomodoroStatsSection(
+                      status: _statsController!.status,
+                      stats: _statsController!.stats,
+                      cyclesBeforeLongBreak: cyclesBeforeLongBreak,
+                      l10n: l10n,
+                    ),
+                  ),
+                ],
                 if (_submissionError != null) ...[
                   const SizedBox(height: 16),
                   Semantics(
@@ -266,7 +320,9 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                   child: _isSubmitting
                       ? const SizedBox.square(
                           dimension: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                          ),
                         )
                       : Text(
                           _isEditMode

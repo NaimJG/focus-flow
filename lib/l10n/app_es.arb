@@ -822,5 +822,52 @@
   "todoCategoryNameRequired": "El nombre de la categoría es obligatorio",
   "@todoCategoryNameRequired": {
     "description": "Validation error when category name is empty"
+  },
+
+  "taskPomodoroActivity": "Actividad Pomodoro",
+  "@taskPomodoroActivity": {
+    "description": "Section header for Pomodoro activity summary on task edit screen"
+  },
+
+  "taskCompletedPomodoros": "Pomodoros",
+  "@taskCompletedPomodoros": {
+    "description": "Label for the completed Pomodoros metric in task Pomodoro stats"
+  },
+
+  "taskEquivalentCycles": "Ciclos equivalentes",
+  "@taskEquivalentCycles": {
+    "description": "Label for the equivalent cycles metric in task Pomodoro stats"
+  },
+
+  "taskFocusedTime": "Tiempo enfocado",
+  "@taskFocusedTime": {
+    "description": "Label for the focused time metric in task Pomodoro stats"
+  },
+
+  "taskNoPomodoroActivity": "Todavía no hay actividad Pomodoro para esta tarea",
+  "@taskNoPomodoroActivity": {
+    "description": "Empty state message when no Pomodoro sessions exist for the task"
+  },
+
+  "taskPomodoroCount": "{count, plural, one{1 pomodoro} other{{count} pomodoros}}",
+  "@taskPomodoroCount": {
+    "description": "Pluralized count of completed pomodoros for a task",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+
+  "taskEquivalentCycleCount": "{count, plural, one{1 ciclo} other{{count} ciclos}}",
+  "@taskEquivalentCycleCount": {
+    "description": "Pluralized count of equivalent cycles for a task",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
   }
 }

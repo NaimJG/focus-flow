@@ -470,4 +470,42 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get todoCategoryNameRequired => 'Category name is required';
+
+  @override
+  String get taskPomodoroActivity => 'Pomodoro activity';
+
+  @override
+  String get taskCompletedPomodoros => 'Pomodoros';
+
+  @override
+  String get taskEquivalentCycles => 'Equivalent cycles';
+
+  @override
+  String get taskFocusedTime => 'Focused time';
+
+  @override
+  String get taskNoPomodoroActivity =>
+      'There is no Pomodoro activity for this task yet';
+
+  @override
+  String taskPomodoroCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pomodoros',
+      one: '1 pomodoro',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String taskEquivalentCycleCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count cycles',
+      one: '1 cycle',
+    );
+    return '$_temp0';
+  }
 }

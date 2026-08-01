@@ -41,12 +41,12 @@ This plan implements a read-only Pomodoro activity summary on the task edit scre
     - Triggers `load()` on construction
     - _Requirements: 6.1, 6.2, 6.3, 7.2_
 
-- [ ] 4. Localized responsive UI section
-  - [ ] 4.1 Add ARB localization keys
+- [x] 4. Localized responsive UI section
+  - [x] 4.1 Add ARB localization keys
     - Add keys to `app_es.arb` and `app_en.arb`: `taskPomodoroActivity`, `taskCompletedPomodoros`, `taskEquivalentCycles`, `taskFocusedTime`, `taskNoPomodoroActivity`, `taskPomodoroCount` (ICU plural), `taskEquivalentCycleCount` (ICU plural)
     - Run code generation for localization
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
-  - [ ] 4.2 Create TaskPomodoroStatsSection widget
+  - [x] 4.2 Create TaskPomodoroStatsSection widget
     - Create `lib/features/todo/presentation/widgets/task_pomodoro_stats_section.dart`
     - Stateless widget receiving `status`, `stats`, `cyclesBeforeLongBreak`, `l10n`
     - Compute equivalent cycles: `completedPomodoros ~/ cyclesBeforeLongBreak`
@@ -58,8 +58,8 @@ This plan implements a read-only Pomodoro activity summary on the task edit scre
     - Use `Theme.of(context)` for all colors
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 3.3, 3.4, 3.5, 3.6, 3.7, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 6.1, 6.2_
 
-- [ ] 5. Task edit-screen integration
-  - [ ] 5.1 Integrate controller and widget into TaskFormScreen
+- [x] 5. Task edit-screen integration
+  - [x] 5.1 Integrate controller and widget into TaskFormScreen
     - In edit mode (`initialTask != null`): create `TaskPomodoroStatsController` scoped to the screen
     - Insert `TaskPomodoroStatsSection` below form fields
     - Read `cyclesBeforeLongBreak` from `SettingsController`
@@ -68,21 +68,21 @@ This plan implements a read-only Pomodoro activity summary on the task edit scre
     - Ensure form remains fully functional regardless of stats state
     - _Requirements: 3.1, 3.2, 6.3, 6.4, 7.4, 7.5, 7.6_
 
-- [ ] 6. Checkpoint
+- [x] 6. Checkpoint
   - Ensure the app builds without errors. Run `flutter analyze` and fix any issues. Ask the user if questions arise.
 
 - [ ] 7. Essential tests
-  - [ ] 7.1 Unit test GetTaskPomodoroStatsUseCase
+  - [ ]* 7.1 Unit test GetTaskPomodoroStatsUseCase
     - Test with zero sessions → returns 0 pomodoros and Duration.zero
     - Test Pomodoro count by matching taskId (mock repository returns N sessions)
     - Test that sessions from other tasks are ignored (repository mock scoped to taskId)
     - Test focused-time summation across multiple sessions
     - _Requirements: 1.1, 1.2, 1.4_
-  - [ ] 7.2 Unit test equivalent cycles calculation
+  - [ ]* 7.2 Unit test equivalent cycles calculation
     - Test integer division for cyclesBeforeLongBreak values 1 through 6
     - Test with 0 completed pomodoros
     - _Requirements: 2.1_
-  - [ ] 7.3 Unit test TaskPomodoroStatsController state transitions
+  - [ ]* 7.3 Unit test TaskPomodoroStatsController state transitions
     - Test loading → loaded on success
     - Test loading → error on exception
     - Test that form independence is maintained (error does not propagate)

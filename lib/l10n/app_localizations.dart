@@ -955,6 +955,48 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'El nombre de la categoría es obligatorio'**
   String get todoCategoryNameRequired;
+
+  /// Section header for Pomodoro activity summary on task edit screen
+  ///
+  /// In es, this message translates to:
+  /// **'Actividad Pomodoro'**
+  String get taskPomodoroActivity;
+
+  /// Label for the completed Pomodoros metric in task Pomodoro stats
+  ///
+  /// In es, this message translates to:
+  /// **'Pomodoros'**
+  String get taskCompletedPomodoros;
+
+  /// Label for the equivalent cycles metric in task Pomodoro stats
+  ///
+  /// In es, this message translates to:
+  /// **'Ciclos equivalentes'**
+  String get taskEquivalentCycles;
+
+  /// Label for the focused time metric in task Pomodoro stats
+  ///
+  /// In es, this message translates to:
+  /// **'Tiempo enfocado'**
+  String get taskFocusedTime;
+
+  /// Empty state message when no Pomodoro sessions exist for the task
+  ///
+  /// In es, this message translates to:
+  /// **'Todavía no hay actividad Pomodoro para esta tarea'**
+  String get taskNoPomodoroActivity;
+
+  /// Pluralized count of completed pomodoros for a task
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, one{1 pomodoro} other{{count} pomodoros}}'**
+  String taskPomodoroCount(int count);
+
+  /// Pluralized count of equivalent cycles for a task
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, one{1 ciclo} other{{count} ciclos}}'**
+  String taskEquivalentCycleCount(int count);
 }
 
 class _AppLocalizationsDelegate

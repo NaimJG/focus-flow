@@ -14,6 +14,12 @@ import '../features/todo/presentation/screens/task_form_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart';
 import '../features/todo/presentation/screens/todo_screen.dart';
 
+/// Application-wide [RouteObserver] used by screens that need to react
+/// to navigation events (e.g., refreshing data when returning to a
+/// screen).
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
+
 /// Centralized route name constants for the application.
 abstract final class Routes {
   /// Application root and main todo screen.
