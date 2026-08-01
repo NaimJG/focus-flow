@@ -8,6 +8,7 @@ import '../core/theme/app_theme_mode_mapper.dart';
 import '../features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart';
 import '../features/pomodoro/domain/entities/pomodoro_task_option.dart';
 import '../features/pomodoro/domain/repositories/pomodoro_session_repository.dart';
+import '../features/pomodoro/domain/use_cases/get_task_pomodoro_stats_use_case.dart';
 import '../features/pomodoro/domain/use_cases/save_pomodoro_session_use_case.dart';
 import '../features/pomodoro/presentation/controllers/pomodoro_controller.dart';
 import '../features/settings/presentation/controllers/settings_controller.dart';
@@ -59,6 +60,9 @@ class FocusFlowApp extends StatelessWidget {
           value: settingsController,
         ),
         Provider<PomodoroSessionRepository>.value(value: pomodoroRepository),
+        Provider<GetTaskPomodoroStatsUseCase>(
+          create: (_) => GetTaskPomodoroStatsUseCase(pomodoroRepository),
+        ),
         ChangeNotifierProvider<TodoController>(
           create: (_) => TodoController(
             getAllTasksUseCase: GetAllTasksUseCase(

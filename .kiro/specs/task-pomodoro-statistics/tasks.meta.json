@@ -1,0 +1,98 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create TaskPomodoroStats entity": [
+      {
+        "executionId": "d924830b-c021-4748-ab5f-229327ca0ce5",
+        "chatSessionId": "sess_7bf61940-da57-4c90-b7e1-a84e04afe932",
+        "timestamp": 1785548342787
+      },
+      {
+        "executionId": "d924830b-c021-4748-ab5f-229327ca0ce5",
+        "chatSessionId": "sess_7bf61940-da57-4c90-b7e1-a84e04afe932",
+        "timestamp": 1785548533015
+      }
+    ],
+    "1.2 Add getByTaskId to PomodoroSessionRepository interface (if not present)": [
+      {
+        "executionId": "d924830b-c021-4748-ab5f-229327ca0ce5",
+        "chatSessionId": "sess_7bf61940-da57-4c90-b7e1-a84e04afe932",
+        "timestamp": 1785548343646
+      },
+      {
+        "executionId": "d924830b-c021-4748-ab5f-229327ca0ce5",
+        "chatSessionId": "sess_7bf61940-da57-4c90-b7e1-a84e04afe932",
+        "timestamp": 1785548533899
+      }
+    ],
+    "1. Domain result and repository query": [
+      {
+        "executionId": "d924830b-c021-4748-ab5f-229327ca0ce5",
+        "chatSessionId": "sess_7bf61940-da57-4c90-b7e1-a84e04afe932",
+        "timestamp": 1785548534163
+      }
+    ],
+    "2.1 Implement getByTaskId in IsarPomodoroSessionRepository (if not present)": [
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785548617604
+      },
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785548663918
+      }
+    ],
+    "2.2 Create GetTaskPomodoroStatsUseCase": [
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785548676759
+      },
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785548806792
+      }
+    ],
+    "2.3 Register GetTaskPomodoroStatsUseCase in dependency injection": [
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785548811182
+      },
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785549034597
+      }
+    ],
+    "2. Isar implementation and use case": [
+      {
+        "executionId": "79301bd0-b79b-4472-85d0-503884496ef8",
+        "chatSessionId": "sess_7bd2846c-6340-4627-9104-562636ff9334",
+        "timestamp": 1785549034734
+      }
+    ],
+    "3.1 Create TaskPomodoroStatsController": [
+      {
+        "executionId": "13a4f1df-6fb6-4039-901a-53dc9b6769a9",
+        "chatSessionId": "sess_32be43a0-e365-4cb7-8747-b73288e73a84",
+        "timestamp": 1785549126768
+      },
+      {
+        "executionId": "13a4f1df-6fb6-4039-901a-53dc9b6769a9",
+        "chatSessionId": "sess_32be43a0-e365-4cb7-8747-b73288e73a84",
+        "timestamp": 1785549494120
+      }
+    ],
+    "3. Task statistics controller": [
+      {
+        "executionId": "13a4f1df-6fb6-4039-901a-53dc9b6769a9",
+        "chatSessionId": "sess_32be43a0-e365-4cb7-8747-b73288e73a84",
+        "timestamp": 1785549494220
+      }
+    ]
+  }
+}

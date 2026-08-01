@@ -6,34 +6,34 @@ This plan implements a read-only Pomodoro activity summary on the task edit scre
 
 ## Tasks
 
-- [ ] 1. Domain result and repository query
-  - [ ] 1.1 Create TaskPomodoroStats entity
+- [x] 1. Domain result and repository query
+  - [x] 1.1 Create TaskPomodoroStats entity
     - Create `lib/features/pomodoro/domain/entities/task_pomodoro_stats.dart`
     - Immutable class with `completedPomodoros` (int) and `focusedDuration` (Duration)
     - Use const constructor
     - _Requirements: 1.3, 1.4_
-  - [ ] 1.2 Add getByTaskId to PomodoroSessionRepository interface (if not present)
+  - [x] 1.2 Add getByTaskId to PomodoroSessionRepository interface (if not present)
     - Verify `lib/features/pomodoro/domain/repositories/pomodoro_session_repository.dart` exposes `Future<List<PomodoroSession>> getByTaskId(int taskId)`
     - Add the method signature if missing
     - _Requirements: 1.5, 7.1_
 
-- [ ] 2. Isar implementation and use case
-  - [ ] 2.1 Implement getByTaskId in IsarPomodoroSessionRepository (if not present)
+- [x] 2. Isar implementation and use case
+  - [x] 2.1 Implement getByTaskId in IsarPomodoroSessionRepository (if not present)
     - Verify `lib/features/pomodoro/data/repositories/` contains the Isar implementation for `getByTaskId`
     - Query by indexed `taskId` field, return completed Focus-mode sessions
     - No new Isar instance — reuse existing one
     - _Requirements: 1.5, 7.3_
-  - [ ] 2.2 Create GetTaskPomodoroStatsUseCase
+  - [x] 2.2 Create GetTaskPomodoroStatsUseCase
     - Create `lib/features/pomodoro/domain/use_cases/get_task_pomodoro_stats_use_case.dart`
     - Accept `PomodoroSessionRepository` via constructor injection
     - `call(int taskId)` fetches sessions via `getByTaskId`, counts them, sums `actualDurationSeconds`, returns `TaskPomodoroStats`
     - _Requirements: 1.1, 1.2, 1.4, 1.5, 7.1, 7.2_
-  - [ ] 2.3 Register GetTaskPomodoroStatsUseCase in dependency injection
+  - [x] 2.3 Register GetTaskPomodoroStatsUseCase in dependency injection
     - Add `Provider<GetTaskPomodoroStatsUseCase>` at app level consuming existing `PomodoroSessionRepository`
     - _Requirements: 7.3_
 
-- [ ] 3. Task statistics controller
-  - [ ] 3.1 Create TaskPomodoroStatsController
+- [x] 3. Task statistics controller
+  - [x] 3.1 Create TaskPomodoroStatsController
     - Create `lib/features/todo/presentation/controllers/task_pomodoro_stats_controller.dart`
     - Extend `ChangeNotifier` with `TaskPomodoroStatsStatus` enum (loading, loaded, error)
     - Expose `status` and nullable `stats` getters
