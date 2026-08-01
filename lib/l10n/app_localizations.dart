@@ -728,6 +728,12 @@ abstract class AppLocalizations {
   /// **'Sesión {index} incompleta'**
   String pomodoroCycleSessionIncomplete(int index);
 
+  /// Semantics label for a cycle dot that is currently in progress
+  ///
+  /// In es, this message translates to:
+  /// **'Sesión {current} de {total}, {percent}% completada'**
+  String pomodoroCycleSessionInProgress(int current, int total, int percent);
+
   /// Semantics label for the timer display showing remaining time
   ///
   /// In es, this message translates to:

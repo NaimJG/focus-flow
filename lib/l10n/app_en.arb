@@ -115,6 +115,7 @@
   "pomodoroCycleSemantics": "{completed} of {total} focus sessions completed",
   "pomodoroCycleSessionCompleted": "Session {index} completed",
   "pomodoroCycleSessionIncomplete": "Session {index} incomplete",
+  "pomodoroCycleSessionInProgress": "Session {current} of {total}, {percent}% complete",
   "pomodoroTimerSemantics": "{minutes} minutes {seconds} seconds remaining",
 
   "todoSortAscendingSemantics": "Sort ascending, tap to sort descending",

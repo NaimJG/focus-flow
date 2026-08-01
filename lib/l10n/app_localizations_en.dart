@@ -348,6 +348,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String pomodoroCycleSessionInProgress(int current, int total, int percent) {
+    return 'Session $current of $total, $percent% complete';
+  }
+
+  @override
   String pomodoroTimerSemantics(int minutes, int seconds) {
     return '$minutes minutes $seconds seconds remaining';
   }

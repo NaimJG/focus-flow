@@ -98,6 +98,18 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   /// just ended (e.g., "Focus session finished").
   TimerMode? get completedMode => _completedMode;
 
+  /// Progress of the current Focus session as a value between 0.0 and 1.0.
+  ///
+  /// Returns 0.0 when the current mode is not [TimerMode.focus] or when
+  /// no active session planned duration is available.
+  double get focusSessionProgress {
+    if (_currentMode != TimerMode.focus) return 0.0;
+    final total = _activeSessionPlannedDuration ?? _config.focusDuration;
+    if (total.inMilliseconds <= 0) return 0.0;
+    final elapsed = total - _remainingDuration;
+    return (elapsed.inMilliseconds / total.inMilliseconds).clamp(0.0, 1.0);
+  }
+
   // --- Public mutation methods (implemented in subsequent tasks) ---
 
   /// Starts the timer from Idle or Completed state.

@@ -107,6 +107,9 @@ class MockPomodoroController extends ChangeNotifier
   String? get selectedTaskTitle => null;
 
   @override
+  double get focusSessionProgress => 0.0;
+
+  @override
   bool get hasPendingSession => false;
 
   @override

@@ -598,6 +598,25 @@
     }
   },
 
+  "pomodoroCycleSessionInProgress": "Sesión {current} de {total}, {percent}% completada",
+  "@pomodoroCycleSessionInProgress": {
+    "description": "Semantics label for a cycle dot that is currently in progress",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "2"
+      },
+      "total": {
+        "type": "int",
+        "example": "4"
+      },
+      "percent": {
+        "type": "int",
+        "example": "45"
+      }
+    }
+  },
+
   "pomodoroTimerSemantics": "{minutes} minutos {seconds} segundos restantes",
   "@pomodoroTimerSemantics": {
     "description": "Semantics label for the timer display showing remaining time",
