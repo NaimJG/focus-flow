@@ -6,8 +6,8 @@ This plan covers all configuration, documentation, and verification work to prep
 
 ## Tasks
 
-- [ ] 1. Audit current release configuration
-  - [ ] 1.1 Document the current state of `android/app/build.gradle.kts` including applicationId, namespace, SDK values, signing config, and any TODOs
+- [x] 1. Audit current release configuration
+  - [x] 1.1 Document the current state of `android/app/build.gradle.kts` including applicationId, namespace, SDK values, signing config, and any TODOs
     - Confirm `applicationId = "com.ncambe.focus_flow"`, `namespace = "com.ncambe.focus_flow"`
     - Confirm Flutter-managed SDK values (`flutter.compileSdkVersion`, `flutter.targetSdkVersion`, `flutter.minSdkVersion`)
     - Confirm release signing currently uses debug key
@@ -15,8 +15,8 @@ This plan covers all configuration, documentation, and verification work to prep
     - Output: comment/note in `docs/checklists/automated-checks.md` (created later) or inline documentation
     - _Requirements: 1.6, 2.1, 2.2, 3.3_
 
-- [ ] 2. Confirm applicationId and release identity
-  - [ ] 2.1 Create `docs/identity-confirmation.md` documenting the applicationId decision and its permanence
+- [x] 2. Confirm applicationId and release identity
+  - [x] 2.1 Create `docs/identity-confirmation.md` documenting the applicationId decision and its permanence
     - Document the current applicationId `com.ncambe.focus_flow`
     - Document the namespace `com.ncambe.focus_flow`
     - Document the `MainActivity.kt` path discrepancy (`com/example/focus_flow/` vs `com.ncambe.focus_flow`)
@@ -26,17 +26,17 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/identity-confirmation.md`
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6_
 
-- [ ] 3. Checkpoint — applicationId confirmation
+- [x] 3. Checkpoint — applicationId confirmation
   - Ensure the user has confirmed the final applicationId before proceeding. The applicationId is permanent after first Play Store upload. Ask the user if questions arise.
 
-- [ ] 4. Configure version and Android SDK
-  - [ ] 4.1 Verify version configuration in `pubspec.yaml` and `build.gradle.kts`
+- [x] 4. Configure version and Android SDK
+  - [x] 4.1 Verify version configuration in `pubspec.yaml` and `build.gradle.kts`
     - Confirm `pubspec.yaml` has `version: 1.0.0+1`
     - Confirm `build.gradle.kts` uses `flutter.versionCode` and `flutter.versionName` (already the case)
     - Document that `1.0.0` → `versionName`, `1` → `versionCode`
     - _Requirements: 2.1, 2.2, 2.3_
 
-  - [ ] 4.2 Verify or override SDK target to API 36+
+  - [x] 4.2 Verify or override SDK target to API 36+
     - Check if `flutter.compileSdkVersion` and `flutter.targetSdkVersion` resolve to ≥36
     - If already ≥36: no changes needed (keep Flutter-managed values)
     - If <36: add conditional override in `build.gradle.kts`:

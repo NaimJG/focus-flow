@@ -6,7 +6,10 @@ plugins {
 
 android {
     namespace = "com.ncambe.focus_flow"
-    compileSdk = flutter.compileSdkVersion
+    // Google Play requires targetSdk/compileSdk ≥ 36 (August 2025 deadline).
+    // Override Flutter-managed values only if they resolve below 36;
+    // once Flutter bumps past 36 this becomes a no-op.
+    compileSdk = if ((flutter.compileSdkVersion as Int) >= 36) flutter.compileSdkVersion else 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -20,7 +23,10 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = if ((flutter.targetSdkVersion as Int) >= 36) flutter.targetSdkVersion else 36
+        // Version mapping from pubspec.yaml (version: 1.0.0+1):
+        //   "1.0.0" → versionName (displayed to users on Google Play)
+        //   "1"     → versionCode (internal version number for Google Play)
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

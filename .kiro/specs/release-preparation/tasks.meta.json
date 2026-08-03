@@ -1,0 +1,81 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Document the current state of `android/app/build.gradle.kts` including applicationId, namespace, SDK values, signing config, and any TODOs": [
+      {
+        "executionId": "ee4e08aa-4d3a-40a2-bc49-d6ab90939c41",
+        "chatSessionId": "sess_a53b2390-fa10-4353-b787-0bb74dfdcd52",
+        "timestamp": 1785775510696
+      },
+      {
+        "executionId": "ee4e08aa-4d3a-40a2-bc49-d6ab90939c41",
+        "chatSessionId": "sess_a53b2390-fa10-4353-b787-0bb74dfdcd52",
+        "timestamp": 1785775744437
+      }
+    ],
+    "1. Audit current release configuration": [
+      {
+        "executionId": "ee4e08aa-4d3a-40a2-bc49-d6ab90939c41",
+        "chatSessionId": "sess_a53b2390-fa10-4353-b787-0bb74dfdcd52",
+        "timestamp": 1785775744572
+      }
+    ],
+    "2.1 Create `docs/identity-confirmation.md` documenting the applicationId decision and its permanence": [
+      {
+        "executionId": "c6922c43-94b7-4f84-a8a2-0933ea506366",
+        "chatSessionId": "sess_68ea397c-1b61-426d-b18b-f4c2dfd2268f",
+        "timestamp": 1785775807429
+      },
+      {
+        "executionId": "c6922c43-94b7-4f84-a8a2-0933ea506366",
+        "chatSessionId": "sess_68ea397c-1b61-426d-b18b-f4c2dfd2268f",
+        "timestamp": 1785775968022
+      }
+    ],
+    "2. Confirm applicationId and release identity": [
+      {
+        "executionId": "c6922c43-94b7-4f84-a8a2-0933ea506366",
+        "chatSessionId": "sess_68ea397c-1b61-426d-b18b-f4c2dfd2268f",
+        "timestamp": 1785775968332
+      }
+    ],
+    "3. Checkpoint — applicationId confirmation": [
+      {
+        "executionId": "e9477a29-1c70-4a6e-9cd8-022992dee927",
+        "chatSessionId": "sess_7cad98ef-4690-4aea-bda1-21e7357cac6f",
+        "timestamp": 1785779465693
+      }
+    ],
+    "4.1 Verify version configuration in `pubspec.yaml` and `build.gradle.kts`": [
+      {
+        "executionId": "75881a9d-699e-4937-8fff-b474c2a04a66",
+        "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
+        "timestamp": 1785779503923
+      },
+      {
+        "executionId": "75881a9d-699e-4937-8fff-b474c2a04a66",
+        "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
+        "timestamp": 1785779643047
+      }
+    ],
+    "4.2 Verify or override SDK target to API 36+": [
+      {
+        "executionId": "75881a9d-699e-4937-8fff-b474c2a04a66",
+        "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
+        "timestamp": 1785779504609
+      },
+      {
+        "executionId": "75881a9d-699e-4937-8fff-b474c2a04a66",
+        "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
+        "timestamp": 1785779643812
+      }
+    ],
+    "4. Configure version and Android SDK": [
+      {
+        "executionId": "75881a9d-699e-4937-8fff-b474c2a04a66",
+        "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
+        "timestamp": 1785779644183
+      }
+    ]
+  }
+}
