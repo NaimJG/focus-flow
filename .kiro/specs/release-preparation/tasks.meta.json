@@ -76,6 +76,99 @@
         "chatSessionId": "sess_9961f191-cae7-4500-a90d-10fb34f939ba",
         "timestamp": 1785779644183
       }
+    ],
+    "5.1 Create `android/app/key.properties.example` template": [
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785779916309
+      },
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780073499
+      }
+    ],
+    "5.2 Create `android/app/proguard-rules.pro` with Flutter and Isar keep rules": [
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785779917154
+      },
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780074435
+      }
+    ],
+    "5.3 Update `android/app/build.gradle.kts` with signing configuration": [
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780079664
+      },
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780399838
+      }
+    ],
+    "5.4 Document keystore generation and backup procedure": [
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780080436
+      }
+    ],
+    "5. Configure secure signing": [
+      {
+        "executionId": "c804dd65-03b3-4c0f-bc61-90d889f2d455",
+        "chatSessionId": "sess_514b0195-8889-4b14-82f4-17c8b0496ad7",
+        "timestamp": 1785780400002
+      }
+    ],
+    "6. Checkpoint — signing configuration": [
+      {
+        "executionId": "c167d45c-fd6f-4fc3-aacd-920a7f5afd5e",
+        "chatSessionId": "sess_cbe4261d-9c4c-41f1-b321-394099310873",
+        "timestamp": 1785780484899
+      },
+      {
+        "executionId": "8b083fd6-2308-4dbd-8b6f-90db299c77d9",
+        "chatSessionId": "sess_e57d5a24-70b9-45df-91f9-64497fa5f318",
+        "timestamp": 1785787215014
+      }
+    ],
+    "7.1 Create `docs/checklists/data-safety-audit.md` with dependency data audit": [
+      {
+        "executionId": "42c13079-5172-4cdf-85e1-2f627b7b0a36",
+        "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
+        "timestamp": 1785787306224
+      },
+      {
+        "executionId": "42c13079-5172-4cdf-85e1-2f627b7b0a36",
+        "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
+        "timestamp": 1785787445883
+      }
+    ],
+    "7.2 Verify release manifest permissions and add removal rule if needed": [
+      {
+        "executionId": "42c13079-5172-4cdf-85e1-2f627b7b0a36",
+        "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
+        "timestamp": 1785787306998
+      },
+      {
+        "executionId": "42c13079-5172-4cdf-85e1-2f627b7b0a36",
+        "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
+        "timestamp": 1785787446733
+      }
+    ],
+    "7. Audit permissions and dependencies": [
+      {
+        "executionId": "42c13079-5172-4cdf-85e1-2f627b7b0a36",
+        "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
+        "timestamp": 1785787446843
+      }
     ]
   }
 }
