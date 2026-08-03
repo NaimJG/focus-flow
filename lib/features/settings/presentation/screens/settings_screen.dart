@@ -7,6 +7,7 @@ import '../widgets/appearance_settings_section.dart';
 import '../widgets/language_settings_section.dart';
 import '../widgets/pomodoro_settings_section.dart';
 import '../widgets/sound_settings_section.dart';
+import '../widgets/privacy_policy_section.dart';
 
 /// The primary screen for the Settings feature.
 ///
@@ -121,6 +122,7 @@ class _LoadedBody extends StatelessWidget {
         AppearanceSettingsSection(),
         LanguageSettingsSection(),
         SoundSettingsSection(),
+        PrivacyPolicySection(),
       ],
     );
   }

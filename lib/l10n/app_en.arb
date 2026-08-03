@@ -162,5 +162,9 @@
   "taskFocusedTime": "Focused time",
   "taskNoPomodoroActivity": "There is no Pomodoro activity for this task yet",
   "taskPomodoroCount": "{count, plural, one{1 pomodoro} other{{count} pomodoros}}",
-  "taskEquivalentCycleCount": "{count, plural, one{1 cycle} other{{count} cycles}}"
+  "taskEquivalentCycleCount": "{count, plural, one{1 cycle} other{{count} cycles}}",
+
+  "settingsSectionPrivacy": "Privacy",
+  "settingsPrivacyPolicy": "Privacy policy",
+  "settingsPrivacyPolicyError": "Could not open privacy policy"
 }

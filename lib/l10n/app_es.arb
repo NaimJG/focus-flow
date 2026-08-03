@@ -869,5 +869,20 @@
         "example": "3"
       }
     }
+  },
+
+  "settingsSectionPrivacy": "Privacidad",
+  "@settingsSectionPrivacy": {
+    "description": "Section header for Privacy settings"
+  },
+
+  "settingsPrivacyPolicy": "Política de privacidad",
+  "@settingsPrivacyPolicy": {
+    "description": "Label for the privacy policy list tile"
+  },
+
+  "settingsPrivacyPolicyError": "No se pudo abrir la política de privacidad",
+  "@settingsPrivacyPolicyError": {
+    "description": "Error message shown when url_launcher fails to open the privacy policy URL"
   }
 }

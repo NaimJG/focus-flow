@@ -169,6 +169,270 @@
         "chatSessionId": "sess_ab1b138d-71d4-4b76-87e3-e7de451cadf0",
         "timestamp": 1785787446843
       }
+    ],
+    "8.1 Create `docs/privacy-policy.md` with Spanish (primary) and English sections": [
+      {
+        "executionId": "26e601c9-ad9b-4cbf-a483-1c40cbcb679b",
+        "chatSessionId": "sess_7c744384-fc27-408f-b8aa-d9eb05c8bdc1",
+        "timestamp": 1785787761652
+      },
+      {
+        "executionId": "26e601c9-ad9b-4cbf-a483-1c40cbcb679b",
+        "chatSessionId": "sess_7c744384-fc27-408f-b8aa-d9eb05c8bdc1",
+        "timestamp": 1785787886791
+      }
+    ],
+    "8. Create privacy-policy documents": [
+      {
+        "executionId": "26e601c9-ad9b-4cbf-a483-1c40cbcb679b",
+        "chatSessionId": "sess_7c744384-fc27-408f-b8aa-d9eb05c8bdc1",
+        "timestamp": 1785787886902
+      }
+    ],
+    "9.1 Add `url_launcher` dependency to `pubspec.yaml`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787949979
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787974654
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788306102
+      }
+    ],
+    "9.2 Create `lib/core/constants/app_urls.dart` with centralized URL constant": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950143
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787975797
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788306991
+      }
+    ],
+    "9.3 Add privacy-policy localization strings to ARB files": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950322
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787976989
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788307747
+      }
+    ],
+    "9.4 Create `lib/features/settings/presentation/widgets/privacy_policy_section.dart`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950436
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788312790
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788485563
+      }
+    ],
+    "9.5 Integrate `PrivacyPolicySection` into `SettingsScreen`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950548
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788489885
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788618339
+      }
+    ],
+    "9.6 Add `<queries>` intent for `url_launcher` in AndroidManifest.xml": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950655
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788490871
+      },
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788619117
+      }
+    ],
+    "10. Checkpoint — privacy policy and URL confirmation": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950781
+      },
+      {
+        "executionId": "021388f8-ef20-464f-b83a-c8f492533d3b",
+        "chatSessionId": "sess_c3695147-7fae-4d17-88d2-d06790c759c3",
+        "timestamp": 1785788681986
+      },
+      {
+        "executionId": "021388f8-ef20-464f-b83a-c8f492533d3b",
+        "chatSessionId": "sess_c3695147-7fae-4d17-88d2-d06790c759c3",
+        "timestamp": 1785788796220
+      }
+    ],
+    "11.1 Finalize data safety documentation for Play Console submission": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787950935
+      }
+    ],
+    "12.1 Create `docs/store-listing/es-AR.md` with Spanish store listing": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951047
+      }
+    ],
+    "12.2 Create `docs/store-listing/en-US.md` with English store listing": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951125
+      }
+    ],
+    "12.3 Create `docs/release-notes/1.0.0.md` with release notes": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951212
+      }
+    ],
+    "13.1 Create `docs/store-listing/assets-checklist.md` documenting all required visual assets": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951291
+      }
+    ],
+    "14.1 Create `docs/checklists/automated-checks.md` with pre-build verification commands": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951359
+      }
+    ],
+    "14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951423
+      }
+    ],
+    "14.3 Build release APK with `flutter build apk --release`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951492
+      }
+    ],
+    "15. Checkpoint — signed APK installation": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951576
+      }
+    ],
+    "16.1 Build release AAB with `flutter build appbundle --release`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951654
+      }
+    ],
+    "17. Checkpoint — signed AAB generation": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787951771
+      }
+    ],
+    "18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952040
+      }
+    ],
+    "19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952159
+      }
+    ],
+    "20. Checkpoint — internal testing": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952242
+      }
+    ],
+    "21.1 Document the closed-to-production transition in `docs/play-console/upload-workflow.md`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952324
+      }
+    ],
+    "22.1 Document Git release workflow in `docs/play-console/upload-workflow.md`": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952424
+      }
+    ],
+    "23. Checkpoint — final production upload": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785787952511
+      }
+    ],
+    "9. Add in-app privacy-policy access": [
+      {
+        "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
+        "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
+        "timestamp": 1785788619205
+      }
     ]
   }
 }

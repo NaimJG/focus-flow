@@ -513,4 +513,14 @@ class AppLocalizationsEs extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get settingsSectionPrivacy => 'Privacidad';
+
+  @override
+  String get settingsPrivacyPolicy => 'Política de privacidad';
+
+  @override
+  String get settingsPrivacyPolicyError =>
+      'No se pudo abrir la política de privacidad';
 }

@@ -997,6 +997,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'{count, plural, one{1 ciclo} other{{count} ciclos}}'**
   String taskEquivalentCycleCount(int count);
+
+  /// Section header for Privacy settings
+  ///
+  /// In es, this message translates to:
+  /// **'Privacidad'**
+  String get settingsSectionPrivacy;
+
+  /// Label for the privacy policy list tile
+  ///
+  /// In es, this message translates to:
+  /// **'Política de privacidad'**
+  String get settingsPrivacyPolicy;
+
+  /// Error message shown when url_launcher fails to open the privacy policy URL
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo abrir la política de privacidad'**
+  String get settingsPrivacyPolicyError;
 }
 
 class _AppLocalizationsDelegate
