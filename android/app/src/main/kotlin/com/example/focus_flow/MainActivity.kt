@@ -1,4 +1,4 @@
-package com.example.focus_flow
+package com.ncambe.focus_flow
 
 import io.flutter.embedding.android.FlutterActivity
 
