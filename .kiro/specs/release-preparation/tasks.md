@@ -48,8 +48,8 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `android/app/build.gradle.kts`
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5_
 
-- [ ] 5. Configure secure signing
-  - [ ] 5.1 Create `android/app/key.properties.example` template
+- [x] 5. Configure secure signing
+  - [x] 5.1 Create `android/app/key.properties.example` template
     - Content:
       ```properties
       storeFile=../keystores/upload-keystore.jks
@@ -61,13 +61,13 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `android/app/key.properties.example`
     - _Requirements: 4.3, 4.7_
 
-  - [ ] 5.2 Create `android/app/proguard-rules.pro` with Flutter and Isar keep rules
+  - [x] 5.2 Create `android/app/proguard-rules.pro` with Flutter and Isar keep rules
     - Add Flutter keep rules (`io.flutter.**`, `io.flutter.embedding.**`)
     - Add Isar keep rules (`dev.isar.**`)
     - File: `android/app/proguard-rules.pro`
     - _Requirements: 5.6_
 
-  - [ ] 5.3 Update `android/app/build.gradle.kts` with signing configuration
+  - [x] 5.3 Update `android/app/build.gradle.kts` with signing configuration
     - Add `import java.util.Properties` and `import java.io.FileInputStream`
     - Add `key.properties` loading logic with `GradleException` if file missing
     - Add `signingConfigs.create("release")` block reading from `keystoreProperties`
@@ -77,7 +77,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `android/app/build.gradle.kts`
     - _Requirements: 4.1, 4.3, 4.4, 4.5, 4.7, 4.8, 5.6_
 
-  - [ ] 5.4 Document keystore generation and backup procedure
+  - [x] 5.4 Document keystore generation and backup procedure
     - Document the `keytool` command (RSA 2048-bit, 10000-day validity, alias "upload")
     - Document secure storage locations (encrypted cloud, hardware backup)
     - Document password manager procedure for credentials
@@ -86,11 +86,11 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/signing-setup.md`
     - _Requirements: 4.2, 4.6, 4.9, 4.10_
 
-- [ ] 6. Checkpoint — signing configuration
+- [x] 6. Checkpoint — signing configuration
   - Ensure the signing configuration compiles correctly (user must create actual `key.properties` locally). Ask the user if questions arise.
 
-- [ ] 7. Audit permissions and dependencies
-  - [ ] 7.1 Create `docs/checklists/data-safety-audit.md` with dependency data audit
+- [x] 7. Audit permissions and dependencies
+  - [x] 7.1 Create `docs/checklists/data-safety-audit.md` with dependency data audit
     - Audit each dependency: flutter SDK, provider, isar, isar_flutter_libs, path_provider, intl, flutter_localizations, cupertino_icons, url_launcher
     - Document that none transmit data off-device
     - Document that `url_launcher` opens external URLs but does not collect/transmit app data
@@ -100,7 +100,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/data-safety-audit.md`
     - _Requirements: 6.4, 9.1, 9.2, 9.3, 9.4, 9.5, 20.1, 20.2, 20.3, 20.5_
 
-  - [ ] 7.2 Verify release manifest permissions and add removal rule if needed
+  - [x] 7.2 Verify release manifest permissions and add removal rule if needed
     - Confirm `src/main/AndroidManifest.xml` declares no INTERNET or POST_NOTIFICATIONS
     - Confirm `src/debug/AndroidManifest.xml` and `src/profile/AndroidManifest.xml` add INTERNET (debug-only, not merged to release)
     - If any dependency contributes unexpected permissions: add `tools:node="remove"` rule
