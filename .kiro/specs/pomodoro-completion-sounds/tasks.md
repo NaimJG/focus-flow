@@ -6,21 +6,21 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
 
 ## Tasks
 
-- [ ] 1. Audit current sound preference and Pomodoro completion flow
-  - [ ] 1.1 Review `PomodoroController._onCompletion()`, `SettingsController.settings.soundEnabled`, and `app.dart` provider wiring to confirm integration points match the design
+- [x] 1. Audit current sound preference and Pomodoro completion flow
+  - [x] 1.1 Review `PomodoroController._onCompletion()`, `SettingsController.settings.soundEnabled`, and `app.dart` provider wiring to confirm integration points match the design
     - Verify that `_onCompletion()` is the single natural-completion trigger, confirm `soundEnabled` is accessible from the provider tree, and document the `ChangeNotifierProxyProvider2` signature that will be modified
     - _Requirements: 1.1, 1.4, 2.4, 7.1, 6.4_
 
-- [ ] 2. Add licensed audio assets and license documentation
-  - [ ] 2.1 PAUSED — Obtain valid playable `focus_complete.mp3` and `break_complete.mp3` from a public-domain or licensed source; register `assets/audio/` in `pubspec.yaml`
+- [x] 2. Add licensed audio assets and license documentation
+  - [x] 2.1 PAUSED — Obtain valid playable `focus_complete.mp3` and `break_complete.mp3` from a public-domain or licensed source; register `assets/audio/` in `pubspec.yaml`
     - Do NOT create empty, fake, or placeholder MP3 files. The developer must provide two valid playable audio files. Verify playback on a physical device before committing. This task is PAUSED until assets are available.
     - _Requirements: 4.1, 4.2, 4.4, 4.5, 4.6_
-  - [ ] 2.2 Create `docs/licenses/audio-assets.md` documenting audio source, license, and commercial-use confirmation
+  - [x] 2.2 Create `docs/licenses/audio-assets.md` documenting audio source, license, and commercial-use confirmation
     - Document file names, source URL, license type, and confirmation of Google Play distribution eligibility
     - _Requirements: 4.3, 4.4_
 
-- [ ] 3. Add audio dependency
-  - [ ] 3.1 Add `audioplayers: ^6.1.0` to `pubspec.yaml` dependencies and run `flutter pub get`
+- [x] 3. Add audio dependency
+  - [x] 3.1 Add `audioplayers: ^6.1.0` to `pubspec.yaml` dependencies and run `flutter pub get`
     - Verify no new Android permissions are introduced by the package; confirm no INTERNET, POST_NOTIFICATIONS, or foreground service declarations are added
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6_
 
