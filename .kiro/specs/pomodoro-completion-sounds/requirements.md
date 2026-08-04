@@ -60,11 +60,12 @@ Play a short bundled sound when a Pomodoro phase completes naturally (focus, sho
 
 #### Acceptance Criteria
 
-1. THE application SHALL include `assets/audio/focus_complete.mp3` registered in pubspec.yaml under the flutter assets section.
-2. THE application SHALL include `assets/audio/break_complete.mp3` registered in pubspec.yaml under the flutter assets section.
+1. THE application SHALL include `assets/audio/focus_complete.mp3` registered in pubspec.yaml — the file SHALL be a valid, playable MP3 provided by the developer.
+2. THE application SHALL include `assets/audio/break_complete.mp3` registered in pubspec.yaml — the file SHALL be a valid, playable MP3 provided by the developer.
 3. THE application SHALL document the audio source and license in `docs/licenses/audio-assets.md`.
 4. THE committed audio assets SHALL be public-domain or appropriately licensed for commercial distribution through Google Play.
-5. THE implementation SHALL require the developer to provide suitable audio assets and SHALL not generate or include copyrighted audio files.
+5. THE implementation SHALL NOT create empty, fake, or placeholder MP3 files. The developer MUST provide two valid playable audio files before committing.
+6. THE asset task SHALL be paused until both valid audio files are available, playback is verified, and source/license are documented.
 
 ### Requirement 5: Audio Package Selection
 
@@ -89,7 +90,7 @@ Play a short bundled sound when a Pomodoro phase completes naturally (focus, sho
 1. THE application SHALL define an abstract interface named PomodoroSoundService with methods for playing focus-completed sound, playing break-completed sound, and disposing resources.
 2. THE application SHALL create one concrete implementation of PomodoroSoundService backed by the chosen audio package.
 3. THE PomodoroController SHALL not import or reference the audio package directly.
-4. THE PomodoroSoundService SHALL be injected into PomodoroController through the existing dependency construction or Provider setup.
+4. THE PomodoroSoundService SHALL be registered as a Provider in the existing Provider tree. The Provider SHALL create the service once and dispose it when the Provider is removed.
 5. THE PomodoroSoundService SHALL reside in `core/services/` as an application-level infrastructure concern.
 
 ### Requirement 7: Settings Integration
@@ -124,11 +125,12 @@ Play a short bundled sound when a Pomodoro phase completes naturally (focus, sho
 
 #### Acceptance Criteria
 
-1. THE PomodoroSoundService SHALL be disposed exactly once when PomodoroController is disposed.
-2. THE PomodoroSoundService SHALL not create a new audio playback object on every timer tick.
-3. THE PomodoroSoundService SHALL not leak audio resources on rapid navigation away from and back to the Pomodoro screen.
-4. THE PomodoroController SHALL maintain existing timer lifecycle behavior without modification.
-5. WHEN the user rapidly navigates away from and back to the Pomodoro screen, THE PomodoroSoundService SHALL not throw exceptions related to audio disposal or initialization.
+1. THE PomodoroSoundService SHALL be owned and disposed by the Provider tree, not by PomodoroController.
+2. PomodoroController SHALL NOT call dispose on PomodoroSoundService — it did not create the service.
+3. THE PomodoroSoundService SHALL NOT create a new audio playback object on every timer tick.
+4. THE PomodoroSoundService SHALL NOT leak audio resources on rapid navigation.
+5. THE PomodoroController SHALL maintain existing timer lifecycle behavior without modification.
+6. WHEN the user rapidly navigates away from and back to the Pomodoro screen, THE PomodoroSoundService SHALL NOT throw exceptions related to audio.
 
 ### Requirement 10: Platform and Permissions
 
@@ -170,3 +172,4 @@ Play a short bundled sound when a Pomodoro phase completes naturally (focus, sho
 7. THE test suite SHALL include a unit test verifying that playback failure does not prevent Phase_Transition.
 8. THE test suite SHALL include a unit test verifying that existing session persistence behavior remains unchanged.
 9. THE test suite SHALL use a fake PomodoroSoundService implementation and SHALL not perform real audio playback.
+10. THE test suite SHALL include a unit test verifying that changing soundEnabled during an active timer affects the sound behavior of the next natural completion.

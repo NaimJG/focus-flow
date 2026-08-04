@@ -12,9 +12,9 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
     - _Requirements: 1.1, 1.4, 2.4, 7.1, 6.4_
 
 - [ ] 2. Add licensed audio assets and license documentation
-  - [ ] 2.1 Create `assets/audio/focus_complete.mp3` and `assets/audio/break_complete.mp3` placeholder files and register the `assets/audio/` directory in `pubspec.yaml`
-    - Add `- assets/audio/` under the flutter assets section in `pubspec.yaml`; place developer-provided or placeholder `.mp3` files in `assets/audio/`
-    - _Requirements: 4.1, 4.2, 4.4, 4.5_
+  - [ ] 2.1 PAUSED — Obtain valid playable `focus_complete.mp3` and `break_complete.mp3` from a public-domain or licensed source; register `assets/audio/` in `pubspec.yaml`
+    - Do NOT create empty, fake, or placeholder MP3 files. The developer must provide two valid playable audio files. Verify playback on a physical device before committing. This task is PAUSED until assets are available.
+    - _Requirements: 4.1, 4.2, 4.4, 4.5, 4.6_
   - [ ] 2.2 Create `docs/licenses/audio-assets.md` documenting audio source, license, and commercial-use confirmation
     - Document file names, source URL, license type, and confirmation of Google Play distribution eligibility
     - _Requirements: 4.3, 4.4_
@@ -28,33 +28,32 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
   - [ ] 4.1 Create `lib/core/services/pomodoro_sound_service.dart` with the abstract interface defining `playFocusCompleted()`, `playBreakCompleted()`, and `dispose()`
     - Interface must specify that implementations swallow all audio errors internally and callers fire-and-forget
     - _Requirements: 6.1, 6.5, 8.3, 8.4_
-  - [ ] 4.2 Create `lib/core/services/asset_pomodoro_sound_service.dart` implementing `PomodoroSoundService` using `audioplayers` with two `AudioPlayer` instances, pre-set sources, boolean guards, disposed flag, and full error swallowing
-    - Two players initialized on construction; `playFocusCompleted`/`playBreakCompleted` seek-and-resume with try-catch; dispose is idempotent
-    - _Requirements: 6.2, 8.1, 8.2, 8.4, 8.5, 9.2, 9.3, 9.5_
+  - [ ] 4.2 Create `lib/core/services/asset_pomodoro_sound_service.dart` implementing `PomodoroSoundService` using `audioplayers` with a single `AudioPlayer` instance, stop-before-play pattern, disposed flag, and full error swallowing
+    - Single player; `playFocusCompleted`/`playBreakCompleted` call `stop()` then `play(AssetSource(...))` with try-catch; dispose is idempotent; no constructor preloading
+    - _Requirements: 6.2, 8.1, 8.2, 8.4, 8.5, 9.3, 9.4, 9.6_
 
 - [ ] 5. Register dependency
-  - [ ] 5.1 Modify `lib/app/app.dart` to instantiate `AssetPomodoroSoundService` and pass it plus an `isSoundEnabled` callback into the `PomodoroController` constructor within the existing `ChangeNotifierProxyProvider2`
-    - The `isSoundEnabled` callback reads `settingsController.settings.soundEnabled` at call time; service is created once in `build()`
-    - _Requirements: 6.4, 7.1, 7.3, 7.4_
+  - [ ] 5.1 Add `Provider<PomodoroSoundService>` to the MultiProvider list in `lib/app/app.dart` (before PomodoroController provider), with `create: (_) => AssetPomodoroSoundService()` and `dispose: (_, service) => service.dispose()`. Inject into PomodoroController via `context.read<PomodoroSoundService>()`
+    - Provider creates the service once and disposes it when removed. PomodoroController does NOT own or dispose the service. No new controller is created.
+    - _Requirements: 6.4, 7.1, 7.3, 7.4, 9.1, 9.2_
 
 - [ ] 6. Integrate natural completion playback
-  - [ ] 6.1 Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` to accept optional `PomodoroSoundService? soundService` and `bool Function()? isSoundEnabled` constructor parameters, add `_playCompletionSound()` method called from `_onCompletion()`, and call `_soundService?.dispose()` in `dispose()`
-    - `_playCompletionSound()` checks null service, checks `isSoundEnabled`, selects correct method by `_completedMode`, wraps in try-catch; fire-and-forget (not awaited); called after persistence and state update
-    - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 2.4, 3.1–3.7, 6.3, 7.1, 7.2, 8.1, 8.2, 9.1, 9.4_
+  - [ ] 6.1 Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` to accept optional `PomodoroSoundService? soundService` and `bool Function()? isSoundEnabled` constructor parameters; add `_playCompletionSound()` using `dart:async` `unawaited()` and a switch expression; called from `_onCompletion()` after persistence and state update. Do NOT add dispose call for the sound service.
+    - Import `dart:async` for `unawaited()`. Switch expression selects correct play method by `_completedMode`. Fire-and-forget. No try-catch needed (service swallows errors). Controller does not dispose the service.
+    - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 2.4, 3.1–3.7, 6.3, 7.1, 7.2, 8.1, 8.2, 9.2, 9.5_
 
 - [ ] 7. Update dependency/Data Safety documentation
   - [ ] 7.1 Update release dependency and Data Safety audit documentation to record `audioplayers` package addition and confirm it transmits no user data
     - _Requirements: 10.7, 10.8_
 
 - [ ] 8. Essential tests
-  - [ ]* 8.1 Create `test/features/pomodoro/presentation/controllers/pomodoro_controller_sound_test.dart` with a fake `PomodoroSoundService` and tests covering: focus completion plays focus sound when enabled, no sound when disabled, short-break plays break sound, long-break plays break sound, reset does not trigger sound, skip does not trigger sound, playback failure does not prevent phase transition, session persistence remains unchanged
-    - Use a fake implementation recording method calls; verify exact invocation counts; simulate throwing service for resilience test
-    - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9_
+  - [ ]* 8.1 Create `test/features/pomodoro/presentation/controllers/pomodoro_controller_sound_test.dart` with a fake `PomodoroSoundService` and tests covering: focus completion plays focus sound once when enabled, no sound when disabled, short-break plays break sound once, long-break plays break sound once, reset does not trigger sound, skip does not trigger sound, playback failure does not prevent phase transition, session persistence remains unchanged, changing soundEnabled during an active timer affects the next completion
+    - Use a fake implementation recording method calls; verify exact invocation counts; simulate throwing service for resilience test; test mid-timer setting change
+    - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9, 12.10_
     - **Property 1: Correct sound on natural completion when enabled**
     - **Property 2: No sound on natural completion when disabled**
     - **Property 3: Manual actions never trigger sound**
     - **Property 4: Phase transition resilience**
-    - **Property 5: Dispose on controller disposal**
 
 - [ ] 9. Manual verification
   - [ ] 9.1 Run `flutter analyze` and `flutter test` to confirm zero analyzer warnings and all tests pass
@@ -65,12 +64,12 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
 
 ## Notes
 
-- Tasks marked with `*` are optional and can be skipped for faster MVP
+- Task 2.1 is PAUSED until the developer provides valid audio assets — do not create placeholder files
 - Each task references specific requirements for traceability
-- The optional subtitle enhancement (Requirement 11) may be addressed as a follow-up; the sound toggle subtitle in ARB files and `sound_settings_section.dart` is not blocking for core functionality
-- Audio asset files must be provided by the developer — no copyrighted audio is generated or committed
-- Property tests validate universal correctness properties defined in the design document
+- The optional subtitle enhancement (Requirement 11) may be addressed as a follow-up
 - The `audioplayers` package must not introduce new Android permissions — verify after `pub get`
+- PomodoroSoundService lifecycle is owned by the Provider tree, not by PomodoroController
+- Tests use a fake service and do not play real audio
 
 ## Task Dependency Graph
 

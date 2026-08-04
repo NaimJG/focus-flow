@@ -44,10 +44,10 @@ The sound service is an application-level infrastructure concern (`core/services
 ```
 PomodoroController → PomodoroSoundService (abstract)
                           ↑
-AssetPomodoroSoundService (concrete, uses audioplayers)
+Provider<PomodoroSoundService> → AssetPomodoroSoundService (concrete, uses audioplayers)
 ```
 
-`PomodoroController` depends only on the abstract interface. It never imports `audioplayers`. The concrete implementation is injected at the app level via the existing `ChangeNotifierProxyProvider2` wiring.
+`PomodoroController` depends only on the abstract interface. It never imports `audioplayers`. The concrete implementation is injected at the app level via Provider, and PomodoroController reads it through `context.read<PomodoroSoundService>()`.
 
 ## Components and Interfaces
 
@@ -75,53 +75,35 @@ abstract interface class PomodoroSoundService {
 ### Concrete Implementation: AssetPomodoroSoundService
 
 ```dart
+/// Plays bundled completion sounds using a single [AudioPlayer] instance.
+///
+/// Stops any in-progress playback before starting a new sound.
+/// All errors are swallowed internally — callers never see exceptions.
 class AssetPomodoroSoundService implements PomodoroSoundService {
-  AssetPomodoroSoundService() {
-    _focusPlayer = AudioPlayer();
-    _breakPlayer = AudioPlayer();
-    _initSources();
-  }
+  AssetPomodoroSoundService();
 
-  late final AudioPlayer _focusPlayer;
-  late final AudioPlayer _breakPlayer;
-  bool _isPlayingFocus = false;
-  bool _isPlayingBreak = false;
+  final AudioPlayer _player = AudioPlayer();
   bool _disposed = false;
-
-  Future<void> _initSources() async {
-    try {
-      await _focusPlayer.setSource(AssetSource('audio/focus_complete.mp3'));
-      await _breakPlayer.setSource(AssetSource('audio/break_complete.mp3'));
-    } catch (_) {
-      // Best-effort initialization — playback may still work
-    }
-  }
 
   @override
   Future<void> playFocusCompleted() async {
-    if (_disposed || _isPlayingFocus) return;
-    _isPlayingFocus = true;
+    if (_disposed) return;
     try {
-      await _focusPlayer.seek(Duration.zero);
-      await _focusPlayer.resume();
+      await _player.stop();
+      await _player.play(AssetSource('audio/focus_complete.mp3'));
     } catch (_) {
       // Swallow all audio errors
-    } finally {
-      _isPlayingFocus = false;
     }
   }
 
   @override
   Future<void> playBreakCompleted() async {
-    if (_disposed || _isPlayingBreak) return;
-    _isPlayingBreak = true;
+    if (_disposed) return;
     try {
-      await _breakPlayer.seek(Duration.zero);
-      await _breakPlayer.resume();
+      await _player.stop();
+      await _player.play(AssetSource('audio/break_complete.mp3'));
     } catch (_) {
       // Swallow all audio errors
-    } finally {
-      _isPlayingBreak = false;
     }
   }
 
@@ -129,18 +111,21 @@ class AssetPomodoroSoundService implements PomodoroSoundService {
   Future<void> dispose() async {
     if (_disposed) return;
     _disposed = true;
-    await _focusPlayer.dispose();
-    await _breakPlayer.dispose();
+    try {
+      await _player.dispose();
+    } catch (_) {
+      // Safe disposal
+    }
   }
 }
 ```
 
 Key design decisions:
-- **Two AudioPlayer instances**: avoids reload delays when switching between sounds
-- **Pre-set source on construction**: eliminates latency on first play
-- **Boolean guard per player**: prevents overlapping plays of the same sound
-- **No retry logic**: a single attempt per completion event, failures are silent
-- **Disposed flag**: safe to call dispose multiple times
+- **Single AudioPlayer instance**: simpler, avoids resource duplication; stop-before-play prevents overlapping sounds
+- **No constructor preloading**: avoids unawaited async in constructor; `play(AssetSource(...))` loads and plays in one call
+- **Disposed flag**: makes dispose idempotent
+- **No retry logic**: single attempt per completion event, failures are silent
+- **stop() before play()**: prevents overlapping playback if two completions happen in rapid succession
 
 ### PomodoroController Integration
 
@@ -159,7 +144,7 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
 }
 ```
 
-Both parameters are optional. Existing tests that do not provide a sound service continue to work unchanged (no sound is played).
+Both parameters are optional. Existing tests that do not provide a sound service continue to work unchanged.
 
 ### _onCompletion() Modification
 
@@ -177,7 +162,7 @@ void _onCompletion() {
     _persistSession();
   }
 
-  // --- Sound playback (fire-and-forget) ---
+  // --- Sound playback (fire-and-forget via dart:async unawaited) ---
   _playCompletionSound();
 
   _advanceToNextMode();
@@ -188,54 +173,48 @@ void _playCompletionSound() {
   if (_soundService == null) return;
   if (!(_isSoundEnabled?.call() ?? false)) return;
 
-  try {
-    switch (_completedMode!) {
-      case TimerMode.focus:
-        _soundService!.playFocusCompleted();
-      case TimerMode.shortBreak:
-      case TimerMode.longBreak:
-        _soundService!.playBreakCompleted();
-    }
-  } catch (_) {
-    // Never let sound errors affect timer flow
-  }
+  final Future<void> playback = switch (_completedMode!) {
+    TimerMode.focus => _soundService!.playFocusCompleted(),
+    TimerMode.shortBreak => _soundService!.playBreakCompleted(),
+    TimerMode.longBreak => _soundService!.playBreakCompleted(),
+  };
+  unawaited(playback);
 }
 ```
 
 Key decisions:
-- Sound playback is fire-and-forget (not awaited)
-- Wrapped in try-catch for safety even though the service should never throw
-- Called AFTER persistence and state updates so a synchronous throw cannot interrupt them
-- `_completedMode` is set before the call, so the correct sound is selected
+- **`dart:async` `unawaited()`** is used explicitly to mark fire-and-forget intent
+- **Switch expression** with explicit returns per case for clarity
+- Called AFTER persistence and state updates so errors cannot interrupt them
+- `_completedMode` is set before the call, ensuring the correct sound is selected
+- The service itself swallows errors, so no try-catch is needed in the controller
 
-### dispose() Modification
-
-```dart
-@override
-void dispose() {
-  WidgetsBinding.instance.removeObserver(this);
-  _timer?.cancel();
-  _soundService?.dispose();
-  super.dispose();
-}
-```
+**Note:** PomodoroController does not own or dispose the sound service. Disposal is managed by the Provider tree.
 
 ### Provider Wiring (app.dart)
 
 ```dart
-// In FocusFlowApp.build():
-final soundService = AssetPomodoroSoundService();
+// In MultiProvider.providers list — add BEFORE the PomodoroController provider:
+Provider<PomodoroSoundService>(
+  create: (_) => AssetPomodoroSoundService(),
+  dispose: (_, service) => service.dispose(),
+),
 
-// In ChangeNotifierProxyProvider2 create:
-create: (_) => PomodoroController(
+// In ChangeNotifierProxyProvider2 create — read from context:
+create: (context) => PomodoroController(
   saveSessionUseCase: saveSessionUseCase,
   taskListProvider: () => [],
-  soundService: soundService,
+  soundService: context.read<PomodoroSoundService>(),
   isSoundEnabled: () => settingsController.settings.soundEnabled,
 )..init(),
 ```
 
-The `isSoundEnabled` callback captures `settingsController` directly, reading the current value at the moment of completion. This ensures mid-timer preference changes take effect immediately without restarting.
+Key decisions:
+- Service is registered as `Provider<PomodoroSoundService>` — created once, disposed by Provider when the widget tree is removed.
+- NOT instantiated inside `build()` — Provider handles lifecycle.
+- PomodoroController receives the service via `context.read<>()` at creation time.
+- The `isSoundEnabled` callback captures `settingsController` and reads the live value at the moment of completion.
+- No new controller is created. The existing `ChangeNotifierProxyProvider2` signature is preserved.
 
 ## Assets
 
@@ -255,6 +234,8 @@ flutter:
 
 These files must be provided by the developer. They must be public-domain or appropriately licensed for commercial distribution through Google Play.
 
+**Important:** Do NOT create empty or placeholder MP3 files. The developer must provide valid playable audio files. The asset task is paused until both files are available and verified.
+
 ### License Documentation
 
 `docs/licenses/audio-assets.md` documents the source, license, and commercial-use confirmation for each audio file.
@@ -269,7 +250,7 @@ No new Isar collections, domain entities, or data models. This feature is purely
 |---|---|
 | Audio file missing | `AssetPomodoroSoundService` catches exception, returns silently |
 | AudioPlayer throws on play | Caught in service, no propagation |
-| Service itself throws (edge case) | Caught in `_playCompletionSound()` in controller |
+| Service itself throws (edge case) | Service swallows errors internally; `unawaited()` in controller means unhandled futures do not propagate |
 | Dispose called multiple times | No-op after first call (disposed flag) |
 | Service null (not injected) | No-op, null-safe access throughout |
 
@@ -302,8 +283,8 @@ This uses the existing ARB localization architecture. No new screens or settings
 | File | Change |
 |---|---|
 | `pubspec.yaml` | Add `audioplayers: ^6.1.0` dependency + `assets/audio/` entry |
-| `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` | Add sound service injection + `_playCompletionSound()` + dispose call |
-| `lib/app/app.dart` | Instantiate `AssetPomodoroSoundService`, wire into provider |
+| `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` | Add optional `PomodoroSoundService?` param + `_playCompletionSound()` using `unawaited()`. No dispose call. |
+| `lib/app/app.dart` | Register `Provider<PomodoroSoundService>`, inject into existing PomodoroController provider |
 | `lib/l10n/app_es.arb` | Add optional subtitle string |
 | `lib/l10n/app_en.arb` | Add optional subtitle string |
 
@@ -318,7 +299,7 @@ All sound behavior is tested through a **fake `PomodoroSoundService` implementat
   - No method is called when `soundEnabled` is false
   - No method is called on manual actions (pause, resume, reset, skip, start)
   - Phase transitions succeed even when the fake service throws
-  - `dispose()` is forwarded on controller disposal
+  - Changing soundEnabled mid-timer affects the next completion's sound behavior
 - **No real audio in tests** — the `audioplayers` package is never imported in test files. The abstract interface boundary ensures complete isolation.
 - **Property-based tests** use generated combinations of timer modes, sound-enabled states, and user actions to validate correctness properties across many input scenarios.
 
@@ -379,12 +360,6 @@ class FakePomodoroSoundService implements PomodoroSoundService {
 *For any* natural timer completion, the phase transition (mode advance + state update) and session persistence SHALL succeed regardless of the PomodoroSoundService outcome — including when the service throws an exception, returns slowly, or is null.
 
 **Validates: Requirements 1.3, 1.4, 2.4, 8.1, 8.2**
-
-### Property 5: Dispose on controller disposal
-
-*For any* PomodoroController that was constructed with a non-null PomodoroSoundService, when the controller is disposed, `soundService.dispose()` SHALL be called exactly once.
-
-**Validates: Requirements 9.1**
 
 ## Open Questions
 
