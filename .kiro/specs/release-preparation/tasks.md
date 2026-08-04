@@ -169,7 +169,7 @@ This plan covers all configuration, documentation, and verification work to prep
   - Ensure privacy policy document is created and the privacy-policy section renders in Settings. Confirm with user that the placeholder URL will be replaced before release. Ask the user if questions arise.
 
 - [ ] 11. Prepare Data Safety assessment
-  - [~] 11.1 Finalize data safety documentation for Play Console submission
+  - [ ] 11.1 Finalize data safety documentation for Play Console submission
     - Summarize audit from task 7.1 into Play Console form answers
     - Document: "No data collected", "No data shared"
     - Document: `url_launcher` opens external URLs but app itself does not collect data
@@ -180,7 +180,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - _Requirements: 9.3, 10.2, 10.3, 20.1, 20.4, 20.5_
 
 - [ ] 12. Prepare store-listing text
-  - [~] 12.1 Create `docs/store-listing/es-AR.md` with Spanish store listing
+  - [ ] 12.1 Create `docs/store-listing/es-AR.md` with Spanish store listing
     - App name: "Focus Flow"
     - Short description (≤80 chars): Spanish
     - Full description: Spanish — accurately describe Todo, Pomodoro, Statistics features
@@ -191,19 +191,19 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/store-listing/es-AR.md`
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.9, 20.4_
 
-  - [~] 12.2 Create `docs/store-listing/en-US.md` with English store listing
+  - [ ] 12.2 Create `docs/store-listing/en-US.md` with English store listing
     - Same structure as es-AR.md but in English
     - File: `docs/store-listing/en-US.md`
     - _Requirements: 12.2, 12.3_
 
-  - [~] 12.3 Create `docs/release-notes/1.0.0.md` with release notes
+  - [ ] 12.3 Create `docs/release-notes/1.0.0.md` with release notes
     - Version 1.0.0 release notes in Spanish (primary) and English
     - Describe initial release features: Todo management, Pomodoro timer, Statistics, Settings
     - File: `docs/release-notes/1.0.0.md`
     - _Requirements: 12.7, 12.8_
 
 - [ ] 13. Prepare store assets checklist
-  - [~] 13.1 Create `docs/store-listing/assets-checklist.md` documenting all required visual assets
+  - [ ] 13.1 Create `docs/store-listing/assets-checklist.md` documenting all required visual assets
     - 512×512 app icon (PNG) — source from existing launcher icon
     - 1024×500 feature graphic (PNG) — must be created/designed
     - Phone screenshots list: Todo list, Task form, Pomodoro running, General statistics, Per-task statistics, Settings
@@ -214,7 +214,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5, 13.6, 13.7_
 
 - [ ] 14. Build and verify signed release APK
-  - [~] 14.1 Create `docs/checklists/automated-checks.md` with pre-build verification commands
+  - [ ] 14.1 Create `docs/checklists/automated-checks.md` with pre-build verification commands
     - Document: `dart format .` — confirm no formatting changes
     - Document: `flutter gen-l10n` — confirm localization files current
     - Document: `dart run build_runner build --delete-conflicting-outputs` — confirm generated code current
@@ -224,22 +224,22 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/automated-checks.md`
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6_
 
-  - [~] 14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)
+  - [ ] 14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)
     - Execute each command and fix any issues found
     - All must pass before proceeding to APK build
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6_
 
-  - [~] 14.3 Build release APK with `flutter build apk --release`
+  - [ ] 14.3 Build release APK with `flutter build apk --release`
     - Verify build completes without errors
     - Verify APK is signed with upload key (not debug): `apksigner verify --print-certs build/app/outputs/flutter-apk/app-release.apk`
     - _Requirements: 16.1, 16.6, 5.1_
 
-- [~] 15. Checkpoint — signed APK installation
+- [ ] 15. Checkpoint — signed APK installation
   - MANUAL: Install the release APK on a physical device. Verify: app name "Focus Flow", launcher icon, splash screen, no debug banner, data persistence, privacy policy link works. Ask the user if questions arise.
   - _Requirements: 16.2, 16.3, 16.4, 16.5, 5.3, 5.4, 5.8_
 
 - [ ] 16. Build and verify signed AAB
-  - [~] 16.1 Build release AAB with `flutter build appbundle --release`
+  - [ ] 16.1 Build release AAB with `flutter build appbundle --release`
     - Verify build completes without errors
     - Verify AAB contains correct applicationId, versionName `1.0.0`, versionCode `1`
     - Verify AAB targets API 36+
@@ -247,12 +247,12 @@ This plan covers all configuration, documentation, and verification work to prep
     - Verify no secrets/keystore content in the bundle
     - _Requirements: 17.1, 17.2, 17.3, 17.4, 17.5, 17.6, 17.7_
 
-- [~] 17. Checkpoint — signed AAB generation
+- [ ] 17. Checkpoint — signed AAB generation
   - Ensure AAB is generated successfully with correct metadata. Ask the user if questions arise.
   - _Requirements: 17.7_
 
 - [ ] 18. Create manual verification checklist
-  - [~] 18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist
+  - [ ] 18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist
     - App startup: correct name, icon, splash
     - Language switching: Spanish ↔ English
     - Todo CRUD: create, read, update, delete
@@ -270,7 +270,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 14.7, 14.8, 14.9, 14.10, 14.11, 14.12, 14.13_
 
 - [ ] 19. Internal testing checklist
-  - [~] 19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide
+  - [ ] 19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide
     - Step-by-step: create app entry, set up store listing, upload AAB
     - Complete content declarations: privacy policy URL, Data Safety form, ads, app access, content rating, target audience
     - Document Google Play App Signing enrollment
@@ -281,12 +281,12 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/play-console/upload-workflow.md`
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 11.1, 11.2, 11.3, 11.4, 18.1, 18.2, 18.3, 18.4, 18.5, 18.6_
 
-- [~] 20. Checkpoint — internal testing
+- [ ] 20. Checkpoint — internal testing
   - MANUAL: Ensure closed testing track is set up (if required by account type), testers are added, and the 14-day countdown has begun. Ask the user if questions arise.
   - _Requirements: 11.1, 11.2, 11.3_
 
 - [ ] 21. Closed-testing and production-access checklist
-  - [~] 21.1 Document the closed-to-production transition in `docs/play-console/upload-workflow.md`
+  - [ ] 21.1 Document the closed-to-production transition in `docs/play-console/upload-workflow.md`
     - Append section: monitoring the 14-day closed testing period
     - Append section: requesting production access after testing completes
     - Append section: submitting for production review
@@ -295,7 +295,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - _Requirements: 11.2, 18.5_
 
 - [ ] 22. Final production release and Git tag
-  - [~] 22.1 Document Git release workflow in `docs/play-console/upload-workflow.md`
+  - [ ] 22.1 Document Git release workflow in `docs/play-console/upload-workflow.md`
     - Document: create Git tag `v1.0.0` ONLY after AAB is confirmed uploaded to Play Console
     - Document: do NOT tag before upload confirmation
     - Document: merge `chore/release-preparation` into `main` via PR after production submission
@@ -304,7 +304,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/play-console/upload-workflow.md` (append)
     - _Requirements: 19.1, 19.2, 19.3, 19.4, 19.5, 19.6_
 
-- [~] 23. Checkpoint — final production upload
+- [ ] 23. Checkpoint — final production upload
   - MANUAL: Ensure AAB is uploaded to Play Console, all declarations are complete, production review is submitted, and `v1.0.0` tag is created. Ask the user if questions arise.
   - _Requirements: 19.3, 19.4_
 

@@ -18,10 +18,7 @@ class PrivacyPolicySection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Text(
             l10n.settingsSectionPrivacy,
             style: Theme.of(context).textTheme.titleMedium,
@@ -45,9 +42,7 @@ class PrivacyPolicySection extends StatelessWidget {
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
-            SnackBar(
-              content: Text(l10n.settingsPrivacyPolicyError),
-            ),
+            SnackBar(content: Text(l10n.settingsPrivacyPolicyError)),
           );
       }
     }

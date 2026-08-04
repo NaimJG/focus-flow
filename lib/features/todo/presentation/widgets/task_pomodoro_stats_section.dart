@@ -39,9 +39,7 @@ class TaskPomodoroStatsSection extends StatelessWidget {
     return Card(
       elevation: 0,
       color: colorScheme.surfaceContainerLow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -75,18 +73,17 @@ class TaskPomodoroStatsSection extends StatelessWidget {
         return Text(
           l10n.todoFormGenericError,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         );
       case TaskPomodoroStatsStatus.loaded:
         final currentStats = stats;
-        if (currentStats == null ||
-            currentStats.completedPomodoros == 0) {
+        if (currentStats == null || currentStats.completedPomodoros == 0) {
           return Text(
             l10n.taskNoPomodoroActivity,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           );
         }
         return _buildMetrics(context, currentStats);
@@ -94,8 +91,7 @@ class TaskPomodoroStatsSection extends StatelessWidget {
   }
 
   Widget _buildMetrics(BuildContext context, TaskPomodoroStats stats) {
-    final equivalentCycles =
-        stats.completedPomodoros ~/ cyclesBeforeLongBreak;
+    final equivalentCycles = stats.completedPomodoros ~/ cyclesBeforeLongBreak;
 
     return Wrap(
       spacing: 24,
@@ -105,29 +101,19 @@ class TaskPomodoroStatsSection extends StatelessWidget {
           icon: Icons.local_fire_department,
           value: l10n.taskPomodoroCount(stats.completedPomodoros),
           label: l10n.taskCompletedPomodoros,
-          semanticsLabel: l10n.taskPomodoroCount(
-            stats.completedPomodoros,
-          ),
+          semanticsLabel: l10n.taskPomodoroCount(stats.completedPomodoros),
         ),
         _MetricItem(
           icon: Icons.loop,
           value: l10n.taskEquivalentCycleCount(equivalentCycles),
           label: l10n.taskEquivalentCycles,
-          semanticsLabel: l10n.taskEquivalentCycleCount(
-            equivalentCycles,
-          ),
+          semanticsLabel: l10n.taskEquivalentCycleCount(equivalentCycles),
         ),
         _MetricItem(
           icon: Icons.timer,
-          value: formatDuration(
-            stats.focusedDuration.inSeconds,
-            l10n,
-          ),
+          value: formatDuration(stats.focusedDuration.inSeconds, l10n),
           label: l10n.taskFocusedTime,
-          semanticsLabel: formatDuration(
-            stats.focusedDuration.inSeconds,
-            l10n,
-          ),
+          semanticsLabel: formatDuration(stats.focusedDuration.inSeconds, l10n),
         ),
       ],
     );
@@ -157,11 +143,7 @@ class _MetricItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            icon,
-            size: 24,
-            color: colorScheme.primary,
-          ),
+          Icon(icon, size: 24, color: colorScheme.primary),
           const SizedBox(height: 4),
           Text(
             value,

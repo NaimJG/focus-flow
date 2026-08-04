@@ -4,7 +4,6 @@
 /// to avoid duplication and simplify maintenance.
 abstract final class AppUrls {
   /// Privacy policy URL displayed in Settings and declared on Play Console.
-  ///
-  /// TODO(release): Replace with the actual public URL before release.
-  static const String privacyPolicy = '[PRIVACY_POLICY_URL]';
+  static const String privacyPolicy =
+      'https://naim-cambe-dev-portfolio.vercel.app/focus-flow/privacy-policy';
 }

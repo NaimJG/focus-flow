@@ -123,8 +123,9 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
 
     final normalizedDescription = _descriptionController.text.trim();
 
-    final description =
-        normalizedDescription.isEmpty ? null : normalizedDescription;
+    final description = normalizedDescription.isEmpty
+        ? null
+        : normalizedDescription;
 
     try {
       if (_isEditMode) {
@@ -179,18 +180,16 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
       (controller) => controller.categories.toList(),
     );
 
-    final selectedCategoryExists = _selectedCategoryId == null ||
-        categories.any(
-          (category) => category.id == _selectedCategoryId,
-        );
+    final selectedCategoryExists =
+        _selectedCategoryId == null ||
+        categories.any((category) => category.id == _selectedCategoryId);
 
     if (!selectedCategoryExists) {
       _selectedCategoryId = null;
     }
 
     // Read cyclesBeforeLongBreak reactively from SettingsController.
-    final cyclesBeforeLongBreak =
-        context.select<SettingsController, int>(
+    final cyclesBeforeLongBreak = context.select<SettingsController, int>(
       (c) => c.settings.cyclesBeforeLongBreak,
     );
 
@@ -320,9 +319,7 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
                   child: _isSubmitting
                       ? const SizedBox.square(
                           dimension: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                          ),
+                          child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : Text(
                           _isEditMode
