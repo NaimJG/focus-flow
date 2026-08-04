@@ -50,6 +50,75 @@
         "chatSessionId": "sess_535c75df-42da-4f9c-8568-7e62ddfd2ec4",
         "timestamp": 1785875535969
       }
+    ],
+    "4.1 Create `lib/core/services/pomodoro_sound_service.dart` with the abstract interface defining `playFocusCompleted()`, `playBreakCompleted()`, and `dispose()`": [
+      {
+        "executionId": "46c14cf3-f0ff-41d6-bddb-65505394d2a5",
+        "chatSessionId": "sess_84f88e48-3c10-4336-bfbf-c564887b5ce0",
+        "timestamp": 1785876177527
+      },
+      {
+        "executionId": "46c14cf3-f0ff-41d6-bddb-65505394d2a5",
+        "chatSessionId": "sess_84f88e48-3c10-4336-bfbf-c564887b5ce0",
+        "timestamp": 1785876265150
+      }
+    ],
+    "4.2 Create `lib/core/services/asset_pomodoro_sound_service.dart` implementing `PomodoroSoundService` using `audioplayers` with a single `AudioPlayer` instance, stop-before-play pattern, disposed flag, and full error swallowing": [
+      {
+        "executionId": "46c14cf3-f0ff-41d6-bddb-65505394d2a5",
+        "chatSessionId": "sess_84f88e48-3c10-4336-bfbf-c564887b5ce0",
+        "timestamp": 1785876178702
+      },
+      {
+        "executionId": "46c14cf3-f0ff-41d6-bddb-65505394d2a5",
+        "chatSessionId": "sess_84f88e48-3c10-4336-bfbf-c564887b5ce0",
+        "timestamp": 1785876266280
+      }
+    ],
+    "4. Create sound service abstraction and implementation": [
+      {
+        "executionId": "46c14cf3-f0ff-41d6-bddb-65505394d2a5",
+        "chatSessionId": "sess_84f88e48-3c10-4336-bfbf-c564887b5ce0",
+        "timestamp": 1785876266378
+      }
+    ],
+    "5. Register dependency": [
+      {
+        "executionId": "0276a518-6531-49e3-b061-5c4cbf8cdf79",
+        "chatSessionId": "sess_05c17d5c-b42f-4faf-8d73-f73f651c6e34",
+        "timestamp": 1785876330350
+      },
+      {
+        "executionId": "0276a518-6531-49e3-b061-5c4cbf8cdf79",
+        "chatSessionId": "sess_05c17d5c-b42f-4faf-8d73-f73f651c6e34",
+        "timestamp": 1785876424932
+      }
+    ],
+    "5.1 Add `Provider<PomodoroSoundService>` to the MultiProvider list in `lib/app/app.dart` (before PomodoroController provider), with `create: (_) => AssetPomodoroSoundService()` and `dispose: (_, service) => service.dispose()`. Inject into PomodoroController via `context.read<PomodoroSoundService>()`": [
+      {
+        "executionId": "0276a518-6531-49e3-b061-5c4cbf8cdf79",
+        "chatSessionId": "sess_05c17d5c-b42f-4faf-8d73-f73f651c6e34",
+        "timestamp": 1785876424813
+      }
+    ],
+    "6.1 Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` to accept optional `PomodoroSoundService? soundService` and `bool Function()? isSoundEnabled` constructor parameters; add `_playCompletionSound()` using `dart:async` `unawaited()` and a switch expression; called from `_onCompletion()` after persistence and state update. Do NOT add dispose call for the sound service.": [
+      {
+        "executionId": "968236d6-ca80-435c-afb8-51893c87afc7",
+        "chatSessionId": "sess_e14f77b4-5708-4c15-b085-8a13a7ad22cc",
+        "timestamp": 1785876487943
+      },
+      {
+        "executionId": "968236d6-ca80-435c-afb8-51893c87afc7",
+        "chatSessionId": "sess_e14f77b4-5708-4c15-b085-8a13a7ad22cc",
+        "timestamp": 1785876905744
+      }
+    ],
+    "6. Integrate natural completion playback": [
+      {
+        "executionId": "968236d6-ca80-435c-afb8-51893c87afc7",
+        "chatSessionId": "sess_e14f77b4-5708-4c15-b085-8a13a7ad22cc",
+        "timestamp": 1785876905914
+      }
     ]
   }
 }

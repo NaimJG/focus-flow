@@ -24,21 +24,21 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
     - Verify no new Android permissions are introduced by the package; confirm no INTERNET, POST_NOTIFICATIONS, or foreground service declarations are added
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6_
 
-- [ ] 4. Create sound service abstraction and implementation
-  - [ ] 4.1 Create `lib/core/services/pomodoro_sound_service.dart` with the abstract interface defining `playFocusCompleted()`, `playBreakCompleted()`, and `dispose()`
+- [x] 4. Create sound service abstraction and implementation
+  - [x] 4.1 Create `lib/core/services/pomodoro_sound_service.dart` with the abstract interface defining `playFocusCompleted()`, `playBreakCompleted()`, and `dispose()`
     - Interface must specify that implementations swallow all audio errors internally and callers fire-and-forget
     - _Requirements: 6.1, 6.5, 8.3, 8.4_
-  - [ ] 4.2 Create `lib/core/services/asset_pomodoro_sound_service.dart` implementing `PomodoroSoundService` using `audioplayers` with a single `AudioPlayer` instance, stop-before-play pattern, disposed flag, and full error swallowing
+  - [x] 4.2 Create `lib/core/services/asset_pomodoro_sound_service.dart` implementing `PomodoroSoundService` using `audioplayers` with a single `AudioPlayer` instance, stop-before-play pattern, disposed flag, and full error swallowing
     - Single player; `playFocusCompleted`/`playBreakCompleted` call `stop()` then `play(AssetSource(...))` with try-catch; dispose is idempotent; no constructor preloading
     - _Requirements: 6.2, 8.1, 8.2, 8.4, 8.5, 9.3, 9.4, 9.6_
 
-- [ ] 5. Register dependency
-  - [ ] 5.1 Add `Provider<PomodoroSoundService>` to the MultiProvider list in `lib/app/app.dart` (before PomodoroController provider), with `create: (_) => AssetPomodoroSoundService()` and `dispose: (_, service) => service.dispose()`. Inject into PomodoroController via `context.read<PomodoroSoundService>()`
+- [x] 5. Register dependency
+  - [x] 5.1 Add `Provider<PomodoroSoundService>` to the MultiProvider list in `lib/app/app.dart` (before PomodoroController provider), with `create: (_) => AssetPomodoroSoundService()` and `dispose: (_, service) => service.dispose()`. Inject into PomodoroController via `context.read<PomodoroSoundService>()`
     - Provider creates the service once and disposes it when removed. PomodoroController does NOT own or dispose the service. No new controller is created.
     - _Requirements: 6.4, 7.1, 7.3, 7.4, 9.1, 9.2_
 
-- [ ] 6. Integrate natural completion playback
-  - [ ] 6.1 Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` to accept optional `PomodoroSoundService? soundService` and `bool Function()? isSoundEnabled` constructor parameters; add `_playCompletionSound()` using `dart:async` `unawaited()` and a switch expression; called from `_onCompletion()` after persistence and state update. Do NOT add dispose call for the sound service.
+- [x] 6. Integrate natural completion playback
+  - [x] 6.1 Modify `lib/features/pomodoro/presentation/controllers/pomodoro_controller.dart` to accept optional `PomodoroSoundService? soundService` and `bool Function()? isSoundEnabled` constructor parameters; add `_playCompletionSound()` using `dart:async` `unawaited()` and a switch expression; called from `_onCompletion()` after persistence and state update. Do NOT add dispose call for the sound service.
     - Import `dart:async` for `unawaited()`. Switch expression selects correct play method by `_completedMode`. Fire-and-forget. No try-catch needed (service swallows errors). Controller does not dispose the service.
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 2.4, 3.1–3.7, 6.3, 7.1, 7.2, 8.1, 8.2, 9.2, 9.5_
 

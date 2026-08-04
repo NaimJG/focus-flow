@@ -3,6 +3,8 @@ import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
 
 import '../core/localization/app_language_mapper.dart';
+import '../core/services/asset_pomodoro_sound_service.dart';
+import '../core/services/pomodoro_sound_service.dart';
 import '../core/theme/app_theme.dart';
 import '../core/theme/app_theme_mode_mapper.dart';
 import '../features/pomodoro/data/repositories/isar_pomodoro_session_repository.dart';
@@ -95,14 +97,21 @@ class FocusFlowApp extends StatelessWidget {
             ),
           )..init(),
         ),
+        Provider<PomodoroSoundService>(
+          create: (_) => AssetPomodoroSoundService(),
+          dispose: (_, service) => service.dispose(),
+        ),
         ChangeNotifierProxyProvider2<
           TodoController,
           SettingsController,
           PomodoroController
         >(
-          create: (_) => PomodoroController(
+          create: (context) => PomodoroController(
             saveSessionUseCase: saveSessionUseCase,
             taskListProvider: () => [],
+            soundService: context.read<PomodoroSoundService>(),
+            isSoundEnabled: () =>
+                settingsController.settings.soundEnabled,
           )..init(),
           update: (_, todoController, settingsCtrl, pomodoroController) {
             final tasks = todoController.allTasks
