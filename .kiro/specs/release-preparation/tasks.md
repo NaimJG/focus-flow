@@ -168,8 +168,8 @@ This plan covers all configuration, documentation, and verification work to prep
 - [x] 10. Checkpoint — privacy policy and URL confirmation
   - Ensure privacy policy document is created and the privacy-policy section renders in Settings. Confirm with user that the placeholder URL will be replaced before release. Ask the user if questions arise.
 
-- [ ] 11. Prepare Data Safety assessment
-  - [ ] 11.1 Finalize data safety documentation for Play Console submission
+- [x] 11. Prepare Data Safety assessment
+  - [x] 11.1 Finalize data safety documentation for Play Console submission
     - Summarize audit from task 7.1 into Play Console form answers
     - Document: "No data collected", "No data shared"
     - Document: `url_launcher` opens external URLs but app itself does not collect data
@@ -179,8 +179,8 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/data-safety-audit.md` (append Play Console form section)
     - _Requirements: 9.3, 10.2, 10.3, 20.1, 20.4, 20.5_
 
-- [ ] 12. Prepare store-listing text
-  - [ ] 12.1 Create `docs/store-listing/es-AR.md` with Spanish store listing
+- [x] 12. Prepare store-listing text
+  - [x] 12.1 Create `docs/store-listing/es-AR.md` with Spanish store listing
     - App name: "Focus Flow"
     - Short description (≤80 chars): Spanish
     - Full description: Spanish — accurately describe Todo, Pomodoro, Statistics features
@@ -191,19 +191,19 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/store-listing/es-AR.md`
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.9, 20.4_
 
-  - [ ] 12.2 Create `docs/store-listing/en-US.md` with English store listing
+  - [x] 12.2 Create `docs/store-listing/en-US.md` with English store listing
     - Same structure as es-AR.md but in English
     - File: `docs/store-listing/en-US.md`
     - _Requirements: 12.2, 12.3_
 
-  - [ ] 12.3 Create `docs/release-notes/1.0.0.md` with release notes
+  - [x] 12.3 Create `docs/release-notes/1.0.0.md` with release notes
     - Version 1.0.0 release notes in Spanish (primary) and English
     - Describe initial release features: Todo management, Pomodoro timer, Statistics, Settings
     - File: `docs/release-notes/1.0.0.md`
     - _Requirements: 12.7, 12.8_
 
-- [ ] 13. Prepare store assets checklist
-  - [ ] 13.1 Create `docs/store-listing/assets-checklist.md` documenting all required visual assets
+- [x] 13. Prepare store assets checklist
+  - [x] 13.1 Create `docs/store-listing/assets-checklist.md` documenting all required visual assets
     - 512×512 app icon (PNG) — source from existing launcher icon
     - 1024×500 feature graphic (PNG) — must be created/designed
     - Phone screenshots list: Todo list, Task form, Pomodoro running, General statistics, Per-task statistics, Settings

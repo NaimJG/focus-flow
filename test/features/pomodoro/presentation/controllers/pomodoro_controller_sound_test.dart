@@ -47,8 +47,7 @@ class FakePomodoroSoundService implements PomodoroSoundService {
   }
 }
 
-class RecordingPomodoroSessionRepository
-    implements PomodoroSessionRepository {
+class RecordingPomodoroSessionRepository implements PomodoroSessionRepository {
   final List<PomodoroSession> createdSessions = [];
 
   @override
@@ -67,8 +66,7 @@ class RecordingPomodoroSessionRepository
   }) async => const [];
 
   @override
-  Future<List<PomodoroSession>> getByTaskId(int taskId) async =>
-      const [];
+  Future<List<PomodoroSession>> getByTaskId(int taskId) async => const [];
 
   @override
   Future<List<PomodoroSession>> getByNullTask() async => const [];
@@ -76,8 +74,7 @@ class RecordingPomodoroSessionRepository
 
 class FakePomodoroSessionRepository implements PomodoroSessionRepository {
   @override
-  Future<PomodoroSession> create(PomodoroSession session) async =>
-      session;
+  Future<PomodoroSession> create(PomodoroSession session) async => session;
 
   @override
   Future<List<PomodoroSession>> getAll() async => const [];
@@ -89,8 +86,7 @@ class FakePomodoroSessionRepository implements PomodoroSessionRepository {
   }) async => const [];
 
   @override
-  Future<List<PomodoroSession>> getByTaskId(int taskId) async =>
-      const [];
+  Future<List<PomodoroSession>> getByTaskId(int taskId) async => const [];
 
   @override
   Future<List<PomodoroSession>> getByNullTask() async => const [];
@@ -144,28 +140,25 @@ void main() {
   group('PomodoroController sound playback', () {
     // --- Property 1: Correct sound on natural completion when enabled ---
     // Validates: Requirements 12.1
-    group(
-      'focus completion plays focus sound once when enabled',
-      () {
-        test(
-          'plays playFocusCompleted exactly once on focus completion',
-          () async {
-            final clock = FakeClock();
-            final soundService = FakePomodoroSoundService();
-            final controller = createController(
-              clock: clock,
-              soundService: soundService,
-              isSoundEnabled: () => true,
-            );
-            controller.init();
+    group('focus completion plays focus sound once when enabled', () {
+      test(
+        'plays playFocusCompleted exactly once on focus completion',
+        () async {
+          final clock = FakeClock();
+          final soundService = FakePomodoroSoundService();
+          final controller = createController(
+            clock: clock,
+            soundService: soundService,
+            isSoundEnabled: () => true,
+          );
+          controller.init();
 
-            await triggerNaturalCompletion(controller, clock);
+          await triggerNaturalCompletion(controller, clock);
 
-            expect(soundService.calls, ['playFocusCompleted']);
-          },
-        );
-      },
-    );
+          expect(soundService.calls, ['playFocusCompleted']);
+        },
+      );
+    });
 
     // --- Property 2: No sound on natural completion when disabled ---
     // Validates: Requirements 12.2
@@ -303,65 +296,62 @@ void main() {
     // --- Property 4: Phase transition resilience ---
     // Validates: Requirements 12.7
     group('playback failure does not prevent phase transition', () {
-      test(
-        'transitions to next mode even when sound service throws',
-        () async {
-          final clock = FakeClock();
-          final soundService = FakePomodoroSoundService();
-          soundService.shouldThrow = true;
-          final controller = createController(
-            clock: clock,
-            soundService: soundService,
-            isSoundEnabled: () => true,
-          );
-          controller.init();
+      test('transitions to next mode even when sound service throws', () async {
+        final clock = FakeClock();
+        final soundService = FakePomodoroSoundService();
+        soundService.shouldThrow = true;
+        final controller = createController(
+          clock: clock,
+          soundService: soundService,
+          isSoundEnabled: () => true,
+        );
+        controller.init();
 
-          // Run in a guarded zone so the unawaited exception from
-          // the sound service does not escape into the test zone.
-          final errors = <Object>[];
-          await runZonedGuarded(() async {
+        // Run in a guarded zone so the unawaited exception from
+        // the sound service does not escape into the test zone.
+        final errors = <Object>[];
+        await runZonedGuarded(
+          () async {
             controller.start();
             clock.advance(const Duration(minutes: 1, seconds: 1));
             controller.pause();
             await Future<void>.delayed(Duration.zero);
-          }, (error, stack) {
+          },
+          (error, stack) {
             errors.add(error);
-          });
+          },
+        );
 
-          // Phase transition still happened despite audio error.
-          expect(controller.status, TimerStatus.completed);
-          expect(controller.currentMode, TimerMode.shortBreak);
-          expect(controller.cycleCount, 1);
-          // The error was produced but caught in the zone.
-          expect(errors, hasLength(1));
-        },
-      );
+        // Phase transition still happened despite audio error.
+        expect(controller.status, TimerStatus.completed);
+        expect(controller.currentMode, TimerMode.shortBreak);
+        expect(controller.cycleCount, 1);
+        // The error was produced but caught in the zone.
+        expect(errors, hasLength(1));
+      });
     });
 
     // Validates: Requirements 12.8
     group('session persistence remains unchanged', () {
-      test(
-        'session is persisted when sound is enabled',
-        () async {
-          final clock = FakeClock();
-          final soundService = FakePomodoroSoundService();
-          final repository = RecordingPomodoroSessionRepository();
-          final controller = createController(
-            clock: clock,
-            soundService: soundService,
-            isSoundEnabled: () => true,
-            repository: repository,
-          );
-          controller.init();
+      test('session is persisted when sound is enabled', () async {
+        final clock = FakeClock();
+        final soundService = FakePomodoroSoundService();
+        final repository = RecordingPomodoroSessionRepository();
+        final controller = createController(
+          clock: clock,
+          soundService: soundService,
+          isSoundEnabled: () => true,
+          repository: repository,
+        );
+        controller.init();
 
-          await triggerNaturalCompletion(controller, clock);
+        await triggerNaturalCompletion(controller, clock);
 
-          // Session was persisted.
-          expect(repository.createdSessions, hasLength(1));
-          // Sound was also played.
-          expect(soundService.calls, ['playFocusCompleted']);
-        },
-      );
+        // Session was persisted.
+        expect(repository.createdSessions, hasLength(1));
+        // Sound was also played.
+        expect(soundService.calls, ['playFocusCompleted']);
+      });
     });
 
     // Validates: Requirements 12.10

@@ -110,8 +110,7 @@ class FocusFlowApp extends StatelessWidget {
             saveSessionUseCase: saveSessionUseCase,
             taskListProvider: () => [],
             soundService: context.read<PomodoroSoundService>(),
-            isSoundEnabled: () =>
-                settingsController.settings.soundEnabled,
+            isSoundEnabled: () => settingsController.settings.soundEnabled,
           )..init(),
           update: (_, todoController, settingsCtrl, pomodoroController) {
             final tasks = todoController.allTasks
