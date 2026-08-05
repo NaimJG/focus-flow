@@ -4,7 +4,7 @@
 
 This document audits all dependencies in Focus Flow 1.0.0 for data collection and transmission behavior. It serves as the basis for completing the Google Play Console Data Safety form and ensures accurate declarations about user data practices.
 
-**Audit date:** 2025-01-27
+**Audit date:** 2025-07-15
 
 ---
 
@@ -21,6 +21,7 @@ This document audits all dependencies in Focus Flow 1.0.0 for data collection an
 | `intl` (any) | Internationalization | No | No | Pure Dart package; date/number formatting utilities |
 | `cupertino_icons` ^1.0.8 | Icon assets | No | No | Static icon font bundled at compile time |
 | `url_launcher` ^6.2.0 (planned) | URL opening | No | No | Opens external URLs in the system browser; see detailed note below |
+| `audioplayers` ^6.1.0 | Audio playback | No | No | Plays bundled MP3 assets from local storage only; no network access required or used |
 
 ---
 
@@ -39,6 +40,21 @@ The `url_launcher` package is included to allow users to open the privacy policy
 
 ---
 
+## audioplayers Behavior
+
+The `audioplayers` package (^6.1.0) is included to play short completion sounds when a Pomodoro session ends naturally. Important clarifications:
+
+- `audioplayers` plays local asset files only (via `AssetSource`) — specifically `focus_complete.mp3` and `break_complete.mp3` bundled at build time.
+- It does **not** require INTERNET permission for bundled asset playback.
+- It does **not** collect analytics, telemetry, or user data.
+- It does **not** transmit any data off-device.
+- It does **not** include advertising SDKs.
+- Used solely for playing two short bundled completion sounds (`focus_complete.mp3`, `break_complete.mp3`).
+
+**Conclusion:** `audioplayers` is a local audio playback engine operating entirely on-device. It does not collect or transmit any data.
+
+---
+
 ## INTERNET Permission
 
 Focus Flow is an offline-first application with no network features:
@@ -50,20 +66,6 @@ Focus Flow is an offline-first application with no network features:
 - All user data is stored exclusively in the local Isar database on the device.
 
 **Conclusion:** The release build contains no INTERNET permission and performs no network communication.
-
----
-
-## Absent Packages — Audio
-
-The following audio packages are **not present** in `pubspec.yaml`:
-
-- `just_audio` — not included
-- `audioplayers` — not included
-- `flutter_sound` — not included
-- `audio_session` — not included
-- Any other audio playback or recording package — not included
-
-**Note:** The app's domain model includes a `soundEnabled` setting (in `SettingsEntity`), but no audio playback mechanism is implemented. The setting exists as a UI preference with no backing audio functionality in v1.0.0. No audio data is collected or transmitted.
 
 ---
 
@@ -108,6 +110,8 @@ Based on this audit, the Google Play Data Safety form should be completed as fol
 | Does your app use encryption? | No (local database only, no data in transit) |
 | Can users request data deletion? | N/A (uninstalling removes all local data) |
 
+**Note:** Audio playback via `audioplayers` is entirely local (bundled asset files played from device storage) and does not affect the "No data collected, No data shared" declaration.
+
 ### Declaration Summary
 
 > **"No data collected, No data shared"**
@@ -119,12 +123,12 @@ This declaration is accurate because:
 3. No analytics, crash reporting, or telemetry exists.
 4. No advertisements are displayed.
 5. No user accounts or authentication exists.
-6. No audio or notification permissions are requested.
+6. Audio playback uses `audioplayers` with bundled assets only (`AssetSource`); it introduces no new permissions and performs no network operations.
 7. The only external interaction (`url_launcher`) is user-initiated and handled by the OS browser, not by the app.
 
 ---
 
 ## References
 
-- Requirements: 6.4, 9.1, 9.2, 9.3, 9.4, 9.5, 20.1, 20.2, 20.3, 20.5
+- Requirements: 6.4, 9.1, 9.2, 9.3, 9.4, 9.5, 10.7, 10.8, 20.1, 20.2, 20.3, 20.5
 - Google Play Data Safety documentation: https://support.google.com/googleplay/android-developer/answer/10787469

@@ -42,12 +42,12 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
     - Import `dart:async` for `unawaited()`. Switch expression selects correct play method by `_completedMode`. Fire-and-forget. No try-catch needed (service swallows errors). Controller does not dispose the service.
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 2.4, 3.1–3.7, 6.3, 7.1, 7.2, 8.1, 8.2, 9.2, 9.5_
 
-- [ ] 7. Update dependency/Data Safety documentation
-  - [ ] 7.1 Update release dependency and Data Safety audit documentation to record `audioplayers` package addition and confirm it transmits no user data
+- [x] 7. Update dependency/Data Safety documentation
+  - [x] 7.1 Update release dependency and Data Safety audit documentation to record `audioplayers` package addition and confirm it transmits no user data
     - _Requirements: 10.7, 10.8_
 
-- [ ] 8. Essential tests
-  - [ ]* 8.1 Create `test/features/pomodoro/presentation/controllers/pomodoro_controller_sound_test.dart` with a fake `PomodoroSoundService` and tests covering: focus completion plays focus sound once when enabled, no sound when disabled, short-break plays break sound once, long-break plays break sound once, reset does not trigger sound, skip does not trigger sound, playback failure does not prevent phase transition, session persistence remains unchanged, changing soundEnabled during an active timer affects the next completion
+- [x] 8. Essential tests
+  - [x] 8.1 Create `test/features/pomodoro/presentation/controllers/pomodoro_controller_sound_test.dart` with a fake `PomodoroSoundService` and tests covering: focus completion plays focus sound once when enabled, no sound when disabled, short-break plays break sound once, long-break plays break sound once, reset does not trigger sound, skip does not trigger sound, playback failure does not prevent phase transition, session persistence remains unchanged, changing soundEnabled during an active timer affects the next completion
     - Use a fake implementation recording method calls; verify exact invocation counts; simulate throwing service for resilience test; test mid-timer setting change
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9, 12.10_
     - **Property 1: Correct sound on natural completion when enabled**
@@ -55,12 +55,12 @@ Add audible completion sounds to the Pomodoro timer by introducing a `PomodoroSo
     - **Property 3: Manual actions never trigger sound**
     - **Property 4: Phase transition resilience**
 
-- [ ] 9. Manual verification
-  - [ ] 9.1 Run `flutter analyze` and `flutter test` to confirm zero analyzer warnings and all tests pass
+- [x] 9. Manual verification
+  - [x] 9.1 Run `flutter analyze` and `flutter test` to confirm zero analyzer warnings and all tests pass
     - _Requirements: all_
 
-- [ ] 10. Final checkpoint
-  - [ ] 10.1 Ensure all tests pass, ask the user if questions arise.
+- [x] 10. Final checkpoint
+  - [x] 10.1 Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
 

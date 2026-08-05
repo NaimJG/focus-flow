@@ -17,18 +17,13 @@ import '../../domain/use_cases/save_pomodoro_session_use_case.dart';
 /// transitions.
 class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   PomodoroController({
-    required SavePomodoroSessionUseCase saveSessionUseCase,
-    required List<PomodoroTaskOption> Function() taskListProvider,
+    required this._saveSessionUseCase,
+    required this._taskListProvider,
     PomodoroConfig config = const PomodoroConfig(),
-    Clock clock = const SystemClock(),
-    PomodoroSoundService? soundService,
-    bool Function()? isSoundEnabled,
-  }) : _saveSessionUseCase = saveSessionUseCase,
-       _taskListProvider = taskListProvider,
-       _clock = clock,
-       _soundService = soundService,
-       _isSoundEnabled = isSoundEnabled,
-       _config = config,
+    this._clock = const SystemClock(),
+    this._soundService,
+    this._isSoundEnabled,
+  }) : _config = config,
        _remainingDuration = config.focusDuration;
 
   // --- Configuration ---
