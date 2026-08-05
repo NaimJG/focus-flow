@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
+import '../../../../core/services/pomodoro_sound_service.dart';
 import '../../domain/entities/clock.dart';
 import '../../domain/entities/pomodoro_config.dart';
 import '../../domain/entities/pomodoro_session.dart';
@@ -20,6 +21,8 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
     required this._taskListProvider,
     PomodoroConfig config = const PomodoroConfig(),
     this._clock = const SystemClock(),
+    this._soundService,
+    this._isSoundEnabled,
   }) : _config = config,
        _remainingDuration = config.focusDuration;
 
@@ -28,6 +31,8 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
   final Clock _clock;
   final SavePomodoroSessionUseCase _saveSessionUseCase;
   final List<PomodoroTaskOption> Function() _taskListProvider;
+  final PomodoroSoundService? _soundService;
+  final bool Function()? _isSoundEnabled;
 
   // --- Task list ---
   List<PomodoroTaskOption> _availableTasks = [];
@@ -284,8 +289,22 @@ class PomodoroController extends ChangeNotifier with WidgetsBindingObserver {
       _persistSession();
     }
 
+    _playCompletionSound();
+
     _advanceToNextMode();
     notifyListeners();
+  }
+
+  void _playCompletionSound() {
+    if (_soundService == null) return;
+    if (!(_isSoundEnabled?.call() ?? false)) return;
+
+    final Future<void> playback = switch (_completedMode!) {
+      TimerMode.focus => _soundService.playFocusCompleted(),
+      TimerMode.shortBreak => _soundService.playBreakCompleted(),
+      TimerMode.longBreak => _soundService.playBreakCompleted(),
+    };
+    unawaited(playback);
   }
 
   void _advanceToNextMode() {
