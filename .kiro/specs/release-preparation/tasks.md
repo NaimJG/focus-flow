@@ -213,8 +213,8 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/store-listing/assets-checklist.md`
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5, 13.6, 13.7_
 
-- [ ] 14. Build and verify signed release APK
-  - [ ] 14.1 Create `docs/checklists/automated-checks.md` with pre-build verification commands
+- [x] 14. Build and verify signed release APK
+  - [x] 14.1 Create `docs/checklists/automated-checks.md` with pre-build verification commands
     - Document: `dart format .` — confirm no formatting changes
     - Document: `flutter gen-l10n` — confirm localization files current
     - Document: `dart run build_runner build --delete-conflicting-outputs` — confirm generated code current
@@ -224,22 +224,22 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/automated-checks.md`
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6_
 
-  - [ ] 14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)
+  - [x] 14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)
     - Execute each command and fix any issues found
     - All must pass before proceeding to APK build
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5, 15.6_
 
-  - [ ] 14.3 Build release APK with `flutter build apk --release`
+  - [x] 14.3 Build release APK with `flutter build apk --release`
     - Verify build completes without errors
     - Verify APK is signed with upload key (not debug): `apksigner verify --print-certs build/app/outputs/flutter-apk/app-release.apk`
     - _Requirements: 16.1, 16.6, 5.1_
 
-- [ ] 15. Checkpoint — signed APK installation
+- [x] 15. Checkpoint — signed APK installation
   - MANUAL: Install the release APK on a physical device. Verify: app name "Focus Flow", launcher icon, splash screen, no debug banner, data persistence, privacy policy link works. Ask the user if questions arise.
   - _Requirements: 16.2, 16.3, 16.4, 16.5, 5.3, 5.4, 5.8_
 
-- [ ] 16. Build and verify signed AAB
-  - [ ] 16.1 Build release AAB with `flutter build appbundle --release`
+- [x] 16. Build and verify signed AAB
+  - [x] 16.1 Build release AAB with `flutter build appbundle --release`
     - Verify build completes without errors
     - Verify AAB contains correct applicationId, versionName `1.0.0`, versionCode `1`
     - Verify AAB targets API 36+
@@ -247,7 +247,7 @@ This plan covers all configuration, documentation, and verification work to prep
     - Verify no secrets/keystore content in the bundle
     - _Requirements: 17.1, 17.2, 17.3, 17.4, 17.5, 17.6, 17.7_
 
-- [ ] 17. Checkpoint — signed AAB generation
+- [x] 17. Checkpoint — signed AAB generation
   - Ensure AAB is generated successfully with correct metadata. Ask the user if questions arise.
   - _Requirements: 17.7_
 

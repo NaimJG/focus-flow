@@ -398,6 +398,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951359
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785938819980
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785938924870
       }
     ],
     "14.2 Run automated checks (`dart format`, `flutter gen-l10n`, `build_runner`, `flutter analyze`, `flutter test`)": [
@@ -405,6 +415,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951423
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785938929486
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785939581605
       }
     ],
     "14.3 Build release APK with `flutter build apk --release`": [
@@ -412,6 +432,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951492
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785939586280
+      },
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785941201831
       }
     ],
     "15. Checkpoint — signed APK installation": [
@@ -419,6 +449,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951576
+      },
+      {
+        "executionId": "f3970a00-b7ca-4f41-b563-cc672aa57cbc",
+        "chatSessionId": "sess_b6725470-c869-47bf-a321-4ffcaab98262",
+        "timestamp": 1785948175254
+      },
+      {
+        "executionId": "f3970a00-b7ca-4f41-b563-cc672aa57cbc",
+        "chatSessionId": "sess_b6725470-c869-47bf-a321-4ffcaab98262",
+        "timestamp": 1785948194502
       }
     ],
     "16.1 Build release AAB with `flutter build appbundle --release`": [
@@ -426,6 +466,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951654
+      },
+      {
+        "executionId": "dc445593-e21d-4597-8bfb-acd35e3218f7",
+        "chatSessionId": "sess_6d3f0bb9-0fe6-41d9-ae81-eeea9af4e78b",
+        "timestamp": 1785948226255
+      },
+      {
+        "executionId": "dc445593-e21d-4597-8bfb-acd35e3218f7",
+        "chatSessionId": "sess_6d3f0bb9-0fe6-41d9-ae81-eeea9af4e78b",
+        "timestamp": 1785950162096
       }
     ],
     "17. Checkpoint — signed AAB generation": [
@@ -433,6 +483,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787951771
+      },
+      {
+        "executionId": "77a8ccec-95fa-47f4-9e46-fe70e56795fd",
+        "chatSessionId": "sess_0f23786e-0e60-4bfd-a1c6-f4cf00163efc",
+        "timestamp": 1785950204456
+      },
+      {
+        "executionId": "77a8ccec-95fa-47f4-9e46-fe70e56795fd",
+        "chatSessionId": "sess_0f23786e-0e60-4bfd-a1c6-f4cf00163efc",
+        "timestamp": 1785950372523
       }
     ],
     "18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist": [
@@ -503,6 +563,20 @@
         "executionId": "e8f2ac18-0c62-492b-aff1-fa584ddd6346",
         "chatSessionId": "sess_e5caa79e-1426-4ccb-ab1d-e42202306d62",
         "timestamp": 1785938494116
+      }
+    ],
+    "14. Build and verify signed release APK": [
+      {
+        "executionId": "19c62b2e-7fd0-4322-9ab1-418a2f9b437a",
+        "chatSessionId": "sess_996d20b8-af26-4c12-84ff-b1a1200a30e7",
+        "timestamp": 1785941202114
+      }
+    ],
+    "16. Build and verify signed AAB": [
+      {
+        "executionId": "dc445593-e21d-4597-8bfb-acd35e3218f7",
+        "chatSessionId": "sess_6d3f0bb9-0fe6-41d9-ae81-eeea9af4e78b",
+        "timestamp": 1785950162378
       }
     ]
   }
