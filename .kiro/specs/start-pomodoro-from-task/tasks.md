@@ -36,14 +36,14 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
   - [x] 5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session
     - _Requirements: 4.1, 4.2_
 
-- [ ] 6. Run localization generation, format, analyze, and existing tests
-  - [ ] 6.1 Run `flutter gen-l10n` and confirm no errors
+- [x] 6. Run localization generation, format, analyze, and existing tests
+  - [x] 6.1 Run `flutter gen-l10n` and confirm no errors
     - _Requirements: 7.1, 7.2_
-  - [ ] 6.2 Run `dart format .` on modified files
+  - [x] 6.2 Run `dart format .` on modified files
     - _Requirements: 9.1_
-  - [ ] 6.3 Run `flutter analyze` and confirm zero warnings
+  - [x] 6.3 Run `flutter analyze` and confirm zero warnings
     - _Requirements: 9.1, 9.2, 9.3_
-  - [ ] 6.4 Run `flutter test` and confirm all existing tests pass
+  - [x] 6.4 Run `flutter test` and confirm all existing tests pass
     - _Requirements: 9.1, 9.2, 9.3_
 
 - [ ] 7. Write essential widget tests (optional for MVP)

@@ -136,6 +136,66 @@
         "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
         "timestamp": 1786030181883
       }
+    ],
+    "6. Run localization generation, format, analyze, and existing tests": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030794064
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031643904
+      }
+    ],
+    "6.1 Run `flutter gen-l10n` and confirm no errors": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030798784
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031641332
+      }
+    ],
+    "6.2 Run `dart format .` on modified files": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030799566
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031641971
+      }
+    ],
+    "6.3 Run `flutter analyze` and confirm zero warnings": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030800439
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031642966
+      }
+    ],
+    "6.4 Run `flutter test` and confirm all existing tests pass": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030801264
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031643641
+      }
     ]
   }
 }

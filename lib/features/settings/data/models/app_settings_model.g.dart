@@ -59,7 +59,7 @@ const AppSettingsModelSchema = CollectionSchema(
       name: r'themeMode',
       type: IsarType.byte,
       enumMap: _AppSettingsModelthemeModeEnumValueMap,
-    )
+    ),
   },
   estimateSize: _appSettingsModelEstimateSize,
   serialize: _appSettingsModelSerialize,
@@ -107,20 +107,26 @@ AppSettingsModel _appSettingsModelDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = AppSettingsModel();
-  object.colorPalette = _AppSettingsModelcolorPaletteValueEnumMap[
-          reader.readByteOrNull(offsets[0])] ??
+  object.colorPalette =
+      _AppSettingsModelcolorPaletteValueEnumMap[reader.readByteOrNull(
+        offsets[0],
+      )] ??
       AppColorPalette.salmon;
   object.cyclesBeforeLongBreak = reader.readLong(offsets[1]);
   object.focusDurationMinutes = reader.readLong(offsets[2]);
   object.id = id;
-  object.language = _AppSettingsModellanguageValueEnumMap[
-          reader.readByteOrNull(offsets[3])] ??
+  object.language =
+      _AppSettingsModellanguageValueEnumMap[reader.readByteOrNull(
+        offsets[3],
+      )] ??
       AppLanguage.spanish;
   object.longBreakDurationMinutes = reader.readLong(offsets[4]);
   object.shortBreakDurationMinutes = reader.readLong(offsets[5]);
   object.soundEnabled = reader.readBool(offsets[6]);
-  object.themeMode = _AppSettingsModelthemeModeValueEnumMap[
-          reader.readByteOrNull(offsets[7])] ??
+  object.themeMode =
+      _AppSettingsModelthemeModeValueEnumMap[reader.readByteOrNull(
+        offsets[7],
+      )] ??
       AppThemeMode.system;
   return object;
 }
@@ -133,17 +139,21 @@ P _appSettingsModelDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (_AppSettingsModelcolorPaletteValueEnumMap[
-              reader.readByteOrNull(offset)] ??
-          AppColorPalette.salmon) as P;
+      return (_AppSettingsModelcolorPaletteValueEnumMap[reader.readByteOrNull(
+                offset,
+              )] ??
+              AppColorPalette.salmon)
+          as P;
     case 1:
       return (reader.readLong(offset)) as P;
     case 2:
       return (reader.readLong(offset)) as P;
     case 3:
-      return (_AppSettingsModellanguageValueEnumMap[
-              reader.readByteOrNull(offset)] ??
-          AppLanguage.spanish) as P;
+      return (_AppSettingsModellanguageValueEnumMap[reader.readByteOrNull(
+                offset,
+              )] ??
+              AppLanguage.spanish)
+          as P;
     case 4:
       return (reader.readLong(offset)) as P;
     case 5:
@@ -151,9 +161,11 @@ P _appSettingsModelDeserializeProp<P>(
     case 6:
       return (reader.readBool(offset)) as P;
     case 7:
-      return (_AppSettingsModelthemeModeValueEnumMap[
-              reader.readByteOrNull(offset)] ??
-          AppThemeMode.system) as P;
+      return (_AppSettingsModelthemeModeValueEnumMap[reader.readByteOrNull(
+                offset,
+              )] ??
+              AppThemeMode.system)
+          as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -169,10 +181,7 @@ const _AppSettingsModelcolorPaletteValueEnumMap = {
   1: AppColorPalette.lightBlue,
   2: AppColorPalette.lightGreen,
 };
-const _AppSettingsModellanguageEnumValueMap = {
-  'spanish': 0,
-  'english': 1,
-};
+const _AppSettingsModellanguageEnumValueMap = {'spanish': 0, 'english': 1};
 const _AppSettingsModellanguageValueEnumMap = {
   0: AppLanguage.spanish,
   1: AppLanguage.english,
@@ -197,7 +206,10 @@ List<IsarLinkBase<dynamic>> _appSettingsModelGetLinks(AppSettingsModel object) {
 }
 
 void _appSettingsModelAttach(
-    IsarCollection<dynamic> col, Id id, AppSettingsModel object) {
+  IsarCollection<dynamic> col,
+  Id id,
+  AppSettingsModel object,
+) {
   object.id = id;
 }
 
@@ -213,17 +225,15 @@ extension AppSettingsModelQueryWhereSort
 extension AppSettingsModelQueryWhere
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QWhereClause> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterWhereClause> idEqualTo(
-      Id id) {
+    Id id,
+  ) {
     return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: id,
-        upper: id,
-      ));
+      return query.addWhereClause(IdWhereClause.between(lower: id, upper: id));
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterWhereClause>
-      idNotEqualTo(Id id) {
+  idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -246,7 +256,7 @@ extension AppSettingsModelQueryWhere
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterWhereClause>
-      idGreaterThan(Id id, {bool include = false}) {
+  idGreaterThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.greaterThan(lower: id, includeLower: include),
@@ -255,7 +265,7 @@ extension AppSettingsModelQueryWhere
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterWhereClause>
-      idLessThan(Id id, {bool include = false}) {
+  idLessThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.lessThan(upper: id, includeUpper: include),
@@ -270,12 +280,14 @@ extension AppSettingsModelQueryWhere
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: lowerId,
-        includeLower: includeLower,
-        upper: upperId,
-        includeUpper: includeUpper,
-      ));
+      return query.addWhereClause(
+        IdWhereClause.between(
+          lower: lowerId,
+          includeLower: includeLower,
+          upper: upperId,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 }
@@ -283,460 +295,463 @@ extension AppSettingsModelQueryWhere
 extension AppSettingsModelQueryFilter
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QFilterCondition> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      colorPaletteEqualTo(AppColorPalette value) {
+  colorPaletteEqualTo(AppColorPalette value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'colorPalette',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'colorPalette', value: value),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      colorPaletteGreaterThan(
-    AppColorPalette value, {
-    bool include = false,
-  }) {
+  colorPaletteGreaterThan(AppColorPalette value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'colorPalette',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'colorPalette',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      colorPaletteLessThan(
-    AppColorPalette value, {
-    bool include = false,
-  }) {
+  colorPaletteLessThan(AppColorPalette value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'colorPalette',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'colorPalette',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      colorPaletteBetween(
+  colorPaletteBetween(
     AppColorPalette lower,
     AppColorPalette upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'colorPalette',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'colorPalette',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      cyclesBeforeLongBreakEqualTo(int value) {
+  cyclesBeforeLongBreakEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'cyclesBeforeLongBreak',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(
+          property: r'cyclesBeforeLongBreak',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      cyclesBeforeLongBreakGreaterThan(
-    int value, {
-    bool include = false,
-  }) {
+  cyclesBeforeLongBreakGreaterThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'cyclesBeforeLongBreak',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'cyclesBeforeLongBreak',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      cyclesBeforeLongBreakLessThan(
-    int value, {
-    bool include = false,
-  }) {
+  cyclesBeforeLongBreakLessThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'cyclesBeforeLongBreak',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'cyclesBeforeLongBreak',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      cyclesBeforeLongBreakBetween(
+  cyclesBeforeLongBreakBetween(
     int lower,
     int upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'cyclesBeforeLongBreak',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'cyclesBeforeLongBreak',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      focusDurationMinutesEqualTo(int value) {
+  focusDurationMinutesEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'focusDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(
+          property: r'focusDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      focusDurationMinutesGreaterThan(
-    int value, {
-    bool include = false,
-  }) {
+  focusDurationMinutesGreaterThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'focusDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'focusDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      focusDurationMinutesLessThan(
-    int value, {
-    bool include = false,
-  }) {
+  focusDurationMinutesLessThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'focusDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'focusDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      focusDurationMinutesBetween(
+  focusDurationMinutesBetween(
     int lower,
     int upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'focusDurationMinutes',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'focusDurationMinutes',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      idEqualTo(Id value) {
+  idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'id',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'id', value: value),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      idGreaterThan(
-    Id value, {
-    bool include = false,
-  }) {
+  idGreaterThan(Id value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'id',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'id',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      idLessThan(
-    Id value, {
-    bool include = false,
-  }) {
+  idLessThan(Id value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'id',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'id',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      idBetween(
+  idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'id',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'id',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      languageEqualTo(AppLanguage value) {
+  languageEqualTo(AppLanguage value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'language',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'language', value: value),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      languageGreaterThan(
-    AppLanguage value, {
-    bool include = false,
-  }) {
+  languageGreaterThan(AppLanguage value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'language',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'language',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      languageLessThan(
-    AppLanguage value, {
-    bool include = false,
-  }) {
+  languageLessThan(AppLanguage value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'language',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'language',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      languageBetween(
+  languageBetween(
     AppLanguage lower,
     AppLanguage upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'language',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'language',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      longBreakDurationMinutesEqualTo(int value) {
+  longBreakDurationMinutesEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'longBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(
+          property: r'longBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      longBreakDurationMinutesGreaterThan(
-    int value, {
-    bool include = false,
-  }) {
+  longBreakDurationMinutesGreaterThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'longBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'longBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      longBreakDurationMinutesLessThan(
-    int value, {
-    bool include = false,
-  }) {
+  longBreakDurationMinutesLessThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'longBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'longBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      longBreakDurationMinutesBetween(
+  longBreakDurationMinutesBetween(
     int lower,
     int upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'longBreakDurationMinutes',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'longBreakDurationMinutes',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      shortBreakDurationMinutesEqualTo(int value) {
+  shortBreakDurationMinutesEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'shortBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(
+          property: r'shortBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      shortBreakDurationMinutesGreaterThan(
-    int value, {
-    bool include = false,
-  }) {
+  shortBreakDurationMinutesGreaterThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'shortBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'shortBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      shortBreakDurationMinutesLessThan(
-    int value, {
-    bool include = false,
-  }) {
+  shortBreakDurationMinutesLessThan(int value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'shortBreakDurationMinutes',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'shortBreakDurationMinutes',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      shortBreakDurationMinutesBetween(
+  shortBreakDurationMinutesBetween(
     int lower,
     int upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'shortBreakDurationMinutes',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'shortBreakDurationMinutes',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      soundEnabledEqualTo(bool value) {
+  soundEnabledEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'soundEnabled',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'soundEnabled', value: value),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      themeModeEqualTo(AppThemeMode value) {
+  themeModeEqualTo(AppThemeMode value) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'themeMode',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.equalTo(property: r'themeMode', value: value),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      themeModeGreaterThan(
-    AppThemeMode value, {
-    bool include = false,
-  }) {
+  themeModeGreaterThan(AppThemeMode value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'themeMode',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.greaterThan(
+          include: include,
+          property: r'themeMode',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      themeModeLessThan(
-    AppThemeMode value, {
-    bool include = false,
-  }) {
+  themeModeLessThan(AppThemeMode value, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'themeMode',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.lessThan(
+          include: include,
+          property: r'themeMode',
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
-      themeModeBetween(
+  themeModeBetween(
     AppThemeMode lower,
     AppThemeMode upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'themeMode',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        FilterCondition.between(
+          property: r'themeMode',
+          lower: lower,
+          includeLower: includeLower,
+          upper: upper,
+          includeUpper: includeUpper,
+        ),
+      );
     });
   }
 }
@@ -750,112 +765,112 @@ extension AppSettingsModelQueryLinks
 extension AppSettingsModelQuerySortBy
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QSortBy> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByColorPalette() {
+  sortByColorPalette() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorPalette', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByColorPaletteDesc() {
+  sortByColorPaletteDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorPalette', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByCyclesBeforeLongBreak() {
+  sortByCyclesBeforeLongBreak() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'cyclesBeforeLongBreak', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByCyclesBeforeLongBreakDesc() {
+  sortByCyclesBeforeLongBreakDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'cyclesBeforeLongBreak', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByFocusDurationMinutes() {
+  sortByFocusDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'focusDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByFocusDurationMinutesDesc() {
+  sortByFocusDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'focusDurationMinutes', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByLanguage() {
+  sortByLanguage() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'language', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByLanguageDesc() {
+  sortByLanguageDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'language', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByLongBreakDurationMinutes() {
+  sortByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByLongBreakDurationMinutesDesc() {
+  sortByLongBreakDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByShortBreakDurationMinutes() {
+  sortByShortBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'shortBreakDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByShortBreakDurationMinutesDesc() {
+  sortByShortBreakDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'shortBreakDurationMinutes', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortBySoundEnabled() {
+  sortBySoundEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'soundEnabled', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortBySoundEnabledDesc() {
+  sortBySoundEnabledDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'soundEnabled', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByThemeMode() {
+  sortByThemeMode() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'themeMode', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      sortByThemeModeDesc() {
+  sortByThemeModeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'themeMode', Sort.desc);
     });
@@ -865,42 +880,42 @@ extension AppSettingsModelQuerySortBy
 extension AppSettingsModelQuerySortThenBy
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QSortThenBy> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByColorPalette() {
+  thenByColorPalette() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorPalette', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByColorPaletteDesc() {
+  thenByColorPaletteDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorPalette', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByCyclesBeforeLongBreak() {
+  thenByCyclesBeforeLongBreak() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'cyclesBeforeLongBreak', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByCyclesBeforeLongBreakDesc() {
+  thenByCyclesBeforeLongBreakDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'cyclesBeforeLongBreak', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByFocusDurationMinutes() {
+  thenByFocusDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'focusDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByFocusDurationMinutesDesc() {
+  thenByFocusDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'focusDurationMinutes', Sort.desc);
     });
@@ -913,77 +928,77 @@ extension AppSettingsModelQuerySortThenBy
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByIdDesc() {
+  thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByLanguage() {
+  thenByLanguage() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'language', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByLanguageDesc() {
+  thenByLanguageDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'language', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByLongBreakDurationMinutes() {
+  thenByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByLongBreakDurationMinutesDesc() {
+  thenByLongBreakDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'longBreakDurationMinutes', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByShortBreakDurationMinutes() {
+  thenByShortBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'shortBreakDurationMinutes', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByShortBreakDurationMinutesDesc() {
+  thenByShortBreakDurationMinutesDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'shortBreakDurationMinutes', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenBySoundEnabled() {
+  thenBySoundEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'soundEnabled', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenBySoundEnabledDesc() {
+  thenBySoundEnabledDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'soundEnabled', Sort.desc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByThemeMode() {
+  thenByThemeMode() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'themeMode', Sort.asc);
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
-      thenByThemeModeDesc() {
+  thenByThemeModeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'themeMode', Sort.desc);
     });
@@ -993,56 +1008,56 @@ extension AppSettingsModelQuerySortThenBy
 extension AppSettingsModelQueryWhereDistinct
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByColorPalette() {
+  distinctByColorPalette() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'colorPalette');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByCyclesBeforeLongBreak() {
+  distinctByCyclesBeforeLongBreak() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'cyclesBeforeLongBreak');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByFocusDurationMinutes() {
+  distinctByFocusDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'focusDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByLanguage() {
+  distinctByLanguage() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'language');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByLongBreakDurationMinutes() {
+  distinctByLongBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'longBreakDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByShortBreakDurationMinutes() {
+  distinctByShortBreakDurationMinutes() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'shortBreakDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctBySoundEnabled() {
+  distinctBySoundEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'soundEnabled');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
-      distinctByThemeMode() {
+  distinctByThemeMode() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'themeMode');
     });
@@ -1058,56 +1073,56 @@ extension AppSettingsModelQueryProperty
   }
 
   QueryBuilder<AppSettingsModel, AppColorPalette, QQueryOperations>
-      colorPaletteProperty() {
+  colorPaletteProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'colorPalette');
     });
   }
 
   QueryBuilder<AppSettingsModel, int, QQueryOperations>
-      cyclesBeforeLongBreakProperty() {
+  cyclesBeforeLongBreakProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'cyclesBeforeLongBreak');
     });
   }
 
   QueryBuilder<AppSettingsModel, int, QQueryOperations>
-      focusDurationMinutesProperty() {
+  focusDurationMinutesProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'focusDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppLanguage, QQueryOperations>
-      languageProperty() {
+  languageProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'language');
     });
   }
 
   QueryBuilder<AppSettingsModel, int, QQueryOperations>
-      longBreakDurationMinutesProperty() {
+  longBreakDurationMinutesProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'longBreakDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, int, QQueryOperations>
-      shortBreakDurationMinutesProperty() {
+  shortBreakDurationMinutesProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'shortBreakDurationMinutes');
     });
   }
 
   QueryBuilder<AppSettingsModel, bool, QQueryOperations>
-      soundEnabledProperty() {
+  soundEnabledProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'soundEnabled');
     });
   }
 
   QueryBuilder<AppSettingsModel, AppThemeMode, QQueryOperations>
-      themeModeProperty() {
+  themeModeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'themeMode');
     });

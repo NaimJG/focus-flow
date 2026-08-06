@@ -328,13 +328,11 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
                       widget.initialTask!.title,
                     ),
                     child: FilledButton.tonalIcon(
-                      onPressed:
-                          _isSubmitting ? null : _onStartPomodoro,
+                      onPressed: _isSubmitting ? null : _onStartPomodoro,
                       icon: const Icon(Icons.timer),
                       label: Text(l10n.taskStartPomodoro),
                       style: FilledButton.styleFrom(
-                        minimumSize:
-                            const Size(double.infinity, 48),
+                        minimumSize: const Size(double.infinity, 48),
                       ),
                     ),
                   ),
