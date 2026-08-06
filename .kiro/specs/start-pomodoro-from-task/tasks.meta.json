@@ -1,0 +1,208 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.3 Run `flutter gen-l10n` to regenerate the localization delegates and verify no errors": [
+      {
+        "executionId": "f0e69150-3fbb-4ef7-82b1-b18a534860ff",
+        "chatSessionId": "sess_dbd73f52-f97a-4052-9ad6-863be7080ff2",
+        "timestamp": 1786025107494
+      }
+    ],
+    "1. Audit PomodoroController completed-state behavior": [
+      {
+        "executionId": "43751845-6ff8-4179-90c7-87b0dfae77ca",
+        "chatSessionId": "sess_45bc9037-bc3c-4224-a6d2-62dc788cdde9",
+        "timestamp": 1786027273950
+      },
+      {
+        "executionId": "43751845-6ff8-4179-90c7-87b0dfae77ca",
+        "chatSessionId": "sess_45bc9037-bc3c-4224-a6d2-62dc788cdde9",
+        "timestamp": 1786027297392
+      }
+    ],
+    "1.1 Confirm selectTask works correctly in completed state (sets `_selectedTaskId` and `_selectedTaskTitle`, notifies listeners)": [
+      {
+        "executionId": "43751845-6ff8-4179-90c7-87b0dfae77ca",
+        "chatSessionId": "sess_45bc9037-bc3c-4224-a6d2-62dc788cdde9",
+        "timestamp": 1786027296248
+      }
+    ],
+    "1.2 Confirm no preparatory operation is needed before calling selectTask when status is completed": [
+      {
+        "executionId": "43751845-6ff8-4179-90c7-87b0dfae77ca",
+        "chatSessionId": "sess_45bc9037-bc3c-4224-a6d2-62dc788cdde9",
+        "timestamp": 1786027297231
+      }
+    ],
+    "2. Add localization keys (2 keys: taskStartPomodoro, taskStartPomodoroSemantic)": [
+      {
+        "executionId": "b5efc222-eb61-4989-bcb0-a60401ad070a",
+        "chatSessionId": "sess_ac6f9c87-0ed1-4187-b480-cde20835eb3a",
+        "timestamp": 1786027476473
+      },
+      {
+        "executionId": "b5efc222-eb61-4989-bcb0-a60401ad070a",
+        "chatSessionId": "sess_ac6f9c87-0ed1-4187-b480-cde20835eb3a",
+        "timestamp": 1786027675623
+      }
+    ],
+    "3.1 Add imports for `PomodoroController` and `TimerStatus` to `task_form_screen.dart`": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786028853931
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029172968
+      }
+    ],
+    "3.2 Insert the button widget in the build method Column using the guard: `final task = widget.initialTask; if (_isEditMode && task != null && task.id > 0)`. Use `Semantics` with `taskStartPomodoroSemantic(task.title)`, `FilledButton.tonalIcon` with `Icons.timer` and `taskStartPomodoro` label, style with `minimumSize: const Size(double.infinity, 48)`, disable when `_isSubmitting`": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786028855472
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029175183
+      }
+    ],
+    "3.3 Verify the button does NOT appear in create mode and does NOT appear for task.id <= 0": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029179513
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029219002
+      }
+    ],
+    "3. Add Start Pomodoro button independent of statsController": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029219134
+      }
+    ],
+    "4. Integrate idle/completed selection behavior": [
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029526669
+      },
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029872224
+      }
+    ],
+    "4.1 Add `_onStartPomodoro()` method that reads PomodoroController, calls `selectTask(widget.initialTask!.id, widget.initialTask!.title)` when status is idle or completed, and always pushes `Routes.pomodoro`": [
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029530983
+      },
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029872093
+      }
+    ],
+    "5. Protect running/paused sessions": [
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030133372
+      },
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030182014
+      }
+    ],
+    "5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session": [
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030137383
+      },
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030181883
+      }
+    ],
+    "6. Run localization generation, format, analyze, and existing tests": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030794064
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031643904
+      }
+    ],
+    "6.1 Run `flutter gen-l10n` and confirm no errors": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030798784
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031641332
+      }
+    ],
+    "6.2 Run `dart format .` on modified files": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030799566
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031641971
+      }
+    ],
+    "6.3 Run `flutter analyze` and confirm zero warnings": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030800439
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031642966
+      }
+    ],
+    "6.4 Run `flutter test` and confirm all existing tests pass": [
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786030801264
+      },
+      {
+        "executionId": "f3b27eee-e422-4054-971f-48a61f6b9689",
+        "chatSessionId": "sess_c9f13081-9ebf-4e2e-b079-160536d4c077",
+        "timestamp": 1786031643641
+      }
+    ],
+    "9. Final checkpoint": [
+      {
+        "executionId": "c37c0a7e-fd02-40f8-847a-d4b9db76e3ae",
+        "chatSessionId": "sess_a2439647-457e-4879-bc6a-dc9bf03e5658",
+        "timestamp": 1786041600534
+      }
+    ]
+  }
+}

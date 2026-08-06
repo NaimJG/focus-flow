@@ -510,6 +510,18 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get taskStartPomodoro => 'Start Pomodoro';
+
+  @override
+  String taskStartPomodoroSemantic(String taskTitle) {
+    return 'Start Pomodoro for $taskTitle';
+  }
+
+  @override
+  String get pomodoroActiveSessionWarning =>
+      'A Pomodoro is already in progress. Complete or reset it before starting another one.';
+
+  @override
   String get settingsSectionPrivacy => 'Privacy';
 
   @override

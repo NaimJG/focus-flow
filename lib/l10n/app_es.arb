@@ -871,6 +871,25 @@
     }
   },
 
+  "taskStartPomodoro": "Iniciar Pomodoro",
+  "@taskStartPomodoro": {
+    "description": "Label for the Start Pomodoro button on the task edit screen"
+  },
+
+  "taskStartPomodoroSemantic": "Iniciar Pomodoro para {taskTitle}",
+  "@taskStartPomodoroSemantic": {
+    "description": "Accessibility label for the Start Pomodoro button including task name",
+    "placeholders": {
+      "taskTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "pomodoroActiveSessionWarning": "Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.",
+  "@pomodoroActiveSessionWarning": {
+    "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+  },
+
   "settingsSectionPrivacy": "Privacidad",
   "@settingsSectionPrivacy": {
     "description": "Section header for Privacy settings"

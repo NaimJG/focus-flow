@@ -164,6 +164,24 @@
   "taskPomodoroCount": "{count, plural, one{1 pomodoro} other{{count} pomodoros}}",
   "taskEquivalentCycleCount": "{count, plural, one{1 cycle} other{{count} cycles}}",
 
+  "taskStartPomodoro": "Start Pomodoro",
+  "@taskStartPomodoro": {
+    "description": "Label for the Start Pomodoro button on the task edit screen"
+  },
+  "taskStartPomodoroSemantic": "Start Pomodoro for {taskTitle}",
+  "@taskStartPomodoroSemantic": {
+    "description": "Accessibility label for the Start Pomodoro button including task name",
+    "placeholders": {
+      "taskTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "pomodoroActiveSessionWarning": "A Pomodoro is already in progress. Complete or reset it before starting another one.",
+  "@pomodoroActiveSessionWarning": {
+    "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+  },
+
   "settingsSectionPrivacy": "Privacy",
   "settingsPrivacyPolicy": "Privacy policy",
   "settingsPrivacyPolicyError": "Could not open privacy policy"

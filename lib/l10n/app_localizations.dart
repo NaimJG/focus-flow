@@ -998,6 +998,24 @@ abstract class AppLocalizations {
   /// **'{count, plural, one{1 ciclo} other{{count} ciclos}}'**
   String taskEquivalentCycleCount(int count);
 
+  /// Label for the Start Pomodoro button on the task edit screen
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar Pomodoro'**
+  String get taskStartPomodoro;
+
+  /// Accessibility label for the Start Pomodoro button including task name
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar Pomodoro para {taskTitle}'**
+  String taskStartPomodoroSemantic(String taskTitle);
+
+  /// Warning shown when user tries to start a Pomodoro while another session is running or paused
+  ///
+  /// In es, this message translates to:
+  /// **'Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.'**
+  String get pomodoroActiveSessionWarning;
+
   /// Section header for Privacy settings
   ///
   /// In es, this message translates to:

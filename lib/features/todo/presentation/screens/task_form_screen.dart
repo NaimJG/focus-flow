@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../../../../app/router.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../pomodoro/domain/entities/timer_status.dart';
 import '../../../pomodoro/domain/use_cases/get_task_pomodoro_stats_use_case.dart';
+import '../../../pomodoro/presentation/controllers/pomodoro_controller.dart';
 import '../../../settings/presentation/controllers/settings_controller.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/entities/priority.dart';
@@ -173,6 +175,25 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
     }
   }
 
+  void _onStartPomodoro() {
+    final pomodoroController = context.read<PomodoroController>();
+    final status = pomodoroController.status;
+
+    if (status == TimerStatus.running || status == TimerStatus.paused) {
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text(l10n.pomodoroActiveSessionWarning)),
+        );
+      return;
+    }
+
+    final task = widget.initialTask!;
+    pomodoroController.selectTask(task.id, task.title);
+    Navigator.of(context).pushNamed(Routes.pomodoro);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -298,6 +319,24 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
                       stats: _statsController!.stats,
                       cyclesBeforeLongBreak: cyclesBeforeLongBreak,
                       l10n: l10n,
+                    ),
+                  ),
+                ],
+                if (_isEditMode &&
+                    widget.initialTask != null &&
+                    widget.initialTask!.id > 0) ...[
+                  const SizedBox(height: 16),
+                  Semantics(
+                    label: l10n.taskStartPomodoroSemantic(
+                      widget.initialTask!.title,
+                    ),
+                    child: FilledButton.tonalIcon(
+                      onPressed: _isSubmitting ? null : _onStartPomodoro,
+                      icon: const Icon(Icons.timer),
+                      label: Text(l10n.taskStartPomodoro),
+                      style: FilledButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 48),
+                      ),
                     ),
                   ),
                 ],
