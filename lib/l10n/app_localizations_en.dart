@@ -510,6 +510,14 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get taskStartPomodoro => 'Start Pomodoro';
+
+  @override
+  String taskStartPomodoroSemantic(String taskTitle) {
+    return 'Start Pomodoro for $taskTitle';
+  }
+
+  @override
   String get settingsSectionPrivacy => 'Privacy';
 
   @override

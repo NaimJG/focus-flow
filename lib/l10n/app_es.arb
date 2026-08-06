@@ -871,6 +871,21 @@
     }
   },
 
+  "taskStartPomodoro": "Iniciar Pomodoro",
+  "@taskStartPomodoro": {
+    "description": "Label for the Start Pomodoro button on the task edit screen"
+  },
+
+  "taskStartPomodoroSemantic": "Iniciar Pomodoro para {taskTitle}",
+  "@taskStartPomodoroSemantic": {
+    "description": "Accessibility label for the Start Pomodoro button including task name",
+    "placeholders": {
+      "taskTitle": {
+        "type": "String"
+      }
+    }
+  },
+
   "settingsSectionPrivacy": "Privacidad",
   "@settingsSectionPrivacy": {
     "description": "Section header for Privacy settings"

@@ -998,6 +998,18 @@ abstract class AppLocalizations {
   /// **'{count, plural, one{1 ciclo} other{{count} ciclos}}'**
   String taskEquivalentCycleCount(int count);
 
+  /// Label for the Start Pomodoro button on the task edit screen
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar Pomodoro'**
+  String get taskStartPomodoro;
+
+  /// Accessibility label for the Start Pomodoro button including task name
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar Pomodoro para {taskTitle}'**
+  String taskStartPomodoroSemantic(String taskTitle);
+
   /// Section header for Privacy settings
   ///
   /// In es, this message translates to:
