@@ -32,9 +32,9 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
   - [x] 4.1 Add `_onStartPomodoro()` method that reads PomodoroController, calls `selectTask(widget.initialTask!.id, widget.initialTask!.title)` when status is idle or completed, and always pushes `Routes.pomodoro`
     - _Requirements: 3.1, 3.2, 3.3, 4.1, 4.2, 5.1, 6.1, 6.2_
 
-- [x] 5. Protect running/paused sessions
-  - [x] 5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session
-    - _Requirements: 4.1, 4.2_
+- [x] 5. Protect running/paused sessions with SnackBar warning
+  - [x] 5.1 Update `_onStartPomodoro` to show localized SnackBar when status is running or paused — do NOT navigate, do NOT call selectTask, use `hideCurrentSnackBar()` to prevent stacking
+    - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6_
 
 - [x] 6. Run localization generation, format, analyze, and existing tests
   - [x] 6.1 Run `flutter gen-l10n` and confirm no errors
@@ -63,14 +63,14 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
   - [ ]* 7.5 Write a widget test verifying that tapping the button when status is completed calls `selectTask` with the correct task and navigates (timer stays completed)
     - **Property 2: Task selection precondition**
     - **Validates: Requirements 3.1, 3.3**
-  - [ ]* 7.6 Write a widget test verifying that tapping the button when status is running does NOT call `selectTask` and pushes Routes.pomodoro
+  - [ ]* 7.6 Write a widget test verifying that tapping the button when status is running does NOT call `selectTask`, does NOT navigate, and shows a SnackBar
     - **Property 2: Task selection precondition**
-    - **Property 4: Navigation consistency**
-    - **Validates: Requirements 4.1, 4.2**
-  - [ ]* 7.7 Write a widget test verifying that tapping the button when status is paused does NOT call `selectTask` and pushes Routes.pomodoro
+    - **Property 4: Navigation guard for active sessions**
+    - **Validates: Requirements 4.1, 4.2, 4.3, 4.4**
+  - [ ]* 7.7 Write a widget test verifying that tapping the button when status is paused does NOT call `selectTask`, does NOT navigate, and shows a SnackBar
     - **Property 2: Task selection precondition**
-    - **Property 4: Navigation consistency**
-    - **Validates: Requirements 4.1, 4.2**
+    - **Property 4: Navigation guard for active sessions**
+    - **Validates: Requirements 4.1, 4.2, 4.3, 4.4**
   - [ ]* 7.8 Write a widget test verifying that timer never starts automatically after button tap
     - **Property 3: Timer state preservation**
     - **Validates: Requirements 3.3, 9.2**
@@ -81,13 +81,13 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
     - **Property 1: Button visibility invariant**
     - **Validates: Requirements 1.1, 1.3**
 
-- [ ] 8. Manual verification
-  - [ ] 8.1 Create and save Task A → open details → tap Start Pomodoro → confirm PomodoroScreen opens with Task A → timer idle → complete a Pomodoro → confirm session linked to Task A
-  - [ ] 8.2 Verify running session protection: start a Pomodoro for Task A → open Task B details → tap Start Pomodoro → confirm navigation to PomodoroScreen showing Task A active session (no replacement)
-  - [ ] 8.3 Verify Spanish and English localization
-  - [ ] 8.4 Verify light and dark themes
+- [x] 8. Manual verification
+  - [x] 8.1 Create and save Task A → open details → tap Start Pomodoro → confirm PomodoroScreen opens with Task A → timer idle → complete a Pomodoro → confirm session linked to Task A
+  - [x] 8.2 Verify running session protection: start a Pomodoro for Task A → open Task B details → tap Start Pomodoro → confirm SnackBar warning is shown and user remains on TaskFormScreen (no navigation, no session replacement)
+  - [x] 8.3 Verify Spanish and English localization
+  - [x] 8.4 Verify light and dark themes
 
-- [ ] 9. Final checkpoint
+- [x] 9. Final checkpoint
   - Ensure all tests pass, `flutter analyze` is clean, and ask the user if questions arise.
 
 ## Notes
@@ -99,7 +99,7 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
 - The button uses persisted task values (`widget.initialTask`) not form controller values
 - The button visibility guard (`_isEditMode && task != null && task.id > 0`) is independent of `_statsController` initialization
 - No `fast_check` or property-based testing dependency is needed — tests are focused deterministic widget tests
-- No SnackBar is shown for active sessions — PomodoroScreen already displays the active session state
+- Active sessions (running/paused) show a localized SnackBar warning — user remains on TaskFormScreen, no navigation
 
 ## Task Dependency Graph
 

@@ -19,8 +19,9 @@ TaskFormScreen (edit mode, task.id > 0)
     │   └── Pushes Routes.pomodoro
     │
     └── IF running/paused:
-        └── Pushes Routes.pomodoro (without selectTask)
-            └── PomodoroScreen shows active session via existing UI
+        ├── Shows localized SnackBar (pomodoroActiveSessionWarning)
+        ├── Hides current SnackBar first (prevents stacking)
+        └── Returns immediately (no navigation, no selectTask)
 ```
 
 ### Navigation Stack
@@ -124,6 +125,22 @@ The feature is entirely contained within modifications to existing files. No new
 }
 ```
 
+```json
+// app_en.arb addition
+"pomodoroActiveSessionWarning": "A Pomodoro is already in progress. Complete or reset it before starting another one.",
+"@pomodoroActiveSessionWarning": {
+  "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+}
+```
+
+```json
+// app_es.arb addition
+"pomodoroActiveSessionWarning": "Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.",
+"@pomodoroActiveSessionWarning": {
+  "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+}
+```
+
 ### TaskFormScreen Modifications
 
 The button is inserted in the Column children list after the TaskPomodoroStatsSection block and before the error message / save button section. The visibility guard is independent of `_statsController`:
@@ -154,15 +171,18 @@ void _onStartPomodoro() {
   final pomodoroController = context.read<PomodoroController>();
   final status = pomodoroController.status;
 
-  if (status == TimerStatus.idle || status == TimerStatus.completed) {
-    pomodoroController.selectTask(
-      widget.initialTask!.id,
-      widget.initialTask!.title,
-    );
+  if (status == TimerStatus.running || status == TimerStatus.paused) {
+    final l10n = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(content: Text(l10n.pomodoroActiveSessionWarning)),
+      );
+    return;
   }
-  // For running/paused: do not call selectTask, just navigate.
-  // PomodoroScreen will show the active session through its existing UI.
 
+  final task = widget.initialTask!;
+  pomodoroController.selectTask(task.id, task.title);
   Navigator.of(context).pushNamed(Routes.pomodoro);
 }
 ```
@@ -196,11 +216,11 @@ import '../../../pomodoro/presentation/controllers/pomodoro_controller.dart';
 
 **Validates: Requirements 3.3, 9.2**
 
-### Property 4: Navigation consistency
+### Property 4: Navigation guard for active sessions
 
-*For all* taps on the Start Pomodoro button regardless of timer status, the PomodoroScreen route is pushed onto the navigation stack.
+*For all* taps on the Start Pomodoro button where `PomodoroController.status ∈ {running, paused}`, no navigation occurs and a SnackBar is shown. *For all* taps where `PomodoroController.status ∈ {idle, completed}`, the PomodoroScreen route is pushed.
 
-**Validates: Requirements 3.2, 4.2, 5.1**
+**Validates: Requirements 3.2, 4.2, 4.3, 5.1, 5.4**
 
 ### Property 5: Persisted identity usage
 
@@ -212,7 +232,7 @@ import '../../../pomodoro/presentation/controllers/pomodoro_controller.dart';
 
 | Scenario | Behavior |
 |----------|----------|
-| User taps Start Pomodoro while a session is running or paused | Navigation to PomodoroScreen occurs so the user can see the active session. `selectTask` is NOT called. The PomodoroScreen already displays the active timer status, controls, and task — no additional messaging is needed. |
+| User taps Start Pomodoro while a session is running or paused | A localized SnackBar warning is shown via ScaffoldMessenger. `selectTask` is NOT called. No navigation occurs. `hideCurrentSnackBar()` prevents stacking. The timer state is not modified. |
 | `widget.initialTask` is null or has id <= 0 at tap time | The button is only rendered when `_isEditMode && task != null && task.id > 0`, so this path is unreachable. No defensive null-check crash is needed beyond the existing conditional rendering guard. |
 | PomodoroController is not available in the widget tree | Provider will throw at `context.read<PomodoroController>()`. This is an app-level misconfiguration, not a runtime user error — it is caught during development and integration tests. |
 | Navigation fails (route not registered) | `Routes.pomodoro` is already registered in `app/router.dart`. If removed, Flutter's default route error handling surfaces a red error screen in debug mode. No feature-level handling is needed. |
@@ -229,8 +249,10 @@ import '../../../pomodoro/presentation/controllers/pomodoro_controller.dart';
 | Tapping button calls `selectTask(task.id, task.title)` when status is idle | Requirement 3.1, 6.1, Property 2, 5 |
 | Tapping button calls `selectTask(task.id, task.title)` when status is completed | Requirement 3.1, Property 2 |
 | Tapping button does NOT call `selectTask` when status is running | Requirement 4.1, Property 2 |
+| Tapping button does NOT navigate when status is running, shows SnackBar | Requirement 4.2, 4.3, 4.4, Property 4 |
 | Tapping button does NOT call `selectTask` when status is paused | Requirement 4.1, Property 2 |
-| Tapping button pushes Routes.pomodoro regardless of timer status | Requirement 3.2, 4.2, 5.1, Property 4 |
+| Tapping button does NOT navigate when status is paused, shows SnackBar | Requirement 4.2, 4.3, 4.4, Property 4 |
+| Repeated taps hide previous SnackBar before showing new one | Requirement 4.5 |
 | Timer status is unchanged after tap (idle stays idle, running stays running) | Requirement 3.3, Property 3 |
 | Button uses persisted task values, not form controller values | Requirement 6.1, Property 5 |
 | Button has correct Semantics label with task title | Requirement 8.1 |

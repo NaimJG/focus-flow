@@ -1010,6 +1010,12 @@ abstract class AppLocalizations {
   /// **'Iniciar Pomodoro para {taskTitle}'**
   String taskStartPomodoroSemantic(String taskTitle);
 
+  /// Warning shown when user tries to start a Pomodoro while another session is running or paused
+  ///
+  /// In es, this message translates to:
+  /// **'Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.'**
+  String get pomodoroActiveSessionWarning;
+
   /// Section header for Privacy settings
   ///
   /// In es, this message translates to:

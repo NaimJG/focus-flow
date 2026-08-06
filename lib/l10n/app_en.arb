@@ -177,6 +177,10 @@
       }
     }
   },
+  "pomodoroActiveSessionWarning": "A Pomodoro is already in progress. Complete or reset it before starting another one.",
+  "@pomodoroActiveSessionWarning": {
+    "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+  },
 
   "settingsSectionPrivacy": "Privacy",
   "settingsPrivacyPolicy": "Privacy policy",

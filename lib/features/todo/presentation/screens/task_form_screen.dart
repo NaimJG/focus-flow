@@ -179,15 +179,18 @@ class _TaskFormScreenState extends State<TaskFormScreen> with RouteAware {
     final pomodoroController = context.read<PomodoroController>();
     final status = pomodoroController.status;
 
-    if (status == TimerStatus.idle || status == TimerStatus.completed) {
-      pomodoroController.selectTask(
-        widget.initialTask!.id,
-        widget.initialTask!.title,
-      );
+    if (status == TimerStatus.running || status == TimerStatus.paused) {
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text(l10n.pomodoroActiveSessionWarning)),
+        );
+      return;
     }
-    // For running/paused: do not call selectTask, just navigate.
-    // PomodoroScreen will show the active session through its existing UI.
 
+    final task = widget.initialTask!;
+    pomodoroController.selectTask(task.id, task.title);
     Navigator.of(context).pushNamed(Routes.pomodoro);
   }
 

@@ -523,6 +523,10 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get pomodoroActiveSessionWarning =>
+      'Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.';
+
+  @override
   String get settingsSectionPrivacy => 'Privacidad';
 
   @override

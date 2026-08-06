@@ -50,12 +50,16 @@ This feature adds a "Start Pomodoro" action button to the task edit screen (Task
 
 ### Requirement 4: Active Session Protection
 
-**User Story:** As a user with a running or paused Pomodoro session, I want the app to prevent overwriting my active session, so that I do not lose focus progress.
+**User Story:** As a user with a running or paused Pomodoro session, I want the app to prevent overwriting my active session and inform me clearly, so that I do not lose focus progress.
 
 #### Acceptance Criteria
 
 1. WHEN the Start_Pomodoro_Button is tapped AND the Timer_Status is running or paused, THE TaskFormScreen SHALL NOT call PomodoroController.selectTask.
-2. WHEN the Start_Pomodoro_Button is tapped AND the Timer_Status is running or paused, THE TaskFormScreen SHALL navigate to Routes.pomodoro so the user can see the active session.
+2. WHEN the Start_Pomodoro_Button is tapped AND the Timer_Status is running or paused, THE TaskFormScreen SHALL NOT navigate to Routes.pomodoro.
+3. WHEN the Start_Pomodoro_Button is tapped AND the Timer_Status is running or paused, THE TaskFormScreen SHALL remain on the current screen.
+4. WHEN the Start_Pomodoro_Button is tapped AND the Timer_Status is running or paused, THE TaskFormScreen SHALL show a localized SnackBar message indicating another Pomodoro session is already active.
+5. WHEN the Start_Pomodoro_Button is tapped repeatedly while a session is active, THE TaskFormScreen SHALL hide the current SnackBar before showing a new one (no stacking).
+6. THE active session warning message SHALL NOT expose the active task ID or modify timer state.
 
 ### Requirement 5: Navigation Strategy
 
@@ -63,9 +67,10 @@ This feature adds a "Start Pomodoro" action button to the task edit screen (Task
 
 #### Acceptance Criteria
 
-1. WHEN the Start_Pomodoro_Button triggers navigation, THE TaskFormScreen SHALL push Routes.pomodoro onto the navigation stack (preserving the TaskFormScreen below).
+1. WHEN the Start_Pomodoro_Button triggers navigation (status is idle or completed), THE TaskFormScreen SHALL push Routes.pomodoro onto the navigation stack (preserving the TaskFormScreen below).
 2. WHEN the user presses Back from the pushed PomodoroScreen, THE TaskFormScreen SHALL be restored with its form state intact.
 3. WHEN the user returns to the TaskFormScreen, THE TaskPomodoroStatsController SHALL refresh to reflect any new completed sessions (existing RouteAware behavior via didPopNext).
+4. WHEN the Timer_Status is running or paused, THE TaskFormScreen SHALL NOT push any route — no navigation occurs.
 
 ### Requirement 6: Form State Handling
 
@@ -84,6 +89,7 @@ This feature adds a "Start Pomodoro" action button to the task edit screen (Task
 
 1. THE Localization_System SHALL provide a key `taskStartPomodoro` with values "Iniciar Pomodoro" (es) and "Start Pomodoro" (en).
 2. THE Localization_System SHALL provide a key `taskStartPomodoroSemantic` with a parameterized template including the task title: "Iniciar Pomodoro para {taskTitle}" (es) / "Start Pomodoro for {taskTitle}" (en).
+3. THE Localization_System SHALL provide a key `pomodoroActiveSessionWarning` with values "Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro." (es) and "A Pomodoro is already in progress. Complete or reset it before starting another one." (en).
 
 ### Requirement 8: Accessibility
 

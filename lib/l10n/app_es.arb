@@ -885,6 +885,10 @@
       }
     }
   },
+  "pomodoroActiveSessionWarning": "Ya hay un Pomodoro en curso. Finalízalo o reinícialo antes de iniciar otro.",
+  "@pomodoroActiveSessionWarning": {
+    "description": "Warning shown when user tries to start a Pomodoro while another session is running or paused"
+  },
 
   "settingsSectionPrivacy": "Privacidad",
   "@settingsSectionPrivacy": {

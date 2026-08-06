@@ -518,6 +518,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get pomodoroActiveSessionWarning =>
+      'A Pomodoro is already in progress. Complete or reset it before starting another one.';
+
+  @override
   String get settingsSectionPrivacy => 'Privacy';
 
   @override
