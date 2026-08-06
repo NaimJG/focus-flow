@@ -500,6 +500,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787952040
+      },
+      {
+        "executionId": "2968bb2a-8c33-4a09-845f-20082c9acb46",
+        "chatSessionId": "sess_28e51500-54c7-4791-9646-9a93a0877022",
+        "timestamp": 1785951122686
+      },
+      {
+        "executionId": "2968bb2a-8c33-4a09-845f-20082c9acb46",
+        "chatSessionId": "sess_28e51500-54c7-4791-9646-9a93a0877022",
+        "timestamp": 1785951259414
       }
     ],
     "19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide": [
@@ -507,6 +517,16 @@
         "executionId": "b97ae5d7-1465-4326-aebf-bbdf1b5f6db6",
         "chatSessionId": "sess_0dcd2121-12c4-4df5-bd32-4721159d379e",
         "timestamp": 1785787952159
+      },
+      {
+        "executionId": "6b5c7f98-3e3c-4174-bde0-55f1f3e4ed13",
+        "chatSessionId": "sess_5926472b-d4db-45d1-abb3-03ee6b85e1b8",
+        "timestamp": 1785951714277
+      },
+      {
+        "executionId": "6b5c7f98-3e3c-4174-bde0-55f1f3e4ed13",
+        "chatSessionId": "sess_5926472b-d4db-45d1-abb3-03ee6b85e1b8",
+        "timestamp": 1785952001231
       }
     ],
     "20. Checkpoint — internal testing": [
@@ -577,6 +597,20 @@
         "executionId": "dc445593-e21d-4597-8bfb-acd35e3218f7",
         "chatSessionId": "sess_6d3f0bb9-0fe6-41d9-ae81-eeea9af4e78b",
         "timestamp": 1785950162378
+      }
+    ],
+    "18. Create manual verification checklist": [
+      {
+        "executionId": "2968bb2a-8c33-4a09-845f-20082c9acb46",
+        "chatSessionId": "sess_28e51500-54c7-4791-9646-9a93a0877022",
+        "timestamp": 1785951259537
+      }
+    ],
+    "19. Internal testing checklist": [
+      {
+        "executionId": "6b5c7f98-3e3c-4174-bde0-55f1f3e4ed13",
+        "chatSessionId": "sess_5926472b-d4db-45d1-abb3-03ee6b85e1b8",
+        "timestamp": 1785952001391
       }
     ]
   }

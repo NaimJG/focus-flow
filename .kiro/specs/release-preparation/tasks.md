@@ -251,8 +251,8 @@ This plan covers all configuration, documentation, and verification work to prep
   - Ensure AAB is generated successfully with correct metadata. Ask the user if questions arise.
   - _Requirements: 17.7_
 
-- [ ] 18. Create manual verification checklist
-  - [ ] 18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist
+- [x] 18. Create manual verification checklist
+  - [x] 18.1 Create `docs/checklists/verification-checklist.md` with full manual QA checklist
     - App startup: correct name, icon, splash
     - Language switching: Spanish ↔ English
     - Todo CRUD: create, read, update, delete
@@ -269,8 +269,8 @@ This plan covers all configuration, documentation, and verification work to prep
     - File: `docs/checklists/verification-checklist.md`
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 14.7, 14.8, 14.9, 14.10, 14.11, 14.12, 14.13_
 
-- [ ] 19. Internal testing checklist
-  - [ ] 19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide
+- [x] 19. Internal testing checklist
+  - [x] 19.1 Create `docs/play-console/upload-workflow.md` with complete Play Console guide
     - Step-by-step: create app entry, set up store listing, upload AAB
     - Complete content declarations: privacy policy URL, Data Safety form, ads, app access, content rating, target audience
     - Document Google Play App Signing enrollment
