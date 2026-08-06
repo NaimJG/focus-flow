@@ -45,6 +45,97 @@
         "chatSessionId": "sess_ac6f9c87-0ed1-4187-b480-cde20835eb3a",
         "timestamp": 1786027675623
       }
+    ],
+    "3.1 Add imports for `PomodoroController` and `TimerStatus` to `task_form_screen.dart`": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786028853931
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029172968
+      }
+    ],
+    "3.2 Insert the button widget in the build method Column using the guard: `final task = widget.initialTask; if (_isEditMode && task != null && task.id > 0)`. Use `Semantics` with `taskStartPomodoroSemantic(task.title)`, `FilledButton.tonalIcon` with `Icons.timer` and `taskStartPomodoro` label, style with `minimumSize: const Size(double.infinity, 48)`, disable when `_isSubmitting`": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786028855472
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029175183
+      }
+    ],
+    "3.3 Verify the button does NOT appear in create mode and does NOT appear for task.id <= 0": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029179513
+      },
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029219002
+      }
+    ],
+    "3. Add Start Pomodoro button independent of statsController": [
+      {
+        "executionId": "cb66652d-7084-487b-ab23-b1d090b6c46a",
+        "chatSessionId": "sess_0f8c86bd-3bfc-47af-898d-ce61f773887a",
+        "timestamp": 1786029219134
+      }
+    ],
+    "4. Integrate idle/completed selection behavior": [
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029526669
+      },
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029872224
+      }
+    ],
+    "4.1 Add `_onStartPomodoro()` method that reads PomodoroController, calls `selectTask(widget.initialTask!.id, widget.initialTask!.title)` when status is idle or completed, and always pushes `Routes.pomodoro`": [
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029530983
+      },
+      {
+        "executionId": "95b6ea29-0351-4143-91c7-95ed2e765717",
+        "chatSessionId": "sess_dc7e8085-34f1-45a6-aac9-95717a595352",
+        "timestamp": 1786029872093
+      }
+    ],
+    "5. Protect running/paused sessions": [
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030133372
+      },
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030182014
+      }
+    ],
+    "5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session": [
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030137383
+      },
+      {
+        "executionId": "59c9e3fb-33fc-41d8-a2f2-b4df843a3ae2",
+        "chatSessionId": "sess_74de9e21-3f2f-424b-aeb6-ae105205bcea",
+        "timestamp": 1786030181883
+      }
     ]
   }
 }

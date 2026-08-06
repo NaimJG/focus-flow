@@ -20,20 +20,20 @@ Add a localized "Start Pomodoro" button to the TaskFormScreen in edit mode. The 
   - [x] 2.3 Run `flutter gen-l10n` to regenerate localization delegates and verify no errors
     - _Requirements: 7.1, 7.2_
 
-- [ ] 3. Add Start Pomodoro button independent of statsController
-  - [ ] 3.1 Add imports for `PomodoroController` and `TimerStatus` to `task_form_screen.dart`
+- [x] 3. Add Start Pomodoro button independent of statsController
+  - [x] 3.1 Add imports for `PomodoroController` and `TimerStatus` to `task_form_screen.dart`
     - _Requirements: 3.1, 4.1_
-  - [ ] 3.2 Insert the button widget in the build method Column using the guard: `final task = widget.initialTask; if (_isEditMode && task != null && task.id > 0)`. Use `Semantics` with `taskStartPomodoroSemantic(task.title)`, `FilledButton.tonalIcon` with `Icons.timer` and `taskStartPomodoro` label, style with `minimumSize: const Size(double.infinity, 48)`, disable when `_isSubmitting`
+  - [x] 3.2 Insert the button widget in the build method Column using the guard: `final task = widget.initialTask; if (_isEditMode && task != null && task.id > 0)`. Use `Semantics` with `taskStartPomodoroSemantic(task.title)`, `FilledButton.tonalIcon` with `Icons.timer` and `taskStartPomodoro` label, style with `minimumSize: const Size(double.infinity, 48)`, disable when `_isSubmitting`
     - _Requirements: 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 2.4, 2.5, 8.1, 8.2, 8.3_
-  - [ ] 3.3 Verify the button does NOT appear in create mode and does NOT appear for task.id <= 0
+  - [x] 3.3 Verify the button does NOT appear in create mode and does NOT appear for task.id <= 0
     - _Requirements: 1.2, 1.3_
 
-- [ ] 4. Integrate idle/completed selection behavior
-  - [ ] 4.1 Add `_onStartPomodoro()` method that reads PomodoroController, calls `selectTask(widget.initialTask!.id, widget.initialTask!.title)` when status is idle or completed, and always pushes `Routes.pomodoro`
+- [x] 4. Integrate idle/completed selection behavior
+  - [x] 4.1 Add `_onStartPomodoro()` method that reads PomodoroController, calls `selectTask(widget.initialTask!.id, widget.initialTask!.title)` when status is idle or completed, and always pushes `Routes.pomodoro`
     - _Requirements: 3.1, 3.2, 3.3, 4.1, 4.2, 5.1, 6.1, 6.2_
 
-- [ ] 5. Protect running/paused sessions
-  - [ ] 5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session
+- [x] 5. Protect running/paused sessions
+  - [x] 5.1 Verify that `_onStartPomodoro` does NOT call selectTask when status is running or paused — it only navigates to Routes.pomodoro where the PomodoroScreen shows the active session
     - _Requirements: 4.1, 4.2_
 
 - [ ] 6. Run localization generation, format, analyze, and existing tests
