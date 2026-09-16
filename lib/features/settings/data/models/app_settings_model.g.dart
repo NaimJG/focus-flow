@@ -61,6 +61,7 @@ const AppSettingsModelSchema = CollectionSchema(
       enumMap: _AppSettingsModelthemeModeEnumValueMap,
     ),
   },
+
   estimateSize: _appSettingsModelEstimateSize,
   serialize: _appSettingsModelSerialize,
   deserialize: _appSettingsModelDeserialize,
@@ -69,10 +70,11 @@ const AppSettingsModelSchema = CollectionSchema(
   indexes: {},
   links: {},
   embeddedSchemas: {},
+
   getId: _appSettingsModelGetId,
   getLinks: _appSettingsModelGetLinks,
   attach: _appSettingsModelAttach,
-  version: '3.1.0+1',
+  version: '3.3.2',
 );
 
 int _appSettingsModelEstimateSize(

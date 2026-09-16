@@ -52,7 +52,7 @@ import 'dart:async';
 
 // 2. Flutter / pub packages
 import 'package:flutter/material.dart';
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 
 // 3. Internal (relative paths)
 import '../../domain/entities/task.dart';

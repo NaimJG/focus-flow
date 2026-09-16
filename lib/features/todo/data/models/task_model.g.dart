@@ -49,6 +49,7 @@ const TaskModelSchema = CollectionSchema(
     ),
     r'title': PropertySchema(id: 6, name: r'title', type: IsarType.string),
   },
+
   estimateSize: _taskModelEstimateSize,
   serialize: _taskModelSerialize,
   deserialize: _taskModelDeserialize,
@@ -123,10 +124,11 @@ const TaskModelSchema = CollectionSchema(
   },
   links: {},
   embeddedSchemas: {},
+
   getId: _taskModelGetId,
   getLinks: _taskModelGetLinks,
   attach: _taskModelAttach,
-  version: '3.1.0+1',
+  version: '3.3.2',
 );
 
 int _taskModelEstimateSize(

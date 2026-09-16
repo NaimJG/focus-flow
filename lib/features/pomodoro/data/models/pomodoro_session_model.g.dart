@@ -50,6 +50,7 @@ const PomodoroSessionModelSchema = CollectionSchema(
       type: IsarType.long,
     ),
   },
+
   estimateSize: _pomodoroSessionModelEstimateSize,
   serialize: _pomodoroSessionModelSerialize,
   deserialize: _pomodoroSessionModelDeserialize,
@@ -85,10 +86,11 @@ const PomodoroSessionModelSchema = CollectionSchema(
   },
   links: {},
   embeddedSchemas: {},
+
   getId: _pomodoroSessionModelGetId,
   getLinks: _pomodoroSessionModelGetLinks,
   attach: _pomodoroSessionModelAttach,
-  version: '3.1.0+1',
+  version: '3.3.2',
 );
 
 int _pomodoroSessionModelEstimateSize(

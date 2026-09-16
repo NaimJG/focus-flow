@@ -1,4 +1,4 @@
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 
 import '../../domain/entities/pomodoro_session.dart';
 import '../../domain/exceptions/persistence_exception.dart';

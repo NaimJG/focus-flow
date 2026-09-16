@@ -1,4 +1,4 @@
-import 'package:isar/isar.dart';
+import 'package:isar_community/isar.dart';
 
 import '../../domain/entities/app_settings.dart';
 import '../../domain/repositories/settings_repository.dart';
